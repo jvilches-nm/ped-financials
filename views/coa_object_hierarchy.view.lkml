@@ -23,7 +23,7 @@ where f1.fkparentobject is null;;
   dimension: parent_object_code {
     type: string
     label: "Level 1 Object Code"
-    sql: ${TABLE}.lvl1_dcode ;;
+    sql: ${TABLE}.lvl1_code ;;
   }
   dimension: parent_object_name {
     type: string
@@ -33,12 +33,12 @@ where f1.fkparentobject is null;;
   dimension: child_object_code {
     type: string
     label: "Level 2 Object Code"
-    sql: ${TABLE}.lvl2_fundcode ;;
+    sql: ${TABLE}.lvl2_code ;;
   }
   dimension: child_object_name {
     type: string
     label: "Level 2 Object Name"
-    sql: ${TABLE}.lvl2_fundname ;;
+    sql: ${TABLE}.lvl2_name ;;
   }
   dimension: lvl3_object_code {
     type: string
