@@ -1,17 +1,23 @@
 view: entity_year {
-  sql_table_name: Common.EntityYear ;;
+  derived_table: {
+    sql: select et.name parent_type, ey.code parent_code, ey.name parent_name, ct.name child_type, ey.code+'-'+c.code child_code, c.name child_name, c.pkentityyear, c.finalmembership, c.fkbudgetyear
+from common.entityyear ey
+join common.entityyearparentchild pc on pc.fkentityyearparent=ey.pkentityyear
+left join common.entitytype et on et.pkentitytype=ey.fkentitytype
+left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
+left join common.entitytype ct on ct.pkentitytype=c.fkentitytype ;;
+  }
   label: "Location"
 
-  dimension: code {
+  dimension: parent_type {
     type: string
-    label: "Location Code"
-    sql: ${TABLE}.Code ;;
+    sql: ${TABLE}.parent_type ;;
   }
 
-  dimension: final_membership {
-    type: number
+  measure: membership {
+    type: sum
     label: "Student Population"
-    sql: ${TABLE}.FinalMembership ;;
+    sql: ${TABLE}.finalmembership ;;
   }
 
   dimension: fk_budget_year {
@@ -20,78 +26,40 @@ view: entity_year {
     sql: ${TABLE}.fkBudgetYear ;;
   }
 
-  dimension: fk_entity {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkEntity ;;
-  }
-
-  dimension: fk_entity_type {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkEntityType ;;
-  }
-
-  dimension: fk_modified_by {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkModifiedBy ;;
-  }
-
-  dimension: legal_name {
+  dimension: parent_code {
     type: string
-    hidden: yes
-    sql: ${TABLE}.LegalName ;;
+    sql: ${TABLE}.parent_code ;;
   }
 
-  dimension_group: modified {
-    type: time
-    hidden: yes
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.ModifiedDate ;;
+  dimension: parent_name {
+    type: string
+    sql: ${TABLE}.parent_name ;;
   }
 
-  dimension: name {
+  dimension: child_type {
+    type: string
+    label: "Location Type"
+    sql: ${TABLE}.child_type ;;
+  }
+
+  dimension: child_code {
+    type: string
+    label: "Location Code"
+    sql: ${TABLE}.child_code ;;
+  }
+
+  dimension: child_name {
     type: string
     label: "Location Name"
-    sql: ${TABLE}.Name ;;
+    sql: ${TABLE}.child_name ;;
   }
-
-  dimension: operational_program_cost {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.OperationalProgramCost ;;
-  }
-
   dimension: pk_entity_year {
     type: number
     hidden: yes
     primary_key: yes
-    sql: ${TABLE}.pkEntityYear ;;
+    sql: ${TABLE}.pkentityyear ;;
   }
-
-  dimension: preliminary_membership {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.PreliminaryMembership ;;
-  }
-
-  dimension: share_vendor_code {
-    type: string
-    hidden: yes
-    sql: ${TABLE}.ShareVendorCode ;;
-  }
-
   measure: count {
     type: count
-    drill_fields: [name, legal_name]
   }
 }

@@ -8,7 +8,7 @@ view: actuals_line {
 
   measure: operational_amount {
     type: sum
-    filters: {field: coa_object.code value: "1000"}
+    filters: {field: coa_object_hierarchy.parent_object_code value: "1000"}
     sql: ${TABLE}.Amount ;;
   }
 
