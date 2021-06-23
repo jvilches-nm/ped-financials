@@ -11,7 +11,7 @@ datagroup: ped_public_financials_default_datagroup {
 persist_with: ped_public_financials_default_datagroup
 
 explore: actuals_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD';;
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA';;
   label: "Expenditures"
 
   join: coa_line {
@@ -61,13 +61,18 @@ explore: actuals_line {
   }
   join: actuals_budget_period {
     relationship: many_to_one
-    type:  left_outer
+    type:  inner
     sql_on:  ${actuals_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
   }
   join: actuals_reporting_period {
     relationship: many_to_one
-    type: left_outer
+    type: inner
     sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
+  }
+  join: actuals_status {
+    relationship: many_to_one
+    type: inner
+    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
   }
 }
 
@@ -123,8 +128,23 @@ explore: budget_line {
 }
 
 explore: budget_expenditures_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E';;
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12;;
   label: "Budget"
+  join: budget_fund {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget_expenditures_line.fk_budget_fund}=${budget_fund.pk_budget_fund} ;;
+  }
+  join: budget {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget_fund.fk_budget}=${budget.pk_budget} ;;
+  }
+  join: budget_status {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget.fk_budget_status}=${budget_status.pk_budget_status} ;;
+  }
   join: coa_line {
     relationship: many_to_one
     type: left_outer

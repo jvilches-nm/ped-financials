@@ -31,12 +31,12 @@ where f1.fkparentobject is null;;
     hidden: yes
     sql: ${TABLE}.lvl1_name ;;
   }
-  dimension: child_object_code {
+  dimension: lvl2_object_code {
     type: string
     label: "Rollup Code"
     sql: ${TABLE}.lvl2_code ;;
   }
-  dimension: child_object_name {
+  dimension: lvl2_object_name {
     type: string
     label: "Rollup Name"
     sql: ${TABLE}.lvl2_name ;;
@@ -66,14 +66,14 @@ where f1.fkparentobject is null;;
   dimension: object_group {
     type: string
     label: "Rollup Group"
-    sql: CASE WHEN left(${child_object_code}, 2) = '51' THEN 'Salary'
-              WHEN left(${child_object_code}, 2) = '52' THEN 'Benefits'
-              WHEN left(${child_object_code}, 2) = '53' THEN 'Prof/Tech Services'
-              WHEN left(${child_object_code}, 2) = '54' THEN 'Property Services'
-              WHEN left(${child_object_code}, 2) = '55' THEN 'Other Services'
-              WHEN left(${child_object_code}, 2) = '56' THEN 'Supplies'
-              WHEN left(${child_object_code}, 2) = '57' THEN 'Property'
-              WHEN left(${child_object_code}, 2) = '58' THEN 'Debt Service'
+    sql: CASE WHEN left(${lvl2_object_code}, 2) = '51' THEN 'Salary'
+              WHEN left(${lvl2_object_code}, 2) = '52' THEN 'Benefits'
+              WHEN left(${lvl2_object_code}, 2) = '53' THEN 'Prof/Tech Services'
+              WHEN left(${lvl2_object_code}, 2) = '54' THEN 'Property Services'
+              WHEN left(${lvl2_object_code}, 2) = '55' THEN 'Other Services'
+              WHEN left(${lvl2_object_code}, 2) = '56' THEN 'Supplies'
+              WHEN left(${lvl2_object_code}, 2) = '57' THEN 'Property'
+              WHEN left(${lvl2_object_code}, 2) = '58' THEN 'Debt Service'
               ELSE 'Other' END;;
   }
 }

@@ -21,12 +21,12 @@ view: coa_object_hierarchy_revenue {
     hidden: yes
     sql: ${TABLE}.pkcoaobject ;;
   }
-  dimension: parent_object_code {
+  dimension: lvl1_object_code {
     type: string
     label: "Rollup Code"
     sql: ${TABLE}.lvl1_code ;;
   }
-  dimension: parent_object_name {
+  dimension: lvl1_object_name {
     type: string
     label: "Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
