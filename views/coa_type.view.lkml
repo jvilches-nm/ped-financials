@@ -18,8 +18,4 @@ view: coa_type {
     sql: ${TABLE}.pkCoaType ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [name]
-  }
 }

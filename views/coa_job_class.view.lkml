@@ -1,18 +1,23 @@
 view: coa_job_class {
-  sql_table_name: COA.CoaJobClass ;;
-
+  derived_table: { sql: select jc.*, jcc.code job_category_code, jcc.name job_category_name, jcc.description job_category_descirption
+                  from COA.CoaJobClass jc left join COA.CoaJobClassCategory jcc on jc.fkcoajobclasscategory=jcc.pkcoajobclasscategory ;;}
+  label: "UCOA Job Class"
   dimension: budgetable {
     type: string
+    hidden: yes
     sql: ${TABLE}.Budgetable ;;
   }
 
   dimension: code {
     type: string
+    label: "Detail Code"
     sql: ${TABLE}.Code ;;
   }
 
   dimension: description {
     type: string
+    hidden: yes
+    label: "Job Class Description"
     sql: ${TABLE}.Description ;;
   }
 
@@ -48,9 +53,26 @@ view: coa_job_class {
 
   dimension: is_licensed {
     type: string
+    hidden: yes
     sql: ${TABLE}.IsLicensed ;;
   }
 
+  dimension: job_category_code {
+    type: string
+    label: "Rollup Code"
+    sql: ${TABLE}.job_category_code ;;
+  }
+  dimension: job_class_category_name {
+    type: string
+    label: "Rollup Name"
+    sql: ${TABLE}.job_category_name ;;
+  }
+  dimension: job_category_description {
+    type: string
+    label: "Category Description"
+    hidden: yes
+    sql: ${TABLE}.job_category_description ;;
+  }
   dimension_group: modified {
     type: time
     hidden: yes
@@ -68,16 +90,19 @@ view: coa_job_class {
 
   dimension: name {
     type: string
+    label: "Detail Name"
     sql: ${TABLE}.Name ;;
   }
 
   dimension: not_in_use {
     type: string
+    hidden: yes
     sql: ${TABLE}.NotInUse ;;
   }
 
   dimension: parent_type {
     type: string
+    hidden: yes
     sql: ${TABLE}.ParentType ;;
   }
 
@@ -90,26 +115,26 @@ view: coa_job_class {
 
   dimension: postable {
     type: string
+    hidden: yes
     sql: ${TABLE}.Postable ;;
   }
 
   dimension: requires_nonzero_fte {
     type: string
+    hidden: yes
     sql: ${TABLE}.RequiresNonzeroFTE ;;
   }
 
   dimension: summary_line {
     type: string
+    hidden: yes
     sql: ${TABLE}.SummaryLine ;;
   }
 
   dimension: supports_fte {
     type: string
+    hidden: yes
     sql: ${TABLE}.SupportsFTE ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [name]
-  }
 }

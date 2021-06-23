@@ -1,6 +1,6 @@
 view: budget_expenditures_line {
   sql_table_name: dbo.BudgetLine ;;
-  label: "Budgeted Expenditures"
+  label: "Budget"
 
   measure: adjustment_amount {
     type: sum
@@ -112,7 +112,8 @@ view: budget_expenditures_line {
 
   dimension: budget_fte {
     type: number
-    hidden: yes
+    label: "FTE"
+    description: "Full Time Equivalent"
     sql: ${TABLE}.ProjectedFTE ;;
   }
 

@@ -8,7 +8,7 @@ from coa.coaprogram f1
 left join coa.coaprogram f2 on f2.fkparentprogram=f1.pkcoaprogram
 where f1.fkparentprogram is null;;
   }
-
+  label: "UCOA Program"
   dimension: pk_coa_program {
     type: number
     primary_key: yes
@@ -17,12 +17,12 @@ where f1.fkparentprogram is null;;
   }
   dimension: program_code {
     type: string
-    label: "Program Code"
+    label: "Code"
     sql: ${TABLE}.lvl2_code ;;
   }
   dimension: program_name {
     type: string
-    label: "Program Name"
+    label: "Name"
     sql: ${TABLE}.lvl2_name ;;
   }
 

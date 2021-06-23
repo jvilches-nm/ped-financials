@@ -9,11 +9,13 @@ view: actuals_reporting_period {
 
   dimension: code {
     type: string
+    hidden: yes
     sql: ${TABLE}.Code ;;
   }
 
   dimension: description {
     type: string
+    hidden: yes
     sql: ${TABLE}.Description ;;
   }
 

@@ -9,6 +9,7 @@ view: coa_function_hierarchy {
         left join coa.coafunction f2 on f2.fkparentfunction=f1.pkcoafunction
         where f1.fkparentfunction is null ;;
   }
+  label: "UCOA Function"
   dimension: pk_coa_function {
     type: number
     primary_key: yes
@@ -22,22 +23,22 @@ view: coa_function_hierarchy {
   }
   dimension: lvl1_code {
     type: string
-    label: "Level 1 Function Code"
+    label: "Rollup Code"
     sql: ${TABLE}.lvl1_code ;;
   }
   dimension: lvl1_name {
     type: string
-    label: "Level 1 Function Name"
+    label: "Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
   }
   dimension: lvl2_code {
     type: string
-    label: "Level 2 Function Code"
+    label: "Detail Code"
     sql: ${TABLE}.lvl2_code ;;
   }
   dimension: lvl2_name {
     type: string
-    label: "Level 2 Function Name"
+    label: "Detail Name"
     sql: ${TABLE}.lvl2_name ;;
   }
 }

@@ -12,7 +12,8 @@ persist_with: ped_public_financials_default_datagroup
 
 explore: actuals_line {
   sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD';;
-  label: "Actual Expenditures"
+  label: "Expenditures"
+
   join: coa_line {
     relationship: many_to_one
     type: left_outer
@@ -31,7 +32,7 @@ explore: actuals_line {
   join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund}.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
@@ -43,20 +44,15 @@ explore: actuals_line {
     type: left_outer
     sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
   }
-  join: coa_job_class_category {
-    relationship:  many_to_one
-    type:  left_outer
-    sql_on: ${coa_job_class.fk_coa_job_class_category}=${coa_job_class_category.pk_coa_job_class_category} ;;
-  }
   join: coa_object_hierarchy {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object}.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object} ;;
   }
   join: coa_program_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program}.pk_coa_program} ;;
+    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program} ;;
   }
   join: budget_year {
     relationship: many_to_one
@@ -76,52 +72,48 @@ explore: actuals_line {
 }
 
 explore: budget_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='R';;
-  label: "Budget Revenue"
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12;;
+  label: "Revenue"
+
+  join: budget_fund {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget_line.fk_budget_fund}=${budget_fund.pk_budget_fund} ;;
+  }
+  join: budget {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget_fund.fk_budget}=${budget.pk_budget} ;;
+  }
+  join: budget_status {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${budget.fk_budget_status}=${budget_status.pk_budget_status} ;;
+  }
   join: coa_line {
     relationship: many_to_one
-    type: left_outer
+    type: inner
     sql_on: ${budget_line.fk_coaline}=${coa_line.pk_coaline} ;;
   }
   join: coa_account_type {
     relationship: many_to_one
-    type: left_outer
+    type: inner
     sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
-  }
-  join: coa_function_hierarchy {
-    relationship: many_to_one
-    type: left_outer
-    sql_on: ${coa_line.fk_coa_function}=${coa_function_hierarchy.pk_coa_function} ;;
   }
   join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund}.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
     type: left_outer
     sql_on: ${budget_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_job_class {
-    relationship: many_to_one
-    type: left_outer
-    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
-  }
-  join: coa_job_class_category {
-    relationship:  many_to_one
-    type:  left_outer
-    sql_on: ${coa_job_class.fk_coa_job_class_category}=${coa_job_class_category.pk_coa_job_class_category} ;;
-  }
-  join: coa_object_hierarchy {
+  join: coa_object_hierarchy_revenue {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object} ;;
-  }
-  join: coa_program_hierarchy {
-    relationship: many_to_one
-    type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program}.pk_coa_program} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
   }
   join: budget_year {
     relationship: many_to_one
@@ -132,7 +124,7 @@ explore: budget_line {
 
 explore: budget_expenditures_line {
   sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E';;
-  label: "Budget Expenditures"
+  label: "Budget"
   join: coa_line {
     relationship: many_to_one
     type: left_outer
@@ -151,7 +143,7 @@ explore: budget_expenditures_line {
   join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund}.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
@@ -163,11 +155,6 @@ explore: budget_expenditures_line {
     type: left_outer
     sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
   }
-  join: coa_job_class_category {
-    relationship:  many_to_one
-    type:  left_outer
-    sql_on: ${coa_job_class.fk_coa_job_class_category}=${coa_job_class_category.pk_coa_job_class_category} ;;
-  }
   join: coa_object_hierarchy {
     relationship: many_to_one
     type:  left_outer
@@ -176,7 +163,7 @@ explore: budget_expenditures_line {
   join: coa_program_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program}.pk_coa_program} ;;
+    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program} ;;
   }
   join: budget_year {
     relationship: many_to_one

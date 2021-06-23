@@ -1,17 +1,11 @@
 view: actuals_line {
   sql_table_name: Actuals.ActualsLine ;;
-
+  label: "Expenditures"
   measure: amount {
     type: sum
+    value_format: "$#,##0"
     sql: ${TABLE}.Amount ;;
   }
-
-  measure: operational_amount {
-    type: sum
-    filters: {field: coa_object_hierarchy.parent_object_code value: "1000"}
-    sql: ${TABLE}.Amount ;;
-  }
-
   dimension_group: effective {
     type: time
     hidden: yes
@@ -26,13 +20,11 @@ view: actuals_line {
     ]
     sql: ${TABLE}.EffectiveDate ;;
   }
-
   dimension: encumbrance {
     type: string
     hidden: yes
     sql: ${TABLE}.Encumbrance ;;
   }
-
   dimension_group: entry {
     type: time
     hidden: yes
@@ -47,7 +39,6 @@ view: actuals_line {
     ]
     sql: ${TABLE}.EntryDate ;;
   }
-
   dimension: fk_actuals_budget_period {
     type: number
     hidden: yes
@@ -80,6 +71,8 @@ view: actuals_line {
 
   dimension: fte {
     type: number
+    label: "FTE"
+    description: "Full Time Equivalent"
     sql: ${TABLE}.FTE ;;
   }
 

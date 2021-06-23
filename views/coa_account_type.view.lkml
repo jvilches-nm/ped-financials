@@ -1,18 +1,25 @@
 view: coa_account_type {
   sql_table_name: COA.CoaAccountType ;;
+  label: "UCOA Account"
 
   dimension: code {
     type: string
+    label: "Account Type"
+    hidden: yes
     sql: ${TABLE}.Code ;;
   }
 
   dimension: description {
     type: string
+    label: "Account Description"
+    hidden: yes
     sql: ${TABLE}.Description ;;
   }
 
   dimension: name {
     type: string
+    label: "Account Name"
+    hidden: yes
     sql: ${TABLE}.Name ;;
   }
 
@@ -23,8 +30,4 @@ view: coa_account_type {
     sql: ${TABLE}.pkCoaAccountType ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [name]
-  }
 }

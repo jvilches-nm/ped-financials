@@ -1,8 +1,10 @@
 view: budget_year {
   sql_table_name: Common.BudgetYear ;;
+  label: "Year"
 
   dimension_group: end {
     type: time
+    label: "Budget End Date"
     timeframes: [
       raw,
       date,
@@ -50,6 +52,7 @@ view: budget_year {
 
   dimension_group: start {
     type: time
+    label: "Budget Start Date"
     timeframes: [
       raw,
       date,
@@ -61,12 +64,16 @@ view: budget_year {
     sql: ${TABLE}.StartDate ;;
   }
 
-  dimension: budget_year {
+  dimension: year_name {
     type: string
+    label: "Budget Year"
+    description: "Fiscal year of the budget"
     sql: ${TABLE}.YearName ;;
   }
 
   measure: count {
     type: count
+    label: "# Budget Years"
+    description: "Count of budget years"
   }
 }
