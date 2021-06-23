@@ -4,7 +4,7 @@ view: budget_year {
 
   dimension_group: end {
     type: time
-    label: "Budget End Date"
+    label: "End Date"
     timeframes: [
       raw,
       date,
@@ -52,7 +52,7 @@ view: budget_year {
 
   dimension_group: start {
     type: time
-    label: "Budget Start Date"
+    label: "Start Date"
     timeframes: [
       raw,
       date,
@@ -66,14 +66,14 @@ view: budget_year {
 
   dimension: year_name {
     type: string
-    label: "Budget Year"
+    label: "Fiscal Year"
     description: "Fiscal year of the budget"
     sql: ${TABLE}.YearName ;;
   }
 
   measure: count {
     type: count
-    label: "# Budget Years"
+    label: "# Years"
     description: "Count of budget years"
   }
 }
