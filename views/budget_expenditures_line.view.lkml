@@ -1,6 +1,6 @@
 view: budget_expenditures_line {
   sql_table_name: dbo.BudgetLine ;;
-  label: "Budget"
+  label: "Amount"
 
   measure: adjustment_amount {
     type: sum
@@ -27,7 +27,7 @@ view: budget_expenditures_line {
   }
 
   measure: final_amount {
-    label: "Initial Budget Amount"
+    label: "Initial Amount"
     type: sum
     sql: ${TABLE}.FinalAmount ;;
   }

@@ -81,7 +81,7 @@ where f1.fkparentfund is null;;
               WHEN left(${child_fund_code}, 2) = '25' THEN 'Federal'
               WHEN left(${child_fund_code}, 2) = '27' then 'State'
               WHEN left(${child_fund_code}, 2) = '28' then 'State'
-              WHEN left(${child_fund_code},2) = '29' then 'State/Local'
+              WHEN left(${child_fund_code}, 2) = '29' then 'State/Local'
               WHEN left(${child_fund_code}, 2) = '26' then 'Local'
               WHEN left(${child_fund_code}, 1) = '1' then 'General'
               WHEN left(${child_fund_code}, 1) = '2' then 'Other'

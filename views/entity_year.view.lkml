@@ -59,7 +59,12 @@ left join common.entitytype ct on ct.pkentitytype=c.fkentitytype ;;
     primary_key: yes
     sql: ${TABLE}.pkentityyear ;;
   }
-  measure: count {
-    type: count
+  measure: count_distinct_parent {
+    type: count_distinct
+    sql: ${parent_code} ;;
+  }
+  measure: count_distinct_location {
+    type: count_distinct
+    sql: ${child_code} ;;
   }
 }
