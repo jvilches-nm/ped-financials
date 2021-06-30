@@ -14,6 +14,26 @@ explore: actuals_line {
   sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA';;
   label: "Expenditures"
 
+  join: actuals_budget_period {
+    relationship: many_to_one
+    type:  inner
+    sql_on:  ${actuals_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
+  }
+  join: actuals_reporting_period {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
+  }
+  join: actuals_status {
+    relationship: many_to_one
+    type: inner
+    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
+  }
+  join: budget {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_budget_period.fk_budget} = ${budget.pk_budget} ;;
+  }
   join: coa_line {
     relationship: many_to_one
     type: left_outer
@@ -59,21 +79,12 @@ explore: actuals_line {
     type: left_outer
     sql_on: ${entity_year.fk_budget_year}=${budget_year.pk_budget_year} ;;
   }
-  join: actuals_budget_period {
+  join: stars_locations {
     relationship: many_to_one
-    type:  inner
-    sql_on:  ${actuals_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
+    type: left_outer
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
-  join: actuals_reporting_period {
-    relationship: many_to_one
-    type: inner
-    sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
-  }
-  join: actuals_status {
-    relationship: many_to_one
-    type: inner
-    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
-  }
+
 }
 
 explore: budget_line {
@@ -124,6 +135,11 @@ explore: budget_line {
     relationship: many_to_one
     type: left_outer
     sql_on: ${entity_year.fk_budget_year}=${budget_year.pk_budget_year} ;;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
 }
 
@@ -189,5 +205,10 @@ explore: budget_expenditures_line {
     relationship: many_to_one
     type: left_outer
     sql_on: ${entity_year.fk_budget_year}=${budget_year.pk_budget_year} ;;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
 }
