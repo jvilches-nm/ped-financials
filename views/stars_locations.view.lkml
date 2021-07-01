@@ -7,6 +7,7 @@ view: stars_locations {
     hidden: yes
     sql: ${TABLE}.location_identity ;;
   }
+
   dimension: district_id {
     type: string
     hidden: yes
@@ -217,5 +218,15 @@ view: stars_locations {
   measure: count {
     type: count
     drill_fields: [district_name, location_name]
+  }
+
+  dimension: district_map {
+    type: location
+    sql_longitude: ${stars_districts.district_office_longitude} ;;
+    sql_latitude: ${stars_districts.district_office_latitude} ;;
+  }
+
+  dimension: hierarchy_map {
+    drill_fields: [district_map, map_location]
   }
 }
