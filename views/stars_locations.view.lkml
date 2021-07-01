@@ -15,11 +15,13 @@ view: stars_locations {
 
   dimension: district_name {
     type: string
+    hidden: yes
     sql: ${TABLE}.district_name ;;
   }
 
   dimension: district_type {
     type: string
+    hidden: yes
     sql: ${TABLE}.district_type ;;
   }
 
@@ -134,6 +136,12 @@ view: stars_locations {
     sql: ${TABLE}.location_longitude ;;
   }
 
+  dimension: map_location {
+    type: location
+    sql_latitude:${location_latitude} ;;
+    sql_longitude:${location_longitude} ;;
+  }
+
   dimension: location_name {
     type: string
     sql: ${TABLE}.location_name ;;
@@ -171,6 +179,7 @@ view: stars_locations {
 
   dimension: nces_district_id {
     type: string
+    hidden: yes
     sql: ${TABLE}.nces_district_id ;;
   }
 
@@ -181,6 +190,7 @@ view: stars_locations {
 
   dimension: obms_code {
     type: string
+    hidden: yes
     sql: ${TABLE}.obms_code ;;
   }
 

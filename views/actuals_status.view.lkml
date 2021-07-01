@@ -28,6 +28,7 @@ view: actuals_status {
 
   measure: count {
     type: count
+    hidden: yes
     drill_fields: [name]
   }
 }

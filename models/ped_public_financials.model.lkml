@@ -84,7 +84,11 @@ explore: actuals_line {
     type: left_outer
     sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
-
+  join: stars_districts {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+  }
 }
 
 explore: budget_line {
@@ -141,6 +145,11 @@ explore: budget_line {
     type: left_outer
     sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
+join: stars_districts {
+  relationship: many_to_one
+  type: left_outer
+  sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+}
 }
 
 explore: budget_expenditures_line {
@@ -211,4 +220,17 @@ explore: budget_expenditures_line {
     type: left_outer
     sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
   }
+  join: stars_districts {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+  }
 }
+
+explore: stars_locations {
+  label: "School Data"
+join: stars_districts {
+  relationship: many_to_one
+  type: left_outer
+  sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+}}
