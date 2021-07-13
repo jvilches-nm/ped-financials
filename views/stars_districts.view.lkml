@@ -288,6 +288,20 @@ view: stars_districts {
     type: sum
     sql: ${TABLE}.total_student_pop ;;
   }
+  dimension: public_student_pop_dim {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.public_student_pop ;;
+  }
+  dimension: district_size {
+    type: string
+    sql: CASE WHEN ${public_student_pop_dim}<200 then 'XS'
+              WHEN ${public_student_pop_dim}<4000 then 'S'
+              WHEN ${public_student_pop_dim}<10000 then 'M'
+              WHEN ${public_student_pop_dim}<50000 then 'L'
+              WHEN ${public_student_pop_dim}>=50000 then 'XL'
+              ELSE '' END;;
+  }
 
   measure: count {
     type: count

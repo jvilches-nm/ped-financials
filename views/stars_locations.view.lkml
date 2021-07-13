@@ -213,6 +213,19 @@ view: stars_locations {
     type: sum
     sql: ${TABLE}.student_pop ;;
   }
+  dimension: student_pop_dim {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.student_pop ;;
+  }
+  dimension: school_size{
+    type: string
+    sql: CASE WHEN ${school_level_code}='HS' and ${student_pop_dim}<400 then 'S'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<200 then 'S'
+              WHEN ${school_level_code}='HS' and ${student_pop_dim}<1000 then 'M'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
+              ELSE 'L' END;;
+  }
 
   measure: count {
     type: count
