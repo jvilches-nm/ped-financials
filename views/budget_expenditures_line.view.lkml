@@ -108,6 +108,7 @@ view: budget_expenditures_line {
   measure: budget_amount {
     type: sum
     sql: ${TABLE}.ProjectedAmt ;;
+    value_format: "$#,##0"
   }
 
   dimension: budget_fte {
