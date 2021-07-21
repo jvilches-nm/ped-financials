@@ -107,6 +107,7 @@ view: budget_expenditures_line {
 
   measure: budget_amount {
     type: sum
+    value_format: "$#,##0"
     sql: ${TABLE}.ProjectedAmt ;;
   }
 

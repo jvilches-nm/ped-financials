@@ -142,11 +142,6 @@ view: stars_locations {
     sql_longitude:${location_longitude} ;;
   }
 
-  dimension: location_name {
-    type: string
-    sql: ${TABLE}.location_name ;;
-  }
-
   dimension: location_phone {
     type: string
     sql: ${TABLE}.location_phone ;;
@@ -165,7 +160,10 @@ view: stars_locations {
   dimension: location_website {
     type: string
     sql: ${TABLE}.location_website ;;
-  }
+    link: {
+      label: "School Website"
+      url: "{{ value }}"
+    }}
 
   dimension: location_year {
     type: string
@@ -226,7 +224,14 @@ view: stars_locations {
               WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
               ELSE 'L' END;;
   }
-
+  dimension: location_name {
+    type: string
+    sql: ${TABLE}.location_name ;;
+  link: {
+    label: "{{ value }} Dashboard"
+    url: "/dashboards/29?Fiscal%20Year=2020-2021&location_name={{ value }}"
+  }
+  }
   measure: count {
     type: count
     drill_fields: [district_name, location_name]

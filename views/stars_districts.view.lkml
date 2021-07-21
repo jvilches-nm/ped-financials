@@ -97,6 +97,9 @@ view: stars_districts {
   dimension: district_name {
     type: string
     sql: ${TABLE}.district_name ;;
+    link: {label: "{{ value }} Dashboard"
+      url: "/dashboards/28?Fiscal%20Year=2020-2021&District%20Name={{ value }}"
+  }
   }
 
   dimension: district_office_latitude {
