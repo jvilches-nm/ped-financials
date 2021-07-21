@@ -88,7 +88,7 @@ view: stars_districts {
 
   dimension: district_identity {
     type: number
-    hidden: yes
+    hidden: no
     primary_key: yes
     value_format_name: id
     sql: ${TABLE}.district_identity ;;
@@ -97,6 +97,7 @@ view: stars_districts {
   dimension: district_name {
     type: string
     sql: ${TABLE}.district_name ;;
+
   }
 
   dimension: district_office_latitude {
@@ -113,7 +114,8 @@ view: stars_districts {
     type: location
     sql_longitude: ${district_office_longitude} ;;
     sql_latitude: ${district_office_latitude} ;;
-    }
+  }
+
   dimension: district_type {
     type: string
     sql: ${TABLE}.district_type ;;
@@ -286,11 +288,36 @@ view: stars_districts {
 
   measure: total_student_pop {
     type: sum
+    label: "# Students"
     sql: ${TABLE}.total_student_pop ;;
   }
 
   measure: count {
     type: count
     drill_fields: [district_name]
+  }
+
+  dimension: District_Custom_Map {
+    type: string
+    label: "District Name:"
+    map_layer_name: my_neighborhood_layer
+    sql: ${TABLE}.district_name ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+    link: {
+      label: "Profile"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select+FY=&Select+District+Name= {{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
+    }
+
+    link: {
+      label: "Map"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
+    }
+    link: {
+      label: "Website"
+      url: "http://34.122.8.245/"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
   }
 }

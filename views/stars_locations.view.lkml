@@ -1,3 +1,6 @@
+
+include: "/views/stars_districts.view"
+
 view: stars_locations {
   sql_table_name: looker.stars_locations ;;
 
@@ -15,9 +18,27 @@ view: stars_locations {
   }
 
   dimension: district_name {
+    label: "District School:"
     type: string
-    hidden: yes
+    hidden: no
     sql: ${TABLE}.district_name ;;
+    html: <p style="color: Yellow; font-size: 150%">{{ value }}</p> ;;
+    link: {
+      label: "Dist: {{ value }} Schools info"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}"
+      icon_url: "http://www.google.com/s2/favicons?domain=www.newmexicoschools.com/"
+      }
+
+    link: {
+      label: "{{ value }} Compare"
+      url: "/4?School={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "{{ value }} District Profile"
+      url: "/4?School={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
   }
 
   dimension: district_type {
@@ -144,8 +165,20 @@ view: stars_locations {
   }
 
   dimension: location_name {
+    label: "School Name"
     type: string
     sql: ${TABLE}.location_name ;;
+
+    link: {
+      label: "Profile"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/31?Select%20FY=&School%20Name=={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "{{ value }} Schools Profile"
+      url: "/4?School={{ value }}"
+      icon_url: "https://looker.com/assets/img/images/logos/looker_grey.svg"
+    }
   }
 
   dimension: location_phone {
@@ -175,6 +208,11 @@ view: stars_locations {
 
   dimension: location_zip {
     type: string
+    sql: ${TABLE}.location_zip ;;
+  }
+
+  dimension: Zip {
+    type: zipcode
     sql: ${TABLE}.location_zip ;;
   }
 
@@ -220,13 +258,61 @@ view: stars_locations {
     drill_fields: [district_name, location_name]
   }
 
+
+#TEJA
   dimension: district_map {
+    label: "District"
     type: location
     sql_longitude: ${stars_districts.district_office_longitude} ;;
     sql_latitude: ${stars_districts.district_office_latitude} ;;
+
   }
 
-  dimension: hierarchy_map {
-    drill_fields: [district_map, map_location]
+  dimension: District_School {
+    sql: ${TABLE}.district_name ;;
+    drill_fields: [location_name]
   }
+
+  dimension: District_Custom_Map {
+    type: string
+    label: "District Map"
+    map_layer_name:my_neighborhood_layer
+    sql: ${TABLE}.district_name ;;
+    #sql: concat(upper(substring(${TABLE}.district_name,1,1)), lower(substring(${TABLE}.district_name,2,43))) ;;
+    html: <p style="color: Yellow; font-size: 150%">{{ value }}</p> ;;
+    link: {
+      label: "Dist: {{ value }} Schools info"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}"
+      icon_url: "http://www.google.com/s2/favicons?domain=www.newmexicoschools.com/"
+    }
+
+    link: {
+      label: "{{ value }} Compare"
+      url: "/4?School={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "{{ value }} District Profile"
+      url: "/4?School={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
+  }
+
+  #parameter: Schools_granularity {
+    #type: string
+    #allowed_value: { value: "Dist. Schools" }
+    #allowed_value: { value: "Schools" }
+  #}
+
+  #dimension: date {
+    #label_from_parameter: Schools_granularity
+    #sql:
+    #CASE
+     #WHEN {% parameter Schools_granularity %} = 'Dist. Schools'
+        #THEN ${TABLE}.district_name}::VARCHAR
+     # WHEN {% parameter Schools_granularity %} = 'Schools'
+        #THEN ${Zip}::VARCHAR
+      #ELSE NULL
+    #END ;;
+  #}
 }
