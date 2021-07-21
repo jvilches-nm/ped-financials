@@ -1,11 +1,11 @@
 view: entity_year {
   derived_table: {
     sql: select et.name parent_type, ey.code parent_code, ey.name parent_name, ct.name child_type, ey.code+'-'+c.code child_code, c.name child_name, c.pkentityyear, c.finalmembership, c.fkbudgetyear
-from common.entityyear ey
-join common.entityyearparentchild pc on pc.fkentityyearparent=ey.pkentityyear
-left join common.entitytype et on et.pkentitytype=ey.fkentitytype
-left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
-left join common.entitytype ct on ct.pkentitytype=c.fkentitytype ;;
+      from common.entityyear ey
+      join common.entityyearparentchild pc on pc.fkentityyearparent=ey.pkentityyear
+      left join common.entitytype et on et.pkentitytype=ey.fkentitytype
+      left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
+      left join common.entitytype ct on ct.pkentitytype=c.fkentitytype ;;
   }
   label: "Location"
 
