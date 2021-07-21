@@ -40,6 +40,7 @@ where f1.fkparentobject is null;;
     type: string
     label: "Rollup Name"
     sql: ${TABLE}.lvl2_name ;;
+    drill_fields: [lvl4_object_name]
   }
   dimension: lvl3_object_code {
     type: string
@@ -75,5 +76,6 @@ where f1.fkparentobject is null;;
               WHEN left(${lvl2_object_code}, 2) = '57' THEN 'Property'
               WHEN left(${lvl2_object_code}, 2) = '58' THEN 'Debt Service'
               ELSE 'Other' END;;
+    drill_fields: [lvl2_object_name]
   }
 }

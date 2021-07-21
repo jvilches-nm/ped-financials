@@ -59,13 +59,25 @@ view: coa_job_class {
 
   dimension: job_category_code {
     type: string
-    label: "Rollup Code"
+    label: "Category Code"
     sql: ${TABLE}.job_category_code ;;
   }
   dimension: job_class_category_name {
     type: string
-    label: "Rollup Name"
+    label: "Category Name"
     sql: ${TABLE}.job_category_name ;;
+    drill_fields: [name]
+  }
+
+  dimension: job_rollup_name {
+    type: string
+    label: "Rollup Name"
+    sql: CASE WHEN ${job_category_code}='TE' then 'Teachers'
+              WHEN ${job_category_code}='OT' then 'Teachers'
+              WHEN ${job_category_code}='IA' then 'Assistants'
+              WHEN ${job_category_code}='AD' then 'Administrators'
+              ELSE 'Support' END ;;
+    drill_fields: [job_class_category_name]
   }
   dimension: job_category_description {
     type: string
