@@ -97,7 +97,9 @@ view: stars_districts {
   dimension: district_name {
     type: string
     sql: ${TABLE}.district_name ;;
-
+    link: {label: "{{ value }} Dashboard"
+      url: "/dashboards/28?Fiscal%20Year=2020-2021&District%20Name={{ value }}"
+      }
   }
 
   dimension: district_office_latitude {
@@ -290,6 +292,20 @@ view: stars_districts {
     type: sum
     label: "# Students"
     sql: ${TABLE}.total_student_pop ;;
+  }
+  dimension: public_student_pop_dim {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.public_student_pop ;;
+  }
+  dimension: district_size {
+    type: string
+    sql: CASE WHEN ${public_student_pop_dim}<200 then 'XS'
+              WHEN ${public_student_pop_dim}<4000 then 'S'
+              WHEN ${public_student_pop_dim}<10000 then 'M'
+              WHEN ${public_student_pop_dim}<50000 then 'L'
+              WHEN ${public_student_pop_dim}>=50000 then 'XL'
+              ELSE '' END;;
   }
 
   measure: count {

@@ -164,6 +164,7 @@ view: stars_locations {
     sql_longitude:${location_longitude} ;;
   }
 
+
   dimension: location_name {
     label: "School Name"
     type: string
@@ -180,6 +181,8 @@ view: stars_locations {
       icon_url: "https://looker.com/assets/img/images/logos/looker_grey.svg"
     }
   }
+
+
 
   dimension: location_phone {
     type: string
@@ -199,7 +202,10 @@ view: stars_locations {
   dimension: location_website {
     type: string
     sql: ${TABLE}.location_website ;;
-  }
+    link: {
+      label: "School Website"
+      url: "{{ value }}"
+    }}
 
   dimension: location_year {
     type: string
@@ -252,7 +258,27 @@ view: stars_locations {
     type: sum
     sql: ${TABLE}.student_pop ;;
   }
-
+  dimension: student_pop_dim {
+    type: number
+    hidden: yes
+    sql: ${TABLE}.student_pop ;;
+  }
+  dimension: school_size{
+    type: string
+    sql: CASE WHEN ${school_level_code}='HS' and ${student_pop_dim}<400 then 'S'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<200 then 'S'
+              WHEN ${school_level_code}='HS' and ${student_pop_dim}<1000 then 'M'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
+              ELSE 'L' END;;
+  }
+  dimension: location{
+    type: string
+    sql: ${TABLE}.location_name ;;
+  link: {
+    label: "{{ value }} Dashboard"
+    url: "/dashboards/29?Fiscal%20Year=2020-2021&location_name={{ value }}"
+  }
+  }
   measure: count {
     type: count
     drill_fields: [district_name, location_name]

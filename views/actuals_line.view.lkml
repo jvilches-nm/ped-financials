@@ -69,10 +69,10 @@ view: actuals_line {
     sql: ${TABLE}.fkModifiedBy ;;
   }
 
-  dimension: fte {
-    type: number
+  measure: fte {
+    type: sum
     label: "FTE"
-    description: "Full Time Equivalent"
+    description: "Full Time Equivalents"
     sql: ${TABLE}.FTE ;;
   }
 

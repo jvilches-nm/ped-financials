@@ -113,9 +113,10 @@ view: budget_line {
     sql: ${TABLE}.ProjectedAmt ;;
   }
 
-  dimension: projected_fte {
-    type: number
-    hidden:  yes
+  measure: projected_fte {
+    type: sum
+    label: "FTE"
+    description: "Full Time Equivalents"
     sql: ${TABLE}.ProjectedFTE ;;
   }
 
