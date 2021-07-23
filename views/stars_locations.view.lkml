@@ -192,17 +192,11 @@ view: stars_locations {
     label: "Name of the School"
     type: string
     sql: ${TABLE}.location_name ;;
-
     html: {% if stars_locations.location_name._is_filtered %}
-
     <a>{{rendered_value}} </a>
-
     {% else %}
-
     <a> All Schools </a>
-
     {% endif %};;
-
   }
 
 
@@ -346,7 +340,7 @@ view: stars_locations {
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
    }
-  }
+
   #parameter: Schools_granularity {
     #type: string
     #allowed_value: { value: "Dist. Schools" }
@@ -364,5 +358,4 @@ view: stars_locations {
       #ELSE NULL
     #END ;;
   #}
- #}
-#}
+ }

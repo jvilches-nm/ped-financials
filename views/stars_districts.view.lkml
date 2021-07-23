@@ -324,16 +324,15 @@ view: stars_districts {
       url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
-
     link: {
       label: "Map"
       url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
-    link: {
-      label: "Website"
-      url: "http://34.122.8.245/districts/"
-      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
-    }
+    #link: {
+      #label: "Website"
+      #url: "http://34.122.8.245/districts/"
+      #icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    #}
   }
 }
