@@ -337,7 +337,7 @@ view: stars_locations {
 
     link: {
       label: "Map"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     link: {
@@ -345,7 +345,8 @@ view: stars_locations {
       url: "http://34.122.8.245/districts/"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
-
+   }
+  }
   #parameter: Schools_granularity {
     #type: string
     #allowed_value: { value: "Dist. Schools" }
@@ -363,5 +364,5 @@ view: stars_locations {
       #ELSE NULL
     #END ;;
   #}
- }
-}
+ #}
+#}
