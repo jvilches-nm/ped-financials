@@ -320,8 +320,8 @@ view: stars_districts {
     sql: ${TABLE}.district_name ;;
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
-      label: "Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select+FY=&Select+District+Name= {{ value }}"
+      label: "District Profile"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
 
@@ -332,7 +332,7 @@ view: stars_districts {
     }
     link: {
       label: "Website"
-      url: "http://34.122.8.245/"
+      url: "http://34.122.8.245/districts/"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
   }

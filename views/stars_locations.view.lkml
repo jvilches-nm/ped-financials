@@ -171,15 +171,38 @@ view: stars_locations {
     sql: ${TABLE}.location_name ;;
 
     link: {
-      label: "Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/31?Select%20FY=&School%20Name=={{ value }}"
+      label: "School Profile"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/31?Select%20FY=&School%20Name={{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
-      label: "{{ value }} Schools Profile"
-      url: "/4?School={{ value }}"
-      icon_url: "https://looker.com/assets/img/images/logos/looker_grey.svg"
+      label: "Comapre"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/35?Select%20FY=2020-2021&School%20Name={{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
+    link: {
+      label: "Website"
+      url: "http://34.122.8.245/schools/"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
+  }
+
+
+  dimension :Name_of_the_School{
+    label: "Name of the School"
+    type: string
+    sql: ${TABLE}.location_name ;;
+
+    html: {% if stars_locations.location_name._is_filtered %}
+
+    <a>{{rendered_value}} </a>
+
+    {% else %}
+
+    <a> All Schools </a>
+
+    {% endif %};;
+
   }
 
 
@@ -307,22 +330,21 @@ view: stars_locations {
     #sql: concat(upper(substring(${TABLE}.district_name,1,1)), lower(substring(${TABLE}.district_name,2,43))) ;;
     html: <p style="color: Yellow; font-size: 150%">{{ value }}</p> ;;
     link: {
-      label: "Dist: {{ value }} Schools info"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}"
-      icon_url: "http://www.google.com/s2/favicons?domain=www.newmexicoschools.com/"
+      label: "District Profile"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
 
     link: {
-      label: "{{ value }} Compare"
-      url: "/4?School={{ value }}"
-      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+      label: "Map"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     link: {
-      label: "{{ value }} District Profile"
-      url: "/4?School={{ value }}"
+      label: "Website"
+      url: "http://34.122.8.245/districts/"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
-  }
 
   #parameter: Schools_granularity {
     #type: string
@@ -341,4 +363,5 @@ view: stars_locations {
       #ELSE NULL
     #END ;;
   #}
+ }
 }
