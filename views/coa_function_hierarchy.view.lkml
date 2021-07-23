@@ -30,6 +30,7 @@ view: coa_function_hierarchy {
     type: string
     label: "Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
+    drill_fields: [lvl2_name]
   }
   dimension: lvl2_code {
     type: string
