@@ -240,4 +240,5 @@ explore: stars_locations {
   map_layer: my_neighborhood_layer {
     file: "/Map_Shapefiles/dist_school_map.topojson"
     property_key: "name"
+
   }
