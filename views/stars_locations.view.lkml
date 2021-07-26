@@ -159,7 +159,7 @@ view: stars_locations {
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
-      label: "Comapre"
+      label: "Compare"
       url: "https://nmpedpublic.cloud.looker.com/dashboards-next/35?Select%20FY=2020-2021&School%20Name={{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
