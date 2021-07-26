@@ -321,7 +321,7 @@ view: stars_districts {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
+      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/33?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
