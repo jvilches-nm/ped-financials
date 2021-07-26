@@ -22,23 +22,6 @@ view: stars_locations {
     type: string
     hidden: no
     sql: ${TABLE}.district_name ;;
-    html: <p style="color: Yellow; font-size: 150%">{{ value }}</p> ;;
-    link: {
-      label: "Dist: {{ value }} Schools info"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}"
-      icon_url: "http://www.google.com/s2/favicons?domain=www.newmexicoschools.com/"
-      }
-
-    link: {
-      label: "{{ value }} Compare"
-      url: "/4?School={{ value }}"
-      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
-    }
-    link: {
-      label: "{{ value }} District Profile"
-      url: "/4?School={{ value }}"
-      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
-    }
   }
 
   dimension: district_type {
