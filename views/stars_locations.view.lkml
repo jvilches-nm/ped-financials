@@ -189,6 +189,12 @@ view: stars_locations {
     sql: ${TABLE}.location_phone ;;
   }
 
+  measure:  schhol_count{
+    label: "No. of Schools"
+    type: count_distinct
+    sql: ${TABLE}.location_name ;;
+  }
+
   dimension: location_state {
     type: string
     sql: ${TABLE}.location_state ;;
@@ -323,6 +329,7 @@ view: stars_locations {
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
    }
+
 
   #parameter: Schools_granularity {
     #type: string
