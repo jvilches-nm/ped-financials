@@ -318,12 +318,13 @@ view: stars_districts {
     #html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
+      url: "http://34.122.8.245/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?District%20School:= {{ value }}"
+      #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
       label: "Map"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
+      url: "http://34.122.8.245/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District%20School:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     #link: {
