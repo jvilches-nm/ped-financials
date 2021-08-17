@@ -97,9 +97,6 @@ view: stars_districts {
   dimension: district_name {
     type: string
     sql: ${TABLE}.district_name ;;
-    link: {label: "{{ value }} Dashboard"
-      url: "/dashboards/28?Fiscal%20Year=2020-2021&District%20Name={{ value }}"
-      }
   }
 
   dimension: district_office_latitude {
@@ -319,14 +316,16 @@ view: stars_districts {
     map_layer_name: my_neighborhood_layer
     sql: ${TABLE}.district_name ;;
     html: <p style="color: Black; font-size: 100%">{{ value }}</p> ;;
+    #html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
+      url: "http://34.122.8.245/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?District%20School:= {{ value }}"
+      #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
       label: "Map"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/21?District%20School:= {{ value }}&School%20Type="
+      url: "http://34.122.8.245/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District%20School:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     #link: {
@@ -334,5 +333,26 @@ view: stars_districts {
       #url: "http://34.122.8.245/districts/"
       #icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     #}
+  }
+
+  dimension :Name_of_the_District{
+    label: "Name of the District"
+    type: string
+    sql: ${TABLE}.district_name ;;
+    html: {% if stars_districts.district_name._is_filtered %}
+          <a>{{rendered_value}} </a>
+          {% else %}
+          <a> All Districts </a>
+          {% endif %};;
+  }
+
+  dimension: Dist_Cat{
+    case: {
+      when: {
+        sql: ${TABLE}.district_name <> ALBUQUERQUE;;
+        label: "With out Albuquerque"
+      }
+     else:"With Albuquerque"
+    }
   }
 }
