@@ -180,6 +180,11 @@ view: stars_locations {
     {% else %}
     <a> All Schools </a>
     {% endif %};;
+    link: {
+      label: "School Profile"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?School%20Name={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
   }
 
 
