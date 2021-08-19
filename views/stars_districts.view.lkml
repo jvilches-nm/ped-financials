@@ -324,7 +324,7 @@ view: stars_districts {
     }
     link: {
       label: "Map"
-      url: "https://openbooks.ped.nm.gov/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District%20School:={{ value }}&School%20Type="
+      url: "https://openbooks.ped.nm.gov/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     #link: {
