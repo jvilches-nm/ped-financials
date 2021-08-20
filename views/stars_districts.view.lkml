@@ -66,11 +66,6 @@ view: stars_districts {
     sql: ${TABLE}.charter_kf_pop ;;
   }
 
-  measure: charter_kn_pop {
-    type: sum
-    sql: ${TABLE}.charter_kn_pop ;;
-  }
-
   measure: charter_pk_pop {
     type: sum
     sql: ${TABLE}.charter_pk_pop ;;
@@ -195,11 +190,6 @@ view: stars_districts {
     sql: ${TABLE}.public_kf_pop ;;
   }
 
-  measure: public_kn_pop {
-    type: sum
-    sql: ${TABLE}.public_kn_pop ;;
-  }
-
   measure: public_pk_pop {
     type: sum
     sql: ${TABLE}.public_pk_pop ;;
@@ -273,11 +263,6 @@ view: stars_districts {
   measure: total_kf_pop {
     type: sum
     sql: ${TABLE}.total_kf_pop ;;
-  }
-
-  measure: total_kn_pop {
-    type: sum
-    sql: ${TABLE}.total_kn_pop ;;
   }
 
   measure: total_pk_pop {

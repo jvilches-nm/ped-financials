@@ -30,6 +30,7 @@ view: coa_object_hierarchy_revenue {
     type: string
     label: "Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
+    drill_fields: [child_object_name]
   }
   dimension: child_object_code {
     type: string
@@ -40,6 +41,7 @@ view: coa_object_hierarchy_revenue {
     type: string
     label: "Top Name"
     sql: ${TABLE}.lvl2_name ;;
+    drill_fields: [lvl4_object_name]
   }
   dimension: lvl3_object_code {
     type: string
@@ -73,5 +75,6 @@ view: coa_object_hierarchy_revenue {
               WHEN left(${child_object_code}, 2) = '46' THEN 'Other'
               WHEN left(${child_object_code}, 1) = '1' THEN 'Cash Assets'
               ELSE 'Other' END;;
+    drill_fields: [lvl1_object_name]
   }
 }

@@ -100,11 +100,6 @@ view: stars_locations {
     sql: ${TABLE}.kf_pop ;;
   }
 
-  measure: kn_pop {
-    type: sum
-    sql: ${TABLE}.kn_pop ;;
-  }
-
   dimension: location_address {
     type: string
     sql: ${TABLE}.location_address ;;
