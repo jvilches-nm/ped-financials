@@ -150,17 +150,17 @@ view: stars_locations {
 
     link: {
       label: "School Profile"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/31?Select%20FY=&School%20Name={{ value }}"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Compare"
-      url: "https://nmpedpublic.cloud.looker.com/dashboards-next/35?Select%20FY=2020-2021&School%20Name={{ value }}"
+      url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Website"
-      url: "http://34.122.8.245/schools/"
+      url: "{{ location_website }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
     }
   }
@@ -175,6 +175,11 @@ view: stars_locations {
     {% else %}
     <a> All Schools </a>
     {% endif %};;
+    link: {
+      label: "School Profile"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?School%20Name={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
   }
 
 
