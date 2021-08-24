@@ -66,11 +66,6 @@ view: stars_districts {
     sql: ${TABLE}.charter_kf_pop ;;
   }
 
-  measure: charter_kn_pop {
-    type: sum
-    sql: ${TABLE}.charter_kn_pop ;;
-  }
-
   measure: charter_pk_pop {
     type: sum
     sql: ${TABLE}.charter_pk_pop ;;
@@ -97,7 +92,18 @@ view: stars_districts {
   dimension: district_name {
     type: string
     sql: ${TABLE}.district_name ;;
-  }
+    link: {
+      label: "District Profile"
+      url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
+      #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
+    }
+    link: {
+      label: "Map"
+      url: "https://openbooks.ped.nm.gov/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District:={{ value }}&School%20Type="
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
+    }
+    }
 
   dimension: district_office_latitude {
     type: string
@@ -195,11 +201,6 @@ view: stars_districts {
     sql: ${TABLE}.public_kf_pop ;;
   }
 
-  measure: public_kn_pop {
-    type: sum
-    sql: ${TABLE}.public_kn_pop ;;
-  }
-
   measure: public_pk_pop {
     type: sum
     sql: ${TABLE}.public_pk_pop ;;
@@ -275,11 +276,6 @@ view: stars_districts {
     sql: ${TABLE}.total_kf_pop ;;
   }
 
-  measure: total_kn_pop {
-    type: sum
-    sql: ${TABLE}.total_kn_pop ;;
-  }
-
   measure: total_pk_pop {
     type: sum
     sql: ${TABLE}.total_pk_pop ;;
@@ -315,6 +311,7 @@ view: stars_districts {
     label: "District Name:"
     map_layer_name: my_neighborhood_layer
     sql: ${TABLE}.district_name ;;
+    html: <p style="color: Black; font-size: 100%">{{ value }}</p> ;;
     #html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"

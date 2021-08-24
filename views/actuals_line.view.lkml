@@ -98,6 +98,12 @@ view: actuals_line {
     sql: ${TABLE}.pkActualsLine ;;
   }
 
+  measure: current_as_of {
+    type: date
+    label: "Data Current As Of"
+    sql: MAX(${modified_date}) ;;
+  }
+
   measure: ytdamount {
     type: sum
     hidden:  yes
