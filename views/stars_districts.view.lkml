@@ -311,7 +311,6 @@ view: stars_districts {
     label: "District Name:"
     map_layer_name: my_neighborhood_layer
     sql: ${TABLE}.district_name ;;
-    html: <p style="color: Black; font-size: 100%">{{ value }}</p> ;;
     #html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
