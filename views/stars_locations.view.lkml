@@ -165,6 +165,28 @@ view: stars_locations {
     }
   }
 
+  dimension: School_name {
+    label: "School Name:"
+    type: string
+    sql: ${TABLE}.location_name ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+    link: {
+      label: "School Profile"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "Compare"
+      url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "Website"
+      url: "{{ location_website }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
+  }
+
 
   dimension :Name_of_the_School{
     label: "Name of the School"
@@ -204,6 +226,14 @@ view: stars_locations {
     type: string
     sql: ${TABLE}.location_type ;;
   }
+
+  dimension: location_type_col {
+    label: "Location Type:"
+    type: string
+    sql: ${TABLE}.location_type ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
 
   dimension: location_website {
     type: string
@@ -259,6 +289,13 @@ view: stars_locations {
     type: string
     sql: ${TABLE}.school_level_code ;;
   }
+  dimension: school_level_col {
+    label: "School Level:"
+    type: string
+    sql: ${TABLE}.school_level ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
 
   measure: student_pop {
     type: sum
@@ -277,6 +314,17 @@ view: stars_locations {
               WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
               ELSE 'L' END;;
   }
+  dimension: school_size_col{
+    label: "School Size:"
+    type: string
+    sql: CASE WHEN ${school_level_code}='HS' and ${student_pop_dim}<400 then 'S'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<200 then 'S'
+              WHEN ${school_level_code}='HS' and ${student_pop_dim}<1000 then 'M'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
+              ELSE 'L' END;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
   dimension: location{
     type: string
     sql: ${TABLE}.location_name ;;
