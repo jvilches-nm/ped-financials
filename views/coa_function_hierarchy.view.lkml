@@ -23,21 +23,22 @@ view: coa_function_hierarchy {
   }
   dimension: lvl1_code {
     type: string
-    label: "Rollup Code"
+    label: "Function Rollup Code"
+    hidden: yes
     sql: ${TABLE}.lvl1_code ;;
   }
-  dimension: lvl1_name {
+  dimension: rollup_function_name {
     type: string
-    label: "Rollup Name"
+    label: "Function Rollup Name"
     sql: ${TABLE}.lvl1_name ;;
-    drill_fields: [lvl2_name]
+    drill_fields: [function_name]
   }
-  dimension: lvl2_code {
+  dimension: function_code {
     type: string
     label: "Detail Code"
     sql: ${TABLE}.lvl2_code ;;
   }
-  dimension: lvl2_name {
+  dimension: function_name {
     type: string
     label: "Detail Name"
     sql: ${TABLE}.lvl2_name ;;

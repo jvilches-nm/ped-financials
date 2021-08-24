@@ -10,14 +10,14 @@ view: coa_job_class {
 
   dimension: code {
     type: string
-    label: "Detail Code"
+    label: "Job Code"
     sql: ${TABLE}.Code ;;
   }
 
   dimension: description {
     type: string
     hidden: yes
-    label: "Job Class Description"
+    label: "Job Description"
     sql: ${TABLE}.Description ;;
   }
 
@@ -59,25 +59,25 @@ view: coa_job_class {
 
   dimension: job_category_code {
     type: string
-    label: "Category Code"
+    label: "Job Category Code"
     sql: ${TABLE}.job_category_code ;;
   }
-  dimension: job_class_category_name {
+  dimension: job_category_name {
     type: string
-    label: "Category Name"
+    label: "Job Category Name"
     sql: ${TABLE}.job_category_name ;;
     drill_fields: [name]
   }
 
   dimension: job_rollup_name {
     type: string
-    label: "Rollup Name"
+    label: "Job Rollup Name"
     sql: CASE WHEN ${job_category_code}='TE' then 'Teachers'
               WHEN ${job_category_code}='OT' then 'Teachers'
               WHEN ${job_category_code}='IA' then 'Assistants'
               WHEN ${job_category_code}='AD' then 'Administrators'
               ELSE 'Support' END ;;
-    drill_fields: [job_class_category_name]
+    drill_fields: [job_category_name]
   }
   dimension: job_category_description {
     type: string
@@ -102,7 +102,7 @@ view: coa_job_class {
 
   dimension: name {
     type: string
-    label: "Detail Name"
+    label: "Job Name"
     sql: ${TABLE}.Name ;;
   }
 

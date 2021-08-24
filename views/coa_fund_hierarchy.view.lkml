@@ -23,11 +23,12 @@ view: coa_fund_hierarchy {
   dimension: fund_type_code {
     type: string
     label: "Type Code"
+    hidden: yes
     sql: ${TABLE}.fund_type_code ;;
   }
   dimension: fund_type {
     type: string
-    label: "Type"
+    label: "Fund Type"
     sql: ${TABLE}.fund_type ;;
   }
   dimension: parent_fund_code {
@@ -45,13 +46,14 @@ view: coa_fund_hierarchy {
   dimension: child_fund_code {
     type: string
     label: "Rollup Code"
+    hidden: yes
     sql: ${TABLE}.lvl2_fundcode ;;
   }
   dimension: child_fund_name {
     type: string
     label: "Rollup Name"
+    hidden: yes
     sql: ${TABLE}.lvl2_fundname ;;
-    drill_fields: [lvl3_fund_name]
   }
   dimension: lvl3_fund_code {
     type: string
@@ -65,19 +67,19 @@ view: coa_fund_hierarchy {
     label: "Level 3 Fund Name"
     sql: ${TABLE}.lvl3_fundname ;;
   }
-  dimension: lvl4_fund_code {
+  dimension: fund_code {
     type: string
-    label: "Detail Code"
+    label: "Fund Code"
     sql: ${TABLE}.lvl4_fundcode ;;
   }
-  dimension: lvl4_fund_name {
+  dimension: fund_name {
     type: string
-    label: "Detail Name"
+    label: "Fund Name"
     sql: ${TABLE}.lvl4_fundname ;;
   }
   dimension: fund_group {
     type: string
-    label: "Rollup Group"
+    label: "Fund Rollup Name"
     sql: CASE WHEN left(${child_fund_code}, 2) = '24' THEN 'Federal'
               WHEN left(${child_fund_code}, 2) = '25' THEN 'Federal'
               WHEN left(${child_fund_code}, 2) = '27' then 'State'
@@ -89,6 +91,6 @@ view: coa_fund_hierarchy {
               WHEN left(${child_fund_code}, 1) = '3' then 'Capital Project'
               WHEN left(${child_fund_code}, 1) = '4' then 'Debt Service'
               ELSE 'Other' END;;
-    drill_fields: [child_fund_name]
+    drill_fields: [fund_name, fund_type]
   }
 }

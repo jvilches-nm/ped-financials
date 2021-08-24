@@ -205,6 +205,13 @@ view: stars_locations {
     sql: ${TABLE}.location_type ;;
   }
 
+  dimension: location_type_name {
+    type: string
+    sql: case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
+              when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
+              else ${location_type} end;;
+  }
+
   dimension: location_website {
     type: string
     sql: ${TABLE}.location_website ;;
