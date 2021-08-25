@@ -142,6 +142,26 @@ view: stars_locations {
     sql_longitude:${location_longitude} ;;
   }
 
+  dimension: School_name_plain {
+    label: "School Name"
+    type: string
+    sql: ${TABLE}.location_name ;;
+    link: {
+      label: "School Profile"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "Compare"
+      url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+    }
+    link: {
+      label: "Website"
+      url: "{{ location_website }}"
+      icon_url: "https://storage.googleapis.com/icons-bucket-nm/window-maximize-solid.png"
+    }
+  }
 
   dimension: School_name {
     label: "School Name:"
