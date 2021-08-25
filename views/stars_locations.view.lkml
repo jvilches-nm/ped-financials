@@ -143,11 +143,11 @@ view: stars_locations {
   }
 
 
-  dimension: location_name {
-    label: "School Name"
+  dimension: School_name {
+    label: "School Name:"
     type: string
     sql: ${TABLE}.location_name ;;
-
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
       url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
@@ -212,6 +212,13 @@ view: stars_locations {
               else ${location_type} end;;
   }
 
+  dimension: location_type_col {
+    label: "Location Type:"
+    type: string
+    sql: ${TABLE}.location_type ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
   dimension: location_website {
     type: string
     sql: ${TABLE}.location_website ;;
@@ -266,6 +273,13 @@ view: stars_locations {
     type: string
     sql: ${TABLE}.school_level_code ;;
   }
+  dimension: school_level_col {
+    label: "School Level:"
+    type: string
+    sql: ${TABLE}.school_level ;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
 
   measure: student_pop {
     type: sum
@@ -284,6 +298,17 @@ view: stars_locations {
               WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
               ELSE 'L' END;;
   }
+  dimension: school_size_col{
+    label: "School Size:"
+    type: string
+    sql: CASE WHEN ${school_level_code}='HS' and ${student_pop_dim}<400 then 'S'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<200 then 'S'
+              WHEN ${school_level_code}='HS' and ${student_pop_dim}<1000 then 'M'
+              WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
+              ELSE 'L' END;;
+    html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
+  }
+
   dimension: location{
     type: string
     sql: ${TABLE}.location_name ;;
@@ -294,7 +319,7 @@ view: stars_locations {
   }
   measure: count {
     type: count
-    drill_fields: [district_name, location_name]
+    drill_fields: [district_name, School_name]
   }
 
 
@@ -309,7 +334,7 @@ view: stars_locations {
 
   dimension: District_School {
     sql: ${TABLE}.district_name ;;
-    drill_fields: [location_name]
+    drill_fields: [School_name]
   }
 
   dimension: District_Custom_Map {
