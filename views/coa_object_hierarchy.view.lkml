@@ -21,26 +21,26 @@ view: coa_object_hierarchy {
     hidden: yes
     sql: ${TABLE}.pkcoaobject ;;
   }
-  dimension: parent_object_code {
+  dimension: top_object_code {
     type: string
     hidden: yes
     sql: ${TABLE}.lvl1_code ;;
   }
-  dimension: parent_object_name {
+  dimension: top_object_name {
     type: string
     hidden: yes
     sql: ${TABLE}.lvl1_name ;;
   }
-  dimension: lvl2_object_code {
+  dimension: parent_object_code {
     type: string
-    label: "Rollup Code"
+    label: "Object Parent Code"
     sql: ${TABLE}.lvl2_code ;;
   }
-  dimension: lvl2_object_name {
+  dimension: parent_object_name {
     type: string
-    label: "Rollup Name"
+    label: "Object Parent Name"
     sql: ${TABLE}.lvl2_name ;;
-    drill_fields: [lvl4_object_name]
+    drill_fields: [object_name]
   }
   dimension: lvl3_object_code {
     type: string
@@ -54,28 +54,28 @@ view: coa_object_hierarchy {
     hidden: yes
     sql: ${TABLE}.lvl3_name ;;
   }
-  dimension: lvl4_object_code {
+  dimension: object_code {
     type: string
-    label: "Detail Code"
+    label: "Object Code"
     sql: ${TABLE}.lvl4_code ;;
   }
-  dimension: lvl4_object_name {
+  dimension: object_name {
     type: string
-    label: "Detail Name"
+    label: "Object Name"
     sql: ${TABLE}.lvl4_name ;;
   }
   dimension: object_group {
     type: string
-    label: "Rollup Group"
-    sql: CASE WHEN left(${lvl2_object_code}, 2) = '51' THEN 'Salary'
-              WHEN left(${lvl2_object_code}, 2) = '52' THEN 'Benefits'
-              WHEN left(${lvl2_object_code}, 2) = '53' THEN 'Prof/Tech Services'
-              WHEN left(${lvl2_object_code}, 2) = '54' THEN 'Property Services'
-              WHEN left(${lvl2_object_code}, 2) = '55' THEN 'Other Services'
-              WHEN left(${lvl2_object_code}, 2) = '56' THEN 'Supplies'
-              WHEN left(${lvl2_object_code}, 2) = '57' THEN 'Property'
-              WHEN left(${lvl2_object_code}, 2) = '58' THEN 'Debt Service'
+    label: "Object Rollup Name"
+    sql: CASE WHEN left(${object_code}, 2) = '51' THEN 'Salary'
+              WHEN left(${object_code}, 2) = '52' THEN 'Benefits'
+              WHEN left(${object_code}, 2) = '53' THEN 'Prof/Tech Services'
+              WHEN left(${object_code}, 2) = '54' THEN 'Property Services'
+              WHEN left(${object_code}, 2) = '55' THEN 'Other Services'
+              WHEN left(${object_code}, 2) = '56' THEN 'Supplies'
+              WHEN left(${object_code}, 2) = '57' THEN 'Property'
+              WHEN left(${object_code}, 2) = '58' THEN 'Debt Service'
               ELSE 'Other' END;;
-    drill_fields: [lvl2_object_name]
+    drill_fields: [parent_object_name]
   }
 }

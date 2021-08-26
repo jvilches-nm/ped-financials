@@ -142,12 +142,10 @@ view: stars_locations {
     sql_longitude:${location_longitude} ;;
   }
 
-
-  dimension: location_name {
+  dimension: School_name_plain {
     label: "School Name"
     type: string
     sql: ${TABLE}.location_name ;;
-
     link: {
       label: "School Profile"
       url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
@@ -227,13 +225,19 @@ view: stars_locations {
     sql: ${TABLE}.location_type ;;
   }
 
+  dimension: location_type_name {
+    type: string
+    sql: case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
+              when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
+              else ${location_type} end;;
+  }
+
   dimension: location_type_col {
     label: "Location Type:"
     type: string
     sql: ${TABLE}.location_type ;;
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
   }
-
 
   dimension: location_website {
     type: string
@@ -335,7 +339,7 @@ view: stars_locations {
   }
   measure: count {
     type: count
-    drill_fields: [district_name, location_name]
+    drill_fields: [district_name, School_name]
   }
 
 
@@ -350,7 +354,7 @@ view: stars_locations {
 
   dimension: District_School {
     sql: ${TABLE}.district_name ;;
-    drill_fields: [location_name]
+    drill_fields: [School_name]
   }
 
   dimension: District_Custom_Map {

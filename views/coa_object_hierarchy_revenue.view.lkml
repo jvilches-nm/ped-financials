@@ -21,27 +21,30 @@ view: coa_object_hierarchy_revenue {
     hidden: yes
     sql: ${TABLE}.pkcoaobject ;;
   }
-  dimension: lvl1_object_code {
+  dimension: parent_object_code {
     type: string
-    label: "Rollup Code"
+    label: "Object Parent Code"
+    hidden: yes
     sql: ${TABLE}.lvl1_code ;;
   }
-  dimension: lvl1_object_name {
+  dimension: parent_object_name {
     type: string
-    label: "Rollup Name"
+    label: "Object Parent Name"
     sql: ${TABLE}.lvl1_name ;;
-    drill_fields: [child_object_name]
+    hidden: yes
+    drill_fields: [object_name]
   }
-  dimension: child_object_code {
+  dimension: lvl2_object_code {
     type: string
-    label: "Top Code"
+    label: "Level 2 Code"
+    hidden: yes
     sql: ${TABLE}.lvl2_code ;;
   }
-  dimension: child_object_name {
+  dimension: lvl2_object_name {
     type: string
-    label: "Top Name"
+    label: "Level 2 Name"
     sql: ${TABLE}.lvl2_name ;;
-    drill_fields: [lvl4_object_name]
+    hidden: yes
   }
   dimension: lvl3_object_code {
     type: string
@@ -55,26 +58,26 @@ view: coa_object_hierarchy_revenue {
     hidden: yes
     sql: ${TABLE}.lvl3_name ;;
   }
-  dimension: lvl4_object_code {
+  dimension: object_code {
     type: string
-    label: "Detail Code"
+    label: "Object Code"
     sql: ${TABLE}.lvl4_code ;;
   }
-  dimension: lvl4_object_name {
+  dimension: object_name {
     type: string
-    label: "Detail Name"
+    label: "Object Name"
     sql: ${TABLE}.lvl4_name ;;
   }
   dimension: object_group {
     type: string
-    label: "Rollup Group"
-    sql: CASE WHEN left(${child_object_code}, 2) = '41' THEN 'Local'
-              WHEN left(${child_object_code}, 2) = '43' THEN 'State'
-              WHEN left(${child_object_code}, 2) = '44' THEN 'Federal'
-              WHEN left(${child_object_code}, 2) = '45' THEN 'Other'
-              WHEN left(${child_object_code}, 2) = '46' THEN 'Other'
-              WHEN left(${child_object_code}, 1) = '1' THEN 'Cash Assets'
+    label: "Object Rollup Name"
+    sql: CASE WHEN left(${object_code}, 2) = '41' THEN 'Local'
+              WHEN left(${object_code}, 2) = '43' THEN 'State'
+              WHEN left(${object_code}, 2) = '44' THEN 'Federal'
+              WHEN left(${object_code}, 2) = '45' THEN 'Other'
+              WHEN left(${object_code}, 2) = '46' THEN 'Other'
+              WHEN left(${object_code}, 1) = '1' THEN 'Cash Assets'
               ELSE 'Other' END;;
-    drill_fields: [lvl1_object_name]
+    drill_fields: [object_name]
   }
 }
