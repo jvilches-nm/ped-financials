@@ -360,7 +360,7 @@ view: stars_districts {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "District Profile"
-      url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
+      url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
       #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
