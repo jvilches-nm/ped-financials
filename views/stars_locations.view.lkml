@@ -339,7 +339,7 @@ view: stars_locations {
   }
   measure: count {
     type: count
-    drill_fields: [district_name, School_name]
+    drill_fields: [district_name, School_name_plain, location_type, school_level]
   }
 
 
