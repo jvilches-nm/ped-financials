@@ -1,8 +1,12 @@
 view: actuals_line {
   sql_table_name: Actuals.ActualsLine ;;
-  label: "Expenditures"
+  label: "Spending"
+
+
   measure: amount {
     type: sum
+    label: "Spending"
+    description: "Actual amount spent"
     value_format: "$#,##0"
     sql: ${TABLE}.Amount ;;
   }
@@ -72,7 +76,7 @@ view: actuals_line {
   measure: fte {
     type: sum
     label: "FTE"
-    description: "Full Time Equivalents"
+    description: "Full Time Equivalent positions corresponding to the amount spent"
     sql: ${TABLE}.FTE ;;
   }
 
@@ -112,6 +116,7 @@ view: actuals_line {
 
   measure: count {
     type: count
+    hidden: yes
     drill_fields: []
   }
 }
