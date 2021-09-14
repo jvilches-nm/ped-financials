@@ -170,7 +170,7 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
-      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School={{ value }}&Select%20FY=2020-2021"
+      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
