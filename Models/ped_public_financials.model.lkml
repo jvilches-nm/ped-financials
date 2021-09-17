@@ -63,10 +63,10 @@ explore: actuals_revenue_line {
     type: left_outer
     sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
   }
-  join: coa_object_hierarchy {
+  join: coa_object_hierarchy_revenue {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
   }
   join: coa_program_hierarchy {
     relationship: many_to_one
