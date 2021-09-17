@@ -170,12 +170,14 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
-      url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
+      url: "/embed/dashboards-next/66?Select%20School%20Name={{ value }}&Fiscal%20Year=2020-2021&Location%20Type=Charter%20School,District%20School"
+      #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
       label: "Compare"
-      url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
+      #url: "/embed/dashboards-next/67?Select%20Schools:={{ value }}&Fiscal%20Year=2020-2021&Location%20Type=Charter%20School,District%20School"
+      #url: "https://openbooks.ped.nm.gov/school-comparison/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/35?Select%20School={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
     link: {
