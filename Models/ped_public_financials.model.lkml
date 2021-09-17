@@ -38,11 +38,6 @@ explore: actuals_revenue_line {
     type: left_outer
     sql_on: ${actuals_revenue_line.fk_coa_line}=${coa_line.pk_coaline} ;;
   }
-  join: coa_function_hierarchy {
-    relationship: many_to_one
-    type: left_outer
-    sql_on: ${coa_line.fk_coa_function}=${coa_function_hierarchy.pk_coa_function} ;;
-  }
   join: coa_account_type {
     relationship: many_to_one
     type: left_outer
@@ -58,20 +53,10 @@ explore: actuals_revenue_line {
     type: left_outer
     sql_on: ${actuals_revenue_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_job_class {
-    relationship: many_to_one
-    type: left_outer
-    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
-  }
   join: coa_object_hierarchy_revenue {
     relationship: many_to_one
     type:  left_outer
     sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
-  }
-  join: coa_program_hierarchy {
-    relationship: many_to_one
-    type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program} ;;
   }
   join: budget_year {
     relationship: many_to_one
