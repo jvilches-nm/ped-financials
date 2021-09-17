@@ -9,10 +9,75 @@ datagroup: ped_public_financials_default_datagroup {
 }
 
 persist_with: ped_public_financials_default_datagroup
+explore: actuals_revenue_line {
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-3 and ${coa_account_type.code}='R' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA';;
+  label: "Actual Revenue"
+
+  join: actuals_budget_period {
+    relationship: many_to_one
+    type:  inner
+    sql_on:  ${actuals_revenue_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
+  }
+  join: actuals_reporting_period {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
+  }
+  join: actuals_status {
+    relationship: many_to_one
+    type: inner
+    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
+  }
+  join: budget {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_budget_period.fk_budget} = ${budget.pk_budget} ;;
+  }
+  join: coa_line {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${actuals_revenue_line.fk_coa_line}=${coa_line.pk_coaline} ;;
+  }
+  join: coa_account_type {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
+  }
+  join: coa_fund_hierarchy {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
+  }
+  join: entity_year {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${actuals_revenue_line.fk_location_year}=${entity_year.pk_entity_year};;
+  }
+  join: coa_object_hierarchy_revenue {
+    relationship: many_to_one
+    type:  left_outer
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
+  }
+  join: budget_year {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${budget.fk_budget_year}=${budget_year.pk_budget_year} ;;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
+  }
+  join: stars_districts {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+  }
+}
 
 explore: actuals_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA';;
-  label: "Expenditures"
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-3 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA';;
+  label: "Actual Expenditures"
 
   join: actuals_budget_period {
     relationship: many_to_one
@@ -92,8 +157,8 @@ explore: actuals_line {
 }
 
 explore: budget_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12;;
-  label: "Revenue"
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-3 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12;;
+  label: "Budgeted Revenue"
 
   join: budget_fund {
     relationship: many_to_one
@@ -153,8 +218,8 @@ explore: budget_line {
 }
 
 explore: budget_expenditures_line {
-  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-4 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12;;
-  label: "Budget"
+  sql_always_where: ${budget_year.start_year}>=datepart(yyyy, getdate())-3 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12;;
+  label: "Budgeted Expenditures"
   join: budget_fund {
     relationship: many_to_one
     type: inner
