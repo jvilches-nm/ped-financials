@@ -94,13 +94,13 @@ view: stars_districts {
     sql: ${TABLE}.district_name ;;
     link: {
       label: "District Profile"
-      url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
+      url: "/embed/dashboards-next/65?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
       #url: "https://nmpedpublic.cloud.looker.com/dashboards-next/30?Select%20FY=&District%20School:= {{ value }}"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
       label: "Map"
-      url: "https://openbooks.ped.nm.gov/map-of-schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/21?District:={{ value }}&School%20Type="
+      url: "/embed/dashboards-next/63?District:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
     }
