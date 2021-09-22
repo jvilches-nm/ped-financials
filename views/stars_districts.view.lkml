@@ -103,6 +103,7 @@ view: stars_districts {
       url: "/embed/dashboards-next/63?District:={{ value }}&School%20Type="
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/map-marked-alt-solid.png"
     }
+    drill_fields: [stars_locations.school_name]
     }
 
   dimension: district_office_latitude {

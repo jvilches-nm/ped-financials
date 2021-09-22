@@ -77,6 +77,7 @@ view: coa_fund_hierarchy {
     label: "Fund Name"
     sql: ${TABLE}.lvl4_fundname ;;
   }
+
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
@@ -93,6 +94,6 @@ view: coa_fund_hierarchy {
               WHEN left(${child_fund_code}, 1) = '3' then 'Capital Project'
               WHEN left(${child_fund_code}, 1) = '4' then 'Debt Service'
               ELSE 'Other' END;;
-    drill_fields: [fund_code, fund_name, coa_object_hierarchy.object_code, coa_object_hierarchy.object_name, coa_object_hierarchy_revenue.object_code, coa_object_hierarchy.object_name]
+    drill_fields: [fund_name]
   }
 }

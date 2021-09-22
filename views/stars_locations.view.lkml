@@ -22,6 +22,7 @@ view: stars_locations {
     type: string
     hidden: no
     sql: ${TABLE}.district_name ;;
+    drill_fields: [School_name]
   }
 
   dimension: district_type {

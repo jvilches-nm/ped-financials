@@ -2,6 +2,10 @@ view: actuals_revenue_line {
   sql_table_name: Actuals.ActualsLine ;;
   label: "Actual Revenue"
 
+  set: fund_and_object_codes {
+    fields: [coa_fund_hierarchy.fund_code, coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_code,
+      coa_object_hierarchy_revenue.object_name, amount]
+  }
 
   measure: amount {
     type: sum
@@ -9,6 +13,7 @@ view: actuals_revenue_line {
     description: "Actual amount received in revenue"
     value_format: "$#,##0"
     sql: ${TABLE}.Amount ;;
+    drill_fields: [fund_and_object_codes*]
   }
   dimension_group: effective {
     type: time
@@ -27,7 +32,6 @@ view: actuals_revenue_line {
   measure: encumbrance {
     type: sum
     hidden: yes
-    value_format: "$#,##0"
     sql: ${TABLE}.Encumbrance ;;
   }
   dimension_group: entry {

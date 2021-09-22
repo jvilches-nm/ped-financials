@@ -2,6 +2,12 @@ view: budget_expenditures_line {
   sql_table_name: dbo.BudgetLine ;;
   label: "Budgeted Expenditures"
 
+  set: ucoa_codes {
+    fields: [coa_fund_hierarchy.fund_code, coa_fund_hierarchy.fund_name, coa_object_hierarchy.object_code,
+      coa_object_hierarchy.object_name, coa_function_hierarchy.function_code, coa_function_hierarchy.function_name, coa_job_class.job_code,
+      coa_job_class.job_name, coa_program_hierarchy.program_code, coa_program_hierarchy.program_name, budget_amount]
+  }
+
   measure: adjustment_amount {
     type: sum
     hidden: yes
@@ -111,6 +117,7 @@ view: budget_expenditures_line {
     label: "Budgeted Expenditures"
     value_format: "$#,##0"
     sql: ${TABLE}.ProjectedAmt ;;
+    drill_fields: [ucoa_codes*]
   }
 
   dimension: budget_fte {
