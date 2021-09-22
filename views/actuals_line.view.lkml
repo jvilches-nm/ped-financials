@@ -36,7 +36,9 @@ set: ucoa_codes {
     hidden: no
     value_format: "$#,##0"
     sql: ${TABLE}.Encumbrance ;;
-  }
+    drill_fields: [ucoa_codes*]
+    }
+
   dimension_group: entry {
     type: time
     hidden: yes
