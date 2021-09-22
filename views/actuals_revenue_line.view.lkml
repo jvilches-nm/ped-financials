@@ -24,9 +24,10 @@ view: actuals_revenue_line {
     ]
     sql: ${TABLE}.EffectiveDate ;;
   }
-  dimension: encumbrance {
-    type: string
+  measure: encumbrance {
+    type: sum
     hidden: yes
+    value_format: "$#,##0"
     sql: ${TABLE}.Encumbrance ;;
   }
   dimension_group: entry {

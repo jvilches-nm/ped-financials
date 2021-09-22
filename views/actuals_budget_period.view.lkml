@@ -3,7 +3,7 @@ view: actuals_budget_period {
 
   dimension: cash_total {
     type: string
-    hidden:  no
+    hidden:  yes
     sql: ${TABLE}.CashTotal ;;
   }
 
@@ -15,7 +15,7 @@ view: actuals_budget_period {
 
   dimension: expenditure_total {
     type: string
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.ExpenditureTotal ;;
   }
 
@@ -33,7 +33,7 @@ view: actuals_budget_period {
 
   dimension: fk_budget {
     type: number
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.fkBudget ;;
   }
 
@@ -45,7 +45,7 @@ view: actuals_budget_period {
 
   dimension: ftetotal {
     type: number
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.FTETotal ;;
   }
 
@@ -73,7 +73,7 @@ view: actuals_budget_period {
 
   dimension: revenue_total {
     type: string
-    hidden: no
+    hidden: yes
     sql: ${TABLE}.RevenueTotal ;;
   }
 

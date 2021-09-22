@@ -1,6 +1,6 @@
 view: budget_line {
   sql_table_name: dbo.BudgetLine ;;
-  label: "Revenue"
+  label: "Budgeted Revenue"
 
   measure: adjustment_amount {
     type: sum
@@ -29,6 +29,7 @@ view: budget_line {
   measure: final_amount {
     label: "Initial Budget Amount"
     type: sum
+    hidden: yes
     value_format: "$#,##0"
     sql: ${TABLE}.FinalAmount ;;
   }
@@ -108,7 +109,7 @@ view: budget_line {
 
   measure: projected_amt {
     type: sum
-    label: "Budget Amount"
+    label: "Budgeted Revenue"
     value_format: "$#,##0"
     sql: ${TABLE}.ProjectedAmt ;;
   }

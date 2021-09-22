@@ -76,6 +76,6 @@ view: coa_object_hierarchy {
               WHEN left(${object_code}, 2) = '57' THEN 'Property'
               WHEN left(${object_code}, 2) = '58' THEN 'Debt Service'
               ELSE 'Other' END;;
-    drill_fields: [parent_object_name]
+    drill_fields: [object_code, object_name]
   }
 }

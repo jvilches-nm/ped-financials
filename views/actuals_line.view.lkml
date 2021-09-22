@@ -5,7 +5,7 @@ view: actuals_line {
 
   measure: amount {
     type: sum
-    label: "Spending"
+    label: "Actual Expenditures"
     description: "Actual amount spent"
     value_format: "$#,##0"
     sql: ${TABLE}.Amount ;;
@@ -24,9 +24,11 @@ view: actuals_line {
     ]
     sql: ${TABLE}.EffectiveDate ;;
   }
-  dimension: encumbrance {
-    type: string
-    hidden: yes
+  measure: encumbrance {
+    type: sum
+    description: "Actual encumbrance - amounts promised but not yet actually paid"
+    hidden: no
+    value_format: "$#,##0"
     sql: ${TABLE}.Encumbrance ;;
   }
   dimension_group: entry {
