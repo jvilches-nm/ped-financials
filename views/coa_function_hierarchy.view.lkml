@@ -35,12 +35,12 @@ view: coa_function_hierarchy {
   }
   dimension: function_code {
     type: string
-    label: "Detail Code"
+    label: "Function Code"
     sql: ${TABLE}.lvl2_code ;;
   }
   dimension: function_name {
     type: string
-    label: "Detail Name"
+    label: "Function Name"
     sql: ${TABLE}.lvl2_name ;;
   }
 }

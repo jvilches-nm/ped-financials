@@ -66,7 +66,7 @@ view: coa_job_class {
     type: string
     label: "Job Category Name"
     sql: ${TABLE}.job_category_name ;;
-    drill_fields: [name]
+    drill_fields: [job_name]
   }
 
   dimension: job_rollup_name {
@@ -100,7 +100,7 @@ view: coa_job_class {
     sql: ${TABLE}.ModifiedDate ;;
   }
 
-  dimension: name {
+  dimension: job_name {
     type: string
     label: "Job Name"
     sql: ${TABLE}.Name ;;
