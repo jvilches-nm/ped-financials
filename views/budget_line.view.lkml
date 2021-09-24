@@ -117,6 +117,7 @@ view: budget_line {
     label: "Budgeted Revenue"
     value_format: "$#,##0"
     sql: ${TABLE}.ProjectedAmt ;;
+    drill_fields: [fund_and_object_codes*]
   }
 
   measure: projected_fte {
