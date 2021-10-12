@@ -34,37 +34,31 @@ view: coa_fund_hierarchy {
   dimension: parent_fund_code {
     type: string
     hidden: yes
-    label: "Level 1 Fund Code"
     sql: ${TABLE}.lvl1_fundcode ;;
   }
   dimension: parent_fund_name {
     type: string
     hidden: yes
-    label: "Level 1 Fund Name"
     sql: ${TABLE}.lvl1_fundname ;;
   }
   dimension: child_fund_code {
     type: string
-    label: "Rollup Code"
     hidden: yes
     sql: ${TABLE}.lvl2_fundcode ;;
   }
   dimension: child_fund_name {
     type: string
-    label: "Rollup Name"
     hidden: yes
     sql: ${TABLE}.lvl2_fundname ;;
   }
   dimension: lvl3_fund_code {
     type: string
     hidden: yes
-    label: "Level 3 Fund Code"
     sql: ${TABLE}.lvl3_fundcode ;;
   }
   dimension: lvl3_fund_name {
     type: string
     hidden: yes
-    label: "Level 3 Fund Name"
     sql: ${TABLE}.lvl3_fundname ;;
   }
   dimension: fund_code {
@@ -81,18 +75,18 @@ view: coa_fund_hierarchy {
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
-    sql: CASE WHEN left(${child_fund_code}, 2) = '24' THEN 'Federal Grants'
-              WHEN left(${child_fund_code}, 2) = '25' THEN 'Federal Grants'
-              WHEN left(${child_fund_code}, 2) = '27' then 'State Grants'
-              WHEN left(${child_fund_code}, 2) = '28' then 'State Grants'
-              WHEN left(${child_fund_code}, 2) = '29' then 'State/Local Grants'
-              WHEN left(${child_fund_code}, 2) = '26' then 'Local Grants'
-              WHEN left(${child_fund_code}, 1) = '1' then 'General Fund'
-              WHEN left(${child_fund_code}, 2) = '21' then 'Food Services'
-              WHEN left(${child_fund_code}, 2) = '22' then 'Athletics'
-              WHEN left(${child_fund_code}, 2) = '23' then 'Non-Instructional Support'
-              WHEN left(${child_fund_code}, 1) = '3' then 'Capital Project'
-              WHEN left(${child_fund_code}, 1) = '4' then 'Debt Service'
+    sql: CASE WHEN left(${fund_code}, 2) = '24' THEN 'Federal Grants'
+              WHEN left(${fund_code}, 2) = '25' THEN 'Federal Grants'
+              WHEN left(${fund_code}, 2) = '27' then 'State Grants'
+              WHEN left(${fund_code}, 2) = '28' then 'State Grants'
+              WHEN left(${fund_code}, 2) = '29' then 'State/Local Grants'
+              WHEN left(${fund_code}, 2) = '26' then 'Local Grants'
+              WHEN left(${fund_code}, 1) = '1' then 'General Fund'
+              WHEN left(${fund_code}, 2) = '21' then 'Food Services'
+              WHEN left(${fund_code}, 2) = '22' then 'Athletics'
+              WHEN left(${fund_code}, 2) = '23' then 'Non-Instructional Support'
+              WHEN left(${fund_code}, 1) = '3' then 'Capital Project'
+              WHEN left(${fund_code}, 1) = '4' then 'Debt Service'
               ELSE 'Other' END;;
     drill_fields: [fund_name]
   }

@@ -17,7 +17,6 @@ view: coa_job_class {
   dimension: description {
     type: string
     hidden: yes
-    label: "Job Description"
     sql: ${TABLE}.Description ;;
   }
 
@@ -81,7 +80,6 @@ view: coa_job_class {
   }
   dimension: job_category_description {
     type: string
-    label: "Category Description"
     hidden: yes
     sql: ${TABLE}.job_category_description ;;
   }

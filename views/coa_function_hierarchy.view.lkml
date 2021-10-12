@@ -23,7 +23,6 @@ view: coa_function_hierarchy {
   }
   dimension: lvl1_code {
     type: string
-    label: "Function Rollup Code"
     hidden: yes
     sql: ${TABLE}.lvl1_code ;;
   }
