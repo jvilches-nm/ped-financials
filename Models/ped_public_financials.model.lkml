@@ -74,6 +74,11 @@ explore: actuals_revenue_line {
     type: left_outer
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
   }
+  join: rec_names {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+  }
 }
 
 explore: actuals_line {
@@ -156,6 +161,11 @@ explore: actuals_line {
     type: left_outer
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
   }
+join: rec_names {
+  relationship: many_to_one
+  type: left_outer
+  sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+}
 }
 
 explore: budget_line {
@@ -218,6 +228,11 @@ explore: budget_line {
     type: left_outer
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
   }
+join: rec_names {
+  relationship: many_to_one
+  type: left_outer
+  sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+}
 }
 
 explore: budget_expenditures_line {
@@ -294,6 +309,11 @@ explore: budget_expenditures_line {
     type: left_outer
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
   }
+join: rec_names {
+  relationship: many_to_one
+  type: left_outer
+  sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+}
 }
 
 explore: stars_locations {
@@ -302,9 +322,14 @@ explore: stars_locations {
     relationship: many_to_one
     type: left_outer
     sql_on: ${stars_locations.district_id}=${stars_districts.district_id}
-    and ${stars_locations.location_year}=${stars_districts.location_year}
-    ;;
-  }}
+    and ${stars_locations.location_year}=${stars_districts.location_year};;
+    }
+  join: rec_member_districts {
+    relationship: one_to_one
+    type:  left_outer
+    sql_on: ${stars_districts.district_id}=${rec_member_districts.member_district_code} and ${stars_districts.location_year}=${rec_member_districts.fiscal_year};;
+  }
+  }
 
   map_layer: my_neighborhood_layer {
     file: "/Map_Shapefiles/dist_school_map.topojson"
