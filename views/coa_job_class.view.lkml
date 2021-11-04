@@ -59,12 +59,12 @@ view: coa_job_class {
   dimension: job_category_code {
     type: string
     label: "Job Category Code"
-    sql: ${TABLE}.job_category_code ;;
+    sql: case when ${TABLE}.job_category_code is null then 'Not Specified' else ${TABLE}.job_category_code end ;;
   }
   dimension: job_category_name {
     type: string
     label: "Job Category Name"
-    sql: ${TABLE}.job_category_name ;;
+    sql: case when ${TABLE}.job_category_name is null then 'Not Specified' else ${TABLE}.job_category_name end ;;
     drill_fields: [job_name]
   }
 
@@ -75,7 +75,7 @@ view: coa_job_class {
               WHEN ${job_category_code}='OT' then 'Other Professionals'
               WHEN ${job_category_code}='IA' then 'Assistants'
               WHEN ${job_category_code}='AD' then 'Administrators'
-              WHEN ${job_category_code} is null then 'Not Specified'
+              WHEN ${job_category_code}='Not Specified' then 'Not Specified'
               ELSE 'Support' END ;;
     drill_fields: [job_category_name]
   }
