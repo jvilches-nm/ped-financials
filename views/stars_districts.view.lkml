@@ -316,7 +316,7 @@ view: stars_districts {
     link: {
       label: "District Profile"
       #url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
-      url: "/embed/dashboards-next/65?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
+      url: "/embed/dashboards-next/65?District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
@@ -362,7 +362,7 @@ view: stars_districts {
     link: {
       label: "District Profile"
       #url: "https://openbooks.ped.nm.gov/districts/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/30?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
-      url: "/embed/dashboards-next/65?Select%20District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
+      url: "/embed/dashboards-next/65?District:={{ value }}&Select%20FY=2020-2021&District%20Type=State%20District"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/city-solid.png"
     }
     link: {
