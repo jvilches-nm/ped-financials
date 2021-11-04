@@ -18,7 +18,7 @@ view: stars_locations {
   }
 
   dimension: district_name {
-    label: "District School:"
+    label: "District Name:"
     type: string
     hidden: no
     sql: ${TABLE}.district_name ;;
@@ -214,7 +214,7 @@ view: stars_locations {
     sql: ${TABLE}.location_phone ;;
   }
 
-  measure:  schhol_count{
+  measure:  school_count{
     label: "No. of Schools"
     type: count_distinct
     sql: ${TABLE}.location_name ;;

@@ -17,12 +17,12 @@ view: coa_program_hierarchy {
   }
   dimension: program_code {
     type: string
-    label: "Code"
+    label: "Program Code"
     sql: ${TABLE}.lvl2_code ;;
   }
   dimension: program_name {
     type: string
-    label: "Name"
+    label: "Program Name"
     sql: ${TABLE}.lvl2_name ;;
   }
 

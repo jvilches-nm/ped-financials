@@ -75,6 +75,7 @@ view: coa_job_class {
               WHEN ${job_category_code}='OT' then 'Other Professionals'
               WHEN ${job_category_code}='IA' then 'Assistants'
               WHEN ${job_category_code}='AD' then 'Administrators'
+              WHEN ${job_category_code} is null then 'Not Specified'
               ELSE 'Support' END ;;
     drill_fields: [job_category_name]
   }
