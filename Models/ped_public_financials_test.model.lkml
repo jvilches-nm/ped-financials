@@ -2,7 +2,7 @@ connection: "obms-reporting-test"
 
 # include all the views
 include: "/views/**/*.view"
-include: "/**/state_dashboard_test.dashboard"
+include: "/**/*_test.dashboard"
 
 datagroup: ped_public_financials_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;

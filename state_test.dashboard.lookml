@@ -1,37 +1,8 @@
-- dashboard: state_level_dashboard__test
-  title: State Level Dashboard - test
+- dashboard: state_test
+  title: State Dashboard TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Revenue
-    name: Revenue
-    model: ped_public_financials_test
-    explore: budget_line
-    type: single_value
-    fields: [budget_line.projected_amt]
-    filters:
-      entity_year.parent_type: School District,State Charter School,Regional Education
-        Cooperative
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#9B2030"
-    single_value_title: Budgeted Revenue
-    value_format: ''
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 2
-    col: 0
-    width: 6
-    height: 3
   - title: Spending
     name: Spending
     model: ped_public_financials_test
@@ -54,8 +25,8 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 5
-    col: 6
+    row: 9
+    col: 0
     width: 7
     height: 2
   - title: Actual Expenditures by Object
@@ -68,14 +39,6 @@
     limit: 500
     value_labels: labels
     label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    series_colors:
-      Property: "#e6e6e6"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -83,7 +46,7 @@
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: true
+    show_x_axis_label: false
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
@@ -94,7 +57,7 @@
     limit_displayed_rows: false
     legend_position: center
     point_style: circle
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -103,20 +66,26 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
+      options:
+        steps: 5
+        reverse: true
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
+        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
     series_types: {}
+    series_colors:
+      Property: "#e6e6e6"
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 78
+    row: 64
     col: 12
     width: 12
-    height: 10
+    height: 9
   - title: Students by Location Type
     name: Students by Location Type
     model: ped_public_financials_test
@@ -182,7 +151,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 14
+    row: 15
     col: 15
     width: 9
     height: 8
@@ -207,10 +176,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 9
-    col: 0
-    width: 6
-    height: 3
+    row: 3
+    col: 16
+    width: 8
+    height: 2
   - title: District Schools
     name: District Schools
     model: ped_public_financials_test
@@ -267,7 +236,7 @@
     series_types: {}
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 6
+    row: 7
     col: 20
     width: 4
     height: 2
@@ -276,7 +245,7 @@
     title_text: Schools/Students
     subtitle_text: ''
     body_text: ''
-    row: 12
+    row: 13
     col: 0
     width: 24
     height: 2
@@ -302,8 +271,8 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 8
-    col: 20
+    row: 9
+    col: 16
     width: 4
     height: 2
   - title: Local Charters
@@ -329,7 +298,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 10
+    row: 9
     col: 20
     width: 4
     height: 2
@@ -385,8 +354,8 @@
     series_types: {}
     listen:
       Fiscal Year: stars_districts.location_year
-    row: 4
-    col: 20
+    row: 7
+    col: 16
     width: 4
     height: 2
   - title: RECs
@@ -440,16 +409,16 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 2
-    col: 20
-    width: 4
+    row: 11
+    col: 16
+    width: 8
     height: 2
-  - name: Revenue (2)
+  - name: Revenue
     type: text
     title_text: Revenue
     subtitle_text: ''
     body_text: ''
-    row: 22
+    row: 23
     col: 0
     width: 24
     height: 2
@@ -492,7 +461,7 @@
     totals_color: "#808080"
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: c80fe9b3-6c8e-48c6-891b-c9107bae6f6d
+      palette_id: 5b289dc9-1446-49e6-ab05-ba239a94b7a9
       options:
         steps: 5
     y_axes: [{label: '', orientation: left, series: [{axisId: stars_locations.pk_pop,
@@ -511,9 +480,7 @@
             id: stars_locations.g11_pop, name: G11}, {axisId: stars_locations.g12_pop,
             id: stars_locations.g12_pop, name: G12}], showLabels: false, showValues: true,
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_colors:
-      stars_locations.g5_pop: "#ebe5d6"
-      stars_locations.g6_pop: "#dfe8e8"
+    series_colors: {}
     series_labels:
       stars_locations.pk_pop: Pre-K
       stars_locations.kf_pop: K
@@ -532,73 +499,16 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 14
+    row: 15
     col: 0
     width: 15
     height: 8
-  - title: Budgeted Revenue by Fund
-    name: Budgeted Revenue by Fund
-    model: ped_public_financials_test
-    explore: budget_line
-    type: looker_pie
-    fields: [coa_fund_hierarchy.fund_group, budget_line.projected_amt]
-    sorts: [budget_line.projected_amt desc]
-    limit: 500
-    value_labels: labels
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
-      options:
-        steps: 5
-        reverse: true
-    series_colors:
-      budget_line.projected_amt: "#853955"
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: budget_line.projected_amt,
-            id: budget_line.projected_amt, name: Budget Amount}], showLabels: false,
-        showValues: true, valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 24
-    col: 0
-    width: 12
-    height: 12
   - name: Expenditures
     type: text
     title_text: Expenditures
     subtitle_text: ''
     body_text: ''
-    row: 36
+    row: 35
     col: 0
     width: 24
     height: 2
@@ -653,10 +563,10 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 38
+    row: 37
     col: 12
     width: 12
-    height: 7
+    height: 9
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
     model: ped_public_financials_test
@@ -674,6 +584,7 @@
       options:
         steps: 5
         reverse: true
+    series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -715,52 +626,10 @@
     conditional_formatting_include_nulls: false
     listen:
       Fiscal Year: budget_year.year_name
-    row: 45
+    row: 46
     col: 12
     width: 12
-    height: 10
-  - name: Avg Spending per Student
-    title: Avg Spending per Student
-    merged_queries:
-    - model: ped_public_financials_test
-      explore: actuals_line
-      type: table
-      fields: [actuals_line.amount, budget_year.year_name]
-      sorts: [actuals_line.amount desc]
-      limit: 500
-    - model: ped_public_financials_test
-      explore: stars_locations
-      type: table
-      fields: [stars_districts.total_student_pop, stars_districts.location_year]
-      sorts: [stars_districts.total_student_pop desc]
-      limit: 500
-      join_fields:
-      - field_name: stars_districts.location_year
-        source_field_name: budget_year.year_name
-    custom_color_enabled: true
-    show_single_value_title: true
-    single_value_title: Avg Spending per Student
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [stars_districts.total_student_pop, actuals_line.amount, budget_year.year_name]
-    type: single_value
-    series_types: {}
-    sorts: [stars_districts.total_student_pop desc]
-    dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
-          per Student, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    listen:
-    - Fiscal Year: budget_year.year_name
-    - Fiscal Year: stars_locations.location_year
-    row: 9
-    col: 6
-    width: 7
-    height: 3
+    height: 9
   - name: Districts
     title: Districts
     merged_queries:
@@ -768,20 +637,49 @@
       explore: stars_locations
       type: table
       fields: [stars_districts.location_year, stars_districts.district_name, stars_districts.district_size,
-        stars_locations.count, stars_districts.total_student_pop]
+        stars_locations.count, stars_districts.public_student_pop]
       filters:
         stars_districts.district_type: State District
-        stars_locations.location_type: Charter School,District School
-      sorts: [stars_locations.count desc]
+        stars_locations.location_type: District School
+      sorts: [stars_districts.district_name]
       limit: 500
     - model: ped_public_financials_test
       explore: actuals_line
-      type: table
+      type: looker_column
       fields: [stars_districts.district_name, budget_year.year_name, actuals_line.amount]
       filters:
         stars_districts.district_type: State District
+        stars_locations.location_type: "-Charter School"
       sorts: [actuals_line.amount desc]
       limit: 500
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -793,6 +691,7 @@
       fields: [actuals_revenue_line.amount, stars_districts.district_name, budget_year.year_name]
       filters:
         stars_districts.district_type: State District
+        stars_locations.location_type: "-Charter School"
       sorts: [actuals_revenue_line.amount desc]
       limit: 500
       join_fields:
@@ -814,6 +713,7 @@
       budget_expenditures_line.budget_amount: Budget
       actuals_line.amount: Actual Expenditures
       budget_line.projected_amt: Revenue
+      stars_districts.public_student_pop: Students
     series_column_widths:
       stars_districts.district_size: 98
       stars_locations.count: 80
@@ -850,7 +750,7 @@
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
-    row: 90
+    row: 83
     col: 0
     width: 12
     height: 6
@@ -860,7 +760,8 @@
     - model: ped_public_financials_test
       explore: stars_locations
       type: table
-      fields: [stars_districts.location_year, stars_locations.School_name_plain, stars_locations.student_pop]
+      fields: [stars_districts.location_year, stars_locations.School_name_plain, stars_locations.student_pop,
+        stars_locations.location_type_name]
       filters:
         stars_locations.location_type: Charter School
       sorts: [stars_locations.student_pop desc]
@@ -905,14 +806,20 @@
       budget_expenditures_line.budget_amount: Budget
       actuals_line.amount: Actual Expenditures
       budget_line.projected_amt: Revenue
+      stars_locations.location_type_name: Charter Type
+      stars_locations.student_pop: Students
     series_column_widths:
       stars_districts.district_size: 98
       stars_locations.count: 80
       stars_districts.total_student_pop: 94
-      actuals_line.amount: 153
+      actuals_line.amount: 143
       budget_expenditures_line.budget_amount: 193
       stars_districts.district_name: 275.3299999999999
       budget_line.projected_amt: 159
+      stars_locations.student_pop: 84
+      stars_locations.School_name_plain: 314
+      charter: 76
+      actuals_revenue_line.amount: 119
     series_cell_visualizations:
       stars_locations.count:
         is_active: false
@@ -935,22 +842,378 @@
     conditional_formatting_include_nulls: false
     type: looker_grid
     series_types: {}
-    hidden_fields: [stars_districts.location_year]
+    hidden_fields: [stars_districts.location_year, stars_locations.location_type_name]
+    hide_totals: false
+    hide_row_totals: false
+    query_fields:
+      measures:
+      - align: right
+        can_filter: false
+        category: measure
+        default_filter_value:
+        description:
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: true
+        label: Stars Locations Student Pop
+        label_from_parameter:
+        label_short: Student Pop
+        map_layer:
+        name: stars_locations.student_pop
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: sum
+        user_attribute_filter_types:
+        - number
+        - advanced_filter_number
+        value_format:
+        view: stars_locations
+        view_label: Stars Locations
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: Student Pop
+        measure: true
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: stars_locations
+        suggest_dimension: stars_locations.student_pop
+        suggest_explore: stars_locations
+        suggestable: false
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=309"
+        permanent: true
+        source_file: views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        sql: "${TABLE}.student_pop "
+        sql_case:
+        filters:
+        aggregate: true
+      - align: right
+        can_filter: false
+        category: measure
+        default_filter_value:
+        description: Actual amount spent
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: true
+        label: Actual Expenditures Actual Expenditures
+        label_from_parameter:
+        label_short: Actual Expenditures
+        map_layer:
+        name: actuals_line.amount
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: sum
+        user_attribute_filter_types:
+        - number
+        - advanced_filter_number
+        value_format: "$#,##0"
+        view: actuals_line
+        view_label: Actual Expenditures
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: Actual Expenditures
+        measure: true
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: actuals_line
+        suggest_dimension: actuals_line.amount
+        suggest_explore: actuals_line
+        suggestable: false
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Factuals_line.view.lkml?line=10"
+        permanent: true
+        source_file: views/actuals_line.view.lkml
+        source_file_path: ped_public_financials_test/views/actuals_line.view.lkml
+        sql: "${TABLE}.Amount "
+        sql_case:
+        filters:
+        aggregate: true
+      - align: right
+        can_filter: false
+        category: measure
+        default_filter_value:
+        description: Actual amount received in revenue
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: true
+        label: Actual Revenue Actual Revenue
+        label_from_parameter:
+        label_short: Actual Revenue
+        map_layer:
+        name: actuals_revenue_line.amount
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: sum
+        user_attribute_filter_types:
+        - number
+        - advanced_filter_number
+        value_format: "$#,##0"
+        view: actuals_revenue_line
+        view_label: Actual Revenue
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: Actual Revenue
+        measure: true
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: actuals_revenue_line
+        suggest_dimension: actuals_revenue_line.amount
+        suggest_explore: actuals_revenue_line
+        suggestable: false
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Factuals_revenue_line.view.lkml?line=10"
+        permanent: true
+        source_file: views/actuals_revenue_line.view.lkml
+        source_file_path: ped_public_financials_test/views/actuals_revenue_line.view.lkml
+        sql: "${TABLE}.Amount "
+        sql_case:
+        filters:
+        aggregate: true
+      dimensions:
+      - align: left
+        can_filter: false
+        category: dimension
+        default_filter_value:
+        description:
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: false
+        label: Stars Districts Location Year
+        label_from_parameter:
+        label_short: Location Year
+        map_layer:
+        name: stars_districts.location_year
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: string
+        user_attribute_filter_types:
+        - string
+        - advanced_filter_string
+        value_format:
+        view: stars_districts
+        view_label: Stars Districts
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: Location Year
+        measure: false
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: stars_districts
+        suggest_dimension: stars_districts.location_year
+        suggest_explore: stars_locations
+        suggestable: true
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_districts.view.lkml?line=130"
+        permanent: true
+        source_file: views/stars_districts.view.lkml
+        source_file_path: ped_public_financials_test/views/stars_districts.view.lkml
+        sql: "${TABLE}.location_year "
+        sql_case:
+        filters:
+      - align: left
+        can_filter: false
+        category: dimension
+        default_filter_value:
+        description:
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: false
+        label: Stars Locations School Name
+        label_from_parameter:
+        label_short: School Name
+        map_layer:
+        name: stars_locations.School_name_plain
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: string
+        user_attribute_filter_types:
+        - string
+        - advanced_filter_string
+        value_format:
+        view: stars_locations
+        view_label: Stars Locations
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: School Name
+        measure: false
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: stars_locations
+        suggest_dimension: stars_locations.School_name_plain
+        suggest_explore: stars_locations
+        suggestable: true
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=146"
+        permanent: true
+        source_file: views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        sql: "${TABLE}.location_name "
+        sql_case:
+        filters:
+        sorted:
+          desc: false
+          sort_index: 0
+      - align: left
+        can_filter: false
+        category: dimension
+        default_filter_value:
+        description:
+        enumerations:
+        field_group_label:
+        fill_style:
+        fiscal_month_offset: 0
+        has_allowed_values: false
+        hidden: false
+        is_filter: false
+        is_numeric: false
+        label: Stars Locations Location Type Name
+        label_from_parameter:
+        label_short: Location Type Name
+        map_layer:
+        name: stars_locations.location_type_name
+        strict_value_format: false
+        requires_refresh_on_sort: false
+        sortable: true
+        suggestions:
+        tags: []
+        type: string
+        user_attribute_filter_types:
+        - string
+        - advanced_filter_string
+        value_format:
+        view: stars_locations
+        view_label: Stars Locations
+        dynamic: false
+        week_start_day: monday
+        dimension_group:
+        error:
+        field_group_variant: Location Type Name
+        measure: false
+        parameter: false
+        primary_key: false
+        project_name: ped_public_financials_test
+        scope: stars_locations
+        suggest_dimension: stars_locations.location_type_name
+        suggest_explore: stars_locations
+        suggestable: true
+        is_fiscal: false
+        is_timeframe: false
+        can_time_filter: false
+        time_interval:
+        lookml_link: "/projects/ped_public_financials_test/files/views%2Fstars_locations.view.lkml?line=233"
+        permanent: true
+        source_file: views/stars_locations.view.lkml
+        source_file_path: ped_public_financials_test/views/stars_locations.view.lkml
+        sql: |-
+          case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
+                        when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
+                        else ${location_type} end
+        sql_case:
+        filters:
+      table_calculations:
+      - label: Charter
+        name: charter
+        expression: replace(${stars_locations.location_type_name}, " Charter School",
+          "")
+        can_pivot: false
+        sortable: true
+        type: string
+        align: left
+        measure: false
+        is_table_calculation: true
+        dynamic: true
+        value_format:
+        pivoted: false
+      pivots: []
     sorts: [stars_locations.School_name_plain]
+    dynamic_fields: [{table_calculation: charter, label: Charter, expression: 'replace(${stars_locations.location_type_name},
+          " Charter School", "")', value_format: !!null '', value_format_name: !!null '',
+        _kind_hint: dimension, _type_hint: string}]
     listen:
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
-    row: 90
+    row: 83
     col: 12
     width: 12
     height: 6
-  - name: Districts/State Charters
+  - name: Districts/Charters
     type: text
-    title_text: Districts/State Charters
+    title_text: Districts/Charters
     subtitle_text: ''
     body_text: ''
-    row: 88
+    row: 81
     col: 0
     width: 24
     height: 2
@@ -958,10 +1221,19 @@
     name: Actual Expenditures by Function
     model: ped_public_financials_test
     explore: actuals_line
-    type: looker_bar
+    type: looker_pie
     fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name]
     sorts: [actuals_line.amount desc]
     limit: 500
+    value_labels: labels
+    label_type: labPer
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
+      options:
+        steps: 5
+        reverse: true
+    series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -994,43 +1266,13 @@
         valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     series_types: {}
-    series_colors:
-      actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 66
+    row: 55
     col: 12
     width: 12
-    height: 12
-  - title: Budgeted Expenditures
-    name: Budgeted Expenditures
-    model: ped_public_financials_test
-    explore: budget_expenditures_line
-    type: single_value
-    fields: [budget_expenditures_line.budget_amount]
-    filters:
-      entity_year.parent_type: Regional Education Cooperative,School District,State
-        Charter School
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#E87F2F"
-    single_value_title: Budgeted Expenditures
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 5
-    col: 0
-    width: 6
-    height: 4
+    height: 9
   - title: Actual Revenue
     name: Actual Revenue
     model: ped_public_financials_test
@@ -1052,10 +1294,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 2
-    col: 6
+    row: 7
+    col: 0
     width: 7
-    height: 3
+    height: 2
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
     model: ped_public_financials_test
@@ -1068,10 +1310,10 @@
     label_type: labPer
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
       options:
         steps: 5
-        reverse: true
+        reverse: false
     series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1108,69 +1350,22 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 24
+    row: 25
     col: 12
     width: 12
-    height: 12
-  - title: Budgeted Expenditures by Function
-    name: Budgeted Expenditures by Function
-    model: ped_public_financials_test
-    explore: budget_expenditures_line
-    type: looker_bar
-    fields: [coa_function_hierarchy.rollup_function_name, budget_expenditures_line.budget_amount]
-    sorts: [budget_expenditures_line.budget_amount desc]
-    limit: 500
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: budget_expenditures_line.budget_amount,
-            id: budget_expenditures_line.budget_amount, name: Budget Amount}], showLabels: false,
-        showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    series_colors:
-      budget_expenditures_line.budget_amount: "#E87F2F"
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 66
-    col: 0
-    width: 12
-    height: 12
+    height: 10
   - name: State Overview
     type: text
     title_text: State Overview
     subtitle_text: ''
-    body_text: Overview of state education finances - includes all students, all schools,
-      and the regional education cooperatives.
+    body_text: '###Overview of state education finances - includes all district and
+      charter students, all district and charter schools, and the regional education
+      cooperatives. To learn more about the data displayed or to find definitions
+      of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.'
     row: 0
     col: 0
     width: 24
-    height: 2
+    height: 3
   - title: Encumbrances
     name: Encumbrances
     model: ped_public_financials_test
@@ -1188,13 +1383,13 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     custom_color: "#3F6173"
-    single_value_title: Actual Encumbrances
+    single_value_title: Actual Expected Expenditures
     value_format: ''
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 7
-    col: 6
+    row: 11
+    col: 0
     width: 7
     height: 2
   - name: Revenue to Expenditures Comparison
@@ -1254,8 +1449,8 @@
       expenditure_to_revenue_ratio: "#000000"
       actuals_revenue_line.amount: "#9B8E20"
     series_labels:
-      expenditure_to_revenue_ratio: Percentage Expenditures & Encumbrance to Revenue
-      expenditure_and_encumbrance: Actual Expenditures & Encumbrance
+      expenditure_to_revenue_ratio: Percentage Expenditures to Revenue
+      expenditure_and_encumbrance: Actual & Expected Expenditures
     show_value_labels: true
     label_density: 25
     x_axis_scale: auto
@@ -1277,9 +1472,146 @@
     listen:
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
-    row: 2
-    col: 13
+    row: 3
+    col: 8
     width: 7
+    height: 10
+  - title: Actual Expenditures by Program
+    name: Actual Expenditures by Program
+    model: ped_public_financials_test
+    explore: actuals_line
+    type: looker_bar
+    fields: [coa_program_hierarchy.program_name, actuals_line.amount]
+    sorts: [actuals_line.amount desc]
+    limit: 500
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
+        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    series_colors:
+      actuals_line.amount: "#068993"
+    defaults_version: 1
+    series_types: {}
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 73
+    col: 12
+    width: 12
+    height: 8
+  - title: Budgeted Revenue
+    name: Budgeted Revenue
+    model: ped_public_financials_test
+    explore: budget_line
+    type: single_value
+    fields: [budget_line.projected_amt]
+    filters: {}
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#9B2030"
+    single_value_title: Budgeted Revenue
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 3
+    col: 0
+    width: 7
+    height: 2
+  - title: Budgeted Expenditures
+    name: Budgeted Expenditures
+    model: ped_public_financials_test
+    explore: budget_expenditures_line
+    type: single_value
+    fields: [budget_expenditures_line.budget_amount]
+    filters: {}
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#E87F2F"
+    single_value_title: Budgeted Expenditures
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 5
+    col: 0
+    width: 7
+    height: 2
+  - title: Budgeted Revenue by Fund
+    name: Budgeted Revenue by Fund
+    model: ped_public_financials_test
+    explore: budget_line
+    type: looker_pie
+    fields: [budget_line.projected_amt, coa_fund_hierarchy.fund_group]
+    filters: {}
+    sorts: [budget_line.projected_amt desc]
+    limit: 500
+    value_labels: labels
+    label_type: labPer
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      custom:
+        id: '0538926e-e532-5b02-733a-a926c2ae16a9'
+        label: Custom
+        type: continuous
+        stops:
+        - color: "#FFFFFF"
+          offset: 0
+        - color: "#c7726d"
+          offset: 50
+        - color: "#941f1a"
+          offset: 100
+      options:
+        steps: 5
+        reverse: true
+    series_colors: {}
+    series_types: {}
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 25
+    col: 0
+    width: 12
     height: 10
   - title: Budgeted Expenditures by Job
     name: Budgeted Expenditures by Job
@@ -1330,16 +1662,17 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 38
+    row: 37
     col: 0
     width: 12
-    height: 7
+    height: 9
   - title: Budgeted Expenditures by Fund
     name: Budgeted Expenditures by Fund
     model: ped_public_financials_test
     explore: budget_expenditures_line
     type: looker_pie
     fields: [budget_expenditures_line.budget_amount, coa_fund_hierarchy.fund_group]
+    filters: {}
     sorts: [budget_expenditures_line.budget_amount desc]
     limit: 500
     value_labels: labels
@@ -1350,47 +1683,87 @@
       options:
         steps: 5
         reverse: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
     series_types: {}
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 45
+    row: 46
     col: 0
     width: 12
-    height: 10
+    height: 9
+  - title: Budgeted Expenditures by Function
+    name: Budgeted Expenditures by Function
+    model: ped_public_financials_test
+    explore: budget_expenditures_line
+    type: looker_pie
+    fields: [budget_expenditures_line.budget_amount, coa_function_hierarchy.rollup_function_name]
+    filters: {}
+    sorts: [budget_expenditures_line.budget_amount desc]
+    limit: 500
+    value_labels: labels
+    label_type: labPer
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 9bba0279-71a4-410a-bd57-3afc0dfabaad
+      options:
+        steps: 5
+        reverse: true
+    series_types: {}
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 55
+    col: 0
+    width: 12
+    height: 9
+  - name: Avg Spending Per Student
+    title: Avg Spending Per Student
+    merged_queries:
+    - model: ped_public_financials_test
+      explore: actuals_line
+      type: table
+      fields: [actuals_line.amount, budget_year.year_name]
+      sorts: [budget_year.year_name desc]
+      limit: 500
+    - model: ped_public_financials_test
+      explore: stars_locations
+      type: table
+      fields: [stars_districts.location_year, stars_locations.student_pop]
+      sorts: [stars_locations.student_pop desc]
+      limit: 500
+      join_fields:
+      - field_name: stars_districts.location_year
+        source_field_name: budget_year.year_name
+    custom_color_enabled: true
+    show_single_value_title: true
+    single_value_title: Avg Spending per Student
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    hidden_fields: [actuals_line.amount, budget_year.year_name, stars_locations.student_pop]
+    type: single_value
+    series_types: {}
+    dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
+          per Student, expression: "${actuals_line.amount}/${stars_locations.student_pop}",
+        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
+    listen:
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: stars_locations.location_year
+    row: 5
+    col: 16
+    width: 8
+    height: 2
   - title: Budgeted Expenditures by Object
     name: Budgeted Expenditures by Object
     model: ped_public_financials_test
     explore: budget_expenditures_line
     type: looker_pie
     fields: [budget_expenditures_line.budget_amount, coa_object_hierarchy.object_group]
+    filters: {}
     sorts: [budget_expenditures_line.budget_amount desc]
     limit: 500
     value_labels: labels
@@ -1401,73 +1774,26 @@
       options:
         steps: 5
         reverse: true
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
     series_types: {}
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 78
+    row: 64
     col: 0
     width: 12
-    height: 10
-  - name: Budgeted & Actual Expenditures by Program
-    title: Budgeted & Actual Expenditures by Program
-    merged_queries:
-    - model: ped_public_financials_test
-      explore: budget_expenditures_line
-      type: table
-      fields: [budget_expenditures_line.budget_amount, coa_program_hierarchy.program_name]
-      filters:
-        coa_program_hierarchy.program_name: "-NULL"
-      sorts: [budget_expenditures_line.budget_amount desc]
-      limit: 500
-      hidden_fields: []
-    - model: ped_public_financials_test
-      explore: actuals_line
-      type: table
-      fields: [actuals_line.amount, coa_program_hierarchy.program_name]
-      filters:
-        coa_program_hierarchy.program_name: "-NULL"
-      sorts: [actuals_line.amount desc]
-      limit: 500
-      hidden_fields: []
-      join_fields:
-      - field_name: coa_program_hierarchy.program_name
-        source_field_name: coa_program_hierarchy.program_name
+    height: 9
+  - title: Budgeted Expenditures by Program
+    name: Budgeted Expenditures by Program
+    model: ped_public_financials_test
+    explore: budget_expenditures_line
+    type: looker_bar
+    fields: [budget_expenditures_line.budget_amount, coa_program_hierarchy.program_name]
+    filters: {}
+    sorts: [budget_expenditures_line.budget_amount desc]
+    limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
-    y_axes: [{label: '', orientation: left, series: [{axisId: budget_expenditures_line.budget_amount,
-            id: budget_expenditures_line.budget_amount, name: Budgeted Expenditures},
-          {axisId: actuals_line.amount, id: actuals_line.amount, name: Actual Expenditures}],
-        showLabels: false, showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
@@ -1483,8 +1809,6 @@
     limit_displayed_rows: false
     legend_position: center
     point_style: none
-    series_colors:
-      budget_expenditures_line.budget_amount: "#E87F2F"
     show_value_labels: true
     label_density: 25
     x_axis_scale: auto
@@ -1494,20 +1818,31 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    hidden_fields: []
-    type: looker_column
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 9bba0279-71a4-410a-bd57-3afc0dfabaad
+      options:
+        steps: 5
+        reverse: true
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: budget_expenditures_line.budget_amount,
+            id: budget_expenditures_line.budget_amount, name: Budgeted Expenditures}],
+        showLabels: false, showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false,
+        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    series_types: {}
+    value_labels: labels
+    label_type: labPer
+    defaults_version: 1
     listen:
-    - Fiscal Year: budget_year.year_name
-    - Fiscal Year: budget_year.year_name
-    row: 55
+      Fiscal Year: budget_year.year_name
+    row: 73
     col: 0
-    width: 24
-    height: 11
+    width: 12
+    height: 8
   filters:
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2020-2021
+    default_value: 2021-2022
     allow_multiple_values: true
     required: true
     ui_config:
