@@ -82,9 +82,9 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 45
+    row: 62
     col: 0
-    width: 12
+    width: 24
     height: 9
   - title: Students by Location Type
     name: Students by Location Type
@@ -508,7 +508,7 @@
     title_text: Expenditures
     subtitle_text: ''
     body_text: ''
-    row: 34
+    row: 33
     col: 0
     width: 24
     height: 2
@@ -563,9 +563,9 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 36
+    row: 35
     col: 0
-    width: 12
+    width: 24
     height: 9
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
@@ -626,9 +626,9 @@
     conditional_formatting_include_nulls: false
     listen:
       Fiscal Year: budget_year.year_name
-    row: 36
-    col: 12
-    width: 12
+    row: 44
+    col: 0
+    width: 24
     height: 9
   - name: Districts
     title: Districts
@@ -637,20 +637,49 @@
       explore: stars_locations
       type: table
       fields: [stars_districts.location_year, stars_districts.district_name, stars_districts.district_size,
-        stars_locations.count, stars_districts.total_student_pop]
+        stars_locations.count, stars_districts.public_student_pop]
       filters:
         stars_districts.district_type: State District
-        stars_locations.location_type: Charter School,District School
-      sorts: [stars_locations.count desc]
+        stars_locations.location_type: District School
+      sorts: [stars_districts.district_name]
       limit: 500
     - model: ped_public_financials
       explore: actuals_line
-      type: table
+      type: looker_column
       fields: [stars_districts.district_name, budget_year.year_name, actuals_line.amount]
       filters:
         stars_districts.district_type: State District
+        stars_locations.location_type: "-Charter School"
       sorts: [actuals_line.amount desc]
       limit: 500
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -662,6 +691,7 @@
       fields: [actuals_revenue_line.amount, stars_districts.district_name, budget_year.year_name]
       filters:
         stars_districts.district_type: State District
+        stars_locations.location_type: "-Charter School"
       sorts: [actuals_revenue_line.amount desc]
       limit: 500
       join_fields:
@@ -683,6 +713,7 @@
       budget_expenditures_line.budget_amount: Budget
       actuals_line.amount: Actual Expenditures
       budget_line.projected_amt: Revenue
+      stars_districts.public_student_pop: Students
     series_column_widths:
       stars_districts.district_size: 98
       stars_locations.count: 80
@@ -719,7 +750,7 @@
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
-    row: 64
+    row: 83
     col: 0
     width: 12
     height: 6
@@ -1173,16 +1204,16 @@
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
-    row: 64
+    row: 83
     col: 12
     width: 12
     height: 6
-  - name: Districts/State Charters
+  - name: Districts/Charters
     type: text
-    title_text: Districts/State Charters
+    title_text: Districts/Charters
     subtitle_text: ''
     body_text: ''
-    row: 62
+    row: 81
     col: 0
     width: 24
     height: 2
@@ -1238,9 +1269,9 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 45
-    col: 12
-    width: 12
+    row: 53
+    col: 0
+    width: 24
     height: 9
   - title: Actual Revenue
     name: Actual Revenue
@@ -1282,7 +1313,7 @@
       palette_id: 364b5000-be28-40e9-a495-81343e4830d5
       options:
         steps: 5
-        reverse: true
+        reverse: false
     series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1322,7 +1353,7 @@
     row: 24
     col: 0
     width: 24
-    height: 10
+    height: 9
   - name: State Overview
     type: text
     title_text: State Overview
@@ -1442,8 +1473,8 @@
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
     row: 3
-    col: 8
-    width: 7
+    col: 7
+    width: 9
     height: 9
   - title: Actual Expenditures by Program
     name: Actual Expenditures by Program
@@ -1490,10 +1521,10 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 54
+    row: 71
     col: 0
     width: 24
-    height: 8
+    height: 10
   filters:
   - name: Fiscal Year
     title: Fiscal Year
