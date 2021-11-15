@@ -1,4 +1,4 @@
-- dashboard: school_comparison
+- dashboard: school_comp
   title: School Comparison
   layout: newspaper
   preferred_viewer: dashboards-next
