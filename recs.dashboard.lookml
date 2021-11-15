@@ -1,4 +1,4 @@
-- dashboard: recs_dashboard
+- dashboard: recs
   title: RECs Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next

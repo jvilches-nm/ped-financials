@@ -959,10 +959,10 @@
     label_type: labPer
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
       options:
         steps: 5
-        reverse: true
+        reverse: false
     series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true

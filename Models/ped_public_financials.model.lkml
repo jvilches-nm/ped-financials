@@ -3,7 +3,14 @@ connection: "obms-reporting"
 # include all the views
 include: "/views/**/*.view"
 include: "/**/state.dashboard"
+include: "/**/district.dashboard"
+include: "/**/district_comp.dashboard"
+include: "/**/district_map.dashboard"
 include: "/**/school.dashboard"
+include: "/**/school_comp.dashboard"
+include: "/**/school_map.dashboard"
+include: "/**/program.dashboard"
+include: "/**/recs.dashboard"
 
 datagroup: ped_public_financials_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;

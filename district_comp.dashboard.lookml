@@ -142,7 +142,6 @@
       fields: [actuals_revenue_line.amount, stars_districts.district_name]
       filters:
         stars_locations.location_type: "-Charter School"
-        stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       join_fields: []
@@ -151,7 +150,6 @@
       type: table
       fields: [actuals_line.amount, stars_districts.district_name, stars_districts.count]
       filters:
-        stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 500
@@ -172,7 +170,6 @@
       fields: [actuals_line.amount, stars_districts.district_name]
       filters:
         stars_districts.district_name: "-NULL"
-        stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
@@ -686,7 +683,7 @@
     pivots: [coa_job_class.job_rollup_name]
     filters:
       stars_locations.location_type: "-Charter School"
-      coa_job_class.name: "-No Job Class"
+      coa_job_class.job_name: "-No Job Class"
     sorts: [coa_job_class.job_rollup_name, stars_districts.district_name]
     limit: 4
     show_value_labels: true
@@ -759,8 +756,6 @@
       explore: stars_locations
       type: looker_column
       fields: [stars_districts.district_name]
-      filters:
-        stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
@@ -800,7 +795,6 @@
       fields: [stars_locations.map_location, stars_districts.district_name, stars_locations.School_name,
         stars_locations.school_size_col, stars_locations.student_pop]
       filters:
-        stars_districts.district_type: State District
         stars_locations.location_type: District School
       sorts: [stars_districts.district_name, stars_locations.student_pop desc]
       limit: 500
@@ -899,7 +893,6 @@
       type: looker_column
       fields: [actuals_line.amount, stars_districts.public_student_pop, stars_districts.district_name]
       filters:
-        stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
@@ -941,7 +934,6 @@
       type: looker_column
       fields: [actuals_line.amount, stars_districts.public_student_pop, stars_districts.district_name]
       filters:
-        stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [actuals_line.amount desc]
       limit: 500

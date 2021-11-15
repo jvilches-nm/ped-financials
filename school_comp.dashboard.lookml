@@ -10,16 +10,12 @@
       explore: actuals_line
       type: table
       fields: [actuals_line.amount, stars_locations.School_name_plain, budget_year.year_name]
-      filters:
-        stars_locations.location_type: District School,Charter School
       sorts: [actuals_line.amount desc]
       limit: 500
     - model: ped_public_financials
       explore: stars_locations
       type: table
       fields: [stars_locations.student_pop, stars_locations.School_name_plain, stars_locations.location_year]
-      filters:
-        stars_locations.location_type: District School,Charter School
       sorts: [stars_locations.student_pop desc]
       limit: 5000
       join_fields:
@@ -429,8 +425,6 @@
       explore: stars_locations
       type: looker_map
       fields: [stars_locations.map_location, stars_locations.School_name_plain, stars_locations.student_pop]
-      filters:
-        stars_locations.location_type: Charter School,District School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       column_limit: 50
@@ -467,8 +461,6 @@
       explore: stars_locations
       type: table
       fields: [stars_locations.School_name_plain]
-      filters:
-        stars_locations.location_type: District School,Charter School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
