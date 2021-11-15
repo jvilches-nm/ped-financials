@@ -514,7 +514,7 @@
       agencies.  There will always be a discrepancy between Budgeted Revenues and
       Expenditures and Actual Revenues and Expenditures because of changes in program
       and use of funds directed by the IGA issuing agency. For more information about
-      New Mexico RECs, please follow this <a href="https://www.nmreca.org/Home" target="_PARENT">link</a>.
+      New Mexico RECs, please follow this <a href="https://www.nmreca.org/Home" target="_BLANK">link</a>.
     row: 0
     col: 0
     width: 12
@@ -591,7 +591,7 @@
     subtitle_text: ''
     body_text: '###This is a list of state districts that are REC members. For a complete
       list of REC member entities please follow this <a href="https://tb2cdn.schoolwebmasters.com/accnt_171650/site_257648/Documents/RECA-Districts-Distribution-Map.pdf"
-      target="_PARENT">link</a>.'
+      target="_BLANK">link</a>.'
     row: 6
     col: 12
     width: 11
