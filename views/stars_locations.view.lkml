@@ -149,7 +149,7 @@ view: stars_locations {
     sql: ${TABLE}.location_name ;;
     link: {
       label: "School Profile"
-      url: "/embed/dashboards-next/66?Select%20School%20Name={{ value }}&Fiscal%20Year=2020-2021&Location%20Type=Charter%20School,District%20School"
+      url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}&"
       #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
@@ -173,7 +173,7 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
-      url: "/embed/dashboards-next/66?Select%20School%20Name={{ value }}&Fiscal%20Year=2020-2021&Location%20Type=Charter%20School,District%20School"
+      url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
       #url: "https://openbooks.ped.nm.gov/schools/?linksrc=https://nmpedpublic.cloud.looker.com/embed/dashboards-next/31?Select%20School%20Name={{ value }}&Select%20FY=2020-2021"
       icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
     }
