@@ -1,4 +1,4 @@
-- dashboard: district_dashboard
+- dashboard: district
   title: District Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
