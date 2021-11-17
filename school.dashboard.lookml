@@ -31,57 +31,7 @@
     row: 3
     col: 5
     width: 5
-    height: 3
-  - name: avg
-    title: avg
-    note_state: collapsed
-    note_display: hover
-    note_text: Average actual expenditures not including future expected expenses.
-    merged_queries:
-    - model: ped_public_financials
-      explore: actuals_line
-      type: table
-      fields: [actuals_line.amount, stars_locations.Name_of_the_School]
-      sorts: [actuals_line.amount desc]
-      limit: 500
-    - model: ped_public_financials
-      explore: stars_locations
-      type: table
-      fields: [stars_locations.student_pop, stars_locations.Name_of_the_School]
-      sorts: [stars_locations.student_pop desc]
-      limit: 5000
-      join_fields:
-      - field_name: stars_locations.Name_of_the_School
-        source_field_name: stars_locations.Name_of_the_School
-    custom_color_enabled: true
-    custom_color: "#000000"
-    show_single_value_title: true
-    single_value_title: Avg. Spending per Student
-    value_format: ''
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [actuals_line.amount, stars_locations.student_pop, stars_locations.Name_of_the_School]
-    type: single_value
-    series_types: {}
-    dynamic_fields: [{table_calculation: average_spends_per_school, label: Average
-          Spends per School, expression: 'sum(${actuals_line.amount})/sum(${stars_locations.student_pop})',
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    listen:
-    - Fiscal Year: budget_year.year_name
-      Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    - Fiscal Year: stars_locations.location_year
-      Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 3
-    col: 10
-    width: 6
-    height: 5
+    height: 2
   - title: Map
     name: Map
     model: ped_public_financials
@@ -131,8 +81,8 @@
       Select School Name: stars_locations.School_name_plain
       Location Type: stars_locations.location_type_name
     row: 3
-    col: 16
-    width: 8
+    col: 15
+    width: 9
     height: 9
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
@@ -730,10 +680,10 @@
       Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
       Location Type: stars_locations.location_type_name
-    row: 8
+    row: 5
     col: 0
-    width: 16
-    height: 4
+    width: 15
+    height: 7
   - title: Actual Expenditures by Job
     name: Actual Expenditures by Job
     model: ped_public_financials
@@ -943,7 +893,7 @@
     row: 3
     col: 0
     width: 5
-    height: 5
+    height: 2
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
     model: ped_public_financials
@@ -959,10 +909,10 @@
     label_type: labPer
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
+      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
       options:
         steps: 5
-        reverse: false
+        reverse: true
     series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1031,8 +981,8 @@
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
       Location Type: stars_locations.location_type_name
-    row: 6
-    col: 5
+    row: 3
+    col: 10
     width: 5
     height: 2
   - name: School Overview
