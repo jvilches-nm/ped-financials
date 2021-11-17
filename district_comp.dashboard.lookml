@@ -142,6 +142,7 @@
       fields: [actuals_revenue_line.amount, stars_districts.district_name]
       filters:
         stars_locations.location_type: "-Charter School"
+       # stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       join_fields: []
@@ -150,6 +151,7 @@
       type: table
       fields: [actuals_line.amount, stars_districts.district_name, stars_districts.count]
       filters:
+        #stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 500
@@ -170,6 +172,7 @@
       fields: [actuals_line.amount, stars_districts.district_name]
       filters:
         stars_districts.district_name: "-NULL"
+        #stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
@@ -269,8 +272,8 @@
       District Type: stars_districts.district_type
     row: 0
     col: 0
-    width: 14
-    height: 7
+    width: 11
+    height: 13
   - title: Students by District
     name: Students by District
     model: ped_public_financials
@@ -683,7 +686,7 @@
     pivots: [coa_job_class.job_rollup_name]
     filters:
       stars_locations.location_type: "-Charter School"
-      coa_job_class.job_name: "-No Job Class"
+      coa_job_class.job_rollup_name: "-No Job Class"
     sorts: [coa_job_class.job_rollup_name, stars_districts.district_name]
     limit: 4
     show_value_labels: true
@@ -756,6 +759,8 @@
       explore: stars_locations
       type: looker_column
       fields: [stars_districts.district_name]
+      #filters:
+        #stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
@@ -795,6 +800,7 @@
       fields: [stars_locations.map_location, stars_districts.district_name, stars_locations.School_name,
         stars_locations.school_size_col, stars_locations.student_pop]
       filters:
+        #stars_districts.district_type: State District
         stars_locations.location_type: District School
       sorts: [stars_districts.district_name, stars_locations.student_pop desc]
       limit: 500
@@ -864,8 +870,8 @@
       Fiscal Year: stars_districts.location_year
       District Type: stars_districts.district_type
     row: 0
-    col: 14
-    width: 10
+    col: 11
+    width: 13
     height: 13
   - name: Expenditures
     type: text
@@ -885,148 +891,6 @@
     col: 0
     width: 24
     height: 2
-  - name: Avg Expenditures per District Student
-    title: Avg Expenditures per District Student
-    merged_queries:
-    - model: ped_public_financials
-      explore: actuals_line
-      type: looker_column
-      fields: [actuals_line.amount, stars_districts.public_student_pop, stars_districts.district_name]
-      filters:
-        stars_locations.location_type: "-Charter School"
-      sorts: [stars_districts.district_name]
-      limit: 4
-      dynamic_fields: [{table_calculation: avg_spend_per_district_student, label: Avg
-            spend per district student, expression: "${actuals_line.amount}/${stars_districts.public_student_pop}",
-          value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
-          _type_hint: number}]
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      hidden_fields: [stars_districts.public_student_pop, actuals_line.amount]
-      defaults_version: 1
-    - model: ped_public_financials
-      explore: actuals_line
-      type: looker_column
-      fields: [actuals_line.amount, stars_districts.public_student_pop, stars_districts.district_name]
-      filters:
-        stars_locations.location_type: "-Charter School"
-      sorts: [actuals_line.amount desc]
-      limit: 500
-      dynamic_fields: [{table_calculation: state_avg_spend_per_district_student, label: State
-            Avg Spend per District Student, expression: 'sum(${actuals_line.amount})/sum(${stars_districts.public_student_pop})',
-          value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
-          _type_hint: number}]
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      hidden_fields: [stars_districts.public_student_pop, actuals_line.amount]
-      defaults_version: 1
-      join_fields:
-      - field_name: stars_districts.district_name
-        source_field_name: stars_districts.district_name
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    y_axes: [{label: '', orientation: left, series: [{axisId: avg_spend_per_district_student,
-            id: avg_spend_per_district_student, name: Avg spend per district student},
-          {axisId: state_avg_spend_per_district_student, id: state_avg_spend_per_district_student,
-            name: State Avg Spend per District Student}], showLabels: false, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    series_types:
-      state_avg_spend_per_district_student: line
-    point_style: none
-    series_colors:
-      avg_spend_per_district_student: "#068993"
-      state_avg_spend_per_district_student: "#000000"
-    series_labels:
-      avg_spend_per_district_student: Avg Expenditures per District Student
-      state_avg_spend_per_district_student: State Average Expenditure per District
-        Student
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    type: looker_column
-    hidden_fields: [actuals_line.amount, stars_districts.public_student_pop, q1_actuals_line.amount,
-      q1_stars_districts.public_student_pop, state_avg_spend_per_district_student]
-    listen:
-    - 'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    - Fiscal Year: budget_year.year_name
-      District Type: stars_districts.district_type
-    row: 7
-    col: 0
-    width: 14
-    height: 6
   - title: Actual Revenue by Source
     name: Actual Revenue by Source
     model: ped_public_financials
