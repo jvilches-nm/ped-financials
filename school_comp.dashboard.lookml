@@ -3,134 +3,6 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - name: Average Spending per Student
-    title: Average Spending per Student
-    merged_queries:
-    - model: ped_public_financials
-      explore: actuals_line
-      type: table
-      fields: [actuals_line.amount, stars_locations.School_name_plain, budget_year.year_name]
-      sorts: [actuals_line.amount desc]
-      limit: 500
-    - model: ped_public_financials
-      explore: stars_locations
-      type: table
-      fields: [stars_locations.student_pop, stars_locations.School_name_plain, stars_locations.location_year]
-      sorts: [stars_locations.student_pop desc]
-      limit: 5000
-      join_fields:
-      - field_name: stars_locations.School_name_plain
-        source_field_name: stars_locations.School_name_plain
-      - field_name: stars_locations.location_year
-        source_field_name: budget_year.year_name
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
-      options:
-        steps: 5
-        reverse: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: average_spends_per_school,
-            id: average_spends_per_school, name: Average Spends per School}], showLabels: false,
-        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
-        type: linear}]
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    x_axis_label: Year
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: true
-    limit_displayed_rows_values:
-      show_hide: show
-      first_last: first
-      num_rows: '4'
-    legend_position: center
-    font_size: '14'
-    series_types: {}
-    point_style: none
-    series_colors:
-      average_spends_per_school: "#068993"
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    show_null_points: true
-    interpolation: linear
-    font_size_main: ''
-    orientation: auto
-    style_stars_locations.location_year: "#3A4245"
-    show_title_stars_locations.location_year: true
-    title_placement_stars_locations.location_year: above
-    value_format_stars_locations.location_year: ''
-    show_comparison_average_spends_per_school: false
-    comparison_style_average_spends_per_school: value
-    comparison_show_label_average_spends_per_school: true
-    comparison_label_placement_average_spends_per_school: above
-    comp_value_format_average_spends_per_school: ''
-    pos_is_bad_average_spends_per_school: false
-    style_average_spends_per_school: "#3A4245"
-    show_title_average_spends_per_school: true
-    title_placement_average_spends_per_school: above
-    value_format_average_spends_per_school: ''
-    leftAxisLabelVisible: false
-    leftAxisLabel: ''
-    rightAxisLabelVisible: false
-    rightAxisLabel: ''
-    smoothedBars: false
-    labelPosition: left
-    percentType: total
-    percentPosition: hidden
-    valuePosition: right
-    labelColorEnabled: false
-    labelColor: "#FFF"
-    custom_color_enabled: true
-    custom_color: "#B1399E"
-    show_single_value_title: true
-    single_value_title: Avg. Spending per Student
-    value_format: "$0"
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    hidden_fields: [actuals_line.amount, stars_locations.student_pop, budget_year.year_name]
-    type: looker_bar
-    up_color: "#A8876C"
-    down_color: "#9B2030"
-    total_color: "#E87F2F"
-    sorts: [stars_locations.School_name_plain]
-    column_limit: 4
-    dynamic_fields: [{table_calculation: average_spends_per_school, label: Average
-          Spends per School, expression: "${actuals_line.amount}/${stars_locations.student_pop}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    listen:
-    - Fiscal Year: budget_year.year_name
-      'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    - Fiscal Year: stars_locations.location_year
-      'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 3
-    col: 6
-    width: 18
-    height: 9
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
     model: ped_public_financials
@@ -185,13 +57,13 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 54
+    row: 49
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Actual Expenditures by Program
     name: Actual Expenditures by Program
     model: ped_public_financials
@@ -285,13 +157,13 @@
     label_type: labPer
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 45
+    row: 41
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Actual Expenditures by Job Category
     name: Actual Expenditures by Job Category
     model: ped_public_financials
@@ -347,13 +219,13 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 63
+    row: 57
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Actual Expenditures by Function
     name: Actual Expenditures by Function
     model: ped_public_financials
@@ -411,13 +283,13 @@
     series_colors: {}
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 36
+    row: 33
     col: 0
     width: 24
-    height: 9
+    height: 8
   - name: Map of Schools
     title: Map of Schools
     merged_queries:
@@ -425,6 +297,8 @@
       explore: stars_locations
       type: looker_map
       fields: [stars_locations.map_location, stars_locations.School_name_plain, stars_locations.student_pop]
+      #filters:
+       # stars_locations.location_type: Charter School,District School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       column_limit: 50
@@ -461,6 +335,8 @@
       explore: stars_locations
       type: table
       fields: [stars_locations.School_name_plain]
+      #filters:
+       # stars_locations.location_type: District School,Charter School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
@@ -494,16 +370,16 @@
     hidden_fields: [stars_locations.student_pop]
     type: looker_map
     listen:
-    - Fiscal Year: stars_locations.location_year
+    - Location Type: stars_locations.location_type
+      Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    - Fiscal Year: stars_locations.location_year
+    - Location Type: stars_locations.location_type
+      Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
     row: 3
     col: 0
     width: 6
-    height: 9
+    height: 7
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
     model: ped_public_financials
@@ -585,13 +461,13 @@
     label_type: labPer
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 27
+    row: 25
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Students by Grade
     name: Students by Grade
     model: ped_public_financials
@@ -661,7 +537,7 @@
     listen:
       Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
-    row: 18
+    row: 16
     col: 0
     width: 24
     height: 7
@@ -670,7 +546,7 @@
     title_text: Revenue
     subtitle_text: Revenue only available for charter schools.
     body_text: ''
-    row: 72
+    row: 65
     col: 0
     width: 24
     height: 2
@@ -679,7 +555,7 @@
     title_text: Expenditures
     subtitle_text: ''
     body_text: ''
-    row: 25
+    row: 23
     col: 0
     width: 24
     height: 2
@@ -688,7 +564,7 @@
     title_text: Students
     subtitle_text: ''
     body_text: ''
-    row: 16
+    row: 14
     col: 0
     width: 24
     height: 2
@@ -766,7 +642,7 @@
     listen:
       Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
-    row: 12
+    row: 10
     col: 0
     width: 24
     height: 4
@@ -830,10 +706,10 @@
     series_colors: {}
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-      Location Type: stars_locations.location_type
-    row: 74
+    row: 67
     col: 0
     width: 24
     height: 7
@@ -848,6 +724,62 @@
     col: 0
     width: 24
     height: 3
+  - title: Actual Expenditures by School
+    name: Actual Expenditures by School
+    model: ped_public_financials
+    explore: actuals_line
+    type: looker_bar
+    fields: [actuals_line.amount, stars_locations.School_name_plain]
+    filters:
+      stars_locations.location_type: Charter School,District School
+    sorts: [stars_locations.School_name_plain]
+    limit: 4
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: true
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
+        showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    limit_displayed_rows_values:
+      show_hide: show
+      first_last: first
+      num_rows: '4'
+    series_types: {}
+    series_colors:
+      actuals_line.amount: "#068993"
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+      'Select Schools:': stars_locations.School_name_plain
+    row: 3
+    col: 6
+    width: 18
+    height: 7
   filters:
   - name: Location Type
     title: Location Type
