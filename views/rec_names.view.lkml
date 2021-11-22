@@ -17,4 +17,8 @@ view: rec_names {
     sql: ${TABLE}.rec_name ;;
   }
 
+  measure: count {
+    type: count
+    drill_fields: [rec_name]
+  }
 }
