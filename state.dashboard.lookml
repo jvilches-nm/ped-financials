@@ -3,8 +3,8 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Spending
-    name: Spending
+  - title: Actual Expenditures
+    name: Actual Expenditures
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -1262,7 +1262,7 @@
     show_silhouette: false
     totals_color: "#808080"
     y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
+            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false, showValues: true,
         valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     series_types: {}
