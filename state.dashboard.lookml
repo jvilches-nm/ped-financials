@@ -512,8 +512,8 @@
     col: 0
     width: 24
     height: 2
-  - title: Acutal Expenditures by Job
-    name: Acutal Expenditures by Job
+  - title: Actual Expenditures by Job
+    name: Actual Expenditures by Job
     model: ped_public_financials
     explore: actuals_line
     type: looker_pie
