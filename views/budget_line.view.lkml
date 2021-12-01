@@ -3,8 +3,7 @@ view: budget_line {
   label: "Budgeted Revenue"
 
   set: fund_and_object_codes {
-    fields: [coa_fund_hierarchy.fund_code, coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_code,
-      coa_object_hierarchy_revenue.object_name, projected_amt]
+    fields: [coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_name, projected_amt]
   }
 
   measure: adjustment_amount {

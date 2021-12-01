@@ -3,8 +3,8 @@ view: actuals_line {
   label: "Actual Expenditures"
 
 set: ucoa_codes {
-  fields: [coa_fund_hierarchy.fund_group, coa_object_hierarchy.object_group, coa_function_hierarchy.rollup_function_name, coa_job_class.job_rollup_name,
-           coa_program_hierarchy.program_name, amount]
+  fields: [coa_fund_hierarchy.fund_group, coa_function_hierarchy.rollup_function_name, coa_object_hierarchy.object_group,
+           coa_job_class.job_rollup_name, coa_program_hierarchy.program_name, amount]
 }
 
   measure: amount {

@@ -3,8 +3,7 @@ view: actuals_revenue_line {
   label: "Actual Revenue"
 
   set: fund_and_object_codes {
-    fields: [coa_fund_hierarchy.fund_code, coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_code,
-      coa_object_hierarchy_revenue.object_name, amount]
+    fields: [coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_name, amount]
   }
 
   measure: amount {
