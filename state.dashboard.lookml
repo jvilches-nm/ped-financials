@@ -1,4 +1,4 @@
-- dashboard: state_dashboard
+- dashboard: state
   title: State Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
