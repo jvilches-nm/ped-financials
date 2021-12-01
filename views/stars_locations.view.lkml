@@ -217,7 +217,7 @@ view: stars_locations {
   measure:  school_count{
     label: "No. of Schools"
     type: count_distinct
-    drill_fields: [School_name]
+    drill_fields: [School_name_plain]
     sql: ${TABLE}.location_name ;;
   }
 
