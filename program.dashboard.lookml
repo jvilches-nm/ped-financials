@@ -366,8 +366,8 @@
     col: 12
     width: 12
     height: 8
-  - title: Expenditures by Object
-    name: Expenditures by Object (2)
+  - title: Expenditures by Object - original
+    name: Expenditures by Object - original
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_pie
@@ -421,6 +421,29 @@
     rows_font_size: 12
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
+    title_hidden: true
+    listen:
+      Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
+    row: 35
+    col: 0
+    width: 12
+    height: 9
+  - title: Expenditures by Object
+    name: Expenditures by Object (2)
+    model: ped_public_financials
+    explore: actuals_line
+    type: looker_pie
+    fields: [coa_object_hierarchy.object_group, actuals_line.amount]
+    filters:
+      coa_program_hierarchy.program_name: At-Risk Special Programs,Alternative and
+        At-Risk Programs,Special Programs
+    sorts: [actuals_line.amount desc]
+    limit: 500
+    value_labels: legend
+    label_type: labPer
+    series_types: {}
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
