@@ -214,11 +214,7 @@ view: stars_locations {
     sql: ${TABLE}.location_phone ;;
   }
 
-  measure:  school_count{
-    label: "No. of Schools"
-    type: count_distinct
-    sql: ${TABLE}.location_name ;;
-  }
+
 
   dimension: location_state {
     type: string
@@ -342,7 +338,12 @@ view: stars_locations {
     type: count
     drill_fields: [district_name, School_name_plain, location_type, school_level]
   }
-
+    measure:  school_count{
+      label: "No. of Schools"
+      type: count_distinct
+      drill_fields: [location]
+      sql: ${TABLE}.location_name ;;
+    }
 
 #TEJA
   dimension: district_map {

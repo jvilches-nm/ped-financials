@@ -3,8 +3,8 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   elements:
-  - title: Actual Expenditures
-    name: Actual Expenditures
+  - title: Spending
+    name: Spending
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -185,14 +185,10 @@
     model: ped_public_financials
     explore: stars_locations
     type: single_value
-    fields: [stars_locations.School_name_plain]
+    fields: [stars_locations.count]
     filters:
       stars_locations.location_type: District School
-    sorts: [stars_locations.School_name_plain]
     limit: 5000
-    dynamic_fields: [{table_calculation: state_district_schools, label: State District
-          Schools, expression: 'count(${stars_locations.School_name_plain})', value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -232,7 +228,7 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    hidden_fields: [stars_locations.location_name, stars_locations.School_name_plain]
+    hidden_fields: [stars_locations.location_name]
     series_types: {}
     listen:
       Fiscal Year: stars_locations.location_year
@@ -512,8 +508,8 @@
     col: 0
     width: 24
     height: 2
-  - title: Actual Expenditures by Job
-    name: Actual Expenditures by Job
+  - title: Acutal Expenditures by Job
+    name: Acutal Expenditures by Job
     model: ped_public_financials
     explore: actuals_line
     type: looker_pie
@@ -1262,7 +1258,7 @@
     show_silhouette: false
     totals_color: "#808080"
     y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false, showValues: true,
+            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
         valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     series_types: {}
