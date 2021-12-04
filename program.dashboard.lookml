@@ -32,8 +32,8 @@
     defaults_version: 1
     hidden_fields: [actuals_line.amount]
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 2
     col: 0
     width: 5
@@ -97,8 +97,8 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 2
     col: 5
     width: 19
@@ -179,8 +179,8 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 21
     col: 5
     width: 19
@@ -213,8 +213,8 @@
     defaults_version: 1
     hidden_fields: [actuals_line.amount]
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 21
     col: 0
     width: 5
@@ -263,8 +263,8 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 10
     col: 0
     width: 12
@@ -312,62 +312,14 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 27
     col: 0
     width: 12
     height: 8
   - title: Expenditures by Object
     name: Expenditures by Object
-    model: ped_public_financials_test
-    explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_object_hierarchy.object_group]
-    filters:
-      coa_program_hierarchy.program_name: Bilingual Education Programs
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    value_labels: legend
-    label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      'Select District or Charter:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
-    row: 27
-    col: 12
-    width: 12
-    height: 8
-  - title: Expenditures by Object
-    name: Expenditures by Object (2)
     model: ped_public_financials
     explore: actuals_line
     type: looker_pie
@@ -382,12 +334,33 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select District or Charter:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
     row: 10
     col: 12
     width: 12
     height: 9
+  - title: Expenditures by Object
+    name: Expenditures by Object (2)
+    model: ped_public_financials
+    explore: actuals_line
+    type: looker_pie
+    fields: [coa_object_hierarchy.object_group, actuals_line.amount]
+    filters:
+      coa_program_hierarchy.program_name: Bilingual Education Programs
+    sorts: [actuals_line.amount desc]
+    limit: 500
+    value_labels: legend
+    label_type: labPer
+    series_types: {}
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+      'Select District or Charter:': stars_locations.district_name
+    row: 27
+    col: 12
+    width: 12
+    height: 8
   filters:
   - name: Fiscal Year
     title: Fiscal Year
