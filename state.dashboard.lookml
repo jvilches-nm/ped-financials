@@ -1388,8 +1388,8 @@
     col: 0
     width: 7
     height: 3
-  - name: Revenue to Expenditures Comparison
-    title: Revenue to Expenditures Comparison
+  - name: Expenditures to Revenue Comparison
+    title: Expenditures to Revenue Comparison
     merged_queries:
     - model: ped_public_financials
       explore: actuals_line
