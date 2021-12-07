@@ -1393,22 +1393,78 @@
     merged_queries:
     - model: ped_public_financials
       explore: actuals_line
-      type: table
-      fields: [actuals_line.amount, actuals_line.encumbrance, budget_year.year_name]
+      type: looker_column
+      fields: [budget_year.year_name, actuals_line.amount, actuals_line.encumbrance]
       filters:
         entity_year.parent_type: Regional Education Cooperative,School District,State
           Charter School
-      sorts: [actuals_line.amount desc]
+      sorts: [budget_year.year_name]
       limit: 500
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
     - model: ped_public_financials
       explore: actuals_revenue_line
-      type: table
-      fields: [actuals_revenue_line.amount, budget_year.year_name]
+      type: looker_column
+      fields: [budget_year.year_name, actuals_revenue_line.amount]
       filters:
         entity_year.parent_type: Regional Education Cooperative,School District,State
           Charter School
-      sorts: [actuals_revenue_line.amount desc]
+      sorts: [budget_year.year_name]
       limit: 500
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -1437,6 +1493,7 @@
     trellis: ''
     stacking: ''
     limit_displayed_rows: false
+    hidden_series: []
     legend_position: center
     series_types:
       expenditure_to_revenue_ratio: line
@@ -1444,6 +1501,7 @@
     series_colors:
       expenditure_to_revenue_ratio: "#000000"
       actuals_revenue_line.amount: "#9B8E20"
+      actuals_line.amount: "#068993"
     series_labels:
       expenditure_to_revenue_ratio: Percentage Expenditures to Revenue
       expenditure_and_encumbrance: Actual & Expected Expenditures
@@ -1457,14 +1515,14 @@
     show_silhouette: false
     totals_color: "#808080"
     type: looker_column
-    hidden_fields: [actuals_line.encumbrance, actuals_line.amount]
-    dynamic_fields: [{table_calculation: expenditure_and_encumbrance, label: Expenditure
-          and Encumbrance, expression: "${actuals_line.amount} + ${actuals_line.encumbrance}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number},
-      {table_calculation: expenditure_to_revenue_ratio, label: Expenditure to Revenue
-          Ratio, expression: "(${actuals_line.amount} + ${actuals_line.encumbrance})/${actuals_revenue_line.amount}",
+    hidden_fields: [expenditure_and_encumbrance, actuals_line.encumbrance]
+    sorts: [actuals_revenue_line.amount desc]
+    dynamic_fields: [{table_calculation: expenditure_to_revenue_ratio, label: Expenditure
+          to Revenue Ratio, expression: "(${actuals_line.amount} )/${actuals_revenue_line.amount}",
         value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
-        _type_hint: number}]
+        _type_hint: number}, {table_calculation: expenditure_and_encumbrance, label: Expenditure
+          and Encumbrance, expression: "${actuals_line.amount} + ${actuals_line.encumbrance}",
+        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
     listen:
     - Fiscal Year: budget_year.year_name
     - Fiscal Year: budget_year.year_name
