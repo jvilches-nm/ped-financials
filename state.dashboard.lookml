@@ -1472,14 +1472,15 @@
     y_axis_gridlines: true
     show_view_names: false
     y_axes: [{label: '', orientation: left, series: [{axisId: actuals_revenue_line.amount,
-            id: actuals_revenue_line.amount, name: Actual Revenue}, {axisId: expenditure_and_encumbrance,
-            id: expenditure_and_encumbrance, name: Expenditure and Encumbrance}],
-        showLabels: false, showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}, {label: !!null '',
-        orientation: left, series: [{axisId: expenditure_to_revenue_ratio, id: expenditure_to_revenue_ratio,
-            name: Expenditure to Revenue Ratio}], showLabels: false, showValues: false,
+            id: actuals_revenue_line.amount, name: Actual Revenue}], showLabels: false,
+        showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}, {label: !!null '', orientation: left,
+        series: [{axisId: expenditure_to_revenue_ratio, id: expenditure_to_revenue_ratio,
+            name: Percentage Expenditures to Revenue}], showLabels: false, showValues: false,
         valueFormat: '00.0,,"M"', unpinAxis: true, tickDensity: default, tickDensityCustom: 5,
-        type: linear}]
+        type: linear}, {label: '', orientation: left, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
+        showValues: false, unpinAxis: false, tickDensity: default, type: linear}]
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
