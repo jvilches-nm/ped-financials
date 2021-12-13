@@ -330,13 +330,23 @@ view: stars_locations {
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
   }
 
+
   dimension: location{
     type: string
     sql: ${TABLE}.location_name ;;
   }
+
+    set: drill_location {
+      fields: [district_name, location, location_type_name, school_level, school_size]
+    }
+
   measure: count {
     type: count
-    drill_fields: [district_name, School_name_plain, location_type, school_level]
+    drill_fields: [drill_location*]
+    link: {
+      label:"Drill into all Locations"
+      url:"{{ link }}&fields=stars_locations.drill_location*&limit=2000"
+      }
   }
     measure:  school_count{
       label: "No. of Schools"
