@@ -2,6 +2,7 @@
   title: District Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Untitled
     name: Untitled
@@ -126,7 +127,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 44
+    row: 46
     col: 0
     width: 24
     height: 8
@@ -352,7 +353,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 30
+    row: 32
     col: 0
     width: 12
     height: 7
@@ -428,7 +429,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 30
+    row: 32
     col: 12
     width: 12
     height: 7
@@ -502,7 +503,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
-    row: 11
+    row: 13
     col: 0
     width: 24
     height: 7
@@ -598,27 +599,24 @@
   - name: Revenue
     type: text
     title_text: Revenue
-    subtitle_text: ''
     body_text: ''
-    row: 18
+    row: 20
     col: 0
     width: 24
     height: 2
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 28
+    row: 30
     col: 0
     width: 24
     height: 2
   - name: School List
     type: text
     title_text: School List
-    subtitle_text: ''
     body_text: ''
-    row: 52
+    row: 54
     col: 0
     width: 24
     height: 2
@@ -628,55 +626,14 @@
     merged_queries:
     - model: ped_public_financials
       explore: stars_locations
-      type: looker_grid
+      type: table
       fields: [stars_locations.School_name_plain, stars_locations.location_type, stars_locations.school_level,
         stars_locations.grade_range, stars_locations.school_size, stars_locations.student_pop]
       filters:
         stars_locations.location_type: "-Offsite"
       sorts: [stars_locations.School_name_plain]
       limit: 500
-      show_view_names: false
-      show_row_numbers: true
-      transpose: false
-      truncate_text: true
-      hide_totals: false
-      hide_row_totals: false
-      size_to_fit: true
-      table_theme: white
-      limit_displayed_rows: false
-      enable_conditional_formatting: false
-      header_text_alignment: left
-      header_font_size: 12
-      rows_font_size: 12
-      conditional_formatting_include_totals: false
-      conditional_formatting_include_nulls: false
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
-      series_types: {}
+      join_fields: []
     - model: ped_public_financials
       explore: actuals_line
       type: table
@@ -744,17 +701,18 @@
     conditional_formatting_include_nulls: false
     type: looker_grid
     series_types: {}
+    column_limit: 50
     listen:
     - District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
     - District Type: stars_districts.district_type
       'District:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
+      Fiscal Year: stars_locations.location_year
     - District Type: stars_districts.district_type
       'District:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
-    row: 54
+      Fiscal Year: stars_locations.location_year
+    row: 56
     col: 0
     width: 24
     height: 6
@@ -862,7 +820,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 37
+    row: 39
     col: 12
     width: 12
     height: 7
@@ -872,7 +830,6 @@
     explore: stars_locations
     type: single_value
     fields: [stars_districts.charter_student_pop]
-    filters: {}
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -980,7 +937,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 20
+    row: 22
     col: 0
     width: 24
     height: 8
@@ -1072,16 +1029,41 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 37
+    row: 39
     col: 0
     width: 12
     height: 7
   - name: Overview
     type: text
     title_text: Overview
-    subtitle_text: ''
     body_text: ''
     row: 0
+    col: 0
+    width: 24
+    height: 2
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      'District:': stars_districts.district_name
+      Fiscal Year: budget_year.year_name
+    row: 11
     col: 0
     width: 24
     height: 2

@@ -2,6 +2,7 @@
   title: School Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Untitled
     name: Untitled
@@ -25,9 +26,9 @@
     value_format: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
     row: 3
     col: 5
     width: 5
@@ -39,7 +40,6 @@
     type: looker_map
     fields: [stars_locations.map_location, stars_locations.student_pop, stars_locations.School_name,
       stars_locations.school_level_col, stars_locations.location_type, stars_locations.location_type_name]
-    filters: {}
     sorts: [stars_locations.student_pop desc]
     limit: 500
     dynamic_fields: [{table_calculation: schooltype, label: SchoolType, expression: 'case(when(${stars_locations.location_type_name}="District
@@ -77,9 +77,9 @@
     defaults_version: 1
     hidden_fields: [stars_locations.location_type, stars_locations.student_pop]
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
     row: 3
     col: 15
     width: 9
@@ -136,10 +136,10 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 23
+    row: 25
     col: 12
     width: 12
     height: 7
@@ -206,10 +206,10 @@
     show_dropoff: false
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 14
+    row: 16
     col: 0
     width: 24
     height: 7
@@ -282,404 +282,10 @@
     totals_color: "#808080"
     defaults_version: 1
     series_types: {}
-    query_fields:
-      measures:
-      - align: right
-        can_filter: true
-        category: measure
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: true
-        label: Stars Locations Student Pop
-        label_from_parameter:
-        label_short: Student Pop
-        map_layer:
-        name: stars_locations.student_pop
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: sum
-        user_attribute_filter_types:
-        - number
-        - advanced_filter_number
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: Student Pop
-        measure: true
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.student_pop
-        suggest_explore: stars_locations
-        suggestable: false
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=309"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: "${TABLE}.student_pop "
-        sql_case:
-        filters:
-        sorted:
-          desc: true
-          sort_index: 0
-      dimensions:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Districts District Name
-        label_from_parameter:
-        label_short: District Name
-        map_layer:
-        name: stars_districts.district_name
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_districts
-        view_label: Stars Districts
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: District Name
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_districts
-        suggest_dimension: stars_districts.district_name
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_districts.view.lkml?line=92"
-        permanent:
-        source_file: views/stars_districts.view.lkml
-        source_file_path: ped_public_financials/views/stars_districts.view.lkml
-        sql: "${TABLE}.district_name "
-        sql_case:
-        filters:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Locations Location Type Name
-        label_from_parameter:
-        label_short: Location Type Name
-        map_layer:
-        name: stars_locations.location_type_name
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: Location Type Name
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.location_type_name
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=233"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: |-
-          case when ${district_type}='State District' and ${location_type}='Charter School' then 'Local Charter School'
-                        when ${district_type}='State Charter' and ${location_type}='Charter School' then 'State Charter School'
-                        else ${location_type} end
-        sql_case:
-        filters:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Locations School Name
-        label_from_parameter:
-        label_short: School Name
-        map_layer:
-        name: stars_locations.School_name_plain
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: School Name
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.School_name_plain
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=146"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: "${TABLE}.location_name "
-        sql_case:
-        filters:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Locations Location County
-        label_from_parameter:
-        label_short: Location County
-        map_layer:
-        name: stars_locations.location_county
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: Location County
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.location_county
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=119"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: "${TABLE}.location_county "
-        sql_case:
-        filters:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Locations School Size
-        label_from_parameter:
-        label_short: School Size
-        map_layer:
-        name: stars_locations.school_size
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: School Size
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.school_size
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=318"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: |-
-          CASE WHEN ${school_level_code}='HS' and ${student_pop_dim}<400 then 'S'
-                        WHEN ${school_level_code}!='HS' and ${student_pop_dim}<200 then 'S'
-                        WHEN ${school_level_code}='HS' and ${student_pop_dim}<1000 then 'M'
-                        WHEN ${school_level_code}!='HS' and ${student_pop_dim}<700 then 'M'
-                        ELSE 'L' END
-        sql_case:
-        filters:
-      - align: left
-        can_filter: true
-        category: dimension
-        default_filter_value:
-        description:
-        enumerations:
-        field_group_label:
-        fill_style:
-        fiscal_month_offset: 0
-        has_allowed_values: false
-        hidden: false
-        is_filter: false
-        is_numeric: false
-        label: Stars Locations School Level
-        label_from_parameter:
-        label_short: School Level
-        map_layer:
-        name: stars_locations.school_level
-        strict_value_format: false
-        requires_refresh_on_sort: false
-        sortable: true
-        suggestions:
-        tags: []
-        type: string
-        user_attribute_filter_types:
-        - string
-        - advanced_filter_string
-        value_format:
-        view: stars_locations
-        view_label: Stars Locations
-        dynamic: false
-        week_start_day: monday
-        dimension_group:
-        error:
-        field_group_variant: School Level
-        measure: false
-        parameter: false
-        primary_key: false
-        project_name: ped_public_financials
-        scope: stars_locations
-        suggest_dimension: stars_locations.school_level
-        suggest_explore: stars_locations
-        suggestable: true
-        is_fiscal: false
-        is_timeframe: false
-        can_time_filter: false
-        time_interval:
-        lookml_link: "/projects/ped_public_financials/files/views%2Fstars_locations.view.lkml?line=292"
-        permanent:
-        source_file: views/stars_locations.view.lkml
-        source_file_path: ped_public_financials/views/stars_locations.view.lkml
-        sql: "${TABLE}.school_level "
-        sql_case:
-        filters:
-      table_calculations: []
-      pivots: []
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
     row: 5
     col: 0
     width: 15
@@ -705,10 +311,10 @@
     series_types: {}
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 30
+    row: 32
     col: 0
     width: 12
     height: 8
@@ -756,28 +362,26 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 23
+    row: 25
     col: 0
     width: 12
     height: 7
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 21
+    row: 23
     col: 0
     width: 24
     height: 2
   - name: Students
     type: text
     title_text: Students
-    subtitle_text: ''
     body_text: ''
-    row: 12
+    row: 14
     col: 0
     width: 24
     height: 2
@@ -800,10 +404,10 @@
     series_types: {}
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 30
+    row: 32
     col: 12
     width: 12
     height: 8
@@ -849,10 +453,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 38
+    row: 40
     col: 0
     width: 24
     height: 7
@@ -861,7 +465,7 @@
     title_text: Revenue
     subtitle_text: Revenue available at the school level for charter schools only.
     body_text: ''
-    row: 45
+    row: 47
     col: 0
     width: 24
     height: 2
@@ -887,9 +491,9 @@
     note_display: hover
     note_text: Applies to Charter Schools, not to District Schools.
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
     row: 3
     col: 0
     width: 5
@@ -948,10 +552,10 @@
     series_types: {}
     defaults_version: 1
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
-    row: 47
+    row: 49
     col: 0
     width: 24
     height: 7
@@ -978,9 +582,9 @@
     note_display: hover
     note_text: Future known and expected expenses.
     listen:
+      Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-      Location Type: stars_locations.location_type_name
     row: 3
     col: 10
     width: 5
@@ -988,7 +592,6 @@
   - name: School Overview
     type: text
     title_text: School Overview
-    subtitle_text: ''
     body_text: "### School level financials are currently only available for charter\
       \ schools. District school level financials will be available starting with\
       \ the 2022-2023 fiscal year."
@@ -996,6 +599,33 @@
     col: 0
     width: 24
     height: 3
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      Location Type: stars_locations.location_type_name
+      Fiscal Year: budget_year.year_name
+      Select School Name: stars_locations.School_name_plain
+    row: 12
+    col: 0
+    width: 24
+    height: 2
   filters:
   - name: Location Type
     title: Location Type

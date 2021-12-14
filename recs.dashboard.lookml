@@ -2,6 +2,7 @@
   title: RECs Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Spending
     name: Spending
@@ -24,8 +25,8 @@
     value_format: ''
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
     row: 4
     col: 12
@@ -34,18 +35,16 @@
   - name: Revenue
     type: text
     title_text: Revenue
-    subtitle_text: ''
     body_text: ''
-    row: 18
+    row: 20
     col: 0
     width: 24
     height: 2
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 29
+    row: 31
     col: 0
     width: 24
     height: 2
@@ -55,7 +54,6 @@
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_program_hierarchy.program_name]
-    filters: {}
     sorts: [actuals_line.amount desc]
     limit: 500
     x_axis_gridlines: false
@@ -94,10 +92,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 45
+    row: 47
     col: 0
     width: 12
     height: 7
@@ -107,7 +105,6 @@
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name]
-    filters: {}
     sorts: [actuals_line.amount desc]
     limit: 500
     x_axis_gridlines: false
@@ -146,10 +143,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 38
+    row: 40
     col: 0
     width: 12
     height: 7
@@ -197,10 +194,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 31
+    row: 33
     col: 12
     width: 12
     height: 7
@@ -248,10 +245,10 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 31
+    row: 33
     col: 0
     width: 12
     height: 7
@@ -309,10 +306,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 38
+    row: 40
     col: 12
     width: 12
     height: 7
@@ -322,7 +319,6 @@
     explore: budget_line
     type: single_value
     fields: [entity_year.count_distinct_parent]
-    filters: {}
     sorts: [entity_year.count_distinct_parent desc]
     limit: 500
     custom_color_enabled: true
@@ -336,8 +332,8 @@
     conditional_formatting_include_nulls: false
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
     row: 0
     col: 12
@@ -346,7 +342,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: "![RECMap](https://webed.ped.state.nm.us/sites/schooldirectory/SiteAssets/SitePages/RECHome/NMRECS_MAP.jpg)"
     row: 5
     col: 0
@@ -358,7 +353,6 @@
     explore: actuals_revenue_line
     type: single_value
     fields: [actuals_revenue_line.amount]
-    filters: {}
     limit: 500
     custom_color_enabled: true
     show_single_value_title: true
@@ -372,8 +366,8 @@
     custom_color: "#9B8E20"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
     row: 2
     col: 12
@@ -426,10 +420,10 @@
       actuals_revenue_line.amount: "#9B8E20"
     defaults_version: 1
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 20
+    row: 22
     col: 0
     width: 23
     height: 9
@@ -439,7 +433,6 @@
     explore: actuals_line
     type: looker_grid
     fields: [actuals_line.amount, entity_year.parent_name, entity_year.child_name]
-    filters: {}
     sorts: [actuals_line.amount desc]
     limit: 500
     show_view_names: false
@@ -496,17 +489,16 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Parent Type: entity_year.parent_type
       Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 45
+    row: 47
     col: 12
     width: 12
     height: 7
   - name: REC Overview
     type: text
     title_text: REC Overview
-    subtitle_text: ''
     body_text: Since their inception in 1984 RECs through their administrative attachment
       to PED are allowed to enter into Intergovernmental Agreements (IGAs) with other
       State Agencies.  Each REC since then has grown differently in terms of programs
@@ -525,7 +517,6 @@
     explore: stars_locations
     type: looker_grid
     fields: [rec_member_districts.rec_name, stars_districts.district_name, stars_districts.district_size]
-    filters: {}
     sorts: [rec_member_districts.rec_name]
     limit: 500
     show_view_names: false
@@ -588,7 +579,6 @@
   - name: " (2)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '###This is a list of state districts that are REC members. For a complete
       list of REC member entities please follow this <a href="https://tb2cdn.schoolwebmasters.com/accnt_171650/site_257648/Documents/RECA-Districts-Distribution-Map.pdf"
       target="_BLANK">link</a>.'
@@ -596,6 +586,33 @@
     col: 12
     width: 11
     height: 3
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      Fiscal Year: budget_year.year_name
+      Parent Type: entity_year.parent_type
+      Select REC: rec_names.rec_name
+    row: 18
+    col: 0
+    width: 24
+    height: 2
   filters:
   - name: Fiscal Year
     title: Fiscal Year

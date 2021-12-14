@@ -2,6 +2,7 @@
   title: State Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Spending
     name: Spending
@@ -82,7 +83,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 62
+    row: 65
     col: 0
     width: 24
     height: 9
@@ -151,7 +152,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 14
+    row: 17
     col: 15
     width: 9
     height: 8
@@ -239,9 +240,8 @@
   - name: Schools/Students
     type: text
     title_text: Schools/Students
-    subtitle_text: ''
     body_text: ''
-    row: 12
+    row: 15
     col: 0
     width: 24
     height: 2
@@ -412,9 +412,8 @@
   - name: Revenue
     type: text
     title_text: Revenue
-    subtitle_text: ''
     body_text: ''
-    row: 22
+    row: 25
     col: 0
     width: 24
     height: 2
@@ -495,16 +494,15 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 14
+    row: 17
     col: 0
     width: 15
     height: 8
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 33
+    row: 36
     col: 0
     width: 24
     height: 2
@@ -559,7 +557,7 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 35
+    row: 38
     col: 0
     width: 24
     height: 9
@@ -569,7 +567,6 @@
     explore: actuals_line
     type: looker_pie
     fields: [actuals_line.amount, coa_fund_hierarchy.fund_group]
-    filters: {}
     sorts: [actuals_line.amount desc]
     limit: 500
     value_labels: labels
@@ -622,7 +619,7 @@
     conditional_formatting_include_nulls: false
     listen:
       Fiscal Year: budget_year.year_name
-    row: 44
+    row: 47
     col: 0
     width: 24
     height: 9
@@ -639,43 +636,16 @@
         stars_locations.location_type: District School
       sorts: [stars_districts.district_name]
       limit: 500
+      join_fields: []
     - model: ped_public_financials
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [stars_districts.district_name, budget_year.year_name, actuals_line.amount]
       filters:
         stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [actuals_line.amount desc]
       limit: 500
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -742,11 +712,12 @@
     series_types: {}
     hidden_fields: [stars_districts.location_year]
     sorts: [stars_districts.district_name]
+    column_limit: 50
     listen:
     - Fiscal Year: stars_districts.location_year
-    - Fiscal Year: budget_year.year_name
-    - Fiscal Year: budget_year.year_name
-    row: 83
+    - Fiscal Year: stars_districts.location_year
+    - Fiscal Year: stars_districts.location_year
+    row: 86
     col: 0
     width: 12
     height: 6
@@ -762,6 +733,7 @@
         stars_locations.location_type: Charter School
       sorts: [stars_locations.student_pop desc]
       limit: 500
+      join_fields: []
     - model: ped_public_financials
       explore: actuals_line
       type: table
@@ -1193,23 +1165,23 @@
         pivoted: false
       pivots: []
     sorts: [stars_locations.School_name_plain]
+    column_limit: 50
     dynamic_fields: [{table_calculation: charter, label: Charter, expression: 'replace(${stars_locations.location_type_name},
           " Charter School", "")', value_format: !!null '', value_format_name: !!null '',
         _kind_hint: dimension, _type_hint: string}]
     listen:
     - Fiscal Year: stars_locations.location_year
-    - Fiscal Year: budget_year.year_name
-    - Fiscal Year: budget_year.year_name
-    row: 83
+    - Fiscal Year: stars_locations.location_year
+    - Fiscal Year: stars_locations.location_year
+    row: 86
     col: 12
     width: 12
     height: 6
   - name: Districts/Charters
     type: text
     title_text: Districts/Charters
-    subtitle_text: ''
     body_text: ''
-    row: 81
+    row: 84
     col: 0
     width: 24
     height: 2
@@ -1265,7 +1237,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 53
+    row: 56
     col: 0
     width: 24
     height: 9
@@ -1346,14 +1318,13 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 24
+    row: 27
     col: 0
     width: 24
     height: 9
   - name: State Overview
     type: text
     title_text: State Overview
-    subtitle_text: ''
     body_text: '###Overview of state education finances - includes all district and
       charter students, all district and charter schools, and the regional education
       cooperatives. To learn more about the data displayed or to find definitions
@@ -1393,78 +1364,23 @@
     merged_queries:
     - model: ped_public_financials
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [budget_year.year_name, actuals_line.amount, actuals_line.encumbrance]
       filters:
         entity_year.parent_type: Regional Education Cooperative,School District,State
           Charter School
       sorts: [budget_year.year_name]
       limit: 500
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
+      join_fields: []
     - model: ped_public_financials
       explore: actuals_revenue_line
-      type: looker_column
+      type: table
       fields: [budget_year.year_name, actuals_revenue_line.amount]
       filters:
         entity_year.parent_type: Regional Education Cooperative,School District,State
           Charter School
       sorts: [budget_year.year_name]
       limit: 500
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields:
       - field_name: budget_year.year_name
         source_field_name: budget_year.year_name
@@ -1518,6 +1434,7 @@
     type: looker_column
     hidden_fields: [expenditure_and_encumbrance, actuals_line.encumbrance]
     sorts: [actuals_revenue_line.amount desc]
+    column_limit: 50
     dynamic_fields: [{table_calculation: expenditure_to_revenue_ratio, label: Expenditure
           to Revenue Ratio, expression: "(${actuals_line.amount} )/${actuals_revenue_line.amount}",
         value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
@@ -1576,10 +1493,58 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 71
+    row: 74
     col: 0
     width: 24
     height: 10
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    header_text_alignment: left
+    header_font_size: 12
+    rows_font_size: 12
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 12
+    col: 0
+    width: 24
+    height: 3
   filters:
   - name: Fiscal Year
     title: Fiscal Year

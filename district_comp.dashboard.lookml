@@ -2,6 +2,7 @@
   title: District Comparison
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
@@ -55,10 +56,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 79
+    row: 81
     col: 0
     width: 24
     height: 7
@@ -126,10 +127,10 @@
       stars_locations.g12_pop: G12
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 22
+    row: 24
     col: 11
     width: 13
     height: 10
@@ -142,7 +143,6 @@
       fields: [actuals_revenue_line.amount, stars_districts.district_name]
       filters:
         stars_locations.location_type: "-Charter School"
-       # stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       join_fields: []
@@ -151,7 +151,6 @@
       type: table
       fields: [actuals_line.amount, stars_districts.district_name, stars_districts.count]
       filters:
-        #stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 500
@@ -168,42 +167,13 @@
         source_field_name: stars_districts.district_name
     - model: ped_public_financials
       explore: actuals_line
-      type: looker_column
+      type: table
       fields: [actuals_line.amount, stars_districts.district_name]
       filters:
         stars_districts.district_name: "-NULL"
-        #stars_districts.district_type: State District
         stars_locations.location_type: "-Charter School"
       sorts: [stars_districts.district_name]
       limit: 4
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -261,14 +231,16 @@
     hidden_fields: [stars_districts.count, q3_actuals_line.amount, q2_actuals_line.amount,
       state_avg_district_spending_with_abq, state_avg_district_spending_without_abq]
     sorts: [stars_districts.district_name]
+    column_limit: 50
     listen:
-    - 'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
     - Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
     row: 0
     col: 0
@@ -354,10 +326,10 @@
           - "#068993"
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_districts.district_name
       Fiscal Year: stars_districts.location_year
+      'Select up to 4 districts:': stars_districts.district_name
       District Type: stars_districts.district_type
-    row: 22
+    row: 24
     col: 0
     width: 11
     height: 10
@@ -410,10 +382,10 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select up to 4 districts:': stars_locations.District_School
       Fiscal Year: stars_districts.location_year
+      'Select up to 4 districts:': stars_locations.District_School
       District Type: stars_districts.district_type
-    row: 15
+    row: 17
     col: 11
     width: 13
     height: 7
@@ -481,10 +453,10 @@
     charts_across: 4
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.District_School
       Fiscal Year: stars_districts.location_year
+      'Select up to 4 districts:': stars_locations.District_School
       District Type: stars_districts.district_type
-    row: 15
+    row: 17
     col: 0
     width: 11
     height: 7
@@ -545,10 +517,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 57
+    row: 59
     col: 0
     width: 24
     height: 7
@@ -611,10 +583,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 50
+    row: 52
     col: 0
     width: 24
     height: 7
@@ -670,10 +642,10 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 71
+    row: 73
     col: 0
     width: 24
     height: 8
@@ -736,19 +708,18 @@
     series_types: {}
     defaults_version: 1
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 64
+    row: 66
     col: 0
     width: 24
     height: 7
   - name: Students/Schools
     type: text
     title_text: Students/Schools
-    subtitle_text: ''
     body_text: ''
-    row: 13
+    row: 15
     col: 0
     width: 24
     height: 2
@@ -757,83 +728,23 @@
     merged_queries:
     - model: ped_public_financials
       explore: stars_locations
-      type: looker_column
+      type: table
       fields: [stars_districts.district_name]
-      #filters:
-        #stars_districts.district_type: State District
       sorts: [stars_districts.district_name]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
           value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
-      x_axis_gridlines: false
-      y_axis_gridlines: true
-      show_view_names: false
-      show_y_axis_labels: true
-      show_y_axis_ticks: true
-      y_axis_tick_density: default
-      y_axis_tick_density_custom: 5
-      show_x_axis_label: true
-      show_x_axis_ticks: true
-      y_axis_scale_mode: linear
-      x_axis_reversed: false
-      y_axis_reversed: false
-      plot_size_by_field: false
-      trellis: ''
-      stacking: ''
-      limit_displayed_rows: false
-      legend_position: center
-      point_style: none
-      show_value_labels: false
-      label_density: 25
-      x_axis_scale: auto
-      y_axis_combined: true
-      ordering: none
-      show_null_labels: false
-      show_totals_labels: false
-      show_silhouette: false
-      totals_color: "#808080"
-      defaults_version: 1
       join_fields: []
     - model: ped_public_financials
       explore: stars_locations
-      type: looker_map
+      type: table
       fields: [stars_locations.map_location, stars_districts.district_name, stars_locations.School_name,
         stars_locations.school_size_col, stars_locations.student_pop]
       filters:
-        #stars_districts.district_type: State District
         stars_locations.location_type: District School
       sorts: [stars_districts.district_name, stars_locations.student_pop desc]
       limit: 500
       column_limit: 4
-      map_plot_mode: points
-      heatmap_gridlines: false
-      heatmap_gridlines_empty: false
-      heatmap_opacity: 0.5
-      show_region_field: true
-      draw_map_labels_above_data: true
-      map_tile_provider: light
-      map_position: fit_data
-      map_scale_indicator: 'off'
-      map_pannable: true
-      map_zoomable: true
-      map_marker_type: circle
-      map_marker_icon_name: school
-      map_marker_radius_mode: fixed
-      map_marker_units: pixels
-      map_marker_proportional_scale_type: linear
-      map_marker_color_mode: value
-      show_view_names: false
-      show_legend: true
-      quantize_map_value_colors: true
-      reverse_map_value_colors: false
-      map_latitude: 34.87157719328419
-      map_longitude: -106.66107178665699
-      map_zoom: 10
-      map_marker_radius_fixed: 5
-      map_marker_color: ["#068993"]
-      map_value_colors: ["#068993", "#9B8E20", "#A85573", "#e87f2f"]
-      defaults_version: 1
-      hidden_fields: [stars_locations.student_pop]
       join_fields:
       - field_name: stars_districts.district_name
         source_field_name: stars_districts.district_name
@@ -862,12 +773,13 @@
     reverse_map_value_colors: false
     hidden_fields: [stars_locations.student_pop]
     type: looker_map
+    column_limit: 50
     listen:
-    - 'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: stars_districts.location_year
+    - Fiscal Year: stars_districts.location_year
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    - 'Select up to 4 districts:': stars_locations.district_name
-      Fiscal Year: stars_districts.location_year
+    - Fiscal Year: stars_districts.location_year
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
     row: 0
     col: 11
@@ -876,18 +788,16 @@
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 48
+    row: 50
     col: 0
     width: 24
     height: 2
   - name: Revenue
     type: text
     title_text: Revenue
-    subtitle_text: ''
     body_text: ''
-    row: 32
+    row: 34
     col: 0
     width: 24
     height: 2
@@ -941,10 +851,10 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 34
+    row: 36
     col: 0
     width: 24
     height: 7
@@ -997,13 +907,40 @@
     defaults_version: 1
     series_types: {}
     listen:
-      'Select up to 4 districts:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 41
+    row: 43
     col: 0
     width: 24
     height: 7
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      Fiscal Year: budget_year.year_name
+      'Select up to 4 districts:': stars_locations.district_name
+      District Type: stars_districts.district_type
+    row: 13
+    col: 0
+    width: 24
+    height: 2
   filters:
   - name: District Type
     title: District Type

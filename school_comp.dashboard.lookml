@@ -2,6 +2,7 @@
   title: School Comparison
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
@@ -10,7 +11,6 @@
     type: looker_bar
     fields: [stars_locations.School_name_plain, actuals_line.amount, coa_object_hierarchy.object_group]
     pivots: [coa_object_hierarchy.object_group]
-    filters: {}
     sorts: [coa_object_hierarchy.object_group desc, stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -57,10 +57,10 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 49
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 51
     col: 0
     width: 24
     height: 8
@@ -71,7 +71,6 @@
     type: looker_bar
     fields: [actuals_line.amount, coa_program_hierarchy.program_name, stars_locations.School_name_plain]
     pivots: [coa_program_hierarchy.program_name]
-    filters: {}
     sorts: [coa_program_hierarchy.program_name, stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -157,10 +156,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 41
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 43
     col: 0
     width: 24
     height: 8
@@ -219,10 +218,10 @@
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 57
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 59
     col: 0
     width: 24
     height: 8
@@ -233,7 +232,6 @@
     type: looker_bar
     fields: [stars_locations.School_name_plain, actuals_line.amount, coa_function_hierarchy.rollup_function_name]
     pivots: [coa_function_hierarchy.rollup_function_name]
-    filters: {}
     sorts: [coa_function_hierarchy.rollup_function_name, stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -283,10 +281,10 @@
     series_colors: {}
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 33
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 35
     col: 0
     width: 24
     height: 8
@@ -295,48 +293,16 @@
     merged_queries:
     - model: ped_public_financials
       explore: stars_locations
-      type: looker_map
+      type: table
       fields: [stars_locations.map_location, stars_locations.School_name_plain, stars_locations.student_pop]
-      #filters:
-       # stars_locations.location_type: Charter School,District School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       column_limit: 50
-      map_plot_mode: points
-      heatmap_gridlines: false
-      heatmap_gridlines_empty: false
-      heatmap_opacity: 0.5
-      show_region_field: true
-      draw_map_labels_above_data: true
-      map_tile_provider: light
-      map_position: fit_data
-      map_scale_indicator: 'off'
-      map_pannable: true
-      map_zoomable: true
-      map_marker_type: circle
-      map_marker_icon_name: school
-      map_marker_radius_mode: fixed
-      map_marker_units: pixels
-      map_marker_proportional_scale_type: linear
-      map_marker_color_mode: value
-      show_view_names: false
-      show_legend: true
-      quantize_map_value_colors: true
-      reverse_map_value_colors: false
-      map_latitude: 34.87157719328419
-      map_longitude: -106.66107178665699
-      map_zoom: 10
-      map_marker_radius_fixed: 5
-      map_marker_color: ["#068993"]
-      map_value_colors: ["#068993", "#9B8E20", "#A85573", "#e87f2f"]
-      defaults_version: 1
-      hidden_fields: []
+      join_fields: []
     - model: ped_public_financials
       explore: stars_locations
       type: table
       fields: [stars_locations.School_name_plain]
-      #filters:
-       # stars_locations.location_type: District School,Charter School
       sorts: [stars_locations.School_name_plain]
       limit: 4
       dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
@@ -369,13 +335,14 @@
     reverse_map_value_colors: false
     hidden_fields: [stars_locations.student_pop]
     type: looker_map
+    column_limit: 50
     listen:
-    - Location Type: stars_locations.location_type
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: stars_locations.location_year
-      'Select Schools:': stars_locations.School_name_plain
-    - Location Type: stars_locations.location_type
+      Location Type: stars_locations.location_type
+    - 'Select Schools:': stars_locations.School_name_plain
       Fiscal Year: stars_locations.location_year
-      'Select Schools:': stars_locations.School_name_plain
+      Location Type: stars_locations.location_type
     row: 3
     col: 0
     width: 6
@@ -387,7 +354,6 @@
     type: looker_bar
     fields: [actuals_line.amount, stars_locations.School_name_plain, coa_fund_hierarchy.fund_group]
     pivots: [coa_fund_hierarchy.fund_group]
-    filters: {}
     sorts: [coa_fund_hierarchy.fund_group desc, stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -461,10 +427,10 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 25
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 27
     col: 0
     width: 24
     height: 8
@@ -477,8 +443,7 @@
       stars_locations.g2_pop, stars_locations.g3_pop, stars_locations.g4_pop, stars_locations.g5_pop,
       stars_locations.g6_pop, stars_locations.g7_pop, stars_locations.g8_pop, stars_locations.g9_pop,
       stars_locations.g10_pop, stars_locations.g11_pop, stars_locations.g12_pop, stars_locations.School_name_plain]
-    filters:
-      stars_locations.location_type: Charter School,District School
+    filters: {}
     sorts: [stars_locations.School_name_plain]
     limit: 4
     column_limit: 50
@@ -535,9 +500,10 @@
     show_dropoff: false
     defaults_version: 1
     listen:
-      Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
-    row: 16
+      Fiscal Year: stars_locations.location_year
+      Location Type: stars_locations.location_type
+    row: 18
     col: 0
     width: 24
     height: 7
@@ -546,25 +512,23 @@
     title_text: Revenue
     subtitle_text: Revenue only available for charter schools.
     body_text: ''
-    row: 65
+    row: 67
     col: 0
     width: 24
     height: 2
   - name: Expenditures
     type: text
     title_text: Expenditures
-    subtitle_text: ''
     body_text: ''
-    row: 23
+    row: 25
     col: 0
     width: 24
     height: 2
   - name: Students
     type: text
     title_text: Students
-    subtitle_text: ''
     body_text: ''
-    row: 14
+    row: 16
     col: 0
     width: 24
     height: 2
@@ -640,8 +604,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Fiscal Year: stars_locations.location_year
       'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: stars_locations.location_year
+      Location Type: stars_locations.location_type
     row: 10
     col: 0
     width: 24
@@ -653,7 +618,6 @@
     type: looker_bar
     fields: [coa_fund_hierarchy.fund_group, stars_locations.School_name_plain, actuals_revenue_line.amount]
     pivots: [coa_fund_hierarchy.fund_group]
-    filters: {}
     sorts: [coa_fund_hierarchy.fund_group, stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -706,17 +670,16 @@
     series_colors: {}
     defaults_version: 1
     listen:
-      Location Type: stars_locations.location_type
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 67
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 69
     col: 0
     width: 24
     height: 7
   - name: Overview
     type: text
     title_text: Overview
-    subtitle_text: ''
     body_text: "###School level financials are currently only available for charter\
       \ schools. District school level financials will be available starting with\
       \ the 2022-2023 fiscal year."
@@ -730,8 +693,7 @@
     explore: actuals_line
     type: looker_bar
     fields: [actuals_line.amount, stars_locations.School_name_plain]
-    filters:
-      stars_locations.location_type: Charter School,District School
+    filters: {}
     sorts: [stars_locations.School_name_plain]
     limit: 4
     x_axis_gridlines: false
@@ -774,12 +736,40 @@
       actuals_line.amount: "#068993"
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
     row: 3
     col: 6
     width: 18
     height: 7
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      'Select Schools:': stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+      Location Type: stars_locations.location_type
+    row: 14
+    col: 0
+    width: 24
+    height: 2
   filters:
   - name: Location Type
     title: Location Type

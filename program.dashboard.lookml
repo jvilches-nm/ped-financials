@@ -1,7 +1,8 @@
-- dashboard: program_dashboard
+- dashboard: program
   title: Program Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
   elements:
   - title: Untitled
     name: Untitled
@@ -32,9 +33,9 @@
     defaults_version: 1
     hidden_fields: [actuals_line.amount]
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 2
+      Fiscal Year: budget_year.year_name
+    row: 4
     col: 0
     width: 5
     height: 8
@@ -97,27 +98,25 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 2
+      Fiscal Year: budget_year.year_name
+    row: 4
     col: 5
     width: 19
     height: 8
   - name: Special and At-Risk Programs
     type: text
     title_text: Special and At-Risk Programs
-    subtitle_text: ''
     body_text: ''
-    row: 0
+    row: 2
     col: 0
     width: 24
     height: 2
   - name: Bilingual Education Programs
     type: text
     title_text: Bilingual Education Programs
-    subtitle_text: ''
     body_text: ''
-    row: 19
+    row: 21
     col: 0
     width: 24
     height: 2
@@ -179,9 +178,9 @@
     label_type: labPer
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 21
+      Fiscal Year: budget_year.year_name
+    row: 23
     col: 5
     width: 19
     height: 6
@@ -213,9 +212,9 @@
     defaults_version: 1
     hidden_fields: [actuals_line.amount]
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 21
+      Fiscal Year: budget_year.year_name
+    row: 23
     col: 0
     width: 5
     height: 6
@@ -263,9 +262,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 10
+      Fiscal Year: budget_year.year_name
+    row: 12
     col: 0
     width: 12
     height: 9
@@ -312,9 +311,9 @@
     defaults_version: 1
     series_types: {}
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 27
+      Fiscal Year: budget_year.year_name
+    row: 29
     col: 0
     width: 12
     height: 8
@@ -334,9 +333,9 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 10
+      Fiscal Year: budget_year.year_name
+    row: 12
     col: 12
     width: 12
     height: 9
@@ -355,12 +354,38 @@
     series_types: {}
     defaults_version: 1
     listen:
-      Fiscal Year: budget_year.year_name
       'Select District or Charter:': stars_locations.district_name
-    row: 27
+      Fiscal Year: budget_year.year_name
+    row: 29
     col: 12
     width: 12
     height: 8
+  - title: Data Current As Of
+    name: Data Current As Of
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_line.current_as_of]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_view_names: false
+    defaults_version: 1
+    series_types: {}
+    listen:
+      'Select District or Charter:': stars_locations.district_name
+      Fiscal Year: budget_year.year_name
+    row: 0
+    col: 0
+    width: 24
+    height: 2
   filters:
   - name: Fiscal Year
     title: Fiscal Year
