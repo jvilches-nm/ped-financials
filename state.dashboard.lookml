@@ -26,10 +26,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 6
+    row: 7
     col: 0
     width: 7
-    height: 3
+    height: 4
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
     model: ped_public_financials
@@ -83,7 +83,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 65
+    row: 64
     col: 0
     width: 24
     height: 9
@@ -152,7 +152,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 17
+    row: 16
     col: 15
     width: 9
     height: 8
@@ -180,7 +180,7 @@
     row: 3
     col: 16
     width: 8
-    height: 3
+    height: 2
   - title: District Schools
     name: District Schools
     model: ped_public_financials
@@ -233,7 +233,7 @@
     series_types: {}
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 6
+    row: 5
     col: 20
     width: 4
     height: 2
@@ -241,7 +241,7 @@
     type: text
     title_text: Schools/Students
     body_text: ''
-    row: 15
+    row: 14
     col: 0
     width: 24
     height: 2
@@ -267,7 +267,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 8
+    row: 7
     col: 16
     width: 4
     height: 2
@@ -294,7 +294,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 8
+    row: 7
     col: 20
     width: 4
     height: 2
@@ -350,7 +350,7 @@
     series_types: {}
     listen:
       Fiscal Year: stars_districts.location_year
-    row: 6
+    row: 5
     col: 16
     width: 4
     height: 2
@@ -405,7 +405,7 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 10
+    row: 9
     col: 16
     width: 8
     height: 2
@@ -413,7 +413,7 @@
     type: text
     title_text: Revenue
     body_text: ''
-    row: 25
+    row: 24
     col: 0
     width: 24
     height: 2
@@ -494,7 +494,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 17
+    row: 16
     col: 0
     width: 15
     height: 8
@@ -502,7 +502,7 @@
     type: text
     title_text: Expenditures
     body_text: ''
-    row: 36
+    row: 35
     col: 0
     width: 24
     height: 2
@@ -557,7 +557,7 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 38
+    row: 37
     col: 0
     width: 24
     height: 9
@@ -619,7 +619,7 @@
     conditional_formatting_include_nulls: false
     listen:
       Fiscal Year: budget_year.year_name
-    row: 47
+    row: 46
     col: 0
     width: 24
     height: 9
@@ -717,7 +717,7 @@
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
-    row: 86
+    row: 85
     col: 0
     width: 12
     height: 6
@@ -1173,7 +1173,7 @@
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
-    row: 86
+    row: 85
     col: 12
     width: 12
     height: 6
@@ -1181,7 +1181,7 @@
     type: text
     title_text: Districts/Charters
     body_text: ''
-    row: 84
+    row: 83
     col: 0
     width: 24
     height: 2
@@ -1237,7 +1237,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 56
+    row: 55
     col: 0
     width: 24
     height: 9
@@ -1265,7 +1265,7 @@
     row: 3
     col: 0
     width: 7
-    height: 3
+    height: 4
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
     model: ped_public_financials
@@ -1318,7 +1318,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 27
+    row: 26
     col: 0
     width: 24
     height: 9
@@ -1332,32 +1332,6 @@
     row: 0
     col: 0
     width: 24
-    height: 3
-  - title: Encumbrances
-    name: Encumbrances
-    model: ped_public_financials
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.encumbrance]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#3F6173"
-    single_value_title: Actual Expected Expenditures
-    value_format: ''
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 9
-    col: 0
-    width: 7
     height: 3
   - name: Expenditures to Revenue Comparison
     title: Expenditures to Revenue Comparison
@@ -1447,7 +1421,7 @@
     row: 3
     col: 7
     width: 9
-    height: 9
+    height: 8
   - title: Actual Expenditures by Program
     name: Actual Expenditures by Program
     model: ped_public_financials
@@ -1493,7 +1467,7 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 74
+    row: 73
     col: 0
     width: 24
     height: 10
@@ -1541,7 +1515,7 @@
     rows_font_size: 12
     listen:
       Fiscal Year: budget_year.year_name
-    row: 12
+    row: 11
     col: 0
     width: 24
     height: 3
