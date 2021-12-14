@@ -30,8 +30,8 @@
       Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
     row: 3
-    col: 5
-    width: 5
+    col: 7
+    width: 7
     height: 2
   - title: Map
     name: Map
@@ -81,8 +81,8 @@
       Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
     row: 3
-    col: 15
-    width: 9
+    col: 14
+    width: 10
     height: 9
   - title: Actual Expenditures by Object
     name: Actual Expenditures by Object
@@ -288,7 +288,7 @@
       Select School Name: stars_locations.School_name_plain
     row: 5
     col: 0
-    width: 15
+    width: 14
     height: 7
   - title: Actual Expenditures by Job
     name: Actual Expenditures by Job
@@ -496,7 +496,7 @@
       Select School Name: stars_locations.School_name_plain
     row: 3
     col: 0
-    width: 5
+    width: 7
     height: 2
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
@@ -559,36 +559,6 @@
     col: 0
     width: 24
     height: 7
-  - title: Encumbrance
-    name: Encumbrance
-    model: ped_public_financials
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.encumbrance]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#3F6173"
-    single_value_title: Expected Actual Expenses
-    defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: Future known and expected expenses.
-    listen:
-      Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
-      Select School Name: stars_locations.School_name_plain
-    row: 3
-    col: 10
-    width: 5
-    height: 2
   - name: School Overview
     type: text
     title_text: School Overview
