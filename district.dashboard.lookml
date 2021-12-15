@@ -30,10 +30,10 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 5
-    col: 0
-    width: 7
-    height: 3
+    row: 2
+    col: 5
+    width: 5
+    height: 2
   - title: Actual Expenditures by Job
     name: Actual Expenditures by Job
     model: ped_public_financials
@@ -127,7 +127,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 46
+    row: 45
     col: 0
     width: 24
     height: 8
@@ -196,10 +196,10 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
-    row: 6
-    col: 15
-    width: 9
-    height: 5
+    row: 4
+    col: 0
+    width: 10
+    height: 6
   - title: Schools
     name: Schools
     model: ped_public_financials
@@ -251,9 +251,9 @@
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
     row: 2
-    col: 7
-    width: 8
-    height: 9
+    col: 10
+    width: 6
+    height: 8
   - title: District Schools
     name: District Schools
     model: ped_public_financials
@@ -279,9 +279,9 @@
       'District:': stars_locations.district_name
       Fiscal Year: stars_districts.location_year
     row: 2
-    col: 15
-    width: 5
-    height: 2
+    col: 16
+    width: 4
+    height: 4
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
     model: ped_public_financials
@@ -353,7 +353,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 32
+    row: 31
     col: 0
     width: 12
     height: 7
@@ -432,7 +432,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 32
+    row: 31
     col: 12
     width: 12
     height: 7
@@ -506,7 +506,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
-    row: 13
+    row: 12
     col: 0
     width: 24
     height: 7
@@ -570,7 +570,7 @@
     row: 2
     col: 20
     width: 4
-    height: 2
+    height: 4
   - title: Students
     name: Students
     model: ped_public_financials
@@ -595,15 +595,15 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_districts.location_year
-    row: 4
-    col: 15
-    width: 5
-    height: 2
+    row: 6
+    col: 16
+    width: 4
+    height: 4
   - name: Revenue
     type: text
     title_text: Revenue
     body_text: ''
-    row: 20
+    row: 19
     col: 0
     width: 24
     height: 2
@@ -611,7 +611,7 @@
     type: text
     title_text: Expenditures
     body_text: ''
-    row: 30
+    row: 29
     col: 0
     width: 24
     height: 2
@@ -619,7 +619,7 @@
     type: text
     title_text: School List
     body_text: ''
-    row: 54
+    row: 53
     col: 0
     width: 24
     height: 2
@@ -715,7 +715,7 @@
     - District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_locations.location_year
-    row: 56
+    row: 55
     col: 0
     width: 24
     height: 6
@@ -823,7 +823,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 39
+    row: 38
     col: 12
     width: 12
     height: 7
@@ -849,10 +849,10 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: stars_districts.location_year
-    row: 4
+    row: 6
     col: 20
     width: 4
-    height: 2
+    height: 4
   - title: Actual Revenue
     name: Actual Revenue
     model: ped_public_financials
@@ -880,8 +880,8 @@
       Fiscal Year: budget_year.year_name
     row: 2
     col: 0
-    width: 7
-    height: 3
+    width: 5
+    height: 2
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
     model: ped_public_financials
@@ -940,39 +940,10 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 22
+    row: 21
     col: 0
     width: 24
     height: 8
-  - title: Encumbrance
-    name: Encumbrance
-    model: ped_public_financials
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.encumbrance]
-    filters:
-      stars_locations.location_type: "-Charter School"
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#3F6173"
-    single_value_title: Expected Actual Expenditures
-    defaults_version: 1
-    listen:
-      District Type: stars_districts.district_type
-      'District:': stars_locations.district_name
-      Fiscal Year: budget_year.year_name
-    row: 8
-    col: 0
-    width: 7
-    height: 3
   - title: Actual Expenditures by Function
     name: Actual Expenditures by Function
     model: ped_public_financials
@@ -1032,7 +1003,7 @@
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name
       Fiscal Year: budget_year.year_name
-    row: 39
+    row: 38
     col: 0
     width: 12
     height: 7
@@ -1066,7 +1037,7 @@
     listen:
       'District:': stars_districts.district_name
       Fiscal Year: budget_year.year_name
-    row: 11
+    row: 10
     col: 0
     width: 24
     height: 2
