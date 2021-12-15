@@ -641,6 +641,9 @@
         tickDensity: default, tickDensityCustom: 5, type: linear}]
     series_types: {}
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
     listen:
       Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name

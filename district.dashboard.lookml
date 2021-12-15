@@ -425,6 +425,9 @@
     value_labels: labels
     label_type: labPer
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
     listen:
       District Type: stars_districts.district_type
       'District:': stars_locations.district_name

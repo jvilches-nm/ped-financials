@@ -403,6 +403,9 @@
         reverse: true
     series_types: {}
     defaults_version: 1
+    note_state: collapsed
+    note_display: hover
+    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
     listen:
       Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
