@@ -1327,7 +1327,8 @@
     title_text: State Overview
     body_text: '###Overview of state education finances - includes all district and
       charter students, all district and charter schools, and the regional education
-      cooperatives. To learn more about the data displayed or to find definitions
+      cooperatives. Current fiscal year data will be updated throughout the year as the financials are approved in the Operating Budget Management System.
+      To learn more about the data displayed or to find definitions
       of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.'
     row: 0
     col: 0

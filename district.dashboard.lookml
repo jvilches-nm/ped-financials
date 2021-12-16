@@ -1010,7 +1010,7 @@
   - name: Overview
     type: text
     title_text: Overview
-    body_text: ''
+    body_text: 'District financial numbers on this page do not include local charter school numbers - those are available in the school list at the bottom of the dashboard or on the school dashboard page. Current fiscal year data will be updated throughout the year as the financials are approved in the Operating Budget Management System.'
     row: 0
     col: 0
     width: 24
