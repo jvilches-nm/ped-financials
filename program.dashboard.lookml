@@ -1,4 +1,4 @@
-- dashboard: program
+- dashboard: program_dashboard
   title: Program Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
