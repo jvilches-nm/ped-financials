@@ -115,6 +115,7 @@ set: ucoa_codes {
     type: date
     label: "Data Current As Of"
     sql: MAX(${modified_date}) ;;
+    html: {{ rendered_value | date: "%B %e, %Y" }} ;;
   }
 
   measure: ytdamount {
