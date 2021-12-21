@@ -75,7 +75,7 @@ view: coa_job_class {
     label: "Job Rollup Name"
     sql: CASE WHEN ${job_category_code}='TE' then 'Teachers'
               WHEN ${job_category_code}='OT' then 'Other Professionals'
-              WHEN ${job_category_code}='IA' then 'Assistants'
+              WHEN ${job_category_code}='IA' then 'Instructional Assistants'
               WHEN ${job_category_code}='AD' then 'Administrators'
               WHEN ${job_category_code}='Other' then 'Other'
               WHEN ${job_category_code}='None' then 'None'
