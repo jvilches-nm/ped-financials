@@ -75,6 +75,7 @@ view: coa_fund_hierarchy {
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
+    order_by_field: fund_group_sort
     sql: CASE WHEN left(${fund_code}, 1) = '1' then 'General Fund'
               WHEN left(${fund_code}, 2) = '21' then 'Food Services'
               WHEN left(${fund_code}, 2) = '20' then 'State and Local Grants'
@@ -90,5 +91,15 @@ view: coa_fund_hierarchy {
               WHEN left(${fund_code}, 1) = '4' then 'Debt Service'
               ELSE 'Other' END;;
     drill_fields: [fund_name]
+  }
+  dimension: fund_group_sort {
+    type:  number
+    hidden: yes
+    sql: CASE WHEN ${fund_group}='General Fund' then 1
+         CASE WHEN ${fund_group}='State and Local Grants' then 2
+         CASE WHEN ${fund_group}='Federal Grants' then 3
+         CASE WHEN ${fund_group}='Food Services' then 4
+        CASE WHEN ${fund_group}='Debt Service' then 5
+        ELSE 6;;
   }
 }
