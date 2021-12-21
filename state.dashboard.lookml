@@ -26,67 +26,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 7
+    row: 8
     col: 0
     width: 7
     height: 4
-  - title: Actual Expenditures by Object
-    name: Actual Expenditures by Object
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_object_hierarchy.object_group]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    value_labels: labels
-    label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: circle
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    series_colors:
-      Property: "#e6e6e6"
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 64
-    col: 0
-    width: 24
-    height: 9
   - title: Students by Location Type
     name: Students by Location Type
     model: ped_public_financials
@@ -152,7 +95,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 16
+    row: 14
     col: 15
     width: 9
     height: 8
@@ -177,7 +120,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 3
+    row: 4
     col: 16
     width: 8
     height: 2
@@ -233,7 +176,7 @@
     series_types: {}
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 5
+    row: 6
     col: 20
     width: 4
     height: 2
@@ -241,7 +184,7 @@
     type: text
     title_text: Schools/Students
     body_text: ''
-    row: 14
+    row: 12
     col: 0
     width: 24
     height: 2
@@ -267,7 +210,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 7
+    row: 8
     col: 16
     width: 4
     height: 2
@@ -294,7 +237,7 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 7
+    row: 8
     col: 20
     width: 4
     height: 2
@@ -350,7 +293,7 @@
     series_types: {}
     listen:
       Fiscal Year: stars_districts.location_year
-    row: 5
+    row: 6
     col: 16
     width: 4
     height: 2
@@ -405,15 +348,16 @@
     series_types: {}
     listen:
       Fiscal Year: budget_year.year_name
-    row: 9
+    row: 10
     col: 16
     width: 8
     height: 2
-  - name: Revenue
+  - name: Revenue and Expenditures
     type: text
-    title_text: Revenue
+    title_text: Revenue and Expenditures
+    subtitle_text: ''
     body_text: ''
-    row: 24
+    row: 22
     col: 0
     width: 24
     height: 2
@@ -494,135 +438,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: stars_locations.location_year
-    row: 16
+    row: 14
     col: 0
     width: 15
     height: 8
-  - name: Expenditures
-    type: text
-    title_text: Expenditures
-    body_text: ''
-    row: 35
-    col: 0
-    width: 24
-    height: 2
-  - title: Acutal Expenditures by Job
-    name: Acutal Expenditures by Job
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_job_class.job_rollup_name]
-    filters:
-      coa_job_class.job_name: "-No Job Class"
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    value_labels: labels
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    series_colors:
-      Assistants: "#e6e6e6"
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 37
-    col: 0
-    width: 24
-    height: 9
-  - title: Actual Expenditures by Fund
-    name: Actual Expenditures by Fund
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_fund_hierarchy.fund_group]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    value_labels: labels
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    series_colors: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: normal
-    limit_displayed_rows: false
-    legend_position: center
-    font_size: '12'
-    series_types: {}
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 46
-    col: 0
-    width: 24
-    height: 9
   - name: Districts
     title: Districts
     merged_queries:
@@ -717,7 +536,7 @@
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
-    row: 85
+    row: 52
     col: 0
     width: 12
     height: 6
@@ -1173,7 +992,7 @@
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
-    row: 85
+    row: 52
     col: 12
     width: 12
     height: 6
@@ -1181,27 +1000,149 @@
     type: text
     title_text: Districts/Charters
     body_text: ''
-    row: 83
+    row: 50
     col: 0
     width: 24
     height: 2
-  - title: Actual Expenditures by Function
-    name: Actual Expenditures by Function
+  - title: Actual Revenue
+    name: Actual Revenue
+    model: ped_public_financials
+    explore: actuals_revenue_line
+    type: single_value
+    fields: [actuals_revenue_line.amount]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    custom_color: "#9B8E20"
+    single_value_title: Actual Revenue
+    defaults_version: 1
+    listen:
+      Fiscal Year: budget_year.year_name
+    row: 4
+    col: 0
+    width: 7
+    height: 4
+  - name: State Overview
+    type: text
+    title_text: State Overview
+    subtitle_text: ''
+    body_text: "###Overview of state education finances - includes all district and\
+      \ charter students, all district and charter schools, and the regional education\
+      \ cooperatives. To learn more about the data displayed or to find definitions\
+      \ of terms please click <a href=\"https://openbooks.ped.nm.gov/learn-more/\"\
+      \ target=\"_PARENT\">here</a>.\n\nFiscal year data for 2021-2022 is currently\
+      \ up to date as of quarter one. Data will be updated throughout the year as\
+      \ the financials are approved in the Operating Budget Management System. "
+    row: 0
+    col: 0
+    width: 24
+    height: 4
+  - name: Revenue to Expenditures Comparison
+    title: Revenue to Expenditures Comparison
+    merged_queries:
+    - model: ped_public_financials
+      explore: actuals_revenue_line
+      type: table
+      fields: [budget_year.year_name, actuals_revenue_line.amount]
+      filters:
+        entity_year.parent_type: Regional Education Cooperative,School District,State
+          Charter School
+      sorts: [budget_year.year_name]
+      limit: 500
+      join_fields: []
+    - model: ped_public_financials
+      explore: actuals_line
+      type: table
+      fields: [budget_year.year_name, actuals_line.amount, actuals_line.encumbrance]
+      filters:
+        entity_year.parent_type: Regional Education Cooperative,School District,State
+          Charter School
+      sorts: [budget_year.year_name]
+      limit: 500
+      join_fields:
+      - field_name: budget_year.year_name
+        source_field_name: budget_year.year_name
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: actuals_line.amount, name: Actual Expenditures}, {axisId: actuals_revenue_line.amount,
+            id: actuals_revenue_line.amount, name: Actual Revenue}], showLabels: false,
+        showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}, {label: !!null '', orientation: bottom,
+        series: [{axisId: expenditure_to_revenue_ratio, id: expenditure_to_revenue_ratio,
+            name: Percentage Expenditures to Revenue}], showLabels: false, showValues: false,
+        valueFormat: '00.0,,"M"', unpinAxis: true, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    hidden_series: []
+    legend_position: center
+    series_types:
+      expenditure_to_revenue_ratio: scatter
+    point_style: circle_outline
+    series_colors:
+      expenditure_to_revenue_ratio: "#000000"
+      actuals_revenue_line.amount: "#9B8E20"
+      actuals_line.amount: "#068993"
+    series_labels:
+      expenditure_to_revenue_ratio: Percentage Expenditures to Revenue
+      expenditure_and_encumbrance: Actual & Expected Expenditures
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    type: looker_bar
+    hidden_fields: [expenditure_and_encumbrance, actuals_line.encumbrance]
+    sorts: [actuals_revenue_line.amount desc]
+    column_limit: 50
+    dynamic_fields: [{table_calculation: expenditure_to_revenue_ratio, label: Expenditure
+          to Revenue Ratio, expression: "(${actuals_line.amount} )/${actuals_revenue_line.amount}",
+        value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
+        _type_hint: number}, {table_calculation: expenditure_and_encumbrance, label: Expenditure
+          and Encumbrance, expression: "${actuals_line.amount} + ${actuals_line.encumbrance}",
+        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
+    listen:
+    - Fiscal Year: budget_year.year_name
+    - Fiscal Year: budget_year.year_name
+    row: 4
+    col: 7
+    width: 9
+    height: 8
+  - title: Actual Expenditures by Fund
+    name: Actual Expenditures by Fund
     model: ped_public_financials
     explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name]
-    sorts: [actuals_line.amount desc]
+    type: looker_bar
+    fields: [coa_fund_hierarchy.fund_group, actuals_line.amount]
+    sorts: [coa_fund_hierarchy.fund_group desc]
     limit: 500
-    value_labels: labels
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    series_colors: {}
+    dynamic_fields: [{table_calculation: percent_of_total, label: Percent of Total,
+        expression: "${actuals_line.amount}/sum(${actuals_line.amount})", value_format: !!null '',
+        value_format_name: percent_2, _kind_hint: measure, _type_hint: number}]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1230,59 +1171,33 @@
     show_silhouette: false
     totals_color: "#808080"
     y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
+            id: actuals_line.amount, name: Actual Expenditures}, {axisId: percent_of_total,
+            id: percent_of_total, name: Percent of Total}], showLabels: false, showValues: true,
         valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
     series_types: {}
+    series_colors:
+      actuals_line.amount: "#068993"
+      percent_of_total: "#000000"
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 55
-    col: 0
-    width: 24
-    height: 9
-  - title: Actual Revenue
-    name: Actual Revenue
-    model: ped_public_financials
-    explore: actuals_revenue_line
-    type: single_value
-    fields: [actuals_revenue_line.amount]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    custom_color: "#9B8E20"
-    single_value_title: Actual Revenue
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-    row: 3
-    col: 0
-    width: 7
-    height: 4
+    row: 24
+    col: 12
+    width: 12
+    height: 8
   - title: Actual Revenue by Fund
     name: Actual Revenue by Fund
     model: ped_public_financials
     explore: actuals_revenue_line
-    type: looker_pie
+    type: looker_bar
     fields: [coa_fund_hierarchy.fund_group, actuals_revenue_line.amount]
-    sorts: [actuals_revenue_line.amount desc]
+    sorts: [coa_fund_hierarchy.fund_group desc]
     limit: 500
-    value_labels: labels
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
-      options:
-        steps: 5
-        reverse: false
-    series_colors: {}
+    dynamic_fields: [{table_calculation: percent_of_total, label: Percent of Total,
+        expression: "${actuals_revenue_line.amount}/sum(${actuals_revenue_line.amount})",
+        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
+        _type_hint: number}]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1315,121 +1230,25 @@
         showValues: true, valueFormat: '0.00,, "M"', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     series_types: {}
+    series_colors:
+      actuals_revenue_line.amount: "#9B8E20"
+      percent_of_total: "#9B2030"
+    label_rotation:
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 26
+    row: 24
     col: 0
-    width: 24
-    height: 9
-  - name: State Overview
-    type: text
-    title_text: State Overview
-    body_text: '###Overview of state education finances - includes all district and
-      charter students, all district and charter schools, and the regional education
-      cooperatives. Current fiscal year data will be updated throughout the year as the financials are approved in the Operating Budget Management System.
-      To learn more about the data displayed or to find definitions
-      of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.'
-    row: 0
-    col: 0
-    width: 24
-    height: 3
-  - name: Expenditures to Revenue Comparison
-    title: Expenditures to Revenue Comparison
-    merged_queries:
-    - model: ped_public_financials
-      explore: actuals_line
-      type: table
-      fields: [budget_year.year_name, actuals_line.amount, actuals_line.encumbrance]
-      filters:
-        entity_year.parent_type: Regional Education Cooperative,School District,State
-          Charter School
-      sorts: [budget_year.year_name]
-      limit: 500
-      join_fields: []
-    - model: ped_public_financials
-      explore: actuals_revenue_line
-      type: table
-      fields: [budget_year.year_name, actuals_revenue_line.amount]
-      filters:
-        entity_year.parent_type: Regional Education Cooperative,School District,State
-          Charter School
-      sorts: [budget_year.year_name]
-      limit: 500
-      join_fields:
-      - field_name: budget_year.year_name
-        source_field_name: budget_year.year_name
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_revenue_line.amount,
-            id: actuals_revenue_line.amount, name: Actual Revenue}], showLabels: false,
-        showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}, {label: !!null '', orientation: left,
-        series: [{axisId: expenditure_to_revenue_ratio, id: expenditure_to_revenue_ratio,
-            name: Percentage Expenditures to Revenue}], showLabels: false, showValues: false,
-        valueFormat: '00.0,,"M"', unpinAxis: true, tickDensity: default, tickDensityCustom: 5,
-        type: linear}, {label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: false, unpinAxis: false, tickDensity: default, type: linear}]
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    hidden_series: []
-    legend_position: center
-    series_types:
-      expenditure_to_revenue_ratio: line
-    point_style: circle_outline
-    series_colors:
-      expenditure_to_revenue_ratio: "#000000"
-      actuals_revenue_line.amount: "#9B8E20"
-      actuals_line.amount: "#068993"
-    series_labels:
-      expenditure_to_revenue_ratio: Percentage Expenditures to Revenue
-      expenditure_and_encumbrance: Actual & Expected Expenditures
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    type: looker_column
-    hidden_fields: [expenditure_and_encumbrance, actuals_line.encumbrance]
-    sorts: [actuals_revenue_line.amount desc]
-    column_limit: 50
-    dynamic_fields: [{table_calculation: expenditure_to_revenue_ratio, label: Expenditure
-          to Revenue Ratio, expression: "(${actuals_line.amount} )/${actuals_revenue_line.amount}",
-        value_format: !!null '', value_format_name: percent_1, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: expenditure_and_encumbrance, label: Expenditure
-          and Encumbrance, expression: "${actuals_line.amount} + ${actuals_line.encumbrance}",
-        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
-    listen:
-    - Fiscal Year: budget_year.year_name
-    - Fiscal Year: budget_year.year_name
-    row: 3
-    col: 7
-    width: 9
+    width: 12
     height: 8
-  - title: Actual Expenditures by Program
-    name: Actual Expenditures by Program
+  - title: Actual Expenditures by Object and Fund Category
+    name: Actual Expenditures by Object and Fund Category
     model: ped_public_financials
     explore: actuals_line
     type: looker_bar
-    fields: [coa_program_hierarchy.program_name, actuals_line.amount]
-    sorts: [actuals_line.amount desc]
+    fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_fund_hierarchy.fund_group]
+    pivots: [coa_fund_hierarchy.fund_group]
+    sorts: [actuals_line.amount desc 3, coa_fund_hierarchy.fund_group]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1445,7 +1264,7 @@
     y_axis_reversed: false
     plot_size_by_field: false
     trellis: ''
-    stacking: ''
+    stacking: normal
     limit_displayed_rows: false
     legend_position: center
     point_style: none
@@ -1458,71 +1277,87 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_colors:
-      actuals_line.amount: "#068993"
-    defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Debt Service - actuals_line.amount,
+            id: Debt Service - actuals_line.amount, name: Debt Service}, {axisId: Federal
+              Grants - actuals_line.amount, id: Federal Grants - actuals_line.amount,
+            name: Federal Grants}, {axisId: Food Services - actuals_line.amount, id: Food
+              Services - actuals_line.amount, name: Food Services}, {axisId: General
+              Fund - actuals_line.amount, id: General Fund - actuals_line.amount,
+            name: General Fund}, {axisId: State and Local Grants - actuals_line.amount,
+            id: State and Local Grants - actuals_line.amount, name: State and Local
+              Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
+          "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    hide_legend: false
     series_types: {}
+    series_colors:
+      General Fund - actuals_line.amount: "#A8876C"
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 73
+    row: 32
     col: 0
     width: 24
-    height: 10
-  - title: Data Current As Of
-    name: Data Current As Of
-    model: ped_public_financials
+    height: 9
+  - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
+    name: Actual Expenditures by Job and Fund Category for Salary/Compensation
+    model: ped_public_financials_test
     explore: actuals_line
-    type: single_value
-    fields: [actuals_line.current_as_of]
+    type: looker_bar
+    fields: [coa_job_class.job_rollup_name, actuals_line.amount, coa_fund_hierarchy.fund_group]
+    pivots: [coa_fund_hierarchy.fund_group]
+    filters:
+      coa_job_class.job_rollup_name: "-None"
+    sorts: [actuals_line.amount desc 0, coa_fund_hierarchy.fund_group]
     limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_view_names: false
-    defaults_version: 1
-    series_types: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
+    show_view_names: false
     show_y_axis_labels: true
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: true
+    show_x_axis_label: false
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
     y_axis_reversed: false
     plot_size_by_field: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
+    trellis: ''
+    stacking: normal
     limit_displayed_rows: false
-    header_text_alignment: left
-    header_font_size: 12
-    rows_font_size: 12
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
+            id: Federal Grants - actuals_line.amount, name: Federal Grants}, {axisId: actuals_line.amount,
+            id: Food Services - actuals_line.amount, name: Food Services}, {axisId: actuals_line.amount,
+            id: General Fund - actuals_line.amount, name: General Fund}, {axisId: actuals_line.amount,
+            id: Other - actuals_line.amount, name: Other}, {axisId: actuals_line.amount,
+            id: State and Local Grants - actuals_line.amount, name: State and Local
+              Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
+          "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    series_types: {}
+    series_colors:
+      Federal Grants - actuals_line.amount: "#068993"
+      Food Services - actuals_line.amount: "#A85573"
+      General Fund - actuals_line.amount: "#A8876C"
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 11
+    row: 41
     col: 0
     width: 24
-    height: 3
+    height: 9
   filters:
   - name: Fiscal Year
     title: Fiscal Year
