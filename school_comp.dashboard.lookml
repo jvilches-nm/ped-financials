@@ -523,7 +523,7 @@
     title_text: Overview
     subtitle_text: ''
     body_text: |-
-      ###Fiscal year 2021-2022 currently contains first quarter data. Data will continue to be updated throughout the year as it is approved in the Operation Budget Management System.
+      ###Fiscal year 2021-2022 currently contains first quarter data. Data will continue to be updated throughout the year as it is approved in the Operating Budget Management System.
 
       ###School level financials are currently only available for charter schools. District school level financials will be available starting with the 2022-2023 fiscal year.
     row: 0

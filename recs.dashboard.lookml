@@ -37,7 +37,7 @@
     title_text: Revenue and Expenditures
     subtitle_text: ''
     body_text: Fiscal Year 2021-2022 data is first quarter data. Data will be updated
-      throughout the year as it is approved in the Operation Budget Management System.
+      throughout the year as it is approved in the Operating Budget Management System.
     row: 18
     col: 0
     width: 24

@@ -388,7 +388,7 @@
     title_text: ''
     subtitle_text: ''
     body_text: |-
-      ###Please note that the current fiscal year only contains data for the first quarter. This data will continue to be updated throughout the year as data is submitted and approved in the Operation Budget Management System.
+      ###Please note that the current fiscal year only contains data for the first quarter. This data will continue to be updated throughout the year as data is submitted and approved in the Operating Budget Management System.
 
       ### Program coding is only available for the Instructional category and select Support Services categories.
     row: 0

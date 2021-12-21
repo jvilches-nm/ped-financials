@@ -770,7 +770,7 @@
     title_text: ''
     subtitle_text: ''
     body_text: "###Fiscal year 2021-2022 currently contains first quarter data. Data\
-      \ will continue to be updated throughout the year as it is approved in the Operation\
+      \ will continue to be updated throughout the year as it is approved in the Operating\
       \ Budget Management System."
     row: 0
     col: 0
