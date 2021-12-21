@@ -20,7 +20,8 @@ datagroup: ped_public_financials_default_datagroup {
 persist_with: ped_public_financials_default_datagroup
 explore: actuals_revenue_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
+                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
+                    and ${coa_fund_hierarchy.fund_code} not like '3%';;
   label: "Actual Revenue"
 
   join: actuals_budget_period {
@@ -92,7 +93,8 @@ explore: actuals_revenue_line {
 
 explore: actuals_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
+                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
+                    and ${coa_fund_hierarchy.fund_code} not like '3%';;
   label: "Actual Expenditures"
 
   join: actuals_budget_period {
@@ -179,7 +181,8 @@ join: rec_names {
 
 explore: budget_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
+                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
+                    and ${coa_fund_hierarchy.fund_code} not like '3%';;
   label: "Budgeted Revenue"
 
   join: budget_fund {
@@ -246,7 +249,8 @@ join: rec_names {
 
 explore: budget_expenditures_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
+                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
+                    and ${coa_fund_hierarchy.fund_code} not like '3%';;
   label: "Budgeted Expenditures"
   join: budget_fund {
     relationship: many_to_one
