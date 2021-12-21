@@ -60,13 +60,15 @@ view: coa_job_class {
     type: string
     label: "Job Category Code"
     sql: case when ${TABLE}.name = 'No Job Class' then 'None'
-              when ${TABLE}.job_category_name is null then 'Other' else ${TABLE}.job_category_name end ;;
+              when ${TABLE}.job_category_code is null then 'Other'
+              else ${TABLE}.job_category_code end ;;
   }
   dimension: job_category_name {
     type: string
     label: "Job Category Name"
     sql: case when ${TABLE}.name = 'No Job Class' then 'None'
-              when ${TABLE}.job_category_name is null then 'Other' else ${TABLE}.job_category_name end ;;
+              when ${TABLE}.job_category_name is null then 'Other'
+              else ${TABLE}.job_category_name end ;;
     drill_fields: [job_name]
   }
 
