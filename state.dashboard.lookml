@@ -536,7 +536,7 @@
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
     - Fiscal Year: stars_districts.location_year
-    row: 52
+    row: 50
     col: 0
     width: 12
     height: 6
@@ -992,7 +992,7 @@
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
     - Fiscal Year: stars_locations.location_year
-    row: 52
+    row: 50
     col: 12
     width: 12
     height: 6
@@ -1000,7 +1000,7 @@
     type: text
     title_text: Districts/Charters
     body_text: ''
-    row: 50
+    row: 48
     col: 0
     width: 24
     height: 2
@@ -1298,17 +1298,17 @@
     row: 32
     col: 0
     width: 24
-    height: 9
+    height: 8
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
-    model: ped_public_financials_test
+    model: ped_public_financials
     explore: actuals_line
     type: looker_bar
-    fields: [coa_job_class.job_rollup_name, actuals_line.amount, coa_fund_hierarchy.fund_group]
+    fields: [coa_job_class.job_rollup_name, coa_fund_hierarchy.fund_group, actuals_line.amount]
     pivots: [coa_fund_hierarchy.fund_group]
     filters:
       coa_job_class.job_rollup_name: "-None"
-    sorts: [actuals_line.amount desc 0, coa_fund_hierarchy.fund_group]
+    sorts: [actuals_line.amount desc 2, coa_fund_hierarchy.fund_group]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1337,13 +1337,13 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: Federal Grants - actuals_line.amount, name: Federal Grants}, {axisId: actuals_line.amount,
-            id: Food Services - actuals_line.amount, name: Food Services}, {axisId: actuals_line.amount,
-            id: General Fund - actuals_line.amount, name: General Fund}, {axisId: actuals_line.amount,
-            id: Other - actuals_line.amount, name: Other}, {axisId: actuals_line.amount,
-            id: State and Local Grants - actuals_line.amount, name: State and Local
-              Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Federal Grants - actuals_line.amount,
+            id: Federal Grants - actuals_line.amount, name: Federal Grants}, {axisId: Food
+              Services - actuals_line.amount, id: Food Services - actuals_line.amount,
+            name: Food Services}, {axisId: General Fund - actuals_line.amount, id: General
+              Fund - actuals_line.amount, name: General Fund}, {axisId: State and
+              Local Grants - actuals_line.amount, id: State and Local Grants - actuals_line.amount,
+            name: State and Local Grants}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
     series_types: {}
     series_colors:
@@ -1354,10 +1354,10 @@
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
-    row: 41
+    row: 40
     col: 0
     width: 24
-    height: 9
+    height: 8
   filters:
   - name: Fiscal Year
     title: Fiscal Year
