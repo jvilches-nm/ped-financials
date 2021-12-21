@@ -75,17 +75,18 @@ view: coa_fund_hierarchy {
   dimension: fund_group {
     type: string
     label: "Fund Rollup Name"
-    sql: CASE WHEN left(${fund_code}, 2) = '24' THEN 'Federal Grants'
-              WHEN left(${fund_code}, 2) = '25' THEN 'Federal Grants'
-              WHEN left(${fund_code}, 2) = '27' then 'State Grants'
-              WHEN left(${fund_code}, 2) = '28' then 'State Grants'
-              WHEN left(${fund_code}, 2) = '29' then 'State/Local Grants'
-              WHEN left(${fund_code}, 2) = '26' then 'Local Grants'
-              WHEN left(${fund_code}, 1) = '1' then 'General Fund'
+    sql: CASE WHEN left(${fund_code}, 1) = '1' then 'General Fund'
               WHEN left(${fund_code}, 2) = '21' then 'Food Services'
-              WHEN left(${fund_code}, 2) = '22' then 'Athletics'
-              WHEN left(${fund_code}, 2) = '23' then 'Non-Instructional Support'
-              WHEN left(${fund_code}, 1) = '3' then 'Capital Project'
+              WHEN left(${fund_code}, 2) = '20' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '22' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '23' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '24' THEN 'Federal Grants'
+              WHEN left(${fund_code}, 2) = '25' THEN 'Federal Grants'
+              WHEN left(${fund_code}, 2) = '26' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '27' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '28' then 'State and Local Grants'
+              WHEN left(${fund_code}, 2) = '29' then 'State and Local Grants'
+              --WHEN left(${fund_code}, 1) = '3' then 'Capital Project'
               WHEN left(${fund_code}, 1) = '4' then 'Debt Service'
               ELSE 'Other' END;;
     drill_fields: [fund_name]
