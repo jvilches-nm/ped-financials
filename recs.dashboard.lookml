@@ -32,178 +32,16 @@
     col: 12
     width: 11
     height: 2
-  - name: Revenue
+  - name: Revenue and Expenditures
     type: text
-    title_text: Revenue
-    body_text: ''
-    row: 20
+    title_text: Revenue and Expenditures
+    subtitle_text: ''
+    body_text: Fiscal Year 2021-2022 data is first quarter data. Data will be updated
+      throughout the year as it is approved in the Operation Budget Management System.
+    row: 18
     col: 0
     width: 24
     height: 2
-  - name: Expenditures
-    type: text
-    title_text: Expenditures
-    body_text: ''
-    row: 31
-    col: 0
-    width: 24
-    height: 2
-  - title: Actual Expenditures by Program
-    name: Actual Expenditures by Program
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_bar
-    fields: [actuals_line.amount, coa_program_hierarchy.program_name]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    series_colors:
-      actuals_line.amount: "#068993"
-    defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 47
-    col: 0
-    width: 12
-    height: 7
-  - title: Actual Expenditures by Function
-    name: Actual Expenditures by Function
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_bar
-    fields: [actuals_line.amount, coa_function_hierarchy.rollup_function_name]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    series_colors:
-      actuals_line.amount: "#068993"
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 40
-    col: 0
-    width: 12
-    height: 7
-  - title: Actual Expenditures by Object
-    name: Actual Expenditures by Object
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_bar
-    fields: [actuals_line.amount, coa_object_hierarchy.object_group]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    series_colors:
-      actuals_line.amount: "#068993"
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 33
-    col: 12
-    width: 12
-    height: 7
   - title: Actual Expenditures by Fund
     name: Actual Expenditures by Fund
     model: ped_public_financials
@@ -251,71 +89,10 @@
       Fiscal Year: budget_year.year_name
       Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 33
+    row: 28
     col: 0
-    width: 12
-    height: 7
-  - title: Actual Expenditures by Job
-    name: Actual Expenditures by Job
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_pie
-    fields: [actuals_line.amount, coa_job_class.job_rollup_name]
-    filters:
-      coa_job_class.job_name: "-No Job Class"
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    value_labels: legend
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-      options:
-        steps: 5
-        reverse: true
-    series_colors:
-      actuals_line.amount: "#068993"
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: false
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    show_value_labels: true
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: bottom, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Actual Expenditures}], showLabels: false,
-        showValues: true, valueFormat: '0.00,,"M"', unpinAxis: false, tickDensity: default,
-        tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 40
-    col: 12
-    width: 12
-    height: 7
+    width: 23
+    height: 8
   - title: Regional Education Cooperatives
     name: Regional Education Cooperatives
     model: ped_public_financials
@@ -426,79 +203,10 @@
       Fiscal Year: budget_year.year_name
       Parent Type: entity_year.parent_type
       Select REC: rec_names.rec_name
-    row: 22
+    row: 20
     col: 0
     width: 23
-    height: 9
-  - title: Actual Expenditures by Location
-    name: Actual Expenditures by Location
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_grid
-    fields: [actuals_line.amount, entity_year.parent_name, entity_year.child_name]
-    sorts: [actuals_line.amount desc]
-    limit: 500
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '12'
-    rows_font_size: '12'
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    series_labels:
-      entity_year.parent_name: REC
-    series_cell_visualizations:
-      actuals_line.amount:
-        is_active: true
-        palette:
-          palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778
-          collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 47
-    col: 12
-    width: 12
-    height: 7
+    height: 8
   - name: REC Overview
     type: text
     title_text: REC Overview
@@ -589,33 +297,6 @@
     col: 12
     width: 11
     height: 3
-  - title: Data Current As Of
-    name: Data Current As Of
-    model: ped_public_financials
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.current_as_of]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_view_names: false
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-      Parent Type: entity_year.parent_type
-      Select REC: rec_names.rec_name
-    row: 18
-    col: 0
-    width: 24
-    height: 2
   filters:
   - name: Fiscal Year
     title: Fiscal Year

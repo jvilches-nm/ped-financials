@@ -4,23 +4,18 @@
   preferred_viewer: dashboards-next
   description: ''
   elements:
-  - title: Actual Expenditures by Object
-    name: Actual Expenditures by Object
+  - title: Actual Expenditures by Object Category for General Funds
+    name: Actual Expenditures by Object Category for General Funds
     model: ped_public_financials
     explore: actuals_line
-    type: looker_donut_multiples
+    type: looker_bar
     fields: [actuals_line.amount, coa_object_hierarchy.object_group, stars_districts.district_name]
     pivots: [coa_object_hierarchy.object_group]
     filters:
       stars_locations.location_type: "-Charter School"
+      coa_fund_hierarchy.fund_group: General Fund
     sorts: [coa_object_hierarchy.object_group, stars_districts.district_name]
     limit: 4
-    show_value_labels: true
-    font_size: 12
-    charts_across: 4
-    hide_legend: false
-    value_labels: labels
-    label_type: labPer
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -28,17 +23,18 @@
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: true
+    show_x_axis_label: false
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
     y_axis_reversed: false
     plot_size_by_field: false
     trellis: ''
-    stacking: ''
+    stacking: normal
     limit_displayed_rows: false
     legend_position: center
     point_style: circle
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -47,22 +43,35 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Benefits - actuals_line.amount,
+            id: Benefits - actuals_line.amount, name: Benefits}, {axisId: Debt Service
+              - actuals_line.amount, id: Debt Service - actuals_line.amount, name: Debt
+              Service}, {axisId: Other Services - actuals_line.amount, id: Other Services
+              - actuals_line.amount, name: Other Services}, {axisId: Prof/Tech Services
+              - actuals_line.amount, id: Prof/Tech Services - actuals_line.amount,
+            name: Prof/Tech Services}, {axisId: Property - actuals_line.amount, id: Property
+              - actuals_line.amount, name: Property}, {axisId: Property Services -
+              actuals_line.amount, id: Property Services - actuals_line.amount, name: Property
+              Services}, {axisId: Salary - actuals_line.amount, id: Salary - actuals_line.amount,
+            name: Salary}, {axisId: Supplies - actuals_line.amount, id: Supplies -
+              actuals_line.amount, name: Supplies}], showLabels: false, showValues: true,
+        valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
+        type: linear}]
+    hide_legend: false
+    font_size: '12'
     series_types: {}
+    charts_across: 4
+    value_labels: labels
+    label_type: labPer
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 81
+    row: 55
     col: 0
     width: 24
-    height: 7
+    height: 9
   - title: Students by Grade
     name: Students by Grade
     model: ped_public_financials
@@ -242,7 +251,7 @@
     - Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 0
+    row: 2
     col: 0
     width: 11
     height: 13
@@ -460,264 +469,150 @@
     col: 0
     width: 11
     height: 7
-  - title: Actual Expenditures by Function
-    name: Actual Expenditures by Function
+  - title: Actual Expenditures by Fund Category
+    name: Actual Expenditures by Fund Category
     model: ped_public_financials
     explore: actuals_line
-    type: looker_donut_multiples
-    fields: [actuals_line.amount, stars_districts.district_name, coa_function_hierarchy.rollup_function_name]
-    pivots: [coa_function_hierarchy.rollup_function_name]
-    filters:
-      stars_locations.location_type: "-Charter School"
-    sorts: [coa_function_hierarchy.rollup_function_name, stars_districts.district_name]
-    limit: 4
-    show_value_labels: true
-    font_size: 12
-    charts_across: 4
-    hide_legend: false
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
-      options:
-        steps: 5
-    value_labels: labels
-    label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: circle
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-      'Select up to 4 districts:': stars_locations.district_name
-      District Type: stars_districts.district_type
-    row: 59
-    col: 0
-    width: 24
-    height: 7
-  - title: Actual Expenditures by Fund
-    name: Actual Expenditures by Fund
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_donut_multiples
+    type: looker_bar
     fields: [actuals_line.amount, stars_districts.district_name, coa_fund_hierarchy.fund_group]
     pivots: [coa_fund_hierarchy.fund_group]
     filters:
       stars_locations.location_type: "-Charter School"
     sorts: [coa_fund_hierarchy.fund_group, stars_districts.district_name]
     limit: 4
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
     show_value_labels: true
-    font_size: 12
-    charts_across: 4
-    hide_legend: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
       palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
       options:
         steps: 5
         reverse: false
-    series_colors: {}
-    value_labels: labels
-    label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: circle
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
-    defaults_version: 1
-    listen:
-      Fiscal Year: budget_year.year_name
-      'Select up to 4 districts:': stars_locations.district_name
-      District Type: stars_districts.district_type
-    row: 52
-    col: 0
-    width: 24
-    height: 7
-  - title: Actual Expenditures by Program
-    name: Actual Expenditures by Program
-    model: ped_public_financials
-    explore: actuals_line
-    type: looker_donut_multiples
-    fields: [actuals_line.amount, stars_districts.district_name, coa_program_hierarchy.program_name]
-    pivots: [coa_program_hierarchy.program_name]
-    filters:
-      stars_locations.location_type: "-Charter School"
-    sorts: [coa_program_hierarchy.program_name, stars_districts.district_name]
-    limit: 4
-    show_value_labels: true
-    font_size: 12
-    charts_across: 4
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Debt Service - actuals_line.amount,
+            id: Debt Service - actuals_line.amount, name: Debt Service}, {axisId: Federal
+              Grants - actuals_line.amount, id: Federal Grants - actuals_line.amount,
+            name: Federal Grants}, {axisId: Food Services - actuals_line.amount, id: Food
+              Services - actuals_line.amount, name: Food Services}, {axisId: General
+              Fund - actuals_line.amount, id: General Fund - actuals_line.amount,
+            name: General Fund}, {axisId: State and Local Grants - actuals_line.amount,
+            id: State and Local Grants - actuals_line.amount, name: State and Local
+              Grants}], showLabels: false, showValues: true, valueFormat: '00.0,,"M"',
+        unpinAxis: false, tickDensity: default, type: linear}]
     hide_legend: false
+    font_size: '12'
+    series_types: {}
+    series_colors:
+      State and Local Grants - actuals_line.amount: "#F2C73C"
+      General Fund - actuals_line.amount: "#A8876C"
+    charts_across: 4
     value_labels: labels
     label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: circle
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     defaults_version: 1
-    note_state: collapsed
-    note_display: hover
-    note_text: No Program does not indicate that the amount did not apply to a program, but that it was not recorded that way in the financial system.
     listen:
       Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 73
+    row: 46
     col: 0
     width: 24
-    height: 8
-  - title: Actual Expenditures by Job
-    name: Actual Expenditures by Job
+    height: 9
+  - title: Actual Salary/Compensation Expenditures by Job Category for General Funds
+    name: Actual Salary/Compensation Expenditures by Job Category for General Funds
     model: ped_public_financials
     explore: actuals_line
-    type: looker_donut_multiples
+    type: looker_bar
     fields: [actuals_line.amount, stars_districts.district_name, coa_job_class.job_rollup_name]
     pivots: [coa_job_class.job_rollup_name]
     filters:
       stars_locations.location_type: "-Charter School"
-      coa_job_class.job_rollup_name: "-No Job Class"
+      coa_job_class.job_rollup_name: "-None"
+      coa_fund_hierarchy.fund_group: General Fund
     sorts: [coa_job_class.job_rollup_name, stars_districts.district_name]
     limit: 4
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: normal
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: circle
     show_value_labels: true
-    font_size: 12
-    charts_across: 4
-    hide_legend: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
     color_application:
       collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
       palette_id: de0bdb92-9455-489c-afa7-f0e0fdc76078
       options:
         steps: 5
         reverse: true
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Administrators - actuals_line.amount,
+            id: Administrators - actuals_line.amount, name: Administrators}, {axisId: Instructional
+              Assistants - actuals_line.amount, id: Instructional Assistants - actuals_line.amount,
+            name: Instructional Assistants}, {axisId: Other - actuals_line.amount,
+            id: Other - actuals_line.amount, name: Other}, {axisId: Other Professionals
+              - actuals_line.amount, id: Other Professionals - actuals_line.amount,
+            name: Other Professionals}, {axisId: Support - actuals_line.amount, id: Support
+              - actuals_line.amount, name: Support}, {axisId: Teachers - actuals_line.amount,
+            id: Teachers - actuals_line.amount, name: Teachers}], showLabels: true,
+        showValues: true, valueFormat: '00.0,,"M"', unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    hide_legend: false
+    font_size: '12'
+    series_types: {}
+    charts_across: 4
     value_labels: labels
     label_type: labPer
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: circle
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    y_axes: [{label: '', orientation: left, series: [{axisId: actuals_line.amount,
-            id: actuals_line.amount, name: Amount}], showLabels: true, showValues: true,
-        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear},
-      {label: !!null '', orientation: right, series: [{axisId: spends, id: spends,
-            name: Spends (%)}], showLabels: true, showValues: true, unpinAxis: false,
-        tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 66
+    row: 64
     col: 0
     width: 24
-    height: 7
+    height: 9
   - name: Students/Schools
     type: text
     title_text: Students/Schools
@@ -784,47 +679,31 @@
     - Fiscal Year: stars_districts.location_year
       'Select up to 4 districts:': stars_locations.district_name
       District Type: stars_districts.district_type
-    row: 0
+    row: 2
     col: 11
     width: 13
     height: 13
-  - name: Expenditures
+  - name: Revenue and Expenditures
     type: text
-    title_text: Expenditures
-    body_text: ''
-    row: 50
-    col: 0
-    width: 24
-    height: 2
-  - name: Revenue
-    type: text
-    title_text: Revenue
+    title_text: Revenue and Expenditures
+    subtitle_text: ''
     body_text: ''
     row: 34
     col: 0
     width: 24
     height: 2
-  - title: Actual Revenue by Source
-    name: Actual Revenue by Source
+  - title: Actual Revenue by Fund Category
+    name: Actual Revenue by Fund Category
     model: ped_public_financials
     explore: actuals_revenue_line
-    type: looker_donut_multiples
-    fields: [actuals_revenue_line.amount, coa_object_hierarchy_revenue.object_group,
-      stars_districts.district_name]
-    pivots: [coa_object_hierarchy_revenue.object_group]
+    type: looker_bar
+    fields: [coa_fund_hierarchy.fund_group, stars_districts.district_name, actuals_revenue_line.amount]
+    pivots: [coa_fund_hierarchy.fund_group]
     filters:
       stars_locations.location_type: "-Charter School"
-    sorts: [coa_object_hierarchy_revenue.object_group, stars_districts.district_name]
+      stars_districts.district_name: "-NULL"
+    sorts: [coa_fund_hierarchy.fund_group, stars_districts.district_name]
     limit: 4
-    show_value_labels: true
-    font_size: 12
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
-      options:
-        steps: 5
-        reverse: false
-    series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -832,17 +711,18 @@
     show_y_axis_ticks: true
     y_axis_tick_density: default
     y_axis_tick_density_custom: 5
-    show_x_axis_label: true
+    show_x_axis_label: false
     show_x_axis_ticks: true
     y_axis_scale_mode: linear
     x_axis_reversed: false
     y_axis_reversed: false
     plot_size_by_field: false
     trellis: ''
-    stacking: ''
+    stacking: normal
     limit_displayed_rows: false
     legend_position: center
     point_style: none
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -851,8 +731,32 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    defaults_version: 1
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
+      options:
+        steps: 5
+        reverse: false
+    y_axes: [{label: '', orientation: bottom, series: [{axisId: Debt Service - actuals_revenue_line.amount,
+            id: Debt Service - actuals_revenue_line.amount, name: Debt Service}, {
+            axisId: Federal Grants - actuals_revenue_line.amount, id: Federal Grants
+              - actuals_revenue_line.amount, name: Federal Grants}, {axisId: Food
+              Services - actuals_revenue_line.amount, id: Food Services - actuals_revenue_line.amount,
+            name: Food Services}, {axisId: General Fund - actuals_revenue_line.amount,
+            id: General Fund - actuals_revenue_line.amount, name: General Fund}, {
+            axisId: State and Local Grants - actuals_revenue_line.amount, id: State
+              and Local Grants - actuals_revenue_line.amount, name: State and Local
+              Grants}], showLabels: false, showValues: true, valueFormat: '00.0,,"M"',
+        unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
+    font_size: '12'
     series_types: {}
+    series_colors:
+      Debt Service - actuals_revenue_line.amount: "#F15922"
+      Federal Grants - actuals_revenue_line.amount: "#068993"
+      Food Services - actuals_revenue_line.amount: "#A85573"
+      General Fund - actuals_revenue_line.amount: "#A8876C"
+      State and Local Grants - actuals_revenue_line.amount: "#F2C73C"
+    defaults_version: 1
     listen:
       Fiscal Year: budget_year.year_name
       'Select up to 4 districts:': stars_locations.district_name
@@ -860,87 +764,15 @@
     row: 36
     col: 0
     width: 24
-    height: 7
-  - title: Actual Revenue by Fund
-    name: Actual Revenue by Fund
-    model: ped_public_financials
-    explore: actuals_revenue_line
-    type: looker_donut_multiples
-    fields: [coa_fund_hierarchy.fund_group, stars_districts.district_name, actuals_revenue_line.amount]
-    pivots: [coa_fund_hierarchy.fund_group]
-    filters:
-      stars_locations.location_type: "-Charter School"
-    sorts: [coa_fund_hierarchy.fund_group, stars_districts.district_name]
-    limit: 4
-    show_value_labels: true
-    font_size: 12
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 3f395a8d-960f-4480-a725-63521163b8b8
-      options:
-        steps: 5
-        reverse: false
-    series_colors: {}
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_view_names: false
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    limit_displayed_rows: false
-    legend_position: center
-    point_style: none
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-      'Select up to 4 districts:': stars_locations.district_name
-      District Type: stars_districts.district_type
-    row: 43
-    col: 0
-    width: 24
-    height: 7
-  - title: Data Current As Of
-    name: Data Current As Of
-    model: ped_public_financials
-    explore: actuals_line
-    type: single_value
-    fields: [actuals_line.current_as_of]
-    limit: 500
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    enable_conditional_formatting: false
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_view_names: false
-    defaults_version: 1
-    series_types: {}
-    listen:
-      Fiscal Year: budget_year.year_name
-      'Select up to 4 districts:': stars_locations.district_name
-      District Type: stars_districts.district_type
-    row: 13
+    height: 10
+  - name: ''
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: "###Fiscal year 2021-2022 currently contains first quarter data. Data\
+      \ will continue to be updated throughout the year as it is approved in the Operation\
+      \ Budget Management System."
+    row: 0
     col: 0
     width: 24
     height: 2
