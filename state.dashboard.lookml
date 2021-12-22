@@ -1132,7 +1132,7 @@
     col: 7
     width: 9
     height: 8
-  - title: Actual Expenditures by Fund
+  - title: Actual Expenditures by Fund Category
     name: Actual Expenditures by Fund
     model: ped_public_financials
     explore: actuals_line
@@ -1186,7 +1186,7 @@
     col: 12
     width: 12
     height: 8
-  - title: Actual Revenue by Fund
+  - title: Actual Revenue by Fund Category
     name: Actual Revenue by Fund
     model: ped_public_financials
     explore: actuals_revenue_line
