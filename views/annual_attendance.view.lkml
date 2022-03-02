@@ -128,7 +128,7 @@ view: annual_attendance {
     sql: ${TABLE}.SchoolName ;;
     html: {% if looker.annual_attendance.school_name._is_filtered %}
           <a>{{rendered_value}} </a>
-          {% elsif annual_attendance.district_name._is_filtered %}
+          {% elsif looker.annual_attendance.district_name._is_filtered %}
           <a>All Schools in District</a>
           {% else %}
           <a>All Schools in State</a>
