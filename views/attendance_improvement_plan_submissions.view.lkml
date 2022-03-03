@@ -2,29 +2,23 @@
 view: aip_submissions {
   label: "Attendance Improvement Plan Submission"
   derived_table: {
-    sql:  select distinct  a.[SBID]
+    sql:  select  a.[SBID]
       ,a.[YearID]
     ,c.YearDesc
       ,a.[Type]
       ,a.[DistrictCode]
-    ,case when a.SchoolCode = 0 then d.DISTRICT_NAME
-      when a.SchoolCode <>0 then s.DISTRICT_NAME end district_name
+    ,d.DISTRICT_NAME as DistrictName
       ,a.[SchoolCode]
-    ,s.SchoolName
+    ,s.location_name as SchoolName
       ,a.[Certified]
       ,a.[CreatedBy]
       ,a.[CreateDate]
       ,a.[ModifiedBy]
       ,a.[ModifiedDate]
   from  [looker].[AttendTrack_tbl_Submissions] as  a
-  left join
-  (select distinct cast([district_id] as int) as [district_id], DISTRICT_NAME from [looker].[stars_districts]) as d
-  on cast(a.[DistrictCode] as int) = cast(d.[district_id] as int) and cast(a.SchoolCode as int)= 0
-  left join
-  (select distinct LOCATION_ID  as School_Code, LOCATION_NAME as SchoolName, DISTRICT_id, DISTRICT_NAME from [looker].[stars_locations] where LOCATION_ID <>'xxx')as  s
-   on  cast(a.[DistrictCode] as int) = cast(s.DISTRICT_id as int)
-  and   cast(a.[SchoolCode] as int) = cast(s.School_Code as int)   and  cast(a.SchoolCode as int)  <> 0
   left join [looker].[AttendTrack_cd_year] c on a.YearID = c.YearID
+  left join [looker].stars_districts d on cast(d.[district_id] as int) = cast(a.[DistrictCode] as int) and c.YearDesc=d.location_year
+  left join (select * from [looker].stars_locations where location_id<>'XXX' and location_id<>'000') s on cast(a.[DistrictCode] as int) = cast(s.DISTRICT_id as int) and cast(a.[SchoolCode] as int) = cast(s.location_id as int) and c.YearDesc=s.location_year
 
     ;;
   }
@@ -46,7 +40,7 @@ view: aip_submissions {
   dimension: district_name {
     type: string
     label: "District Name"
-    sql: ${TABLE}.district_name ;;
+    sql: ${TABLE}.districtName ;;
   }
 
   dimension: school_name {
@@ -117,6 +111,7 @@ view: aip_submissions {
 
   dimension: year_id {
     type: number
+    hidden: yes
     sql: CAST(${TABLE}.YearID AS NUMERIC);;
   }
 
