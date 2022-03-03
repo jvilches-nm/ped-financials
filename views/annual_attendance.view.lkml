@@ -108,7 +108,7 @@ view: annual_attendance {
     label: "District Name - Filter"
     type: string
     sql: ${TABLE}.DistrictName ;;
-    html: {% if looker.annual_attendance.district_name._is_filtered %}
+    html: {% if annual_attendance.district_name._is_filtered %}
           <a>{{rendered_value}} </a>
           {% else %}
           <a> All Districts </a>
@@ -126,9 +126,9 @@ view: annual_attendance {
     label: "School Name - Filter"
     type: string
     sql: ${TABLE}.SchoolName ;;
-    html: {% if looker.annual_attendance.school_name._is_filtered %}
+    html: {% if annual_attendance.school_name._is_filtered %}
           <a>{{rendered_value}} </a>
-          {% elsif looker.annual_attendance.district_name._is_filtered %}
+          {% elsif annual_attendance.district_name._is_filtered %}
           <a>All Schools in District</a>
           {% else %}
           <a>All Schools in State</a>
