@@ -6,7 +6,7 @@
   elements:
   - title: Subpopulation Attendance Data - School
     name: Subpopulation Attendance Data - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_grid
     fields: [annual_attendance.sub_pop_item, annual_attendance.enroll_number, annual_attendance.tier1_absent_student,
@@ -114,7 +114,7 @@
     height: 11
   - title: Chronic Absentee Rate - School
     name: Chronic Absentee Rate - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
@@ -148,7 +148,7 @@
     height: 4
   - title: School Enrollment
     name: School Enrollment
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number]
@@ -186,7 +186,7 @@
     height: 4
   - title: Number of Students by Tiers - School
     name: Number of Students by Tiers - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
@@ -277,7 +277,7 @@
     height: 8
   - title: Student % by Tiers - District
     name: Student % by Tiers - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_donut_multiples
     fields: [annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
@@ -390,7 +390,7 @@
     height: 8
   - title: Avg Excused Absences per Student - School
     name: Avg Excused Absences per Student - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
@@ -449,7 +449,7 @@
     height: 4
   - title: Avg Unexcused Absences per Student - School
     name: Avg Unexcused Absences per Student - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
@@ -508,7 +508,7 @@
     height: 4
   - title: Student Enrollment by Population - School
     name: Student Enrollment by Population - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -632,7 +632,7 @@
     height: 7
   - title: Chronic Absentee Rate - School
     name: Chronic Absentee Rate - School (2)
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -745,7 +745,7 @@
     height: 7
   - title: Students by Tier - School
     name: Students by Tier - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -885,7 +885,7 @@
     height: 8
   - title: Student % in Tiers by Population - School
     name: Student % in Tiers by Population - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.sub_pop_item, annual_attendance.enroll_number, annual_attendance.tier1_absent_student,
@@ -1008,7 +1008,7 @@
     height: 8
   - title: Average Unexcused Absences - School
     name: Average Unexcused Absences - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -1118,7 +1118,7 @@
     height: 7
   - title: Average Excused Absences - School
     name: Average Excused Absences - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -1227,7 +1227,7 @@
     height: 7
   - title: Avg Excused Absences per Student - State
     name: Avg Excused Absences per Student - State
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
@@ -1284,7 +1284,7 @@
     height: 3
   - title: Chronic Absentee Rate All Students - State
     name: Chronic Absentee Rate All Students - State
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
@@ -1316,7 +1316,7 @@
     height: 3
   - title: Avg Unexcused Absences per Student - State
     name: Avg Unexcused Absences per Student - State
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
@@ -1373,7 +1373,7 @@
     height: 3
   - title: Statewide Enrollment
     name: Statewide Enrollment
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number]
@@ -1408,7 +1408,7 @@
     height: 3
   - title: Avg Excused Absences per Student - District
     name: Avg Excused Absences per Student - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
@@ -1466,7 +1466,7 @@
     height: 4
   - title: Chronic Absentee Rate - District
     name: Chronic Absentee Rate - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
@@ -1499,7 +1499,7 @@
     height: 4
   - title: District Enrollment
     name: District Enrollment
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number]
@@ -1539,7 +1539,7 @@
     height: 4
   - title: Avg Unexcused Absences per Student - District
     name: Avg Unexcused Absences per Student - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
@@ -1597,7 +1597,7 @@
     height: 4
   - title: Student % by Tiers - State
     name: Student % by Tiers - State
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_donut_multiples
     fields: [annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
@@ -1708,7 +1708,7 @@
     height: 8
   - title: Student % by Tiers - School
     name: Student % by Tiers - School
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_donut_multiples
     fields: [annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
@@ -1821,7 +1821,7 @@
     height: 8
   - title: Student Enrollment by Population - District
     name: Student Enrollment by Population - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -1935,7 +1935,7 @@
     height: 7
   - title: Chronic Absentee Rate - District
     name: Chronic Absentee Rate - District (2)
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -2043,7 +2043,7 @@
     height: 7
   - title: Students by Tier - District
     name: Students by Tier - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -2172,7 +2172,7 @@
     height: 8
   - title: 'Average Unexcused Absences - District '
     name: 'Average Unexcused Absences - District '
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -2281,7 +2281,7 @@
     height: 7
   - title: Average Excused Absences - District
     name: Average Excused Absences - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -2389,7 +2389,7 @@
     height: 7
   - title: Student % in Tiers by Population - District
     name: Student % in Tiers by Population - District
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.enroll_number, annual_attendance.sub_pop_item, annual_attendance.tier1_absent_student,
@@ -2501,7 +2501,7 @@
     height: 8
   - title: School Filter
     name: School Filter
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.school_name_filter]
@@ -2576,7 +2576,7 @@
     height: 2
   - title: District Filter
     name: District Filter
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.district_name_filter]
@@ -2660,7 +2660,7 @@
     height: 2
   - title: School Filter (Copy)
     name: School Filter (Copy)
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.school_name_filter]
@@ -2753,7 +2753,7 @@
     height: 2
   - title: District Filter (Copy)
     name: District Filter (Copy)
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     type: single_value
     fields: [annual_attendance.district_name_filter]
@@ -2828,7 +2828,7 @@
     height: 2
   - title: Attendance Improvement Plan
     name: Attendance Improvement Plan
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
     fields: [aip_submissions.certified, aip_submissions.count]
@@ -2881,7 +2881,7 @@
     defaults_version: 1
     series_types: {}
     listen:
-      "District Name": aip_submissions.district_name
+      " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
     row: 8
     col: 18
@@ -2889,7 +2889,7 @@
     height: 4
   - title: " Attendance Improvement Plan"
     name: " Attendance Improvement Plan"
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
     fields: [aip_submissions.certified, aip_submissions.count]
@@ -2970,16 +2970,16 @@
     show_null_points: true
     interpolation: linear
     listen:
-      "School Name": aip_submissions.school_name
-      "District Name": aip_submissions.district_name
+      " School Name": aip_submissions.school_name
+      " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
     row: 2
     col: 18
     width: 5
     height: 4
   filters:
-  - name: "School Year"
-    title: "School Year"
+  - name: School Year
+    title: School Year
     type: field_filter
     default_value: 2020-2021
     allow_multiple_values: true
@@ -2988,12 +2988,12 @@
       type: button_group
       display: inline
       options: []
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: []
     field: annual_attendance.school_year
-  - name: "District Name"
-    title: "District Name"
+  - name: " District Name"
+    title: " District Name"
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -3002,12 +3002,12 @@
       type: tag_list
       display: popover
       options: []
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: [" School Name"]
     field: annual_attendance.district_name
-  - name: "School Name"
-    title: "School Name"
+  - name: " School Name"
+    title: " School Name"
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -3016,7 +3016,7 @@
       type: tag_list
       display: popover
       options: []
-    model: annual_attendance_stats
+    model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: [" District Name"]
     field: annual_attendance.school_name

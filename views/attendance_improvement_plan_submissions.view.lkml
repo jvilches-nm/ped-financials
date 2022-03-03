@@ -7,7 +7,7 @@ view: aip_submissions {
     ,c.YearDesc
       ,a.[Type]
       ,a.[DistrictCode]
-    ,d.DISTRICT_NAME as DistrictName
+    ,d.DISTRICT_NAME
       ,a.[SchoolCode]
     ,s.location_name as SchoolName
       ,a.[Certified]
@@ -26,7 +26,7 @@ view: aip_submissions {
 
   dimension: yeardesc {
     type: string
-    label: "Year Desc"
+    label: "School Year"
     sql: ${TABLE}.YearDesc ;;
   }
 
@@ -40,7 +40,7 @@ view: aip_submissions {
   dimension: district_name {
     type: string
     label: "District Name"
-    sql: ${TABLE}.districtName ;;
+    sql: ${TABLE}.district_name ;;
   }
 
   dimension: school_name {
