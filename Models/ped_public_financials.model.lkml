@@ -11,6 +11,7 @@ include: "/**/school_comp.dashboard"
 include: "/**/school_map.dashboard"
 include: "/**/program.dashboard"
 include: "/**/recs.dashboard"
+include: "/**/annual_attendance.dashboard"
 
 datagroup: ped_public_financials_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -343,6 +344,10 @@ explore: stars_locations {
     sql_on: ${stars_districts.district_id}=${rec_member_districts.member_district_code} and ${stars_districts.location_year}=${rec_member_districts.fiscal_year};;
   }
   }
+
+explore: annual_attendance {}
+
+explore: aip_submissions  {}
 
   map_layer: my_neighborhood_layer {
     file: "/Map_Shapefiles/dist_school_map.topojson"
