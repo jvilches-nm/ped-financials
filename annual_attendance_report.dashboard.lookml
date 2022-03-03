@@ -1,4 +1,4 @@
-- dashboard: annual_attendance
+- dashboard: annual_attendance_report
   title: Annual Attendance Report
   layout: newspaper
   preferred_viewer: dashboards-next
@@ -2881,7 +2881,7 @@
     defaults_version: 1
     series_types: {}
     listen:
-      " District Name": aip_submissions.district_name
+      "District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
     row: 8
     col: 18
@@ -2970,16 +2970,16 @@
     show_null_points: true
     interpolation: linear
     listen:
-      " School Name": aip_submissions.school_name
-      " District Name": aip_submissions.district_name
+      "School Name": aip_submissions.school_name
+      "District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
     row: 2
     col: 18
     width: 5
     height: 4
   filters:
-  - name: School Year
-    title: School Year
+  - name: "School Year"
+    title: "School Year"
     type: field_filter
     default_value: 2020-2021
     allow_multiple_values: true
@@ -2992,8 +2992,8 @@
     explore: annual_attendance
     listens_to_filters: []
     field: annual_attendance.school_year
-  - name: " District Name"
-    title: " District Name"
+  - name: "District Name"
+    title: "District Name"
     type: field_filter
     default_value: ''
     allow_multiple_values: true
@@ -3006,8 +3006,8 @@
     explore: annual_attendance
     listens_to_filters: [" School Name"]
     field: annual_attendance.district_name
-  - name: " School Name"
-    title: " School Name"
+  - name: "School Name"
+    title: "School Name"
     type: field_filter
     default_value: ''
     allow_multiple_values: true

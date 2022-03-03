@@ -11,7 +11,7 @@ include: "/**/school_comp.dashboard"
 include: "/**/school_map.dashboard"
 include: "/**/program.dashboard"
 include: "/**/recs.dashboard"
-include: "/**/annual_attendance.dashboard"
+include: "/**/annual_attendance_report.dashboard"
 
 datagroup: ped_public_financials_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
