@@ -43,6 +43,12 @@ view: aip_submissions {
     sql: ${TABLE}.YearDesc ;;
   }
 
+  dimension: requireplan {
+    type: string
+    label: "Require Plan"
+    sql: ${TABLE}.RequirePlan ;;
+  }
+
   dimension: certified {
     type: string
     sql: case when ${TABLE}.Certified = 'True' then 'Yes'
