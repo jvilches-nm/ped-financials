@@ -2,14 +2,16 @@
 view: aip_submissions {
   label: "Attendance Improvement Plan Submission"
   derived_table: {
-    sql:  select  a.[SBID]
+    sql:    select  a.[SBID]
       ,a.[YearID]
-    ,c.YearDesc
+      ,c.YearDesc
       ,a.[Type]
       ,a.[DistrictCode]
-    ,d.DISTRICT_NAME
+      ,d.DISTRICT_NAME
       ,a.[SchoolCode]
-    ,s.location_name as SchoolName
+      ,s.location_name as SchoolName
+    ,case when Type = 1 then aa.RequirePlan
+      when Type = 2 then ab.RequirePlan ELSE '' end as RequirePlan
       ,a.[Certified]
       ,a.[CreatedBy]
       ,a.[CreateDate]
@@ -19,6 +21,17 @@ view: aip_submissions {
   left join [looker].[AttendTrack_cd_year] c on a.YearID = c.YearID
   left join [looker].stars_districts d on cast(d.[district_id] as int) = cast(a.[DistrictCode] as int) and c.YearDesc=d.location_year
   left join (select * from [looker].stars_locations where location_id<>'XXX' and location_id<>'000') s on cast(a.[DistrictCode] as int) = cast(s.DISTRICT_id as int) and cast(a.[SchoolCode] as int) = cast(s.location_id as int) and c.YearDesc=s.location_year
+  left join (select distinct districtcode, 'yes' as RequirePlan, ROUND((SUM(CurrentYearCAS)/CAST(SUM(EnrollNumber)as float)), 2) AS CAR, cast(YEAR(STARSSchoolYear)-1 as varchar) +'-'+ cast(YEAR(STARSSchoolYear) as varchar) as school_year
+       from [OBMS_Reporting].[looker].[Annual_Attendance]
+       where (SubPopItemCode = 'F'or SubPopItemCode = 'M') /*and DistrictCode = 002*/ group by [DistrictCode], cast(YEAR(STARSSchoolYear)-1 as varchar) +'-'+ cast(YEAR(STARSSchoolYear) as varchar))  as aa
+       on aa.school_year  = c.YearDesc and aa.CAR > 0.05  and
+           cast(a.[DistrictCode] as int) = cast(aa.[DistrictCode] as int) --and cast(a.[SchoolCode] as int) = cast(aa.[SchoolCode] as int)
+  left join (select distinct [DistrictCode], [SchoolCode] , 'yes' as RequirePlan, cast(YEAR(STARSSchoolYear)-1 as varchar) +'-'+ cast(YEAR(STARSSchoolYear) as varchar) as school_year
+             from [OBMS_Reporting].[looker].[Annual_Attendance] where /* DistrictCode = 002 and */CAR >= 0.05
+       group by [DistrictCode],[SchoolCode],[SubPopItemCode], cast(YEAR(STARSSchoolYear)-1 as varchar) +'-'+ cast(YEAR(STARSSchoolYear) as varchar)) ab
+       on aa.school_year  = c.YearDesc and aa.CAR > 0.05  and
+           cast(a.[DistrictCode] as int) = cast(ab.[DistrictCode] as int) and cast(a.[SchoolCode] as int) = cast(ab.[SchoolCode] as int)
+--where a.YearID = 1
 
     ;;
   }

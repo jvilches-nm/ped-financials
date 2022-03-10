@@ -2826,8 +2826,8 @@
     col: 12
     width: 11
     height: 2
-  - title: Attendance Improvement Plan
-    name: Attendance Improvement Plan
+  - title: AIP Submitted
+    name: Attendance Improvement Plan Submitted
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
@@ -2880,6 +2880,9 @@
     totals_color: "#808080"
     defaults_version: 1
     series_types: {}
+    note_state: collapsed
+    note_display: below
+    note_text: AIP - Attendance Improvement Plan
     listen:
       " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
@@ -2887,8 +2890,8 @@
     col: 18
     width: 5
     height: 4
-  - title: " Attendance Improvement Plan"
-    name: " Attendance Improvement Plan"
+  - title: " AIP Submitted"
+    name: " Attendance Improvement Plan Submitted"
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
@@ -2969,6 +2972,9 @@
     labelColor: "#FFF"
     show_null_points: true
     interpolation: linear
+    note_state: collapsed
+    note_display: below
+    note_text: AIP - Attendance Improvement Plan
     listen:
       " School Name": aip_submissions.school_name
       " District Name": aip_submissions.district_name
