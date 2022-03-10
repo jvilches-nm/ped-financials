@@ -14,7 +14,6 @@
       annual_attendance.tier4_absent_student, annual_attendance.Chronically_Absent_Student,
       annual_attendance.total_days_excused_absence, annual_attendance.total_days_enrolled,
       annual_attendance.total_days_unexcused_absence]
-    filters: {}
     sorts: [annual_attendance.sub_pop_item]
     limit: 500
     dynamic_fields: [{category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
@@ -516,7 +515,6 @@
       annual_attendance.tier4_absent_student, annual_attendance.Chronically_Absent_Student,
       annual_attendance.total_days_excused_absence, annual_attendance.total_days_enrolled,
       annual_attendance.total_days_unexcused_absence]
-    filters: {}
     sorts: [annual_attendance.enroll_number desc]
     limit: 500
     dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
@@ -2652,7 +2650,6 @@
   - name: Students by Population
     type: text
     title_text: Students by Population
-    subtitle_text: ''
     body_text: ''
     row: 27
     col: 0
@@ -2736,7 +2733,6 @@
   - name: Students by Tier
     type: text
     title_text: Students by Tier
-    subtitle_text: ''
     body_text: ''
     row: 17
     col: 0
@@ -2745,7 +2741,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: "#<center>Statewide"
     row: 12
     col: 0
@@ -2827,20 +2822,22 @@
     width: 11
     height: 2
   - title: AIP Submitted
-    name: Attendance Improvement Plan Submitted
+    name: AIP Submitted
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
-    fields: [aip_submissions.certified, aip_submissions.count]
+    fields: [aip_submissions.count, aip_submissions.certified_calculation]
     filters:
       aip_submissions.school_code: '0'
-    sorts: [aip_submissions.certified desc]
+    sorts: [aip_submissions.count desc]
     limit: 500
     value_labels: labels
     label_type: labVal
     series_colors:
       'Yes': "#3F6173"
       'No': "#9B2030"
+      Not Required-85: "#068993"
+      Not Required: "#F15922"
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -2883,6 +2880,7 @@
     note_state: collapsed
     note_display: below
     note_text: AIP - Attendance Improvement Plan
+    hidden_fields: []
     listen:
       " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
@@ -2890,21 +2888,22 @@
     col: 18
     width: 5
     height: 4
-  - title: " AIP Submitted"
-    name: " Attendance Improvement Plan Submitted"
+  - title: AIP Submitted
+    name: AIP Submitted (2)
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
-    fields: [aip_submissions.certified, aip_submissions.count]
+    fields: [aip_submissions.count, aip_submissions.certified_calculation]
     filters:
       aip_submissions.school_code: not 0
-    sorts: [aip_submissions.certified desc]
+    sorts: [aip_submissions.count desc]
     limit: 500
     value_labels: labels
     label_type: labVal
     series_colors:
       'Yes': "#3F6173"
       'No': "#9B2030"
+      Not Required: "#F15922"
     series_labels: {}
     custom_color_enabled: true
     show_single_value_title: true
