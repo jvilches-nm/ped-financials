@@ -2826,7 +2826,7 @@
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
-    fields: [aip_submissions.count, aip_submissions.certified_calculation]
+    fields: [aip_submissions.count, aip_submissions.certified]
     filters:
       aip_submissions.school_code: '0'
     sorts: [aip_submissions.count desc]
