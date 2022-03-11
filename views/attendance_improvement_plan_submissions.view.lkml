@@ -62,7 +62,6 @@ view: aip_submissions {
   dimension: certified_calculation {
     type: string
     sql: case when ${TABLE}.Certified = 'True'  and ${requireplan} = 'yes' then 'Yes'
-              when ${TABLE}.Certified = 'True'  and ${requireplan} is null then 'Yes'
               when ${TABLE}.Certified = 'False'  and ${requireplan} = 'yes' then 'No'
               else 'Not Required' end;;
   }
