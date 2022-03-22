@@ -107,7 +107,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 75
+    row: 77
     col: 0
     width: 23
     height: 11
@@ -141,7 +141,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 2
+    row: 4
     col: 4
     width: 4
     height: 4
@@ -179,7 +179,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 2
+    row: 4
     col: 0
     width: 4
     height: 4
@@ -270,7 +270,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 19
+    row: 21
     col: 0
     width: 8
     height: 8
@@ -383,7 +383,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 19
+    row: 21
     col: 13
     width: 5
     height: 8
@@ -442,7 +442,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 2
+    row: 4
     col: 8
     width: 5
     height: 4
@@ -501,7 +501,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 2
+    row: 4
     col: 13
     width: 5
     height: 4
@@ -624,7 +624,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 31
+    row: 33
     col: 0
     width: 11
     height: 7
@@ -737,7 +737,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 38
+    row: 40
     col: 0
     width: 11
     height: 7
@@ -877,7 +877,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 45
+    row: 47
     col: 0
     width: 11
     height: 8
@@ -1000,7 +1000,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 53
+    row: 55
     col: 0
     width: 11
     height: 8
@@ -1110,7 +1110,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 68
+    row: 70
     col: 0
     width: 11
     height: 7
@@ -1219,7 +1219,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 61
+    row: 63
     col: 0
     width: 11
     height: 7
@@ -1276,7 +1276,7 @@
     series_types: {}
     listen:
       School Year: annual_attendance.school_year
-    row: 14
+    row: 16
     col: 10
     width: 6
     height: 3
@@ -1308,7 +1308,7 @@
     defaults_version: 1
     listen:
       School Year: annual_attendance.school_year
-    row: 14
+    row: 16
     col: 5
     width: 5
     height: 3
@@ -1365,7 +1365,7 @@
     series_types: {}
     listen:
       School Year: annual_attendance.school_year
-    row: 14
+    row: 16
     col: 16
     width: 7
     height: 3
@@ -1400,7 +1400,7 @@
     series_labels: {}
     listen:
       School Year: annual_attendance.school_year
-    row: 14
+    row: 16
     col: 0
     width: 5
     height: 3
@@ -1458,7 +1458,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 8
+    row: 10
     col: 8
     width: 5
     height: 4
@@ -1491,7 +1491,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 8
+    row: 10
     col: 4
     width: 4
     height: 4
@@ -1531,7 +1531,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 8
+    row: 10
     col: 0
     width: 4
     height: 4
@@ -1589,7 +1589,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 8
+    row: 10
     col: 13
     width: 5
     height: 4
@@ -1700,7 +1700,7 @@
     hidden_points_if_no: []
     listen:
       School Year: annual_attendance.school_year
-    row: 19
+    row: 21
     col: 18
     width: 5
     height: 8
@@ -1813,7 +1813,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 19
+    row: 21
     col: 8
     width: 5
     height: 8
@@ -1927,7 +1927,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 31
+    row: 33
     col: 12
     width: 11
     height: 7
@@ -2035,7 +2035,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 38
+    row: 40
     col: 12
     width: 11
     height: 7
@@ -2164,7 +2164,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 45
+    row: 47
     col: 12
     width: 11
     height: 8
@@ -2273,7 +2273,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 68
+    row: 70
     col: 12
     width: 11
     height: 7
@@ -2381,7 +2381,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 61
+    row: 63
     col: 12
     width: 11
     height: 7
@@ -2493,7 +2493,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 53
+    row: 55
     col: 12
     width: 11
     height: 8
@@ -2568,7 +2568,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 0
+    row: 2
     col: 0
     width: 23
     height: 2
@@ -2643,7 +2643,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 6
+    row: 8
     col: 0
     width: 23
     height: 2
@@ -2651,7 +2651,7 @@
     type: text
     title_text: Students by Population
     body_text: ''
-    row: 27
+    row: 29
     col: 0
     width: 24
     height: 2
@@ -2726,7 +2726,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 29
+    row: 31
     col: 0
     width: 11
     height: 2
@@ -2734,7 +2734,7 @@
     type: text
     title_text: Students by Tier
     body_text: ''
-    row: 17
+    row: 19
     col: 0
     width: 23
     height: 2
@@ -2742,7 +2742,7 @@
     type: text
     title_text: ''
     body_text: "#<center>Statewide"
-    row: 12
+    row: 14
     col: 0
     width: 23
     height: 2
@@ -2817,7 +2817,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 29
+    row: 31
     col: 12
     width: 11
     height: 2
@@ -2884,7 +2884,7 @@
     listen:
       " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
-    row: 8
+    row: 10
     col: 18
     width: 5
     height: 4
@@ -2978,10 +2978,24 @@
       " School Name": aip_submissions.school_name
       " District Name": aip_submissions.district_name
       School Year: aip_submissions.yeardesc
-    row: 2
+    row: 4
     col: 18
     width: 5
     height: 4
+  - name: " (2)"
+    type: text
+    title_text: ''
+    subtitle_text: ''
+    body_text: 'Enrollment numbers will not likely reflect end of year enrollment
+      as a student may appear multiple times at schools within a district or may be
+      counted at multiple districts. Each time a student is enrolled at a different
+      school for more than 10 days the student will count toward that school’s chronic
+      absenteeism rate, regardless of where the student is enrolled at the end of
+      the year.  '
+    row: 0
+    col: 0
+    width: 23
+    height: 2
   filters:
   - name: School Year
     title: School Year
