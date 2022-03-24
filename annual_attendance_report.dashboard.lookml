@@ -107,7 +107,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 77
+    row: 78
     col: 0
     width: 23
     height: 11
@@ -270,7 +270,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 21
+    row: 22
     col: 0
     width: 8
     height: 8
@@ -383,7 +383,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 21
+    row: 22
     col: 13
     width: 5
     height: 8
@@ -624,7 +624,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 33
+    row: 34
     col: 0
     width: 11
     height: 7
@@ -737,7 +737,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 40
+    row: 41
     col: 0
     width: 11
     height: 7
@@ -877,7 +877,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 47
+    row: 48
     col: 0
     width: 11
     height: 8
@@ -1000,7 +1000,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 55
+    row: 56
     col: 0
     width: 11
     height: 8
@@ -1110,7 +1110,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 70
+    row: 71
     col: 0
     width: 11
     height: 7
@@ -1219,7 +1219,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 63
+    row: 64
     col: 0
     width: 11
     height: 7
@@ -1700,7 +1700,7 @@
     hidden_points_if_no: []
     listen:
       School Year: annual_attendance.school_year
-    row: 21
+    row: 22
     col: 18
     width: 5
     height: 8
@@ -1813,7 +1813,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 21
+    row: 22
     col: 8
     width: 5
     height: 8
@@ -1927,7 +1927,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 33
+    row: 34
     col: 12
     width: 11
     height: 7
@@ -2035,7 +2035,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 40
+    row: 41
     col: 12
     width: 11
     height: 7
@@ -2164,7 +2164,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 47
+    row: 48
     col: 12
     width: 11
     height: 8
@@ -2273,7 +2273,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 70
+    row: 71
     col: 12
     width: 11
     height: 7
@@ -2381,7 +2381,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 63
+    row: 64
     col: 12
     width: 11
     height: 7
@@ -2493,7 +2493,7 @@
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 55
+    row: 56
     col: 12
     width: 11
     height: 8
@@ -2651,7 +2651,7 @@
     type: text
     title_text: Students by Population
     body_text: ''
-    row: 29
+    row: 30
     col: 0
     width: 24
     height: 2
@@ -2726,18 +2726,23 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 31
+    row: 32
     col: 0
     width: 11
     height: 2
   - name: Students by Tier
     type: text
     title_text: Students by Tier
-    body_text: ''
+    subtitle_text: ''
+    body_text: |
+      * Tier 1:  Students who have missed less than 5% of classes for any reason.
+      * Tier 2: Students who are missing 5% or more but less than 10% of classes or school days for any reason.
+      * Tier 3: Students who are considered chronically absent and missing 10% or more but less than 20% of classes or school days for any reason.
+      * Tier 4: Students who are considered excessively absent and missing 20% or more of classes or school days for any reason.
     row: 19
     col: 0
     width: 23
-    height: 2
+    height: 3
   - name: ''
     type: text
     title_text: ''
@@ -2817,7 +2822,7 @@
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
-    row: 31
+    row: 32
     col: 12
     width: 11
     height: 2
