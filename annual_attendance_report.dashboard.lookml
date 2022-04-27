@@ -2834,6 +2834,7 @@
     fields: [aip_submissions.count, aip_submissions.certified]
     filters:
       aip_submissions.school_code: '0'
+      aip_submissions.district_code: "<500"
     sorts: [aip_submissions.count desc]
     limit: 500
     value_labels: labels
