@@ -189,11 +189,26 @@
     explore: annual_attendance
     type: looker_bar
     fields: [annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
-      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student]
+      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student,
+      annual_attendance.enroll_number]
     filters:
       annual_attendance.sub_pop_item: Female,Male
     limit: 5000
     column_limit: 1
+    dynamic_fields: [{table_calculation: students_not_in_tiers, label: Students not
+          in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
+        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
+        _type_hint: number}, {table_calculation: tier_1_students, label: Tier 1 Students,
+        expression: "${annual_attendance.tier1_absent_student}+${students_not_in_tiers}",
+        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
+        _type_hint: number}, {table_calculation: tier_2_students, label: Tier 2 Students,
+        expression: "${annual_attendance.tier2_absent_student}", value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number}, {
+        table_calculation: tier_3_students, label: Tier 3 Students, expression: "${annual_attendance.tier3_absent_student}",
+        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
+        _type_hint: number}, {table_calculation: tier_4_students, label: Tier 4 Students,
+        expression: "${annual_attendance.tier4_absent_student}", value_format: !!null '',
+        value_format_name: !!null '', _kind_hint: measure, _type_hint: number}]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -239,6 +254,7 @@
     series_types: {}
     series_colors:
       annual_attendance.tier4_absent_student: "#cef2f2"
+      tier_4_student: "#cef2f2"
     series_labels:
       annual_attendance.tier1_absent_student: Tier 1 Students
       annual_attendance.tier2_absent_student: Tier 2 Students
@@ -266,6 +282,9 @@
     defaults_version: 1
     value_labels: legend
     label_type: labPer
+    hidden_fields: [annual_attendance.enroll_number, students_not_in_tiers, annual_attendance.tier1_absent_student,
+      annual_attendance.tier2_absent_student, annual_attendance.tier3_absent_student,
+      annual_attendance.tier4_absent_student]
     listen:
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
