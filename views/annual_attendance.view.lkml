@@ -150,7 +150,8 @@ view: annual_attendance {
 
   measure: student_not_in_tiers {
     type: sum
-    label: "No. of Students in Tiers"
+    label: "No. of Students not in Tiers"
+    hidden: yes
     sql: ${TABLE}.EnrollNumber - (${TABLE}.Tier1Absentee + ${TABLE}.Tier2Absentee + ${TABLE}.Tier3Absentee + ${TABLE}.Tier4Absentee);;
   }
 
@@ -158,7 +159,7 @@ view: annual_attendance {
   measure: tier1_absent_student {
     type: sum
     label: "No. of Student in Tier 1"
-    sql: ${TABLE}.Tier1Absentee + (${TABLE}.EnrollNumber - (${TABLE}.Tier1Absentee + ${TABLE}.Tier2Absentee + ${TABLE}.Tier3Absentee + ${TABLE}.Tier4Absentee));;
+    sql: ${TABLE}.EnrollNumber -  ${TABLE}.Tier2Absentee - ${TABLE}.Tier3Absentee - ${TABLE}.Tier4Absentee;;
   }
 
   dimension: percent_tier_2 {
