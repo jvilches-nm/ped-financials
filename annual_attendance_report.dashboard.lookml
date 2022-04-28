@@ -195,20 +195,6 @@
       annual_attendance.sub_pop_item: Female,Male
     limit: 5000
     column_limit: 1
-    dynamic_fields: [{table_calculation: students_not_in_tiers, label: Students not
-          in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: tier_1_students, label: Tier 1 Students,
-        expression: "${annual_attendance.tier1_absent_student}+${students_not_in_tiers}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: tier_2_students, label: Tier 2 Students,
-        expression: "${annual_attendance.tier2_absent_student}", value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number}, {
-        table_calculation: tier_3_students, label: Tier 3 Students, expression: "${annual_attendance.tier3_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: tier_4_students, label: Tier 4 Students,
-        expression: "${annual_attendance.tier4_absent_student}", value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, _type_hint: number}]
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -255,6 +241,7 @@
     series_colors:
       annual_attendance.tier4_absent_student: "#cef2f2"
       tier_4_student: "#cef2f2"
+      tier_4_students: "#cef2f2"
     series_labels:
       annual_attendance.tier1_absent_student: Tier 1 Students
       annual_attendance.tier2_absent_student: Tier 2 Students
@@ -282,9 +269,7 @@
     defaults_version: 1
     value_labels: legend
     label_type: labPer
-    hidden_fields: [annual_attendance.enroll_number, students_not_in_tiers, annual_attendance.tier1_absent_student,
-      annual_attendance.tier2_absent_student, annual_attendance.tier3_absent_student,
-      annual_attendance.tier4_absent_student]
+    hidden_fields: [annual_attendance.enroll_number]
     listen:
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
@@ -305,19 +290,7 @@
       annual_attendance.sub_pop_item: Female,Male
     sorts: [annual_attendance.tier1_absent_student desc]
     limit: 5000
-    dynamic_fields: [{table_calculation: total_tier_1_students, label: Total Tier
-          1 students, expression: "${annual_attendance.tier1_absent_student}+${students_not_in_tiers}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_2_students, label: Total
-          Tier 2 Students, expression: "${annual_attendance.tier2_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_3_students, label: Total
-          Tier 3 Students, expression: "${annual_attendance.tier3_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_4_students, label: Total
-          Tier 4 Students, expression: "${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_1, label: 'Percent
+    dynamic_fields: [{table_calculation: percent_of_student_in_tier_1, label: 'Percent
           of Student in Tier 1 ', expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
         value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
         _type_hint: number}, {table_calculation: percent_of_student_in_tier_2, label: Percent
@@ -419,8 +392,7 @@
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
-      students_not_in_tiers, annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
-      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student]
+      students_not_in_tiers]
     value_labels: legend
     label_type: labPer
     hidden_points_if_no: []
@@ -1664,18 +1636,6 @@
         _type_hint: number}, {table_calculation: students_not_in_tiers, label: Students
           not in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
         value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_1_student, label: Total
-          Tier 1 Student, expression: "${annual_attendance.tier1_absent_student}+${students_not_in_tiers}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_2_student, label: Total
-          Tier 2 Student, expression: "${annual_attendance.tier2_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_3_student, label: Total
-          Tier 3 Student, expression: "${annual_attendance.tier3_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_4_student, label: Total
-          Tier 4 Student, expression: "${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
         _type_hint: number}]
     show_value_labels: true
     font_size: 12
@@ -1766,8 +1726,6 @@
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
-      annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
-      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student,
       students_not_in_tiers]
     value_labels: legend
     label_type: labPer
@@ -2975,19 +2933,7 @@
       annual_attendance.sub_pop_item: Female,Male
     sorts: [annual_attendance.tier1_absent_student desc]
     limit: 5000
-    dynamic_fields: [{table_calculation: total_tier_1_student, label: Total Tier 1
-          Student, expression: "${annual_attendance.tier1_absent_student}+${students_not_in_tiers}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_2_students, label: Total
-          Tier 2 Students, expression: "${annual_attendance.tier2_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_3_students, label: Total
-          Tier 3 Students, expression: "${annual_attendance.tier3_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: total_tier_4_students, label: Total
-          Tier 4 Students, expression: "${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_1, label: 'Percent
+    dynamic_fields: [{table_calculation: percent_of_student_in_tier_1, label: 'Percent
           of Student in Tier 1 ', expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
         value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
         _type_hint: number}, {table_calculation: percent_of_student_in_tier_2, label: Percent
@@ -2999,9 +2945,6 @@
         _type_hint: number}, {table_calculation: percent_of_student_in_tier_4, label: Percent
           of Student in Tier 4, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
         value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: students_not_in_tiers, label: Students
-          not in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
         _type_hint: number}]
     show_value_labels: true
     font_size: 12
@@ -3087,9 +3030,7 @@
         is_active: false
     defaults_version: 1
     hidden_fields: [percent_of_student_in_tier_1, percent_of_student_in_tier_2, percent_of_student_in_tier_3,
-      percent_of_student_in_tier_4, annual_attendance.enroll_number, annual_attendance.tier1_absent_student,
-      students_not_in_tiers, annual_attendance.tier2_absent_student, annual_attendance.tier3_absent_student,
-      annual_attendance.tier4_absent_student]
+      percent_of_student_in_tier_4, annual_attendance.enroll_number]
     value_labels: legend
     label_type: labPer
     hidden_points_if_no: []
