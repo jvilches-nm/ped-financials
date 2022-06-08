@@ -3,9 +3,10 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
+  preferred_slug: aIXsNT1ZuPeDBtXdNYNXVl
   elements:
-  - title: Spending
-    name: Spending
+  - title: Actual Expenditures to Date
+    name: Actual Expenditures to Date
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -21,7 +22,7 @@
     conditional_formatting_include_totals: false
     conditional_formatting_include_nulls: false
     custom_color: "#068993"
-    single_value_title: Actual Expenditures
+    single_value_title: ''
     value_format: ''
     defaults_version: 1
     listen:
@@ -36,8 +37,10 @@
     type: text
     title_text: Revenue and Expenditures
     subtitle_text: ''
-    body_text: Fiscal Year 2021-2022 data is first quarter data. Data will be updated
-      throughout the year as it is approved in the Operating Budget Management System.
+    body_text: The latest fiscal year data shows only the approved quarterly data
+      - it will not show the full year of data until all four quarters have been submitted
+      and approved. Data will be updated throughout the year as it is approved in
+      the Operating Budget Management System.
     row: 18
     col: 0
     width: 24
@@ -127,8 +130,8 @@
     col: 0
     width: 12
     height: 13
-  - title: Actual Revenue
-    name: Actual Revenue
+  - title: Actual Revenue to Date
+    name: Actual Revenue to Date
     model: ped_public_financials
     explore: actuals_revenue_line
     type: single_value
