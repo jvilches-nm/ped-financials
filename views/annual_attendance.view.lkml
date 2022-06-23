@@ -74,6 +74,8 @@ view: annual_attendance {
                when ${sub_pop_item_code} = 'SD' then 'Students with Disabilities'
                when ${sub_pop_item_code} = 'EL' then 'English Language Learners'
                when ${sub_pop_item_code} = 'NH' then 'Not Hispanic'
+               when ${sub_pop_item_code} = 'Homeless' then 'Homeless'
+               when ${sub_pop_item_code} = 'Not Homeless' then 'Not Homeless'
                else '' end
               ;;
   }
@@ -93,7 +95,8 @@ view: annual_attendance {
                when ${sub_pop_item_code} = 'ED' then 10
                when ${sub_pop_item_code} = 'SD' then 11
                when ${sub_pop_item_code} = 'EL' then 12
-
+               when ${sub_pop_item_code} = 'Homeless' then 13
+               when ${sub_pop_item_code} = 'Not Homeless' then 14
                else 0 end
               ;;
   }
