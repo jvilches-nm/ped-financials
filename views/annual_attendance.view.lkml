@@ -74,8 +74,8 @@ view: annual_attendance {
                when ${sub_pop_item_code} = 'SD' then 'Students with Disabilities'
                when ${sub_pop_item_code} = 'EL' then 'English Language Learners'
                when ${sub_pop_item_code} = 'NH' then 'Not Hispanic'
-               when ${sub_pop_item_code} = 'Homeless' then 'Homeless'
-               when ${sub_pop_item_code} = 'Not Homeless' then 'Not Homeless'
+               when ${sub_pop_item_code} = 'Homeless' then 'Experiencing Housing Insecurity'
+               when ${sub_pop_item_code} = 'Not Homeless' then 'Housed'
                else '' end
               ;;
   }
