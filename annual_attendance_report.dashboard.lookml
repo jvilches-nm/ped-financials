@@ -3,6 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
+  preferred_slug: jDToUxR9VcH89OnGQN91jB
   elements:
   - title: Subpopulation Attendance Data - School
     name: Subpopulation Attendance Data - School
@@ -3046,13 +3047,12 @@
   - name: School Year
     title: School Year
     type: field_filter
-    default_value: 2020-2021
+    default_value: 2021-2022
     allow_multiple_values: true
-    required: false
+    required: true
     ui_config:
-      type: button_group
+      type: button_toggles
       display: inline
-      options: []
     model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: []
