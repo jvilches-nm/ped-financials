@@ -5,8 +5,8 @@
   description: ''
   preferred_slug: jDToUxR9VcH89OnGQN91jB
   elements:
-  - title: Subpopulation Attendance Data - School
-    name: Subpopulation Attendance Data - School
+  - title: Subpopulation Attendance Data
+    name: Subpopulation Attendance Data
     model: ped_public_financials
     explore: annual_attendance
     type: looker_grid
