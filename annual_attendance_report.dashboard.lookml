@@ -2751,9 +2751,9 @@
     model: ped_public_financials
     explore: aip_submissions
     type: looker_pie
-    fields: [aip_submissions.count, aip_submissions.certified]
+    fields: [aip_submissions.count, aip_submissions.certified_calculation]
     filters:
-      aip_submissions.school_code: '0'
+      aip_submissions.school_code: 'NULL'
       aip_submissions.district_code: "<500"
     sorts: [aip_submissions.count desc]
     limit: 500
@@ -2821,7 +2821,7 @@
     type: looker_pie
     fields: [aip_submissions.count, aip_submissions.certified_calculation]
     filters:
-      aip_submissions.school_code: not 0
+      aip_submissions.school_code: NOT NULL
     sorts: [aip_submissions.count desc]
     limit: 500
     value_labels: labels
