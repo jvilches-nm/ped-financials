@@ -1,15 +1,45 @@
-connection: "obms-reporting-test"
+connection: "obms-reporting"
 
 # include all the views
 include: "/views/**/*.view"
-##include: "/**/*_test.dashboard"
 
-datagroup: ped_public_financials_test_datagroup {
+datagroup: ped_public_financials_demo_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
-persist_with: ped_public_financials_test_datagroup
+persist_with: ped_public_financials_demo_datagroup
+
+explore: actuals_approved_status {
+  label: "Actuals Approval Status"
+
+  join: entity_year {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_approved_status.fk_entity_year}=${entity_year.pk_entity_year};;
+  }
+  join: budget_year {
+    relationship: many_to_one
+    type: inner
+    sql_on: ${actuals_approved_status.fk_budget_year}=${budget_year.pk_budget_year} ;;
+  }
+  join: stars_locations {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.child_code}=${stars_locations.obms_code} and ${budget_year.year_name}=${stars_locations.location_year}  ;;
+  }
+  join: stars_districts {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${stars_locations.district_id}=${stars_districts.district_id} and ${stars_locations.location_year}=${stars_districts.location_year} ;;
+  }
+  join: rec_names {
+    relationship: many_to_one
+    type: left_outer
+    sql_on: ${entity_year.parent_code}=${rec_names.rec_code} and ${budget_year.year_name}=${rec_names.fiscal_year}  ;;
+  }
+
+}
 explore: actuals_revenue_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
@@ -335,10 +365,6 @@ explore: stars_locations {
     sql_on: ${stars_districts.district_id}=${rec_member_districts.member_district_code} and ${stars_districts.location_year}=${rec_member_districts.fiscal_year};;
   }
 }
-
-explore: annual_attendance {}
-
-explore: aip_submissions  {}
 
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"

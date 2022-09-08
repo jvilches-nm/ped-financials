@@ -191,21 +191,21 @@ view: stars_locations {
   }
 
 
-  dimension :Name_of_the_School{
-    label: "Name of the School"
-    type: string
-    sql: ${TABLE}.location_name ;;
-    html: {% if stars_locations.location_name._is_filtered %}
-    <a>{{rendered_value}} </a>
-    {% else %}
-    <a> All Schools </a>
-    {% endif %};;
-    link: {
-      label: "School Profile"
-      url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
-      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
-    }
-  }
+#  dimension :Name_of_the_School{
+#    label: "Name of the School"
+#    type: string
+#    sql: ${TABLE}.location_name ;;
+#    html: {% if stars_locations.location_name._is_filtered %}
+#    <a>{{rendered_value}} </a>
+#    {% else %}
+#    <a> All Schools </a>
+#    {% endif %};;
+#    link: {
+#      label: "School Profile"
+#      url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
+#      icon_url: "https://storage.googleapis.com/icons-bucket-nm/school-solid.png"
+#    }
+ # }
 
 
 
