@@ -8,6 +8,8 @@ view: coa_function_hierarchy {
         from coa.coafunction f1
         left join coa.coafunction f2 on f2.fkparentfunction=f1.pkcoafunction
         where f1.fkparentfunction is null ;;
+    persist_for: "24 hour"
+    indexes: ["pkcoafunction", "lvl1_name", "lvl2_name"]
   }
   label: "UCOA Function"
   dimension: pk_coa_function {

@@ -1,6 +1,8 @@
 view: coa_object_rev_test {
   derived_table: {
     sql: select * from coa.coaobject where left(code, 1)='4' or left(code, 1)='1';;
+    persist_for: "24 hour"
+    indexes: ["pkcoaobject", "code"]
   }
 
   label: "UCOA Object"

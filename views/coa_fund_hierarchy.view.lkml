@@ -12,7 +12,9 @@ view: coa_fund_hierarchy {
       left join coa.coafund f4 on f4.fkparentfund=f3.pkcoafund
       left join coa.fundtype ft on ft.pkfundtype= case when f4.fkfundtype is not null then f4.fkfundtype when f3.fkfundtype is not null then f3.fkfundtype when f2.fkfundtype is not null then f2.fkfundtype else f1.fkfundtype end
       where f1.fkparentfund is null;;
-  }
+    persist_for: "24 hour"
+    indexes: ["pkcoafund", "lvl4_fundcode"]
+    }
   label: "UCOA Fund"
   dimension: pk_coa_fund {
     type: number

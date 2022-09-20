@@ -1,6 +1,10 @@
 view: coa_job_class {
-  derived_table: { sql: select jc.*, jcc.code job_category_code, jcc.name job_category_name, jcc.description job_category_descirption
-      from COA.CoaJobClass jc left join COA.CoaJobClassCategory jcc on jc.fkcoajobclasscategory=jcc.pkcoajobclasscategory ;;}
+  derived_table: { sql: select jc.*, jcc.code job_category_code, jcc.name job_category_name,
+                               jcc.description job_category_descirption
+                           from COA.CoaJobClass jc
+                          left join COA.CoaJobClassCategory jcc on jc.fkcoajobclasscategory=jcc.pkcoajobclasscategory ;;
+      persist_for: "24 hour"
+      indexes: ["pkcoajobclass", "job_category_code"]}
   label: "UCOA Job Class"
   dimension: budgetable {
     type: string
