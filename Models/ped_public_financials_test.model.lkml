@@ -10,10 +10,11 @@ datagroup: ped_public_financials_test_datagroup {
 }
 
 persist_with: ped_public_financials_test_datagroup
+
 explore: actuals_revenue_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
-                    ;;
+                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Revenue"
 
   join: actuals_budget_period {
@@ -46,20 +47,20 @@ explore: actuals_revenue_line {
     type: left_outer
     sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
   }
-  join: coa_fund_test {
+  join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_test.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
     type: left_outer
     sql_on: ${actuals_revenue_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_object_rev_test {
+  join: coa_object_hierarchy_revenue {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_rev_test.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
   }
   join: budget_year {
     relationship: many_to_one
@@ -86,7 +87,7 @@ explore: actuals_revenue_line {
 explore: actuals_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
-                    ;;
+                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Expenditures"
 
   join: actuals_budget_period {
@@ -114,40 +115,40 @@ explore: actuals_line {
     type: left_outer
     sql_on: ${actuals_line.fk_coa_line}=${coa_line.pk_coaline} ;;
   }
-  join: coa_function_test {
+  join: coa_function_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_function}=${coa_function_test.pk_coa_function} ;;
+    sql_on: ${coa_line.fk_coa_function}=${coa_function_hierarchy.pk_coa_function} ;;
   }
   join: coa_account_type {
     relationship: many_to_one
     type: left_outer
     sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
   }
-  join: coa_fund_test {
+  join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_test.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
     type: left_outer
     sql_on: ${actuals_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_job_class_test {
+  join: coa_job_class {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class_test.pk_coa_job_class} ;;
+    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
   }
-  join: coa_object_exp_test {
+  join: coa_object_hierarchy {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_exp_test.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object} ;;
   }
-  join: coa_program_test {
+  join: coa_program_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_test.pk_coa_program} ;;
+    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program} ;;
   }
   join: budget_year {
     relationship: many_to_one
@@ -174,7 +175,7 @@ explore: actuals_line {
 explore: budget_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
-                    ;;
+                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Revenue"
 
   join: budget_fund {
@@ -202,20 +203,20 @@ explore: budget_line {
     type: inner
     sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
   }
-  join: coa_fund_test {
+  join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_test.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
     type: left_outer
     sql_on: ${budget_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_object_rev_test {
+  join: coa_object_hierarchy_revenue {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_rev_test.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy_revenue.pk_coa_object} ;;
   }
   join: budget_year {
     relationship: many_to_one
@@ -242,7 +243,7 @@ explore: budget_line {
 explore: budget_expenditures_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
-                    ;;
+                    and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Expenditures"
   join: budget_fund {
     relationship: many_to_one
@@ -269,35 +270,35 @@ explore: budget_expenditures_line {
     type: left_outer
     sql_on: ${coa_line.fk_coa_account_type}=${coa_account_type.pk_coa_account_type} ;;
   }
-  join: coa_function_test {
+  join: coa_function_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_function}=${coa_function_test.pk_coa_function} ;;
+    sql_on: ${coa_line.fk_coa_function}=${coa_function_hierarchy.pk_coa_function} ;;
   }
-  join: coa_fund_test {
+  join: coa_fund_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_test.pk_coa_fund} ;;
+    sql_on: ${coa_line.fk_coa_fund}=${coa_fund_hierarchy.pk_coa_fund} ;;
   }
   join: entity_year {
     relationship: many_to_one
     type: left_outer
     sql_on: ${budget_expenditures_line.fk_location_year}=${entity_year.pk_entity_year};;
   }
-  join: coa_job_class_test {
+  join: coa_job_class {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class_test.pk_coa_job_class} ;;
+    sql_on:  ${coa_line.fk_coa_job_class}=${coa_job_class.pk_coa_job_class} ;;
   }
-  join: coa_object_exp_test {
+  join: coa_object_hierarchy {
     relationship: many_to_one
     type:  left_outer
-    sql_on: ${coa_line.fk_coa_object}=${coa_object_exp_test.pk_coa_object} ;;
+    sql_on: ${coa_line.fk_coa_object}=${coa_object_hierarchy.pk_coa_object} ;;
   }
-  join: coa_program_test {
+  join: coa_program_hierarchy {
     relationship: many_to_one
     type: left_outer
-    sql_on:  ${coa_line.fk_coa_program}=${coa_program_test.pk_coa_program} ;;
+    sql_on:  ${coa_line.fk_coa_program}=${coa_program_hierarchy.pk_coa_program} ;;
   }
   join: budget_year {
     relationship: many_to_one
