@@ -1,9 +1,9 @@
-- dashboard: state
+- dashboard: state_test
   title: State Dashboard TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: q6jAR2vcUZDvaqquRGuzKk
+  preferred_slug: fpTIBF0548X4JlSFEJlzhj
   elements:
   - title: Spending
     name: Spending
@@ -1032,7 +1032,6 @@
   - name: State Overview
     type: text
     title_text: State Overview
-    subtitle_text: ''
     body_text: |-
       ###Overview of state education finances - includes all district and charter students, all district and charter schools, and the regional education cooperatives. It excludes capital project and debt service funds. To learn more about the data displayed or to find definitions of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.
 
@@ -1134,8 +1133,8 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_bar
-    fields: [coa_fund_test.fund_group, actuals_line.amount]
-    sorts: [coa_fund_test.fund_group desc]
+    fields: [coa_fund_hierarchy.fund_group, actuals_line.amount]
+    sorts: [coa_fund_hierarchy.fund_group desc]
     limit: 500
     dynamic_fields: [{table_calculation: percent_of_total, label: Percent of Total,
         expression: "${actuals_line.amount}/sum(${actuals_line.amount})", value_format: !!null '',
@@ -1188,8 +1187,8 @@
     model: ped_public_financials_test
     explore: actuals_revenue_line
     type: looker_bar
-    fields: [coa_fund_test.fund_group, actuals_revenue_line.amount]
-    sorts: [coa_fund_test.fund_group desc]
+    fields: [coa_fund_hierarchy.fund_group, actuals_revenue_line.amount]
+    sorts: [coa_fund_hierarchy.fund_group desc]
     limit: 500
     dynamic_fields: [{table_calculation: percent_of_total, label: Percent of Total,
         expression: "${actuals_revenue_line.amount}/sum(${actuals_revenue_line.amount})",
@@ -1243,9 +1242,9 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_bar
-    fields: [coa_object_exp_test.object_group, actuals_line.amount, coa_fund_test.fund_group]
-    pivots: [coa_fund_test.fund_group]
-    sorts: [actuals_line.amount desc 3, coa_fund_test.fund_group]
+    fields: [coa_object_hierarchy.object_group, actuals_line.amount, coa_fund_hierarchy.fund_group]
+    pivots: [coa_fund_hierarchy.fund_group]
+    sorts: [actuals_line.amount desc 3, coa_fund_hierarchy.fund_group]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1301,11 +1300,11 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_bar
-    fields: [coa_job_class_test.job_group, coa_fund_test.fund_group, actuals_line.amount]
-    pivots: [coa_fund_test.fund_group]
+    fields: [coa_job_class.job_rollup_name, coa_fund_hierarchy.fund_group, actuals_line.amount]
+    pivots: [coa_fund_hierarchy.fund_group]
     filters:
-      coa_job_class_test.job_group: "-None"
-    sorts: [actuals_line.amount desc 2, coa_fund_test.fund_group]
+      coa_job_class.job_rollup_name: "-None"
+    sorts: [actuals_line.amount desc 2, coa_fund_hierarchy.fund_group]
     limit: 500
     x_axis_gridlines: false
     y_axis_gridlines: true
@@ -1362,7 +1361,7 @@
     type: single_value
     fields: [actuals_line.amount, budget_year.year_name, stars_districts.total_student_pop]
     filters:
-      coa_function_test.function_group: Instruction
+      coa_function_hierarchy.rollup_function_name: Instruction
     sorts: [actuals_line.amount desc]
     limit: 500
     dynamic_fields: [{table_calculation: avg_instructional_spending_per_student, label: Avg
@@ -1419,7 +1418,6 @@
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_districts.total_student_pop]
-    filters: {}
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
@@ -1475,13 +1473,13 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_bar
-    fields: [actuals_line.amount, coa_program_test.program_name, coa_function_test.function_group]
-    pivots: [coa_function_test.function_group]
+    fields: [actuals_line.amount, coa_program_hierarchy.program_name, coa_function_hierarchy.rollup_function_name]
+    pivots: [coa_function_hierarchy.rollup_function_name]
     filters:
-      coa_program_test.program_name: Alternative and At-Risk Programs,Bilingual
+      coa_program_hierarchy.program_name: Alternative and At-Risk Programs,Bilingual
         Education Programs,K-5 Plus Programs,Extended Learning Time Programs,At-Risk
         Special Ed Programs,Special Ed Programs
-    sorts: [actuals_line.amount desc 2, coa_function_test.function_group]
+    sorts: [actuals_line.amount desc 2, coa_function_hierarchy.rollup_function_name]
     limit: 500
     row_total: right
     x_axis_gridlines: false
@@ -1540,7 +1538,7 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_pie
-    fields: [coa_object_exp_test.object_group, actuals_line.amount]
+    fields: [coa_object_hierarchy.object_group, actuals_line.amount]
     sorts: [actuals_line.amount desc]
     limit: 500
     value_labels: labels
@@ -1599,9 +1597,9 @@
     model: ped_public_financials_test
     explore: actuals_line
     type: looker_pie
-    fields: [coa_job_class_test.job_group, actuals_line.amount]
+    fields: [coa_job_class.job_rollup_name, actuals_line.amount]
     filters:
-      coa_job_class_test.job_group: "-None"
+      coa_job_class.job_rollup_name: "-None"
     sorts: [actuals_line.amount desc]
     limit: 500
     value_labels: labels
