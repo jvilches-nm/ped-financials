@@ -12,30 +12,20 @@ datagroup: ped_public_financials_test_datagroup {
 persist_with: ped_public_financials_test_datagroup
 
 explore: actuals_revenue_line {
-  sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
+  sql_always_where: ${coa_account_type.code}='R'
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Revenue"
 
-  join: actuals_budget_period {
+  join: actuals_budget_period_test {
     relationship: many_to_one
     type:  inner
-    sql_on:  ${actuals_revenue_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
-  }
-  join: actuals_reporting_period {
-    relationship: many_to_one
-    type: inner
-    sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
-  }
-  join: actuals_status {
-    relationship: many_to_one
-    type: inner
-    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
+    sql_on:  ${actuals_revenue_line.fk_actuals_budget_period}=${actuals_budget_period_test.pk_actuals_budget_period} ;;
   }
   join: budget {
     relationship: many_to_one
     type: inner
-    sql_on: ${actuals_budget_period.fk_budget} = ${budget.pk_budget} ;;
+    sql_on: ${actuals_budget_period_test.fk_budget} = ${budget.pk_budget} ;;
   }
   join: coa_line {
     relationship: many_to_one
@@ -85,30 +75,21 @@ explore: actuals_revenue_line {
 }
 
 explore: actuals_line {
-  sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${actuals_reporting_period.code}='YTD' and ${actuals_status.code}='AA'
+
+  sql_always_where: ${coa_account_type.code}='E'
                     and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Expenditures"
 
-  join: actuals_budget_period {
+  join: actuals_budget_period_test {
     relationship: many_to_one
     type:  inner
-    sql_on:  ${actuals_line.fk_actuals_budget_period}=${actuals_budget_period.pk_actuals_budget_period} ;;
-  }
-  join: actuals_reporting_period {
-    relationship: many_to_one
-    type: inner
-    sql_on: ${actuals_budget_period.fk_actuals_reporting_period}=${actuals_reporting_period.pk_actuals_reporting_period} ;;
-  }
-  join: actuals_status {
-    relationship: many_to_one
-    type: inner
-    sql_on:  ${actuals_budget_period.fk_actuals_status}=${actuals_status.pk_actuals_status} ;;
+    sql_on:  ${actuals_line.fk_actuals_budget_period}=${actuals_budget_period_test.pk_actuals_budget_period} ;;
   }
   join: budget {
     relationship: many_to_one
     type: inner
-    sql_on: ${actuals_budget_period.fk_budget} = ${budget.pk_budget} ;;
+    sql_on: ${actuals_budget_period_test.fk_budget} = ${budget.pk_budget} ;;
   }
   join: coa_line {
     relationship: many_to_one
