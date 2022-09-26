@@ -267,7 +267,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2020-2021
+    default_value: 2021-2022
     allow_multiple_values: true
     required: false
     ui_config:

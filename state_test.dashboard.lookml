@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: fpTIBF0548X4JlSFEJlzhj
+  preferred_slug: q6jAR2vcUZDvaqquRGuzKk
   elements:
   - title: Spending
     name: Spending
@@ -1032,6 +1032,7 @@
   - name: State Overview
     type: text
     title_text: State Overview
+    subtitle_text: ''
     body_text: |-
       ###Overview of state education finances - includes all district and charter students, all district and charter schools, and the regional education cooperatives. It excludes capital project and debt service funds. To learn more about the data displayed or to find definitions of terms please click <a href="https://openbooks.ped.nm.gov/learn-more/" target="_PARENT">here</a>.
 
@@ -1418,6 +1419,7 @@
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_districts.total_student_pop]
+    filters: {}
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
@@ -1664,6 +1666,6 @@
       display: inline
       options: []
     model: ped_public_financials_test
-    explore: actuals_line
+    explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name

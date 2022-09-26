@@ -1,5 +1,5 @@
 - dashboard: school_test
-  title: School TEST
+  title: School Dashboard TEST
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -879,7 +879,7 @@
       display: inline
       options: []
     model: ped_public_financials_test
-    explore: actuals_line
+    explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
   - name: Select School Name

@@ -2,6 +2,8 @@
   title: District Map TEST
   layout: newspaper
   preferred_viewer: dashboards-next
+  description: ''
+  preferred_slug: qch8oK7Hb1lvqiUYmcZFn3
   embed_style:
     background_color: "#f6f8fa"
     show_title: false
@@ -10,58 +12,6 @@
     tile_text_color: "#3a4245"
     text_tile_text_color: ''
   elements:
-  - title: State Map
-    name: State Map
-    model: ped_public_financials_test
-    explore: stars_locations
-    type: looker_map
-    fields: [stars_districts.District_Custom_Map_color, stars_districts.total_students]
-    filters:
-      stars_districts.district_type: State District
-      stars_districts.location_year: 2020-2021
-    sorts: [stars_districts.total_students desc]
-    limit: 500
-    map_plot_mode: points
-    heatmap_gridlines: true
-    heatmap_gridlines_empty: true
-    heatmap_opacity: 0.5
-    show_region_field: true
-    draw_map_labels_above_data: true
-    map_tile_provider: traffic_day
-    map_position: custom
-    map_scale_indicator: metric
-    map_pannable: true
-    map_zoomable: true
-    map_marker_type: circle
-    map_marker_icon_name: default
-    map_marker_radius_mode: proportional_value
-    map_marker_units: meters
-    map_marker_proportional_scale_type: linear
-    map_marker_color_mode: fixed
-    show_view_names: false
-    show_legend: true
-    quantize_map_value_colors: false
-    reverse_map_value_colors: true
-    map_latitude: 34.27016350693672
-    map_longitude: -106.09944596886636
-    map_zoom: 7
-    map_value_colors: ["#3F6173"]
-    map_value_scale_clamp_min: 0
-    map_value_scale_clamp_max: 1500
-    map: auto
-    map_projection: ''
-    outer_border_width: 1
-    inner_border_width: 3
-    colors: [blue]
-    empty_color: blue
-    quantize_colors: true
-    defaults_version: 1
-    series_types: {}
-    listen: {}
-    row: 0
-    col: 0
-    width: 18
-    height: 15
   - title: Districts
     name: Districts
     model: ped_public_financials_test
@@ -70,7 +20,6 @@
     fields: [stars_districts.District_Custom_Map]
     filters:
       stars_districts.district_type: State District
-      stars_districts.location_year: 2020-2021
     sorts: [stars_districts.District_Custom_Map]
     limit: 500
     show_view_names: false
@@ -133,8 +82,74 @@
     defaults_version: 1
     series_types: {}
     title_hidden: true
-    listen: {}
+    listen:
+      Fiscal Year: stars_districts.location_year
     row: 0
     col: 18
     width: 6
     height: 15
+  - title: District Map
+    name: District Map
+    model: ped_public_financials_test
+    explore: actuals_line
+    type: looker_map
+    fields: [stars_districts.District_Custom_Map, actuals_line.amount, stars_districts.total_student_pop]
+    filters:
+      budget_year.year_name: ''
+      stars_districts.district_name: "-NULL"
+      stars_districts.district_type: State District
+    sorts: [avg_spending_per_student desc]
+    limit: 500
+    dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
+          per Student, expression: "${actuals_line.amount}/${stars_districts.total_student_pop}",
+        value_format: !!null '', value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
+    map_plot_mode: points
+    heatmap_gridlines: true
+    heatmap_gridlines_empty: true
+    heatmap_opacity: 0.5
+    show_region_field: true
+    draw_map_labels_above_data: true
+    map_tile_provider: traffic_day
+    map_position: custom
+    map_scale_indicator: 'off'
+    map_pannable: true
+    map_zoomable: true
+    map_marker_type: circle
+    map_marker_icon_name: default
+    map_marker_radius_mode: proportional_value
+    map_marker_units: meters
+    map_marker_proportional_scale_type: linear
+    map_marker_color_mode: fixed
+    show_view_names: false
+    show_legend: true
+    quantize_map_value_colors: false
+    reverse_map_value_colors: true
+    map_latitude: 34.27016350693672
+    map_longitude: -106.09944596886636
+    map_zoom: 7
+    map_value_colors: ["#E87F2F", "#068993"]
+    map_value_scale_clamp_min: 5000
+    map_value_scale_clamp_max: 25000
+    defaults_version: 1
+    hidden_fields: [actuals_line.amount, stars_districts.total_student_pop]
+    listen:
+      Fiscal Year: stars_locations.location_year
+    row: 0
+    col: 0
+    width: 18
+    height: 15
+  filters:
+  - name: Fiscal Year
+    title: Fiscal Year
+    type: field_filter
+    default_value: 2021-2022
+    allow_multiple_values: true
+    required: false
+    ui_config:
+      type: button_toggles
+      display: inline
+      options: []
+    model: ped_public_financials_test
+    explore: stars_locations
+    listens_to_filters: []
+    field: stars_locations.location_year
