@@ -1298,7 +1298,7 @@
       display: inline
       options: []
     model: ped_public_financials
-    explore: actuals_line
+    explore: actuals_revenue_line
     listens_to_filters: []
     field: budget_year.year_name
   - name: 'District:'
