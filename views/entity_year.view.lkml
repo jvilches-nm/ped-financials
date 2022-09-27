@@ -5,7 +5,8 @@ view: entity_year {
       join common.entityyearparentchild pc on pc.fkentityyearparent=ey.pkentityyear
       left join common.entitytype et on et.pkentitytype=ey.fkentitytype
       left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
-      left join common.entitytype ct on ct.pkentitytype=c.fkentitytype ;;
+      left join common.entitytype ct on ct.pkentitytype=c.fkentitytype
+      where et.name not in not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution');;
       persist_for: "24 hour"
       indexes: ["pkentityyear", "child_code", "child_name"]
   }

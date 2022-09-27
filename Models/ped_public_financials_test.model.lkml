@@ -13,7 +13,6 @@ persist_with: ped_public_financials_test_datagroup
 
 explore: actuals_revenue_line {
   sql_always_where: ${coa_account_type.code}='R'
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Revenue"
 
@@ -77,7 +76,6 @@ explore: actuals_revenue_line {
 explore: actuals_line {
 
   sql_always_where: ${coa_account_type.code}='E'
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Actual Expenditures"
 
@@ -155,7 +153,6 @@ explore: actuals_line {
 
 explore: budget_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='R' and ${budget_status.ordinal}>=12
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Revenue"
 
@@ -223,7 +220,6 @@ explore: budget_line {
 
 explore: budget_expenditures_line {
   sql_always_where: ${budget_year.start_year}>=2020 and ${coa_account_type.code}='E' and ${budget_status.ordinal}>=12
-                    and ${entity_year.parent_type} not in ('Community-Based Organization', 'Post-Secondary Institution', 'State-Supported School', 'BIE Institution')
                     and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4';;
   label: "Budgeted Expenditures"
   join: budget_fund {
