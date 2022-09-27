@@ -1,9 +1,9 @@
 view: actuals_budget_period_test {
    derived_table: {
-     sql: select * from (SELECT    abp.pkactualsbudgetperiod, fkbudget, fkbudgetyear, y.YearName, y.endDate, arp.code reporting_period_code, arp.description reporting_period_description ,
+     sql: select * from (SELECT abp.pkactualsbudgetperiod, fkbudget, fkbudgetyear, arp.code reporting_period_code, arp.description reporting_period_description ,
                 LastApproved = ROW_NUMBER() OVER (PARTITION BY abp.fkBudget
                                                     ORDER BY arp.Ordinal DESC)
-         FROM    Actuals.ActualsBudgetPeriod abp
+         FROM   Actuals.ActualsBudgetPeriod abp
                 INNER JOIN
                 Actuals.ActualsReportingPeriod arp
                     ON abp.fkActualsReportingPeriod = arp.pkActualsReportingPeriod
@@ -52,16 +52,6 @@ view: actuals_budget_period_test {
   dimension: reporting_period_description {
     type: string
     sql: ${TABLE}.reporting_period_description ;;
-  }
-
-  dimension: school_year {
-    type: string
-    sql: ${TABLE}.YearName ;;
-  }
-
-  dimension: school_year_end_date {
-    type: date
-    sql: ${TABLE}.EndDate ;;
   }
 
 }
