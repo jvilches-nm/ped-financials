@@ -544,6 +544,8 @@
       ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
       ###School level financials are currently only available for charter schools. District school level financials will be available starting with the 2022-2023 fiscal year.
+
+      ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
     col: 0
     width: 24
