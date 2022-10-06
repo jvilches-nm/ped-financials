@@ -7,7 +7,7 @@ view: coa_program_hierarchy {
       from coa.coaprogram f1
       left join coa.coaprogram f2 on f2.fkparentprogram=f1.pkcoaprogram
       where f1.fkparentprogram is null;;
-    persist_for: "24 hour"
+    persist_for: "1 hour"
     indexes: ["pkcoaprogram", "lvl2_code", "lvl2_name"]
   }
   label: "UCOA Program"

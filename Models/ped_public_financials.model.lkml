@@ -15,7 +15,7 @@ include: "/**/annual_attendance_report.dashboard"
 
 datagroup: ped_public_financials_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
-  max_cache_age: "24 hour"
+  max_cache_age: "1 hour"
 }
 
 persist_with: ped_public_financials_default_datagroup

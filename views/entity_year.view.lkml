@@ -6,7 +6,7 @@ view: entity_year {
       left join common.entitytype et on et.pkentitytype=ey.fkentitytype
       left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
       left join common.entitytype ct on ct.pkentitytype=c.fkentitytype;;
-      persist_for: "24 hour"
+      persist_for: "1 hour"
       indexes: ["pkentityyear", "child_code", "child_name"]
   }
   label: "Location"
