@@ -3,7 +3,7 @@ view: coa_job_class {
                                jcc.description job_category_descirption
                            from COA.CoaJobClass jc
                           left join COA.CoaJobClassCategory jcc on jc.fkcoajobclasscategory=jcc.pkcoajobclasscategory ;;
-      persist_for: "1 hour"
+      persist_for: "24 hour"
       indexes: ["pkcoajobclass", "job_category_code"]}
   label: "UCOA Job Class"
   dimension: budgetable {

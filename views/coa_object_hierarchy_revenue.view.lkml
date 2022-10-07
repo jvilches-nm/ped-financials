@@ -13,7 +13,7 @@ view: coa_object_hierarchy_revenue {
       left join coa.coaobject f3 on f3.fkparentobject=f2.pkcoaobject
       left join coa.coaobject f4 on f4.fkparentobject=f3.pkcoaobject
       where f1.fkparentobject is null;;
-    persist_for: "1 hour"
+    persist_for: "24 hour"
     indexes: ["pkcoaobject", "lvl4_code"]
     }
   label: "UCOA Object"
