@@ -1364,7 +1364,7 @@
     note_state: collapsed
     note_display: hover
     note_text: |-
-      Total expenditures categorized with an Instructional function at the state level not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
+      Total state expenditures to date for the selected school year categorized with an Instructional function not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -1426,7 +1426,7 @@
     note_state: collapsed
     note_display: hover
     note_text: |-
-      Total expenditures at the state level not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
+      Total state expenditures to date for the selected school year not including capital or debt service funds divided by the number of district and charter students in the state based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
     model: ped_public_financials
     explore: actuals_line
     type: single_value

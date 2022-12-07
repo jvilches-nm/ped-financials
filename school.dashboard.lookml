@@ -549,6 +549,10 @@
     height: 3
   - title: Avg Spending per Student to Date
     name: Avg Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total school expenditures to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -668,6 +672,10 @@
     height: 8
   - title: Avg Instructional Spending per Student to Date
     name: Avg Instructional Spending per Student to Date
+    note_state: collapsed
+    note_display: hover
+    note_text: |-
+      Total school expenditures to date for the selected school year which are categorized with an Instructional function not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
     model: ped_public_financials
     explore: actuals_line
     type: single_value
