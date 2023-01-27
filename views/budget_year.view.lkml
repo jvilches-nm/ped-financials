@@ -1,47 +1,11 @@
 view: budget_year {
-  sql_table_name: Common.BudgetYear ;;
+  derived_table: {
+    sql: select * from common.budgetyear where YEAR(enddate)>=2021 ;;
+    datagroup_trigger: ped_public_financials_default_datagroup
+    indexes: ["pkBudgetYear", "YearName"]
+  }
+
   label: "Year"
-
-  dimension_group: end {
-    type: time
-    label: "End Date"
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.EndDate ;;
-  }
-
-  dimension: fk_coa {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkCOA ;;
-  }
-
-  dimension: fk_modified_by {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkModifiedBy ;;
-  }
-
-  dimension_group: modified {
-    type: time
-    hidden: yes
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.ModifiedDate ;;
-  }
 
   dimension: pk_budget_year {
     type: number
@@ -50,17 +14,15 @@ view: budget_year {
     sql: ${TABLE}.pkBudgetYear ;;
   }
 
-  dimension_group: start {
-    type: time
+  dimension: end_date {
+    type: date
+    label: "End Date"
+    sql: ${TABLE}.EndDate ;;
+  }
+
+  dimension: start_date {
+    type: date
     label: "Start Date"
-    timeframes: [
-      raw,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
     sql: ${TABLE}.StartDate ;;
   }
 
@@ -71,9 +33,4 @@ view: budget_year {
     sql: ${TABLE}.YearName ;;
   }
 
-  measure: count {
-    type: count
-    label: "# Years"
-    description: "Count of budget years"
-  }
 }

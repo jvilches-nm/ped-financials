@@ -43,27 +43,6 @@ view: coa_line {
     sql: ${TABLE}.fkCoaProgram ;;
   }
 
-  dimension: fk_modified_by {
-    hidden: yes
-    type: number
-    sql: ${TABLE}.fkModifiedBy ;;
-  }
-
-  dimension_group: modified {
-    hidden: yes
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.ModifiedDate ;;
-  }
-
   dimension: pk_coaline {
     hidden: yes
     primary_key: yes
@@ -71,9 +50,4 @@ view: coa_line {
     sql: ${TABLE}.pkCOALine ;;
   }
 
-  measure: count {
-    hidden: yes
-    type: count
-    drill_fields: []
-  }
 }

@@ -1,10 +1,9 @@
-view: budget_line {
+view: budget_revenue_line {
   sql_table_name: dbo.BudgetLine ;;
-  label: "Budgeted Expenditures"
+  label: "Budgeted Revenue"
 
-  set: ucoa_codes {
-    fields: [coa_fund_hierarchy.fund_group, coa_function_hierarchy.rollup_function_name, coa_object_hierarchy.object_group,
-      coa_job_class.job_rollup_name, coa_program_hierarchy.program_name, budget_amount]
+  set: fund_and_object_codes {
+    fields: [coa_fund_hierarchy.fund_name, coa_object_hierarchy_revenue.object_name, projected_amt]
   }
 
   measure: adjustment_amount {
@@ -32,16 +31,11 @@ view: budget_line {
   }
 
   measure: final_amount {
-    label: "Initial Amount"
+    label: "Initial Budget Amount"
     type: sum
     hidden: yes
+    value_format: "$#,##0"
     sql: ${TABLE}.FinalAmount ;;
-  }
-
-  dimension: final_fte {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.FinalFTE ;;
   }
 
   dimension: fk_budget_fund {
@@ -69,18 +63,18 @@ view: budget_line {
     sql: ${TABLE}.pkBudgetLine ;;
   }
 
-  measure: budget_amount {
+  measure: projected_amt {
     type: sum
-    label: "Budgeted Expenditures"
+    label: "Budgeted Revenue"
     value_format: "$#,##0"
     sql: ${TABLE}.ProjectedAmt ;;
-    drill_fields: [ucoa_codes*]
+    drill_fields: [fund_and_object_codes*]
   }
 
-  dimension: budget_fte {
-    type: number
+  measure: projected_fte {
+    type: sum
     label: "FTE"
-    description: "Full Time Equivalent"
+    description: "Full Time Equivalents"
     sql: ${TABLE}.ProjectedFTE ;;
   }
 

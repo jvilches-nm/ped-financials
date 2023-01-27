@@ -3,7 +3,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: mquQ8lgBkHoPdWW7h73Bu0
+  preferred_slug: Ahvt96NKYJE0ZEUc26zgXD
   elements:
   - title: Actual Expenditures to Date
     name: Actual Expenditures to Date
@@ -28,12 +28,12 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 3
-    col: 5
-    width: 5
-    height: 4
+      Fiscal Year: budget_year.year_name
+    row: 6
+    col: 9
+    width: 6
+    height: 3
   - title: Map
     name: Map
     model: ped_public_financials
@@ -79,12 +79,12 @@
     hidden_fields: [stars_locations.location_type, stars_locations.student_pop]
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
     row: 3
     col: 15
     width: 9
-    height: 9
+    height: 12
   - title: Actual Expenditures by Object and Fund Category
     name: Actual Expenditures by Object and Fund Category
     model: ped_public_financials
@@ -141,9 +141,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 31
+      Fiscal Year: budget_year.year_name
+    row: 34
     col: 8
     width: 16
     height: 8
@@ -211,23 +211,64 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
-    row: 14
+      Fiscal Year: budget_year.year_name
+    row: 17
     col: 0
     width: 24
     height: 7
-  - title: School Data
-    name: School Data
+  - title: School Information
+    name: School Information
     model: ped_public_financials
     explore: stars_locations
-    type: looker_grid
+    type: marketplace_viz_multiple_value::multiple_value-marketplace
     fields: [stars_districts.district_name, stars_locations.location_type_name, stars_locations.School_name_plain,
-      stars_locations.location_county, stars_locations.school_size, stars_locations.school_level,
+      stars_locations.location_county, stars_locations.school_level, stars_locations.school_size,
       stars_locations.student_pop]
     sorts: [stars_locations.student_pop desc]
     limit: 500
+    hidden_fields: []
+    hidden_points_if_no: []
+    series_labels:
+      stars_locations.student_pop: Students
+      stars_locations.location_type_name: Location Type
     show_view_names: false
+    font_size_main: '8'
+    orientation: vertical
+    style_stars_districts.district_name: "#3A4245"
+    show_title_stars_districts.district_name: true
+    title_placement_stars_districts.district_name: above
+    value_format_stars_districts.district_name: ''
+    style_stars_locations.location_type_name: "#3A4245"
+    show_title_stars_locations.location_type_name: true
+    title_placement_stars_locations.location_type_name: above
+    value_format_stars_locations.location_type_name: ''
+    show_comparison_stars_locations.location_type_name: false
+    style_stars_locations.School_name_plain: "#3A4245"
+    show_title_stars_locations.School_name_plain: true
+    title_placement_stars_locations.School_name_plain: above
+    value_format_stars_locations.School_name_plain: ''
+    show_comparison_stars_locations.School_name_plain: false
+    style_stars_locations.location_county: "#3A4245"
+    show_title_stars_locations.location_county: true
+    title_placement_stars_locations.location_county: above
+    value_format_stars_locations.location_county: ''
+    show_comparison_stars_locations.location_county: false
+    style_stars_locations.school_level: "#3A4245"
+    show_title_stars_locations.school_level: true
+    title_placement_stars_locations.school_level: above
+    value_format_stars_locations.school_level: ''
+    show_comparison_stars_locations.school_level: false
+    style_stars_locations.school_size: "#3A4245"
+    show_title_stars_locations.school_size: true
+    title_placement_stars_locations.school_size: above
+    value_format_stars_locations.school_size: ''
+    show_comparison_stars_locations.school_size: false
+    style_stars_locations.student_pop: "#3A4245"
+    show_title_stars_locations.student_pop: true
+    title_placement_stars_locations.student_pop: above
+    value_format_stars_locations.student_pop: ''
+    show_comparison_stars_locations.student_pop: false
     show_row_numbers: true
     transpose: false
     truncate_text: true
@@ -248,9 +289,6 @@
       stars_locations.location_type_name, stars_locations.student_pop]
     show_totals: true
     show_row_totals: true
-    series_labels:
-      stars_locations.student_pop: Students
-      stars_locations.location_type_name: Location Type
     series_column_widths:
       stars_locations.school_size: 81
     series_cell_visualizations:
@@ -284,16 +322,16 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
-    defaults_version: 1
+    defaults_version: 0
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: stars_locations.location_year
       Select School Name: stars_locations.School_name_plain
-    row: 7
+      Fiscal Year: budget_year.year_name
+    row: 3
     col: 0
-    width: 15
-    height: 5
+    width: 9
+    height: 12
   - title: Actual Expenditures by Job and Fund Category for Salary/Compensation
     name: Actual Expenditures by Job and Fund Category for Salary/Compensation
     model: ped_public_financials
@@ -356,9 +394,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 39
+      Fiscal Year: budget_year.year_name
+    row: 42
     col: 8
     width: 16
     height: 8
@@ -366,7 +404,7 @@
     type: text
     title_text: Students
     body_text: ''
-    row: 12
+    row: 15
     col: 0
     width: 24
     height: 2
@@ -420,9 +458,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 23
+      Fiscal Year: budget_year.year_name
+    row: 26
     col: 12
     width: 12
     height: 8
@@ -431,7 +469,7 @@
     title_text: Revenue and Expenditures
     subtitle_text: "* Revenue available at the school level for charter schools only."
     body_text: ''
-    row: 21
+    row: 24
     col: 0
     width: 24
     height: 2
@@ -458,12 +496,12 @@
     note_text: Applies to Charter Schools, not to District Schools.
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
     row: 3
-    col: 0
-    width: 5
-    height: 4
+    col: 9
+    width: 6
+    height: 3
   - title: Actual Revenue by Fund Category
     name: Actual Revenue by Fund Category
     model: ped_public_financials
@@ -525,22 +563,19 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 23
+      Fiscal Year: budget_year.year_name
+    row: 26
     col: 0
     width: 12
     height: 8
   - name: School Overview
     type: text
     title_text: School Overview
-    subtitle_text: ''
     body_text: |-
-      ###School level financials are only available for charter schools prior to the 2022-2023 school year.
+      ###The current fiscal year shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
-      ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
-
-      ###Starting 2022-2023, District School Approved Actual data Year to Date will be displayed.
+      ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
 
       ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
@@ -552,12 +587,11 @@
     note_state: collapsed
     note_display: hover
     note_text: |-
-      Total school expenditures to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
+      Total school expenditures to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials
     explore: actuals_line
     type: single_value
     fields: [actuals_line.amount, stars_locations.student_pop]
-    filters: {}
     limit: 500
     column_limit: 50
     dynamic_fields: [{table_calculation: avg_spending_per_student, label: Avg Spending
@@ -604,11 +638,11 @@
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 3
-    col: 10
-    width: 5
+      Fiscal Year: budget_year.year_name
+    row: 11
+    col: 9
+    width: 6
     height: 2
   - title: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
     name: Actual Expenditures by Function for Special Ed, At-Risk and Bilingual Programs
@@ -664,9 +698,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 47
+      Fiscal Year: budget_year.year_name
+    row: 50
     col: 0
     width: 24
     height: 8
@@ -675,7 +709,7 @@
     note_state: collapsed
     note_display: hover
     note_text: |-
-      Total school expenditures to date for the selected school year which are categorized with an Instructional function not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student. Off-site students are not included in these calculations.
+      Total school expenditures for the Instructional function to date for the selected school year not including capital or debt service funds divided by the number of school students based on the 40-day count for that school year. This average should be considered an estimate for comparison purposes and not an actual tally of the spending per student.
     model: ped_public_financials
     explore: actuals_line
     type: single_value
@@ -728,11 +762,11 @@
     series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 5
-    col: 10
-    width: 5
+      Fiscal Year: budget_year.year_name
+    row: 13
+    col: 9
+    width: 6
     height: 2
   - title: Actual Expenditures by Job for Salary/Compensation
     name: Actual Expenditures by Job for Salary/Compensation
@@ -792,9 +826,9 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 39
+      Fiscal Year: budget_year.year_name
+    row: 42
     col: 0
     width: 8
     height: 8
@@ -856,12 +890,65 @@
     defaults_version: 1
     listen:
       Location Type: stars_locations.location_type_name
-      Fiscal Year: budget_year.year_name
       Select School Name: stars_locations.School_name_plain
-    row: 31
+      Fiscal Year: budget_year.year_name
+    row: 34
     col: 0
     width: 8
     height: 8
+  - title: Financial Approval Status
+    name: Financial Approval Status
+    model: ped_public_financials
+    explore: actuals_line
+    type: single_value
+    fields: [actuals_budget_period.reporting_period_code]
+    sorts: [actuals_budget_period.reporting_period_code]
+    limit: 500
+    custom_color_enabled: true
+    show_single_value_title: true
+    show_comparison: false
+    comparison_type: value
+    comparison_reverse_colors: false
+    show_comparison_label: true
+    enable_conditional_formatting: false
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    defaults_version: 1
+    series_types: {}
+    listen:
+      Select School Name: stars_locations.School_name_plain
+      Fiscal Year: budget_year.year_name
+    row: 9
+    col: 9
+    width: 6
+    height: 2
   filters:
   - name: Location Type
     title: Location Type
@@ -889,7 +976,6 @@
     ui_config:
       type: button_toggles
       display: inline
-      options: []
     model: ped_public_financials
     explore: actuals_revenue_line
     listens_to_filters: []
@@ -897,13 +983,12 @@
   - name: Select School Name
     title: Select School Name
     type: field_filter
-    default_value: ''
+    default_value: 21ST CENTURY PUBLIC ACADEMY
     allow_multiple_values: true
-    required: false
+    required: true
     ui_config:
       type: dropdown_menu
       display: inline
-      options: []
     model: ped_public_financials
     explore: stars_locations
     listens_to_filters: [Fiscal Year, Location Type]

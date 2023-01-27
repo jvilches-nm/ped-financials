@@ -1,80 +1,66 @@
 view: actuals_budget_period {
-  sql_table_name: Actuals.ActualsBudgetPeriod ;;
-
-  dimension: cash_total {
-    type: string
-    hidden:  yes
-    sql: ${TABLE}.CashTotal ;;
+  derived_table: {
+    sql: select * from (SELECT abp.pkactualsbudgetperiod, fkbudget, b.name budget_name, fkbudgetyear, arp.code reporting_period_code, arp.description reporting_period_description ,
+                LastApproved = ROW_NUMBER() OVER (PARTITION BY abp.fkBudget
+                                                    ORDER BY arp.Ordinal DESC)
+         FROM   Actuals.ActualsBudgetPeriod abp
+                INNER JOIN
+                Actuals.ActualsReportingPeriod arp
+                    ON abp.fkActualsReportingPeriod = arp.pkActualsReportingPeriod
+                INNER JOIN
+                Actuals.ActualsStatus astat
+                    ON abp.fkActualsStatus = astat.pkActualsStatus
+                INNER JOIN
+                dbo.budget b
+                on abp.fkbudget = b.pkbudget
+                inner join
+                common.budgetyear y
+                on b.fkbudgetyear=y.pkbudgetyear
+         WHERE    arp.Code <> 'YTD'
+           AND    astat.Code = 'AA'
+           AND    YEAR(y.enddate)>=2021) x
+       where lastapproved=1
+       ;;
+    datagroup_trigger: ped_public_financials_default_datagroup
+    indexes: ["pkactualsbudgetperiod", "fkbudget", "fkbudgetyear"]
   }
+  label: "Actuals Period"
 
-  dimension: disapproval_reason {
-    type: string
-    hidden:  yes
-    sql: ${TABLE}.DisapprovalReason ;;
-  }
-
-  dimension: expenditure_total {
-    type: string
+  dimension: pk_actuals_budget_period {
     hidden: yes
-    sql: ${TABLE}.ExpenditureTotal ;;
-  }
-
-  dimension: fk_actuals_reporting_period {
+    primary_key: yes
     type: number
-    hidden: yes
-    sql: ${TABLE}.fkActualsReportingPeriod ;;
-  }
-
-  dimension: fk_actuals_status {
-    type: number
-    hidden: yes
-    sql: ${TABLE}.fkActualsStatus ;;
+    sql: ${TABLE}.pkactualsbudgetperiod ;;
   }
 
   dimension: fk_budget {
-    type: number
     hidden: yes
-    sql: ${TABLE}.fkBudget ;;
-  }
-
-  dimension: fk_modified_by {
     type: number
-    hidden: yes
-    sql: ${TABLE}.fkModifiedBy ;;
+    sql: ${TABLE}.fkbudget ;;
   }
 
-  dimension: ftetotal {
+  dimension: fk_budget_year {
+    hidden: yes
     type: number
-    hidden: yes
-    sql: ${TABLE}.FTETotal ;;
+    sql: ${TABLE}.fkbudgetyear ;;
   }
 
-  dimension_group: modified {
-    type: time
-    hidden: yes
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}.ModifiedDate ;;
-  }
-
-  dimension: pk_actuals_budget_period {
-    type: number
-    primary_key: yes
-    hidden:  yes
-    sql: ${TABLE}.pkActualsBudgetPeriod ;;
-  }
-
-  dimension: revenue_total {
+  dimension: budget_name {
     type: string
-    hidden: yes
-    sql: ${TABLE}.RevenueTotal ;;
+    sql: ${TABLE}.budget_name ;;
+  }
+
+  dimension: reporting_period_code {
+    type: string
+    sql: ${TABLE}.reporting_period_code ;;
+  }
+
+  dimension: reporting_period_description {
+    type: string
+    sql: ${TABLE}.reporting_period_description ;;
+  }
+  measure: count_entities {
+    type: count
   }
 
 }

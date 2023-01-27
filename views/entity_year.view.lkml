@@ -5,11 +5,12 @@ view: entity_year {
       join common.entityyearparentchild pc on pc.fkentityyearparent=ey.pkentityyear
       left join common.entitytype et on et.pkentitytype=ey.fkentitytype
       left join common.entityyear c on c.pkentityyear=pc.fkentityyearchild
-      left join common.entitytype ct on ct.pkentitytype=c.fkentitytype;;
-      persist_for: "24 hour"
-      indexes: ["pkentityyear", "child_code", "child_name"]
+      left join common.entitytype ct on ct.pkentitytype=c.fkentitytype
+      where et.name in ('Regional Education Cooperative', 'State Charter School', 'School District');;
+    datagroup_trigger: ped_public_financials_default_datagroup
+    indexes: ["pkentityyear", "child_code", "child_name"]
   }
-  label: "Location"
+  label: "OBMS Location - Reference Only"
 
   dimension: parent_type {
     type: string
@@ -18,6 +19,7 @@ view: entity_year {
 
   measure: membership {
     type: sum
+    hidden: yes
     label: "Student Population"
     sql: ${TABLE}.finalmembership ;;
   }
