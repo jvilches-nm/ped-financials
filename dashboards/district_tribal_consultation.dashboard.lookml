@@ -519,7 +519,7 @@
   - name: District Name
     title: District Name
     type: field_filter
-    default_value: ''
+    default_value: ALBUQUERQUE
     allow_multiple_values: true
     required: false
     ui_config:
@@ -556,7 +556,7 @@
   - name: Tribe Name
     title: Tribe Name
     type: field_filter
-    default_value: ''
+    default_value: Navajo Nations
     allow_multiple_values: true
     required: true
     ui_config:

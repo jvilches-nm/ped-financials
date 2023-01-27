@@ -97,7 +97,7 @@
   - name: School Name
     title: School Name
     type: field_filter
-    default_value: ''
+    default_value: 21ST CENTURY PUBLIC ACADEMY
     allow_multiple_values: true
     required: true
     ui_config:

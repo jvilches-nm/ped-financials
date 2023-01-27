@@ -514,7 +514,7 @@
   - name: School Name
     title: School Name
     type: field_filter
-    default_value: ''
+    default_value: DEAP
     allow_multiple_values: true
     required: false
     ui_config:
@@ -534,7 +534,7 @@
   - name: Tribe Name
     title: Tribe Name
     type: field_filter
-    default_value: ''
+    default_value: Navajo Nations
     allow_multiple_values: true
     required: true
     ui_config:
