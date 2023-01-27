@@ -989,6 +989,8 @@
     explore: actuals_line
     type: looker_grid
     fields: [actuals_budget_period.reporting_period_code, stars_districts.district_name]
+    filters:
+      stars_locations.location_type: "-Charter School"
     sorts: [stars_districts.district_name]
     limit: 4
     show_view_names: false
