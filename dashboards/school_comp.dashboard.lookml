@@ -544,7 +544,6 @@
 
       ###Starting 2022-2023, Approved Year-to-Date Actual data will be displayed for District Schools. School level financials are only available for charter schools prior to the 2022-2023 school year.
 
-      ###Student Information for 2022-2023 will be available when data is submitted and approved in mid-December.
     row: 0
     col: 0
     width: 24
