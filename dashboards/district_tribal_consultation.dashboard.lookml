@@ -556,7 +556,7 @@
   - name: Tribe Name
     title: Tribe Name
     type: field_filter
-    default_value: Navajo Nations
+    default_value: ''
     allow_multiple_values: true
     required: true
     ui_config:
