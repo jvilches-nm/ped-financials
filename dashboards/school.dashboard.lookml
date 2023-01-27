@@ -960,7 +960,7 @@
   - name: Location Type
     title: Location Type
     type: field_filter
-    default_value: Local Charter School,State Charter School
+    default_value: District School,Local Charter School,State Charter School
     allow_multiple_values: true
     required: true
     ui_config:
