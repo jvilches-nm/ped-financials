@@ -67,13 +67,14 @@ view: budget_revenue_line {
     type: sum
     label: "Budgeted Revenue"
     value_format: "$#,##0"
-    sql: ${TABLE}.ProjectedAmt ;;
+    sql: ${TABLE}.FinalAmount ;;
     drill_fields: [fund_and_object_codes*]
   }
 
   measure: projected_fte {
     type: sum
     label: "FTE"
+    hidden: yes
     description: "Full Time Equivalents"
     sql: ${TABLE}.ProjectedFTE ;;
   }
