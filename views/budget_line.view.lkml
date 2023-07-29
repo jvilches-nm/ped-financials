@@ -1,5 +1,5 @@
 view: budget_line {
-  sql_table_name: dbo.BudgetLine ;;
+  sql_table_name: Budget.BudgetLine ;;
   label: "Budgeted Expenditures"
 
   set: ucoa_codes {
