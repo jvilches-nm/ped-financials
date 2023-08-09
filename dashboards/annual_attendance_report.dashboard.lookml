@@ -2912,7 +2912,7 @@
     type: text
     title_text: ''
     subtitle_text: ''
-    body_text: '*NOTE: Enrollment numbers may be higher than actual enrollment because students transferring mid-year are counted as enrollments at multiple school or district sites.  '
+    body_text: '* NOTE: Enrollment numbers may be higher than actual enrollment because students transferring mid-year are counted as enrollments at multiple school or district sites.  '
     row: 0
     col: 0
     width: 23
