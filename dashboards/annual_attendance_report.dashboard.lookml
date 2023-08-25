@@ -2912,12 +2912,7 @@
     type: text
     title_text: ''
     subtitle_text: ''
-    body_text: 'Enrollment numbers will not likely reflect end of year enrollment
-      as a student may appear multiple times at schools within a district or may be
-      counted at multiple districts. Each time a student is enrolled at a different
-      school for more than 10 days the student will count toward that school’s chronic
-      absenteeism rate, regardless of where the student is enrolled at the end of
-      the year.  '
+    body_text: '* NOTE: Enrollment numbers may be higher than actual enrollment because students transferring mid-year are counted as enrollments at multiple school or district sites.  '
     row: 0
     col: 0
     width: 23
