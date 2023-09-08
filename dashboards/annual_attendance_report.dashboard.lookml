@@ -5,8 +5,8 @@
   description: ''
   preferred_slug: jDToUxR9VcH89OnGQN91jB
   elements:
-  - title: Subpopulation Attendance Data
-    name: Subpopulation Attendance Data
+  - title: Subpopulation Attendance Data - School
+    name: Subpopulation Attendance Data - School
     model: ped_public_financials
     explore: annual_attendance
     type: looker_grid
@@ -17,48 +17,103 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [annual_attendance.sub_pop_item]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.enroll_number})', label: Enrollment, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: enrollment,
-        _type_hint: number}, {category: table_calculation, expression: 'if (${annual_attendance.enroll_number}<20,-1,
-          ${annual_attendance.tier1_absent_student})', label: Tier 1 Students, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: tier_1_students,
-        _type_hint: number}, {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.tier2_absent_student})', label: Tier 2 Students,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: tier_2_students, _type_hint: number}, {category: table_calculation,
-        expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})",
-        label: Tier 3 Students, value_format: !!null '', value_format_name: !!null '',
-        _kind_hint: measure, table_calculation: tier_3_students, _type_hint: number},
-      {category: table_calculation, expression: "if(${annual_attendance.enroll_number}<20,\
-          \ -1, \n  ${annual_attendance.tier4_absent_student})", label: Tier 4 Students,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: tier_4_students, _type_hint: number}, {category: table_calculation,
-        expression: 'if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})',
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.enroll_number})
+      label: Enrollment
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: enrollment
+      _type_hint: number
+    - category: table_calculation
+      expression: if (${annual_attendance.enroll_number}<20,-1, ${annual_attendance.tier1_absent_student})
+      label: Tier 1 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_1_students
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.tier2_absent_student})
+      label: Tier 2 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_2_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})"
+      label: Tier 3 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_3_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier4_absent_student})"
+      label: Tier 4 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_4_students
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -94,7 +149,6 @@
         font_color: "#F15922", color_application: {collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09,
           palette_id: acab4a0c-9dd2-48ac-85f3-c7f40364f778}, bold: false, italic: false,
         strikethrough: false, fields: [chronic_absentee_rate]}]
-    series_types: {}
     defaults_version: 1
     hidden_fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.total_days_excused_absence,
       annual_attendance.total_days_enrolled, annual_attendance.total_days_unexcused_absence,
@@ -121,10 +175,15 @@
     filters:
       annual_attendance.sub_pop_item_code: F,M
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: District Chronic Absentee Rate All Students, value_format: !!null '',
-        value_format_name: percent_2, _kind_hint: measure, table_calculation: district_chronic_absentee_rate_all_students,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: District Chronic Absentee Rate All Students
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: district_chronic_absentee_rate_all_students
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -136,7 +195,6 @@
     conditional_formatting_include_nulls: false
     custom_color: "#068993"
     hidden_fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
-    series_types: {}
     defaults_version: 1
     listen:
       " School Name": annual_attendance.school_name
@@ -167,10 +225,8 @@
     custom_color: "#068993"
     show_view_names: false
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     hidden_points_if_no: []
-    series_labels: {}
     note_state: collapsed
     note_display: hover
     note_text: If no specific school is selected, the school level statistics will
@@ -238,7 +294,6 @@
             name: Tier 4 Students}], showLabels: false, showValues: true, unpinAxis: false,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
     font_size: '12'
-    series_types: {}
     series_colors:
       annual_attendance.tier4_absent_student: "#cef2f2"
       tier_4_student: "#cef2f2"
@@ -255,9 +310,6 @@
     transpose: false
     truncate_text: true
     size_to_fit: false
-    series_cell_visualizations:
-      annual_attendance.tier1_absentee:
-        is_active: false
     table_theme: white
     enable_conditional_formatting: false
     header_text_alignment: left
@@ -291,22 +343,42 @@
       annual_attendance.sub_pop_item: Female,Male
     sorts: [annual_attendance.tier1_absent_student desc]
     limit: 5000
-    dynamic_fields: [{table_calculation: percent_of_student_in_tier_1, label: 'Percent
-          of Student in Tier 1 ', expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_2, label: Percent
-          of Student in Tier 2, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_3, label: Percent
-          of Student in Tier 3, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_4, label: Percent
-          of Student in Tier 4, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: students_not_in_tiers, label: Students
-          not in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
-        _type_hint: number}]
+    dynamic_fields:
+    - table_calculation: percent_of_student_in_tier_1
+      label: 'Percent of Student in Tier 1 '
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_2
+      label: Percent of Student in Tier 2
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_3
+      label: Percent of Student in Tier 3
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_4
+      label: Percent of Student in Tier 4
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: students_not_in_tiers
+      label: Students not in tiers
+      expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}"
+      value_format:
+      value_format_name: decimal_0
+      _kind_hint: measure
+      _type_hint: number
     show_value_labels: true
     font_size: 12
     hide_legend: false
@@ -331,10 +403,6 @@
       annual_attendance.tier2_absent_student: "% Tier 2 Students"
       annual_attendance.tier4_absent_student: "% Tier 4 Students"
       annual_attendance.tier3_absent_student: "% Tier 3 Students"
-      total_tier_1_students: "% Tier 1 Students"
-      total_tier_2_students: "% Tier 2 Students"
-      total_tier_3_students: "% Tier 3 Students"
-      total_tier_4_students: "% Tier 4 Students"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -360,7 +428,6 @@
     stacking: ''
     limit_displayed_rows: false
     legend_position: center
-    series_types: {}
     point_style: none
     label_density: 25
     x_axis_scale: auto
@@ -387,9 +454,6 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
-    series_cell_visualizations:
-      annual_attendance.tier1_absentee:
-        is_active: false
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
@@ -411,10 +475,15 @@
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -454,7 +523,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
@@ -470,10 +538,15 @@
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -513,7 +586,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       " School Name": annual_attendance.school_name
       " District Name": annual_attendance.district_name
@@ -534,31 +606,71 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [annual_attendance.enroll_number desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.enroll_number})', label: Masked Enrollment, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: masked_enrollment,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.enroll_number})
+      label: Masked Enrollment
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: masked_enrollment
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -596,7 +708,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       masked_enrollment: "#068993"
     series_labels:
@@ -657,28 +768,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [chronic_absentee_rate desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})',
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -711,7 +857,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       chronic_absentee_rate: "#068993"
@@ -770,41 +915,95 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [annual_attendance.enroll_number desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number},
-      {category: table_calculation, expression: 'if (${annual_attendance.enroll_number}<20,-1,
-          ${annual_attendance.tier1_absent_student})', label: Tier 1 Students, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: tier_1_students,
-        _type_hint: number}, {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.tier2_absent_student})', label: Tier 2 Students,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: tier_2_students, _type_hint: number}, {category: table_calculation,
-        expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})",
-        label: Tier 3 Students, value_format: !!null '', value_format_name: !!null '',
-        _kind_hint: measure, table_calculation: tier_3_students, _type_hint: number},
-      {category: table_calculation, expression: "if(${annual_attendance.enroll_number}<20,\
-          \ -1, \n  ${annual_attendance.tier4_absent_student})", label: Tier 4 Students,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: tier_4_students, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: if (${annual_attendance.enroll_number}<20,-1, ${annual_attendance.tier1_absent_student})
+      label: Tier 1 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_1_students
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.tier2_absent_student})
+      label: Tier 2 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_2_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})"
+      label: Tier 3 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_3_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier4_absent_student})"
+      label: Tier 4 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_4_students
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -843,7 +1042,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       annual_attendance.tier4_absent_student: "#d0faf1"
@@ -910,31 +1108,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [percent_of_student_in_tier_1 desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number})',
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number})
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -973,7 +1203,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       percent_of_student_in_tier_1: "#068993"
@@ -1033,27 +1262,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [average_unexcused_absences desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: " ${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: " ${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1086,7 +1351,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       average_excused_absences: "#9B8E20"
@@ -1143,27 +1407,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [average_excused_absences desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: " ${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: " ${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1196,7 +1496,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       average_excused_absences: "#068993"
@@ -1247,10 +1546,15 @@
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1290,7 +1594,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       School Year: annual_attendance.school_year
     row: 16
@@ -1306,10 +1609,15 @@
     filters:
       annual_attendance.sub_pop_item_code: F,M
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: District Chronic Absentee Rate All Students, value_format: !!null '',
-        value_format_name: percent_2, _kind_hint: measure, table_calculation: district_chronic_absentee_rate_all_students,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: District Chronic Absentee Rate All Students
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: district_chronic_absentee_rate_all_students
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1321,7 +1629,6 @@
     conditional_formatting_include_nulls: false
     custom_color: "#A85573"
     hidden_fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
-    series_types: {}
     defaults_version: 1
     listen:
       School Year: annual_attendance.school_year
@@ -1336,10 +1643,15 @@
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1379,7 +1691,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       School Year: annual_attendance.school_year
     row: 16
@@ -1411,10 +1722,8 @@
         strikethrough: false, fields: !!null ''}]
     show_view_names: false
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     hidden_points_if_no: []
-    series_labels: {}
     listen:
       School Year: annual_attendance.school_year
     row: 16
@@ -1428,10 +1737,15 @@
     type: single_value
     fields: [annual_attendance.total_days_excused_absence, annual_attendance.enroll_number]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1471,7 +1785,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
@@ -1488,10 +1801,15 @@
     filters:
       annual_attendance.sub_pop_item_code: F,M
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: District Chronic Absentee Rate All Students, value_format: !!null '',
-        value_format_name: percent_2, _kind_hint: measure, table_calculation: district_chronic_absentee_rate_all_students,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: District Chronic Absentee Rate All Students
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: district_chronic_absentee_rate_all_students
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1503,7 +1821,6 @@
     conditional_formatting_include_nulls: false
     custom_color: "#F15922"
     hidden_fields: [annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
-    series_types: {}
     defaults_version: 1
     listen:
       " District Name": annual_attendance.district_name
@@ -1537,10 +1854,8 @@
         strikethrough: false, fields: !!null ''}]
     show_view_names: false
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     hidden_points_if_no: []
-    series_labels: {}
     note_state: collapsed
     note_display: hover
     note_text: If no specific district is selected, the district level statistics
@@ -1559,10 +1874,15 @@
     type: single_value
     fields: [annual_attendance.enroll_number, annual_attendance.total_days_unexcused_absence]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences per Student, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences_per_student,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences per Student
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences_per_student
+      _type_hint: number
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -1602,7 +1922,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       " District Name": annual_attendance.district_name
       School Year: annual_attendance.school_year
@@ -1622,22 +1941,42 @@
       annual_attendance.sub_pop_item: Female,Male
     sorts: [annual_attendance.tier1_absent_student desc]
     limit: 500
-    dynamic_fields: [{table_calculation: percent_of_student_in_tier_1, label: 'Percent
-          of Student in Tier 1 ', expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_2, label: Percent
-          of Student in Tier 2, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_3, label: Percent
-          of Student in Tier 3, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_4, label: Percent
-          of Student in Tier 4, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: students_not_in_tiers, label: Students
-          not in tiers, expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}",
-        value_format: !!null '', value_format_name: decimal_0, _kind_hint: measure,
-        _type_hint: number}]
+    dynamic_fields:
+    - table_calculation: percent_of_student_in_tier_1
+      label: 'Percent of Student in Tier 1 '
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_2
+      label: Percent of Student in Tier 2
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_3
+      label: Percent of Student in Tier 3
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_4
+      label: Percent of Student in Tier 4
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: students_not_in_tiers
+      label: Students not in tiers
+      expression: "${annual_attendance.enroll_number}-${annual_attendance.tier1_absent_student}-${annual_attendance.tier2_absent_student}-${annual_attendance.tier3_absent_student}-${annual_attendance.tier4_absent_student}"
+      value_format:
+      value_format_name: decimal_0
+      _kind_hint: measure
+      _type_hint: number
     show_value_labels: true
     font_size: 12
     hide_legend: false
@@ -1694,7 +2033,6 @@
     stacking: ''
     limit_displayed_rows: false
     legend_position: center
-    series_types: {}
     point_style: none
     label_density: 25
     x_axis_scale: auto
@@ -1721,9 +2059,6 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
-    series_cell_visualizations:
-      annual_attendance.tier1_absentee:
-        is_active: false
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
@@ -1749,31 +2084,71 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [annual_attendance.enroll_number desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.enroll_number})', label: Masked Enrollment, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: masked_enrollment,
-        _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.enroll_number})
+      label: Masked Enrollment
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: masked_enrollment
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1806,7 +2181,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#E87F2F"
       masked_enrollment: "#E87F2F"
@@ -1863,28 +2237,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [chronic_absentee_rate desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})',
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -0.01, ${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number})
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -1917,7 +2326,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       chronic_absentee_rate: "#E87F2F"
@@ -1971,41 +2379,95 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [annual_attendance.enroll_number desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number},
-      {category: table_calculation, expression: 'if (${annual_attendance.enroll_number}<20,-1,
-          ${annual_attendance.tier1_absent_student})', label: Tier 1 Students, value_format: !!null '',
-        value_format_name: !!null '', _kind_hint: measure, table_calculation: tier_1_students,
-        _type_hint: number}, {category: table_calculation, expression: 'if(${annual_attendance.enroll_number}<20,
-          -1, ${annual_attendance.tier2_absent_student})', label: Tier 2 Students,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: tier_2_students, _type_hint: number}, {category: table_calculation,
-        expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})",
-        label: Tier 3 Students, value_format: !!null '', value_format_name: !!null '',
-        _kind_hint: measure, table_calculation: tier_3_students, _type_hint: number},
-      {category: table_calculation, expression: "if(${annual_attendance.enroll_number}<20,\
-          \ -1, \n  ${annual_attendance.tier4_absent_student})", label: New Calculation,
-        value_format: !!null '', value_format_name: !!null '', _kind_hint: measure,
-        table_calculation: new_calculation, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: if (${annual_attendance.enroll_number}<20,-1, ${annual_attendance.tier1_absent_student})
+      label: Tier 1 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_1_students
+      _type_hint: number
+    - category: table_calculation
+      expression: if(${annual_attendance.enroll_number}<20, -1, ${annual_attendance.tier2_absent_student})
+      label: Tier 2 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_2_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier3_absent_student})"
+      label: Tier 3 Students
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: tier_3_students
+      _type_hint: number
+    - category: table_calculation
+      expression: "if(${annual_attendance.enroll_number}<20, -1, \n  ${annual_attendance.tier4_absent_student})"
+      label: New Calculation
+      value_format:
+      value_format_name:
+      _kind_hint: measure
+      table_calculation: new_calculation
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2044,7 +2506,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       annual_attendance.tier4_absent_student: "#fcefce"
@@ -2100,27 +2561,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [average_unexcused_absences desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2153,7 +2650,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       average_excused_absences: "#9B8E20"
@@ -2209,27 +2705,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [average_excused_absences desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2262,7 +2794,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       average_excused_absences: "#E87F2F"
@@ -2317,27 +2848,63 @@
       annual_attendance.total_days_unexcused_absence]
     sorts: [percent_of_student_in_tier_1 desc]
     limit: 500
-    dynamic_fields: [{category: table_calculation, expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 1, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_1, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 2, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_2, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 3, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_3, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        label: Percent of Student in Tier 4, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: percent_of_student_in_tier_4, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}",
-        label: Chronic Absentee Rate, value_format: !!null '', value_format_name: percent_2,
-        _kind_hint: measure, table_calculation: chronic_absentee_rate, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}",
-        label: Average Excused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_excused_absences, _type_hint: number},
-      {category: table_calculation, expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}",
-        label: Average Unexcused Absences, value_format: !!null '', value_format_name: decimal_2,
-        _kind_hint: measure, table_calculation: average_unexcused_absences, _type_hint: number}]
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 1
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_1
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 2
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_2
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 3
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_3
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      label: Percent of Student in Tier 4
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: percent_of_student_in_tier_4
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_excused_absence}/${annual_attendance.enroll_number}"
+      label: Average Excused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_excused_absences
+      _type_hint: number
+    - category: table_calculation
+      expression: "${annual_attendance.total_days_unexcused_absence}/${annual_attendance.enroll_number}"
+      label: Average Unexcused Absences
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: average_unexcused_absences
+      _type_hint: number
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -2376,7 +2943,6 @@
         showValues: true, valueFormat: '', unpinAxis: false, tickDensity: default,
         tickDensityCustom: 5, type: linear}]
     hidden_series: []
-    series_types: {}
     series_colors:
       annual_attendance.enroll_number: "#068993"
       percent_of_student_in_tier_4: "#fff0e7"
@@ -2480,7 +3046,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hide_totals: false
     hide_row_totals: false
     title_hidden: true
@@ -2522,8 +3087,6 @@
     transpose: false
     truncate_text: true
     size_to_fit: true
-    series_labels:
-      annual_attendance.school_name_filter: School Name
     table_theme: white
     limit_displayed_rows: false
     header_text_alignment: left
@@ -2555,7 +3118,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hide_totals: false
     hide_row_totals: false
     title_hidden: true
@@ -2638,7 +3200,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hide_totals: false
     hide_row_totals: false
     title_hidden: true
@@ -2701,8 +3262,6 @@
     transpose: false
     truncate_text: true
     size_to_fit: true
-    series_labels:
-      annual_attendance.school_name_filter: School Name
     table_theme: white
     limit_displayed_rows: false
     header_text_alignment: left
@@ -2734,7 +3293,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hide_totals: false
     hide_row_totals: false
     title_hidden: true
@@ -2802,7 +3360,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     note_state: collapsed
     note_display: below
     note_text: AIP - Attendance Improvement Plan
@@ -2830,7 +3387,6 @@
       'Yes': "#3F6173"
       'No': "#9B2030"
       Not Required: "#F15922"
-    series_labels: {}
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -2869,7 +3425,6 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     hidden_fields: []
     hidden_points_if_no: []
     show_row_numbers: true
@@ -2912,7 +3467,9 @@
     type: text
     title_text: ''
     subtitle_text: ''
-    body_text: '* NOTE: Enrollment numbers may be higher than actual enrollment because students transferring mid-year are counted as enrollments at multiple school or district sites.  '
+    body_text: "* NOTE: Enrollment numbers may be higher than actual enrollment because\
+      \ students transferring mid-year are counted as enrollments at multiple school\
+      \ or district sites."
     row: 0
     col: 0
     width: 23
@@ -2929,19 +3486,35 @@
       annual_attendance.sub_pop_item: Female,Male
     sorts: [annual_attendance.tier1_absent_student desc]
     limit: 5000
-    dynamic_fields: [{table_calculation: percent_of_student_in_tier_1, label: 'Percent
-          of Student in Tier 1 ', expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_2, label: Percent
-          of Student in Tier 2, expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_3, label: Percent
-          of Student in Tier 3, expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}, {table_calculation: percent_of_student_in_tier_4, label: Percent
-          of Student in Tier 4, expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}",
-        value_format: !!null '', value_format_name: percent_2, _kind_hint: measure,
-        _type_hint: number}]
+    dynamic_fields:
+    - table_calculation: percent_of_student_in_tier_1
+      label: 'Percent of Student in Tier 1 '
+      expression: "${annual_attendance.tier1_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_2
+      label: Percent of Student in Tier 2
+      expression: "${annual_attendance.tier2_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_3
+      label: Percent of Student in Tier 3
+      expression: "${annual_attendance.tier3_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
+    - table_calculation: percent_of_student_in_tier_4
+      label: Percent of Student in Tier 4
+      expression: "${annual_attendance.tier4_absent_student}/${annual_attendance.enroll_number}"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      _type_hint: number
     show_value_labels: true
     font_size: 12
     hide_legend: false
@@ -2965,10 +3538,6 @@
       annual_attendance.tier2_absent_student: "% Tier 2 Students"
       annual_attendance.tier3_absent_student: "% Tier 3 Students"
       annual_attendance.tier4_absent_student: "% Tier 4 Students"
-      total_tier_1_student: "% Tier 1 Students"
-      total_tier_2_students: "% Tier 2 Students"
-      total_tier_3_students: "% Tier 3 Students"
-      total_tier_4_students: "% Tier 4 Students"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -3003,7 +3572,6 @@
           {axisId: percent_of_student_in_tier_4, id: percent_of_student_in_tier_4,
             name: Percent of Student in Tier 4}], showLabels: true, showValues: true,
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     show_dropoff: false
     show_row_numbers: false
     transpose: false
@@ -3021,9 +3589,6 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
-    series_cell_visualizations:
-      annual_attendance.tier1_absentee:
-        is_active: false
     defaults_version: 1
     hidden_fields: [percent_of_student_in_tier_1, percent_of_student_in_tier_2, percent_of_student_in_tier_3,
       percent_of_student_in_tier_4, annual_attendance.enroll_number]
@@ -3038,11 +3603,78 @@
     col: 8
     width: 5
     height: 8
+  - title: Total student in Tier 1 and Tier 4
+    name: Total student in Tier 1 and Tier 4
+    model: ped_public_financials
+    explore: annual_attendance
+    type: looker_grid
+    fields: [annual_attendance.district_code, annual_attendance.district_name, annual_attendance.school_code,
+      annual_attendance.school_name, annual_attendance.tier1_absent_student, annual_attendance.tier4_absent_student]
+    sorts: [annual_attendance.district_code]
+    limit: 500
+    column_limit: 50
+    show_view_names: false
+    show_row_numbers: true
+    transpose: false
+    truncate_text: true
+    hide_totals: false
+    hide_row_totals: false
+    size_to_fit: true
+    table_theme: white
+    limit_displayed_rows: false
+    enable_conditional_formatting: false
+    header_text_alignment: left
+    header_font_size: '12'
+    rows_font_size: '12'
+    conditional_formatting_include_totals: false
+    conditional_formatting_include_nulls: false
+    show_sql_query_menu_options: false
+    show_totals: true
+    show_row_totals: true
+    truncate_header: false
+    minimum_column_width: 75
+    series_cell_visualizations:
+      annual_attendance.tier1_absent_student:
+        is_active: false
+    defaults_version: 1
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: true
+    show_x_axis_ticks: true
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    trellis: ''
+    stacking: ''
+    legend_position: center
+    point_style: none
+    show_value_labels: false
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    listen:
+      School Year: annual_attendance.school_year
+      " District Name": annual_attendance.district_name
+      " School Name": annual_attendance.school_name
+    row: 89
+    col: 0
+    width: 23
+    height: 11
   filters:
   - name: School Year
     title: School Year
     type: field_filter
-    default_value: 2021-2022
+    default_value: 2022-2023
     allow_multiple_values: true
     required: true
     ui_config:
