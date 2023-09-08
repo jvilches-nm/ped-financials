@@ -3609,10 +3609,21 @@
     explore: annual_attendance
     type: looker_grid
     fields: [annual_attendance.district_code, annual_attendance.district_name, annual_attendance.school_code,
-      annual_attendance.school_name, annual_attendance.tier1_absent_student, annual_attendance.tier4_absent_student]
+      annual_attendance.school_name, annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
+      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student,
+      annual_attendance.Chronically_Absent_Student, annual_attendance.enroll_number]
     sorts: [annual_attendance.district_code]
     limit: 500
     column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
     show_view_names: false
     show_row_numbers: true
     transpose: false
@@ -3662,6 +3673,8 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    hidden_pivots: {}
+    hidden_fields: [annual_attendance.enroll_number]
     listen:
       School Year: annual_attendance.school_year
       " District Name": annual_attendance.district_name
