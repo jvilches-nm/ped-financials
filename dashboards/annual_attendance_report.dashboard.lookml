@@ -1,5 +1,5 @@
-- dashboard: annual_attendance_report__lookml
-  title: Annual Attendance Report - LookML
+- dashboard: annual_attendance_report
+  title: Annual Attendance Report
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
