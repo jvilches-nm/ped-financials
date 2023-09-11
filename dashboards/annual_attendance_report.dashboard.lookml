@@ -1,5 +1,5 @@
-- dashboard: annual_attendance_report
-  title: Annual Attendance Report
+- dashboard: annual_attendance_report__lookml
+  title: Annual Attendance Report - LookML
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
@@ -3603,20 +3603,29 @@
     col: 8
     width: 5
     height: 8
-  - title: Total student in Tier 1 and Tier 4
-    name: Total student in Tier 1 and Tier 4
+  - title: Overview of School Attendance Information
+    name: Overview of School Attendance Information
     model: ped_public_financials
     explore: annual_attendance
     type: looker_grid
-    fields: [annual_attendance.district_code, annual_attendance.district_name, annual_attendance.school_code,
-      annual_attendance.school_name, annual_attendance.enroll_number, annual_attendance.tier1_absent_student,
-      annual_attendance.tier2_absent_student, annual_attendance.tier3_absent_student,
-      annual_attendance.tier4_absent_student, annual_attendance.Chronically_Absent_Student]
+    fields: [annual_attendance.district_name, annual_attendance.school_name, annual_attendance.enroll_number,
+      annual_attendance.tier1_absent_student, annual_attendance.tier2_absent_student,
+      annual_attendance.tier3_absent_student, annual_attendance.tier4_absent_student,
+      annual_attendance.Chronically_Absent_Student]
     filters:
       annual_attendance.sub_pop_item: Female,Male
-    sorts: [annual_attendance.district_code]
+    sorts: [annual_attendance.enroll_number desc 0]
     limit: 500
     column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${annual_attendance.Chronically_Absent_Student}/${annual_attendance.enroll_number}"
+      label: Chronic Absentee Rate
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: chronic_absentee_rate
+      _type_hint: number
     show_view_names: false
     show_row_numbers: true
     transpose: false
