@@ -1,5 +1,5 @@
 view: annual_attendance {
-  sql_table_name: looker.annual_attendance ;;
+  sql_table_name: looker.annual_attendance_new ;;
 
   dimension: car {
     type: number
@@ -16,6 +16,12 @@ view: annual_attendance {
   dimension: current_year_cas {
     type: number
     sql: ${TABLE}.CurrentYearCAS ;;
+  }
+
+  dimension: grade_level {
+    type: string
+    label: "Grade Level"
+    sql: ${TABLE}.GradeLevel ;;
   }
 
   measure: Chronically_Absent_Student {
