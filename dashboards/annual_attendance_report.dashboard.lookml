@@ -1,4 +1,4 @@
-
+---
 - dashboard: annual_attendance_report
   title: Annual Attendance Report
   layout: newspaper
@@ -6,8 +6,8 @@
   description: ''
   preferred_slug: jDToUxR9VcH89OnGQN91jB
   elements:
-  - title: Overview of School Attendance Information by Subpopulation
-    name: Overview of School Attendance Information by Subpopulation
+  - title: Subpopulation Attendance Data - School
+    name: Subpopulation Attendance Data - School
     model: ped_public_financials
     explore: annual_attendance
     type: looker_grid
@@ -228,6 +228,7 @@
     defaults_version: 1
     hidden_fields: []
     hidden_points_if_no: []
+    series_labels: {}
     note_state: collapsed
     note_display: hover
     note_text: If no specific school is selected, the school level statistics will
@@ -311,6 +312,9 @@
     transpose: false
     truncate_text: true
     size_to_fit: false
+    series_cell_visualizations:
+      annual_attendance.tier1_absentee:
+        is_active: false
     table_theme: white
     enable_conditional_formatting: false
     header_text_alignment: left
@@ -404,6 +408,10 @@
       annual_attendance.tier2_absent_student: "% Tier 2 Students"
       annual_attendance.tier4_absent_student: "% Tier 4 Students"
       annual_attendance.tier3_absent_student: "% Tier 3 Students"
+      total_tier_1_students: "% Tier 1 Students"
+      total_tier_2_students: "% Tier 2 Students"
+      total_tier_3_students: "% Tier 3 Students"
+      total_tier_4_students: "% Tier 4 Students"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -455,6 +463,9 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
+    series_cell_visualizations:
+      annual_attendance.tier1_absentee:
+        is_active: false
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
@@ -1725,6 +1736,7 @@
     defaults_version: 1
     hidden_fields: []
     hidden_points_if_no: []
+    series_labels: {}
     listen:
       School Year: annual_attendance.school_year
     row: 16
@@ -1857,6 +1869,7 @@
     defaults_version: 1
     hidden_fields: []
     hidden_points_if_no: []
+    series_labels: {}
     note_state: collapsed
     note_display: hover
     note_text: If no specific district is selected, the district level statistics
@@ -2060,6 +2073,9 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
+    series_cell_visualizations:
+      annual_attendance.tier1_absentee:
+        is_active: false
     defaults_version: 1
     hidden_fields: [annual_attendance.enroll_number, percent_of_student_in_tier_1,
       percent_of_student_in_tier_2, percent_of_student_in_tier_3, percent_of_student_in_tier_4,
@@ -3088,6 +3104,8 @@
     transpose: false
     truncate_text: true
     size_to_fit: true
+    series_labels:
+      annual_attendance.school_name_filter: School Name
     table_theme: white
     limit_displayed_rows: false
     header_text_alignment: left
@@ -3263,6 +3281,8 @@
     transpose: false
     truncate_text: true
     size_to_fit: true
+    series_labels:
+      annual_attendance.school_name_filter: School Name
     table_theme: white
     limit_displayed_rows: false
     header_text_alignment: left
@@ -3388,6 +3408,7 @@
       'Yes': "#3F6173"
       'No': "#9B2030"
       Not Required: "#F15922"
+    series_labels: {}
     custom_color_enabled: true
     show_single_value_title: true
     show_comparison: false
@@ -3539,6 +3560,10 @@
       annual_attendance.tier2_absent_student: "% Tier 2 Students"
       annual_attendance.tier3_absent_student: "% Tier 3 Students"
       annual_attendance.tier4_absent_student: "% Tier 4 Students"
+      total_tier_1_student: "% Tier 1 Students"
+      total_tier_2_students: "% Tier 2 Students"
+      total_tier_3_students: "% Tier 3 Students"
+      total_tier_4_students: "% Tier 4 Students"
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -3590,6 +3615,9 @@
     show_sql_query_menu_options: false
     show_totals: true
     show_row_totals: true
+    series_cell_visualizations:
+      annual_attendance.tier1_absentee:
+        is_active: false
     defaults_version: 1
     hidden_fields: [percent_of_student_in_tier_1, percent_of_student_in_tier_2, percent_of_student_in_tier_3,
       percent_of_student_in_tier_4, annual_attendance.enroll_number]
@@ -3697,6 +3725,12 @@
     ui_config:
       type: button_toggles
       display: inline
+      options:
+      - 2018-2019
+      - 2019-2020
+      - 2020-2021
+      - 2021-2022
+      - 2022-2023
     model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: []
