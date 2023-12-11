@@ -334,6 +334,36 @@ explore: annual_attendance {}
 
 explore: aip_submissions  {}
 
+explore: student_demographics  {
+  join: district_location {
+    relationship:  many_to_one
+    type:  inner
+    sql_on:  ${district_location.district_code} = ${student_demographics.district_code}
+             and ${district_location.location_id} = ${student_demographics.location_code}
+             and ${district_location.school_year} = ${student_demographics.school_year};;
+  }
+}
+
+explore: discipline  {
+  join: district_location {
+    relationship:  many_to_one
+    type:  inner
+    sql_on:  ${district_location.district_code} = ${discipline.district_code}
+             and ${district_location.location_id} = ${discipline.location_id}
+             and ${district_location.school_year} = ${discipline.school_year};;
+  }
+}
+
+explore: discipline_demographics  {
+  join: district_location {
+    relationship:  many_to_one
+    type:  inner
+    sql_on:  ${district_location.district_code} = ${discipline_demographics.district_code}
+             and ${district_location.location_id} = ${discipline_demographics.location_id}
+             and ${district_location.school_year} = ${discipline_demographics.school_year};;
+  }
+}
+
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"
   property_key: "name"

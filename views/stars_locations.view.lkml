@@ -227,7 +227,7 @@ view: stars_locations {
 
   dimension: location_website {
     type: string
-    sql: ${TABLE}.location_website ;;
+    sql: case when left(${TABLE}.location_website, 4)='http' then ${TABLE}.location_website else 'http://' + ${TABLE}.location_website end ;;
     link: {
       label: "School Website"
       url: "{{ value }}"
