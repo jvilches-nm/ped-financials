@@ -18,6 +18,12 @@ view: annual_attendance {
     sql: ${TABLE}.CurrentYearCAS ;;
   }
 
+  dimension: grade_level {
+    type: string
+    label: "Grade Level"
+    sql: ${TABLE}.GradeLevel ;;
+  }
+
   measure: Chronically_Absent_Student {
     type: sum
     label: "Chronically Absent Student"
@@ -25,8 +31,8 @@ view: annual_attendance {
   }
 
   dimension: district_code {
-    type: number
-    sql: CAST(${TABLE}.DistrictCode AS int) ;;
+    type: string
+    sql: ${TABLE}.DistrictCode  ;;
   }
 
 
@@ -36,8 +42,8 @@ view: annual_attendance {
   }
 
   dimension: school_code {
-    type: number
-    sql: CAST(${TABLE}.SchoolCode AS int);;
+    type: string
+    sql: ${TABLE}.SchoolCode;;
   }
 
   dimension: starsschool_year {

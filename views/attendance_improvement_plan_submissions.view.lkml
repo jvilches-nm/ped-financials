@@ -18,7 +18,7 @@ view: aip_submissions {
       ,a.[ModifiedBy]
       ,a.[ModifiedDate]
 
-  from  [looker].[AttendTrack_tbl_Submissions] as  a
+  from  [looker].[AttendTrack_tbl_Submissions_new] as  a
   left join [looker].[AttendTrack_cd_year] c on a.YearID = c.YearID
   left join [looker].stars_districts d on cast(d.[district_id] as int) = cast(a.[DistrictCode] as int) and c.YearDesc=d.location_year
   left join (select * from [looker].stars_locations where location_id<>'XXX' and location_id<>'000') s on cast(a.[DistrictCode] as int) = cast(s.DISTRICT_id as int) and cast(a.[SchoolCode] as int) = cast(s.location_id as int) and c.YearDesc=s.location_year
