@@ -81,7 +81,6 @@ from looker.school_discipline_demographics
 
    dimension: demographic {
      type: string
-     hidden: yes
      sql: ${TABLE}.demographic ;;
    }
 
