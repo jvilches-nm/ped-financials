@@ -374,6 +374,17 @@ explore: school_discipline_demographics  {
   }
 }
 
+explore: school_discipline_line_demographics  {
+  join: district_location {
+    relationship:  many_to_one
+    type:  inner
+    sql_on:  ${district_location.district_code} = ${school_discipline_line_demographics.district_code}
+             and ${district_location.location_id} = ${school_discipline_line_demographics.location_code}
+             and ${district_location.school_year} = ${school_discipline_line_demographics.school_year};;
+  }
+}
+
+
 map_layer: my_neighborhood_layer {
   file: "/Map_Shapefiles/dist_school_map.topojson"
   property_key: "name"
