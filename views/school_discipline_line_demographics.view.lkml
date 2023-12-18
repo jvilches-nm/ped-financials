@@ -24,6 +24,8 @@ union select school_year, district_code, location_code, 'English Learner', engli
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Students with disabilities', special_eds_with_infractions, special_ed_students
 from looker.school_discipline_demographics
+union select school_year, district_code, location_code, 'Regular Education and Gifted only students', students_with_infractions-special_eds_with_infractions, total_students-special_ed_students
+from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'SNAP Direct Cert', snap_direct_with_infractions, snap_direct_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Other Direct Cert', other_direct_with_infractions, other_direct_students
