@@ -10,25 +10,25 @@ union select school_year, district_code, location_code, 'Caucasian', whites_with
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Black or African American', blacks_with_infractions, black_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Native American', natives_with_infractions, native_students
+union select school_year, district_code, location_code, 'American Indian/Alaskan Native', natives_with_infractions, native_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Multiracial', multiracials_with_infractions, multiracial_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Asian', asians_with_infractions, asian_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Pacific Islander', islanders_with_infractions, islander_students
+union select school_year, district_code, location_code, 'Native Hawaiian or Other Pacific Islander', islanders_with_infractions, islander_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Homeless', homeless_with_infractions, homeless_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'English Learner', english_learners_with_infractions, english_learner_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Special Ed', special_eds_with_infractions, special_ed_students
+union select school_year, district_code, location_code, 'Students with disabilities', special_eds_with_infractions, special_ed_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'SNAP Direct', snap_direct_with_infractions, snap_direct_students
+union select school_year, district_code, location_code, 'SNAP Direct Cert', snap_direct_with_infractions, snap_direct_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Other Direct', other_direct_with_infractions, other_direct_students
+union select school_year, district_code, location_code, 'Other Direct Cert', other_direct_with_infractions, other_direct_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'SNAP Family Member', snap_family_with_infractions, snap_family_students
+union select school_year, district_code, location_code, 'Family Members of SNAP identified', snap_family_with_infractions, snap_family_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'PK', pk_with_infractions, pk_students
 from looker.school_discipline_demographics
