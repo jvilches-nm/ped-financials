@@ -20,15 +20,15 @@ union select school_year, district_code, location_code, 'Native Hawaiian or Othe
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Homeless', homeless_with_infractions, homeless_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Not Homeless', students_with_infractions-homeless_with_infractions, total_students-homeless_students
+union select school_year, district_code, location_code, 'Not Homeless', students_with_infractions-coalesce(homeless_with_infractions,0), total_students-coalesce(homeless_students,0)
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'English Learner', english_learners_with_infractions, english_learner_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Not English Learner', students_with_infractions-english_learners_with_infractions, total_students-english_learner_students
+union select school_year, district_code, location_code, 'Not English Learner', students_with_infractions-coalesce(english_learners_with_infractions,0), total_students-coalesce(english_learner_students,0)
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Students with disabilities', special_eds_with_infractions, special_ed_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Regular Education and Gifted only students', students_with_infractions-special_eds_with_infractions, total_students-special_ed_students
+union select school_year, district_code, location_code, 'Regular Education and Gifted only students', students_with_infractions-coalesce(special_eds_with_infractions,0), total_students-coalesce(special_ed_students,0)
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'SNAP Direct Cert', snap_direct_with_infractions, snap_direct_students
 from looker.school_discipline_demographics
