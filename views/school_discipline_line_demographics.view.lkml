@@ -32,7 +32,7 @@ union select school_year, district_code, location_code, 'Regular Education and G
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'SNAP Direct Cert', snap_direct_with_infractions, snap_direct_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Other Direct Cert', other_direct_with_infractions, other_direct_students
+union select school_year, district_code, location_code, 'OTHER Direct Cert', other_direct_with_infractions, other_direct_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Family Members of SNAP identified', snap_family_with_infractions, snap_family_students
 from looker.school_discipline_demographics
