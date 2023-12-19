@@ -1,5 +1,7 @@
 view: district_location {
-  sql_table_name: looker.district_location ;;
+  derived_table: {
+   sql: select * from looker.district_location district_organization_type in ('State District', 'State Charter', 'State Supported') and location_status in ('OPEN', 'NEW') and location_organization_type not in ('BIA', 'Home School', 'Private');;
+  }
 
   dimension: address_line {
     type: string
