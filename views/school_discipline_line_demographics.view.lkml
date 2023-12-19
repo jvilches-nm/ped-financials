@@ -20,7 +20,11 @@ union select school_year, district_code, location_code, 'Native Hawaiian or Othe
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Homeless', homeless_with_infractions, homeless_students
 from looker.school_discipline_demographics
+union select school_year, district_code, location_code, 'Not Homeless', students_with_infractions-homeless_with_infractions, total_students-homeless_students
+from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'English Learner', english_learners_with_infractions, english_learner_students
+from looker.school_discipline_demographics
+union select school_year, district_code, location_code, 'Not English Learner', students_with_infractions-english_learners_with_infractions, total_students-english_learner_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Students with disabilities', special_eds_with_infractions, special_ed_students
 from looker.school_discipline_demographics
@@ -31,6 +35,8 @@ from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Other Direct Cert', other_direct_with_infractions, other_direct_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Family Members of SNAP identified', snap_family_with_infractions, snap_family_students
+from looker.school_discipline_demographics
+union select school_year, district_code, location_code, 'Not Economically Disadvantaged', students_with_infractions-snap_family_with_infractions-other_direct_with_infractions-snap_direct_with_infractions, total_students-snap_family_students-snap_direct_students-other_direct_students
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'PK', pk_with_infractions, pk_students
 from looker.school_discipline_demographics

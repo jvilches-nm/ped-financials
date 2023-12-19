@@ -15,11 +15,15 @@ view: discipline_demographics {
   }
   dimension: economically_disadvantaged_status {
     type: string
-    sql: ${TABLE}.economically_disadvantaged_status ;;
+    sql: case ${TABLE}.economically_disadvantaged_status
+            when 'SNAP Direct Cert' then ${TABLE}.economically_disadvantaged_status
+            when 'Other Direct Cert' then ${TABLE}.economically_disadvantaged_status
+            when 'Family Members of SNAP identified' then ${TABLE}.economically_disadvantaged_status
+            else 'Not Economically Disadvantaged' end;;
   }
   dimension: english_learner {
     type: string
-    sql: ${TABLE}.english_learner ;;
+    sql: case ${TABLE}.english_learner when 'Yes' then 'English Learner' else 'Not English Learner' end;;
   }
   dimension: gender {
     type: string
@@ -35,7 +39,7 @@ view: discipline_demographics {
   }
   dimension: homeless_status {
     type: string
-    sql: ${TABLE}.homeless_Status ;;
+    sql: case when ${TABLE}.homeless_Status like 'Homeless%' then 'Homeless' else 'Not Homeless' end;;
   }
   dimension: infraction {
     type: string
