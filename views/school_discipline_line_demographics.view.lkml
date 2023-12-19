@@ -36,7 +36,7 @@ union select school_year, district_code, location_code, 'OTHER Direct Cert', oth
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'Family Members of SNAP identified', snap_family_with_infractions, snap_family_students
 from looker.school_discipline_demographics
-union select school_year, district_code, location_code, 'Not Economically Disadvantaged', students_with_infractions-snap_family_with_infractions-other_direct_with_infractions-snap_direct_with_infractions, total_students-snap_family_students-snap_direct_students-other_direct_students
+union select school_year, district_code, location_code, 'Not Economically Disadvantaged', students_with_infractions-coalesce(snap_family_with_infractions,0)-coalesce(other_direct_with_infractions,0)-coalesce(snap_direct_with_infractions,0), total_students-coalesce(snap_family_students,0)-coalesce(snap_direct_students,0)-coalesce(other_direct_students,0)
 from looker.school_discipline_demographics
 union select school_year, district_code, location_code, 'PK', pk_with_infractions, pk_students
 from looker.school_discipline_demographics
