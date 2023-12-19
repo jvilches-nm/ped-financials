@@ -17,7 +17,7 @@ view: discipline_demographics {
     type: string
     sql: case ${TABLE}.economically_disadvantaged_status
             when 'SNAP Direct Cert' then ${TABLE}.economically_disadvantaged_status
-            when 'Other Direct Cert' then ${TABLE}.economically_disadvantaged_status
+            when 'OTHER Direct Cert' then ${TABLE}.economically_disadvantaged_status
             when 'Family Members of SNAP identified' then ${TABLE}.economically_disadvantaged_status
             else 'Not Economically Disadvantaged' end;;
   }
