@@ -21,7 +21,7 @@ view: discipline {
   }
   dimension: infraction {
     type: string
-    sql: ${TABLE}.infraction ;;
+    sql: replace(replace(replace(replace(replace(${TABLE}.infraction, ' - Describe in Comment Field 15', ''), 'Other Violence - ', ''), 'General (includes threat or intimidation)', 'Violence - threat or intimidation'), ' simple', ''), 'NOT based on sex/race/color/national origin or disability', '') ;;
   }
   dimension: infraction_category {
     type: string
