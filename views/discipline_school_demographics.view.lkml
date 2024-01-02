@@ -3,7 +3,11 @@ view: discipline_school_demographics {
 
   dimension: demographic {
     type: string
-    sql: case ${TABLE}.demographic when 'PK' then '000PK' when 'KF' then '00KF' else ${TABLE}.demographic end ;;
+    sql: case ${TABLE}.demographic when 'PK' then '000PK' when 'KF' then '00KF'
+         when 'SNAP Direct Cert' then 'Economically Disadvantaged'
+         when 'OTHER Direct Cert' then 'Economically Disadvantaged'
+         when 'Family Members of SNAP identified' then 'Economically Disadvantaged'
+         else ${TABLE}.demographic end ;;
   }
 
   dimension: district_code {
