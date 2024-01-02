@@ -3,8 +3,9 @@ view: discipline_school_demographics {
 
   dimension: demographic {
     type: string
-    sql: ${TABLE}.demographic ;;
+    sql: case ${TABLE}.demographic when 'PK' then '000PK' when 'KF' then '00KF' else ${TABLE}.demographic end ;;
   }
+
   dimension: district_code {
     type: string
     hidden: yes
