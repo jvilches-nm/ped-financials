@@ -48,14 +48,6 @@
     defaults_version: 1
     show_null_points: true
     interpolation: linear
-    note_state: collapsed
-    note_display: hover
-    note_text: The W/SA/Gang category includes non-firearm weapons infractions, substance
-      abuse infractions, and gang related infractions.  The Vandalism category includes
-      infractions for graffiti, theft, damage, breaking/entering/larceny, and arson.
-      The Firearms category includes all firearm possession infractions. The Violence
-      category includes assault/battery, bullying/harassment, disorderly conduct,
-      and all other violent infractions. See the Learn More page for more details.
     listen:
       School Year: district_location.school_year
       District Name: district_location.district_name
@@ -2252,7 +2244,8 @@
     body_text: '[{"type":"h3","children":[{"text":"After changing filter values, please
       click on the blue update button in the top right to refresh the data."}]},{"type":"h3","children":[{"text":"To
       see a larger version of a graph, please click on the three dots in the top right
-      corner of the box and select View → Expanded."}],"id":1704399979114}]'
+      corner of the box and select View → Expanded."}],"id":1704399979114},{"type":"h3","children":[{"text":"Data
+      for student groups of 10 or fewer is masked to protect student privacy."}],"id":1704481297327}]'
     rich_content_json: '{"format":"slate"}'
     row: 0
     col: 0
