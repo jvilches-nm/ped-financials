@@ -2206,26 +2206,25 @@
     title_text: ''
     subtitle_text: ''
     body_text: '[{"type":"h2","children":[{"text":"Infraction Categories and Types"}],"align":"center"},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Attendance"}],"id":1704390877743},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Referred
-      to CYFD for Excessive Abseneeism"}],"id":1704390902319}],"id":1704390902319}],"id":1704390903114}],"id":1704390892500},{"type":"li","children":[{"type":"lic","children":[{"text":"Firearms"}],"id":1704390925545},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Handgun
+      to CYFD for Excessive Absenteeism"}],"id":1704390902319}],"id":1704390902319}],"id":1704390903114}],"id":1704390892500},{"type":"li","children":[{"type":"lic","children":[{"text":"Firearms"}],"id":1704390925545},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Handgun
       Possession"}],"id":1704390930857}],"id":1704390930857},{"type":"li","children":[{"type":"lic","children":[{"text":"Multiple
       Firearms"}],"id":1704390949296}],"id":1704390949295},{"type":"li","children":[{"type":"lic","children":[{"text":"Other
       Firearms Possession"}],"id":1704390961279}],"id":1704390961279},{"type":"li","children":[{"type":"lic","children":[{"text":"Rifle/Shotgun
       Possession"}],"id":1704390968247}],"id":1704390968247}],"id":1704390931215}],"id":1704390925545},{"type":"li","children":[{"type":"lic","children":[{"text":"Vandalism"}],"id":1704390980526},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Arson"}],"id":1704390989936}],"id":1704390989936},{"type":"li","children":[{"type":"lic","children":[{"text":"Breaking/Entering/Larceny"}],"id":1704390992166}],"id":1704390992166},{"type":"li","children":[{"type":"lic","children":[{"text":"Criminal
       Damage"}],"id":1704390997154}],"id":1704390997154},{"type":"li","children":[{"type":"lic","children":[{"text":"Graffiti"}],"id":1704391000359}],"id":1704391000359},{"type":"li","children":[{"type":"lic","children":[{"text":"Missing
-      Property/Theft"}],"id":1704391002703}],"id":1704391002703},{"type":"li","children":[{"type":"lic","children":[{"text":"Vandalsim"}],"id":1704391006894}],"id":1704391006894}],"id":1704390990018}],"id":1704390980526},{"type":"li","children":[{"type":"lic","children":[{"text":"Violence"}],"id":1704391009452},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Assault/battery
-      (includes simple, aggravated with hands/fist/feet, with knife or cutting object,
+      Property/Theft"}],"id":1704391002703}],"id":1704391002703},{"type":"li","children":[{"type":"lic","children":[{"text":"Vandalism"}],"id":1704391006894}],"id":1704391006894}],"id":1704390990018}],"id":1704390980526},{"type":"li","children":[{"type":"lic","children":[{"text":"Violence"}],"id":1704391009452},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Assault/battery
+      (includes simple, aggravated with hands/fist/feet, with a knife or cutting object,
       with other dangerous weapon, with firearm)"}],"id":1704391017352}],"id":1704391017352},{"type":"li","children":[{"type":"lic","children":[{"text":"Bullying
       or Harassment (includes on the basis of sex, race, color, national origin or
-      disability, or not on those bases)"}],"id":1704391057371}],"id":1704391057371},{"type":"li","children":[{"type":"lic","children":[{"text":"Disorderly
+      disability, or not on those basis)"}],"id":1704391057371}],"id":1704391057371},{"type":"li","children":[{"type":"lic","children":[{"text":"Disorderly
       Conduct"}],"id":1704391133117}],"id":1704391133117},{"type":"li","children":[{"type":"lic","children":[{"text":"Homicide"}],"id":1704391206068}],"id":1704391206068},{"type":"li","children":[{"type":"lic","children":[{"text":"Kidnapping"}],"id":1704391208141}],"id":1704391208141},{"type":"li","children":[{"type":"lic","children":[{"text":"Robbery
-      using force"}],"id":1704391210228}],"id":1704391210228},{"type":"li","children":[{"type":"lic","children":[{"text":"Self
-      Injury"}],"id":1704391215700}],"id":1704391215700},{"type":"li","children":[{"type":"lic","children":[{"text":"Sexual
+      using force"}],"id":1704391210228}],"id":1704391210228},{"type":"li","children":[{"type":"lic","children":[{"text":"Self-Injury"}],"id":1704391215700}],"id":1704391215700},{"type":"li","children":[{"type":"lic","children":[{"text":"Sexual
       battery"}],"id":1704391217924}],"id":1704391217924},{"type":"li","children":[{"type":"lic","children":[{"text":"Sexual
       Harassment (includes bullying on the basis of sex)"}],"id":1704391223244}],"id":1704391223244},{"type":"li","children":[{"type":"lic","children":[{"text":"General
-      violence - including threat or intimidation"}],"id":1704391240044}],"id":1704391240044}],"id":1704391017514}],"id":1704391009452},{"type":"li","children":[{"type":"lic","children":[{"text":"Weapons/Substance
+      violence - including threats or intimidation"}],"id":1704391240044}],"id":1704391240044}],"id":1704391017514}],"id":1704391009452},{"type":"li","children":[{"type":"lic","children":[{"text":"Weapons/Substance
       Abuse/Gang Activity (W/SA/Gang)"}],"id":1704391254909},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Alcohol
       Violation (including Dealing, Possession, Use)"}],"id":1704391272885}],"id":1704391272885},{"type":"li","children":[{"type":"lic","children":[{"text":"Drug
-      Violoation"}],"id":1704391296611}],"id":1704391296611},{"type":"li","children":[{"type":"lic","children":[{"text":"Gang-Related
+      Violation"}],"id":1704391296611}],"id":1704391296611},{"type":"li","children":[{"type":"lic","children":[{"text":"Gang-Related
       Activity"}],"id":1704391306532}],"id":1704391306532},{"type":"li","children":[{"type":"lic","children":[{"text":"Tobacco
       Use"}],"id":1704391312274}],"id":1704391312274},{"type":"li","children":[{"type":"lic","children":[{"text":"Weapons
       Possession (including Knife/Cutting or other)"}],"id":1704391320468}],"id":1704391320468},{"type":"li","children":[{"type":"lic","children":[{"text":"Other
