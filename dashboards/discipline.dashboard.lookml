@@ -4,7 +4,7 @@
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: oUyd6RYKTraNrWPXSnctCQ
+  preferred_slug: a5d6GjyELFEg9Sv4keXZ3f
   elements:
   - title: Infraction Category
     name: Infraction Category
@@ -12,7 +12,6 @@
     explore: discipline
     type: looker_pie
     fields: [discipline.infraction_category, discipline.discipline_count]
-    filters: {}
     sorts: [discipline.discipline_count desc 0]
     limit: 500
     column_limit: 50
@@ -111,7 +110,6 @@
     type: looker_bar
     fields: [discipline.infraction_category, discipline.discipline_response, discipline.discipline_count]
     pivots: [discipline.discipline_response]
-    filters: {}
     sorts: [discipline.discipline_response, discipline.infraction_category desc]
     limit: 500
     column_limit: 50
@@ -167,7 +165,6 @@
     type: looker_bar
     fields: [discipline.discipline_response, discipline.discipline_count, discipline.infraction]
     pivots: [discipline.discipline_response]
-    filters: {}
     sorts: [discipline.discipline_response, discipline.discipline_count desc 0]
     limit: 500
     column_limit: 50
@@ -600,7 +597,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Gender Demographics"}],"align":"center"},{"type":"p","children":[{"text":""}],"id":1704400423727},{"type":"h3","children":[{"text":"Gender
       identity is not available prior to the 2021-2022 school year. If gender identity
       is not specified, the birth gender is used."}],"id":1704399210573}]'
@@ -759,7 +755,6 @@
   - name: " (Copy)"
     type: text
     title_text: " (Copy)"
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Race/Ethnicity Demographics"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
     row: 97
@@ -769,7 +764,6 @@
   - name: " (2)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h1","children":[{"text":"Other Demographics"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
     row: 131
@@ -915,6 +909,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -996,6 +991,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1098,6 +1094,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1270,6 +1267,7 @@
       sorts: [discipline_school_demographics.students_with_infractions desc]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1420,6 +1418,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1580,6 +1579,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1684,6 +1684,7 @@
       sorts: [discipline_demographics.discipline_count desc 0]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1784,6 +1785,7 @@
       sorts: [discipline_school_demographics.students_with_infractions desc]
       limit: 500
       column_limit: 50
+      join_fields: []
     - model: ped_public_financials
       explore: discipline_school_demographics
       type: table
@@ -1920,7 +1922,7 @@
       School Year: district_location.school_year
       District Name: district_location.district_name
       School Name: district_location.school_name
-    row: 148
+    row: 163
     col: 0
     width: 24
     height: 10
@@ -1987,7 +1989,7 @@
       School Year: district_location.school_year
       District Name: district_location.district_name
       School Name: district_location.school_name
-    row: 140
+    row: 147
     col: 0
     width: 12
     height: 8
@@ -2120,8 +2122,8 @@
       School Year: district_location.school_year
       District Name: district_location.district_name
       School Name: district_location.school_name
-    row: 133
-    col: 12
+    row: 140
+    col: 0
     width: 12
     height: 7
   - title: Infractions by English Learner Status
@@ -2185,14 +2187,13 @@
       School Year: district_location.school_year
       District Name: district_location.district_name
       School Name: district_location.school_name
-    row: 140
-    col: 12
+    row: 155
+    col: 0
     width: 12
     height: 8
   - name: " (3)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h3","children":[{"text":"The following flags are non-mandatory
       and determined at the local level. These can be used to indicate that an infraction
       caused a serious inury, was hate motivated, or resulted in a criminal charge."}],"align":"center"}]'
@@ -2204,7 +2205,6 @@
   - name: " (4)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h2","children":[{"text":"Infraction Categories and Types"}],"align":"center"},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Attendance"}],"id":1704390877743},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Referred
       to CYFD for Excessive Absenteeism"}],"id":1704390902319}],"id":1704390902319}],"id":1704390903114}],"id":1704390892500},{"type":"li","children":[{"type":"lic","children":[{"text":"Firearms"}],"id":1704390925545},{"type":"ul","children":[{"type":"li","children":[{"type":"lic","children":[{"text":"Handgun
       Possession"}],"id":1704390930857}],"id":1704390930857},{"type":"li","children":[{"type":"lic","children":[{"text":"Multiple
@@ -2239,7 +2239,6 @@
   - name: " (5)"
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: '[{"type":"h3","children":[{"text":"After changing filter values, please
       click on the blue update button in the top right to refresh the data."}]},{"type":"h3","children":[{"text":"To
       see a larger version of a graph, please click on the three dots in the top right
@@ -2250,6 +2249,478 @@
     col: 0
     width: 24
     height: 2
+  - name: Infraction Risk Ratio by Economically Disadvantaged Status
+    title: Infraction Risk Ratio by Economically Disadvantaged Status
+    note_state: collapsed
+    note_display: hover
+    note_text: "A risk ratio of less than one means that student demographic has a\
+      \ reduced risk of discipline infractions compared to the rest of the student\
+      \ body. \n\nA risk ratio of more than one means that student demographic has\
+      \ a increased risk of discipline infractions compared to the rest of the student\
+      \ body."
+    merged_queries:
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: table
+      fields: [district_location.school_year, discipline_school_demographics.demographic,
+        discipline_school_demographics.students_with_infractions, discipline_school_demographics.students]
+      filters:
+        discipline_school_demographics.demographic: Economically Disadvantaged,Not
+          Economically Disadvantaged
+      sorts: [discipline_school_demographics.students_with_infractions desc]
+      limit: 500
+      column_limit: 50
+      join_fields: []
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: table
+      fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+        district_location.school_year]
+      filters:
+        discipline_school_demographics.demographic: Total
+      sorts: [discipline_school_demographics.students_with_infractions desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields:
+      - field_name: district_location.school_year
+        source_field_name: district_location.school_year
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: '', orientation: left, series: [{axisId: infraction_risk_ratio_by_gender,
+            id: Male - infraction_risk_ratio_by_gender, name: Male}, {axisId: infraction_risk_ratio_by_gender,
+            id: Female - infraction_risk_ratio_by_gender, name: Female}, {axisId: infraction_risk_ratio_by_gender,
+            id: Non-Binary - infraction_risk_ratio_by_gender, name: Non-Binary}],
+        showLabels: false, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+      q1_discipline_school_demographics.students_with_infractions, q1_discipline_school_demographics.students]
+    type: looker_column
+    hidden_pivots: {}
+    pivots: [discipline_school_demographics.demographic]
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${discipline_school_demographics.students}>10, (${discipline_school_demographics.students_with_infractions}/${discipline_school_demographics.students})
+        / ((${q1_discipline_school_demographics.students_with_infractions}-${discipline_school_demographics.students_with_infractions})/(${q1_discipline_school_demographics.students}-${discipline_school_demographics.students})),0)
+      label: Infraction Risk Ratio by Gender
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: infraction_risk_ratio_by_gender
+      _type_hint: number
+    listen:
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    row: 147
+    col: 12
+    width: 12
+    height: 8
+  - name: Infraction Risk Ratio by Homeless Status
+    title: Infraction Risk Ratio by Homeless Status
+    note_state: collapsed
+    note_display: hover
+    note_text: "A risk ratio of less than one means that student demographic has a\
+      \ reduced risk of discipline infractions compared to the rest of the student\
+      \ body. \n\nA risk ratio of more than one means that student demographic has\
+      \ a increased risk of discipline infractions compared to the rest of the student\
+      \ body."
+    merged_queries:
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: looker_column
+      fields: [district_location.school_year, discipline_school_demographics.demographic,
+        discipline_school_demographics.students_with_infractions, discipline_school_demographics.students]
+      filters:
+        discipline_school_demographics.demographic: Homeless,Not Homeless
+      sorts: [discipline_school_demographics.students_with_infractions desc]
+      limit: 500
+      column_limit: 50
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
+      join_fields: []
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: table
+      fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+        district_location.school_year]
+      filters:
+        discipline_school_demographics.demographic: Total
+      sorts: [discipline_school_demographics.students_with_infractions desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields:
+      - field_name: district_location.school_year
+        source_field_name: district_location.school_year
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: '', orientation: left, series: [{axisId: infraction_risk_ratio_by_gender,
+            id: Male - infraction_risk_ratio_by_gender, name: Male}, {axisId: infraction_risk_ratio_by_gender,
+            id: Female - infraction_risk_ratio_by_gender, name: Female}, {axisId: infraction_risk_ratio_by_gender,
+            id: Non-Binary - infraction_risk_ratio_by_gender, name: Non-Binary}],
+        showLabels: false, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+      q1_discipline_school_demographics.students_with_infractions, q1_discipline_school_demographics.students]
+    type: looker_column
+    hidden_pivots: {}
+    pivots: [discipline_school_demographics.demographic]
+    sorts: [discipline_school_demographics.demographic]
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${discipline_school_demographics.students}>10, (${discipline_school_demographics.students_with_infractions}/${discipline_school_demographics.students})
+        / ((${q1_discipline_school_demographics.students_with_infractions}-${discipline_school_demographics.students_with_infractions})/(${q1_discipline_school_demographics.students}-${discipline_school_demographics.students})),0)
+      label: Infraction Risk Ratio by Gender
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: infraction_risk_ratio_by_gender
+      _type_hint: number
+    listen:
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    row: 140
+    col: 12
+    width: 12
+    height: 7
+  - name: Infraction Risk Ratio by Special Education Status
+    title: Infraction Risk Ratio by Special Education Status
+    note_state: collapsed
+    note_display: hover
+    note_text: "A risk ratio of less than one means that student demographic has a\
+      \ reduced risk of discipline infractions compared to the rest of the student\
+      \ body. \n\nA risk ratio of more than one means that student demographic has\
+      \ a increased risk of discipline infractions compared to the rest of the student\
+      \ body."
+    merged_queries:
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: looker_column
+      fields: [district_location.school_year, discipline_school_demographics.demographic,
+        discipline_school_demographics.students_with_infractions, discipline_school_demographics.students]
+      filters:
+        discipline_school_demographics.demographic: Regular Education and Gifted only
+          students,Students with disabilities
+      sorts: [discipline_school_demographics.students_with_infractions desc]
+      limit: 500
+      column_limit: 50
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
+      join_fields: []
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: table
+      fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+        district_location.school_year]
+      filters:
+        discipline_school_demographics.demographic: Total
+      sorts: [discipline_school_demographics.students_with_infractions desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields:
+      - field_name: district_location.school_year
+        source_field_name: district_location.school_year
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: '', orientation: left, series: [{axisId: infraction_risk_ratio_by_gender,
+            id: Male - infraction_risk_ratio_by_gender, name: Male}, {axisId: infraction_risk_ratio_by_gender,
+            id: Female - infraction_risk_ratio_by_gender, name: Female}, {axisId: infraction_risk_ratio_by_gender,
+            id: Non-Binary - infraction_risk_ratio_by_gender, name: Non-Binary}],
+        showLabels: false, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+      q1_discipline_school_demographics.students_with_infractions, q1_discipline_school_demographics.students]
+    type: looker_column
+    hidden_pivots: {}
+    pivots: [discipline_school_demographics.demographic]
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${discipline_school_demographics.students}>10, (${discipline_school_demographics.students_with_infractions}/${discipline_school_demographics.students})
+        / ((${q1_discipline_school_demographics.students_with_infractions}-${discipline_school_demographics.students_with_infractions})/(${q1_discipline_school_demographics.students}-${discipline_school_demographics.students})),0)
+      label: Infraction Risk Ratio by Gender
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: infraction_risk_ratio_by_gender
+      _type_hint: number
+    listen:
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    row: 133
+    col: 12
+    width: 12
+    height: 7
+  - name: Infraction Risk Ratio by English Learner Status
+    title: Infraction Risk Ratio by English Learner Status
+    note_state: collapsed
+    note_display: hover
+    note_text: "A risk ratio of less than one means that student demographic has a\
+      \ reduced risk of discipline infractions compared to the rest of the student\
+      \ body. \n\nA risk ratio of more than one means that student demographic has\
+      \ a increased risk of discipline infractions compared to the rest of the student\
+      \ body."
+    merged_queries:
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: looker_column
+      fields: [district_location.school_year, discipline_school_demographics.demographic,
+        discipline_school_demographics.students_with_infractions, discipline_school_demographics.students]
+      filters:
+        discipline_school_demographics.demographic: English Learner,Non English Learner
+      sorts: [discipline_school_demographics.students_with_infractions desc]
+      limit: 500
+      column_limit: 50
+      x_axis_gridlines: false
+      y_axis_gridlines: true
+      show_view_names: false
+      show_y_axis_labels: true
+      show_y_axis_ticks: true
+      y_axis_tick_density: default
+      y_axis_tick_density_custom: 5
+      show_x_axis_label: true
+      show_x_axis_ticks: true
+      y_axis_scale_mode: linear
+      x_axis_reversed: false
+      y_axis_reversed: false
+      plot_size_by_field: false
+      trellis: ''
+      stacking: ''
+      limit_displayed_rows: false
+      legend_position: center
+      point_style: none
+      show_value_labels: false
+      label_density: 25
+      x_axis_scale: auto
+      y_axis_combined: true
+      ordering: none
+      show_null_labels: false
+      show_totals_labels: false
+      show_silhouette: false
+      totals_color: "#808080"
+      defaults_version: 1
+      join_fields: []
+    - model: ped_public_financials
+      explore: discipline_school_demographics
+      type: table
+      fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+        district_location.school_year]
+      filters:
+        discipline_school_demographics.demographic: Total
+      sorts: [discipline_school_demographics.students_with_infractions desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields:
+      - field_name: district_location.school_year
+        source_field_name: district_location.school_year
+    x_axis_gridlines: false
+    y_axis_gridlines: true
+    show_view_names: false
+    y_axes: [{label: '', orientation: left, series: [{axisId: infraction_risk_ratio_by_gender,
+            id: Male - infraction_risk_ratio_by_gender, name: Male}, {axisId: infraction_risk_ratio_by_gender,
+            id: Female - infraction_risk_ratio_by_gender, name: Female}, {axisId: infraction_risk_ratio_by_gender,
+            id: Non-Binary - infraction_risk_ratio_by_gender, name: Non-Binary}],
+        showLabels: false, showValues: true, unpinAxis: false, tickDensity: default,
+        tickDensityCustom: 5, type: linear}]
+    show_y_axis_labels: true
+    show_y_axis_ticks: true
+    y_axis_tick_density: default
+    y_axis_tick_density_custom: 5
+    show_x_axis_label: false
+    show_x_axis_ticks: false
+    y_axis_scale_mode: linear
+    x_axis_reversed: false
+    y_axis_reversed: false
+    plot_size_by_field: false
+    x_axis_zoom: true
+    y_axis_zoom: true
+    trellis: ''
+    stacking: ''
+    limit_displayed_rows: false
+    legend_position: center
+    point_style: none
+    show_value_labels: true
+    label_density: 25
+    x_axis_scale: auto
+    y_axis_combined: true
+    ordering: none
+    show_null_labels: false
+    show_totals_labels: false
+    show_silhouette: false
+    totals_color: "#808080"
+    hidden_fields: [discipline_school_demographics.students_with_infractions, discipline_school_demographics.students,
+      q1_discipline_school_demographics.students_with_infractions, q1_discipline_school_demographics.students]
+    type: looker_column
+    hidden_pivots: {}
+    pivots: [discipline_school_demographics.demographic]
+    sorts: [discipline_school_demographics.demographic]
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: if(${discipline_school_demographics.students}>10, (${discipline_school_demographics.students_with_infractions}/${discipline_school_demographics.students})
+        / ((${q1_discipline_school_demographics.students_with_infractions}-${discipline_school_demographics.students_with_infractions})/(${q1_discipline_school_demographics.students}-${discipline_school_demographics.students})),0)
+      label: Infraction Risk Ratio by Gender
+      value_format:
+      value_format_name: decimal_2
+      _kind_hint: measure
+      table_calculation: infraction_risk_ratio_by_gender
+      _type_hint: number
+    listen:
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    - School Year: district_location.school_year
+      District Name: district_location.district_name
+      School Name: district_location.school_name
+    row: 155
+    col: 12
+    width: 12
+    height: 8
   filters:
   - name: School Year
     title: School Year
