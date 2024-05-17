@@ -1993,8 +1993,8 @@
     col: 0
     width: 12
     height: 8
-  - title: Infractions by Special Ed Status
-    name: Infractions by Special Ed Status
+  - title: Infractions by Special Education Status
+    name: Infractions by Special Education Status
     model: ped_public_financials
     explore: discipline_school_demographics
     type: looker_column
