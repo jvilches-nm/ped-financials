@@ -1,5 +1,5 @@
 ---
-- dashboard: annual_attendance_report
+- dashboard: annual_attendance_report__lookml
   title: Annual Attendance Report
   layout: newspaper
   preferred_viewer: dashboards-next
@@ -3725,6 +3725,14 @@
     ui_config:
       type: button_toggles
       display: inline
+      options:
+      - 2016-2017
+      - 2017-2018
+      - 2018-2019
+      - 2019-2020
+      - 2020-2021
+      - 2021-2022
+      - 2022-2023
     model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: []
