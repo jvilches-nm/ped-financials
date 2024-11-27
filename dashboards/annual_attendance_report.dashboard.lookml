@@ -3491,7 +3491,7 @@
     subtitle_text: ''
     body_text: "* NOTE: Enrollment numbers may be higher than actual enrollment because\
       \ students transferring mid-year are counted as enrollments at multiple school\
-      \ or district sites."
+      \ or district sites. This is not applicable to SY 2023-24."
     row: 0
     col: 0
     width: 23
@@ -3725,14 +3725,6 @@
     ui_config:
       type: button_toggles
       display: inline
-      options:
-      - 2016-2017
-      - 2017-2018
-      - 2018-2019
-      - 2019-2020
-      - 2020-2021
-      - 2021-2022
-      - 2022-2023
     model: ped_public_financials
     explore: annual_attendance
     listens_to_filters: []
