@@ -55,7 +55,7 @@ view: aip_submissions {
   dimension: certified {
     type: string
     sql: case when ${TABLE}.Certified = '1' then 'Yes'
-              when ${TABLE}.Certified = '2' then 'No'
+              when ${TABLE}.Certified = '0' then 'No'
               else '' end;;
   }
 
