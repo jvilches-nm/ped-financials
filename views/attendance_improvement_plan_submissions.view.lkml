@@ -18,7 +18,7 @@ view: aip_submissions {
       ,a.[ModifiedBy]
       ,a.[ModifiedDate]
 
-  from  [looker].[AttendTrack_tbl_Submissions_new] as  a
+  from  [looker].[AttendTrack_tbl_Submissions] as  a
   left join [looker].[AttendTrack_cd_year] c on a.YearID = c.YearID
   left join [looker].stars_districts d on cast(d.[district_id] as int) = cast(a.[DistrictCode] as int) and c.YearDesc=d.location_year
   left join (select * from [looker].stars_locations where location_id<>'XXX' and location_id<>'000') s on cast(a.[DistrictCode] as int) = cast(s.DISTRICT_id as int) and cast(a.[SchoolCode] as int) = cast(s.location_id as int) and c.YearDesc=s.location_year
@@ -54,15 +54,15 @@ view: aip_submissions {
 
   dimension: certified {
     type: string
-    sql: case when ${TABLE}.Certified = 'True' then 'Yes'
-              when ${TABLE}.Certified = 'False' then 'No'
+    sql: case when ${TABLE}.Certified = '1' then 'Yes'
+              when ${TABLE}.Certified = '2' then 'No'
               else '' end;;
   }
 
   dimension: certified_calculation {
     type: string
-    sql: case when ${TABLE}.Certified = 'True'  and ${requireplan} = 'yes' then 'Yes'
-              when ${TABLE}.Certified = 'False'  and ${requireplan} = 'yes' then 'No'
+    sql: case when ${TABLE}.Certified = '1'  and ${requireplan} = 'yes' then 'Yes'
+              when ${TABLE}.Certified = '0'  and ${requireplan} = 'yes' then 'No'
               else 'Not Required' end;;
   }
 
