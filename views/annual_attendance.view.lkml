@@ -1,5 +1,5 @@
 view: annual_attendance {
-  sql_table_name: looker.Annual_Attendance ;;
+  sql_table_name: looker.Annual_Attendance_backup_20251126 ;;
 
   dimension: car {
     type: number
