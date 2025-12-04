@@ -168,7 +168,7 @@ view: annual_attendance {
   measure: tier1_absent_student {
     type: sum
     label: "No. of Student in Tier 1"
-    sql: ${TABLE}.EnrollNumber -  ${TABLE}.Tier2Absentee - ${TABLE}.Tier3Absentee - ${TABLE}.Tier4Absentee;;
+    sql: ${TABLE}.Tier1Absentee;;
   }
 
   dimension: percent_tier_2 {
