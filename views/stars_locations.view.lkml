@@ -155,7 +155,7 @@ view: stars_locations {
   dimension: School_name_plain {
     label: "School Name"
     type: string
-    sql: ${TABLE}.location_name ;;
+    sql: ${TABLE}.location_name + ' (' + ${TABLE}.location_code + ')';;
     link: {
       label: "School Profile"
       url: "/embed/dashboards-next/ped_public_financials::school?Select%20School%20Name={{ value }}"
@@ -176,7 +176,7 @@ view: stars_locations {
   dimension: School_name {
     label: "School Name:"
     type: string
-    sql: ${TABLE}.location_name ;;
+    sql: ${TABLE}.location_name  + ' (' + ${TABLE}.location_code + ')';;
     html: <p style="color: Yellow; font-size: 100%">{{ value }}</p> ;;
     link: {
       label: "School Profile"
@@ -227,7 +227,7 @@ view: stars_locations {
 
   dimension: location_website {
     type: string
-    sql: case when left(${TABLE}.location_website, 4)='http' then ${TABLE}.location_website else 'http://' + ${TABLE}.location_website end ;;
+    sql: ${TABLE}.location_website ;;
     link: {
       label: "School Website"
       url: "{{ value }}"
@@ -317,7 +317,7 @@ view: stars_locations {
   }
 
   set: drill_location {
-    fields: [district_name, location, location_type_name, school_level, school_size]
+    fields: [district_name, School_name_plain, location_type_name, school_level, school_size]
   }
 
   measure: count {
