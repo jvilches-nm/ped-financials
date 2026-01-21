@@ -1365,7 +1365,7 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,Bilingual
         Education Programs,K-5 Plus Programs,Extended Learning Time Programs,At-Risk
-        Special Ed Programs,Special Ed Programs
+        Special Ed Programs,Special Ed Programs,Special Education – Gifted Program
     sorts: [coa_object_hierarchy.object_group, actuals_line.amount desc 0]
     limit: 500
     column_limit: 50

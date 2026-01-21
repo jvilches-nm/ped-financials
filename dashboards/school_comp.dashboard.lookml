@@ -1,9 +1,10 @@
+---
 - dashboard: school_comp
   title: School Comparison
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: Wp8zK7djZFBiMjEKiO9lTm
+  preferred_slug: pXlXHnNDdtCtH3G28JlY2U
   elements:
   - title: Actual Expenditures by Object Category for General Funds
     name: Actual Expenditures by Object Category for General Funds
@@ -57,7 +58,6 @@
             id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
         valueFormat: '$0,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
-    series_types: {}
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
@@ -121,7 +121,6 @@
             id: actuals_line.amount, name: Spending}], showLabels: false, showValues: true,
         valueFormat: '$0,, "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
-    series_types: {}
     x_axis_datetime_label: ''
     defaults_version: 1
     listen:
@@ -149,8 +148,14 @@
       fields: [stars_locations.School_name_plain]
       sorts: [stars_locations.School_name_plain]
       limit: 4
-      dynamic_fields: [{table_calculation: row, label: row, expression: row(), value_format: !!null '',
-          value_format_name: !!null '', _kind_hint: dimension, _type_hint: number}]
+      dynamic_fields:
+      - table_calculation: row
+        label: row
+        expression: row()
+        value_format:
+        value_format_name:
+        _kind_hint: dimension
+        _type_hint: number
       join_fields:
       - field_name: stars_locations.School_name_plain
         source_field_name: stars_locations.School_name_plain
@@ -187,7 +192,7 @@
     - Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 7
+    row: 11
     col: 14
     width: 10
     height: 10
@@ -254,7 +259,6 @@
             id: Capital Project - actuals_line.amount, name: Capital Project}], showLabels: false,
         showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
-    series_types: {}
     show_row_numbers: true
     transpose: false
     truncate_text: true
@@ -444,12 +448,11 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     listen:
       Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 17
+    row: 4
     col: 0
     width: 24
     height: 4
@@ -511,7 +514,6 @@
     stacking: percent
     limit_displayed_rows: false
     legend_position: center
-    series_types: {}
     point_style: none
     label_density: 25
     x_axis_scale: auto
@@ -583,7 +585,6 @@
       show_hide: show
       first_last: first
       num_rows: '4'
-    series_types: {}
     series_colors:
       actuals_line.amount: "#068993"
     defaults_version: 1
@@ -591,7 +592,7 @@
       Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 4
+    row: 8
     col: 0
     width: 14
     height: 6
@@ -605,7 +606,7 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,Bilingual
         Education Programs,At-Risk Special Ed Programs,Extended Learning Time Programs,K-5
-        Plus Programs,Special Ed Programs
+        Plus Programs,Special Ed Programs,Special Education – Gifted Program
     sorts: [stars_locations.School_name_plain, coa_program_hierarchy.program_name]
     limit: 4
     show_value_labels: true
@@ -667,7 +668,6 @@
             id: Capital Project - actuals_line.amount, name: Capital Project}], showLabels: false,
         showValues: true, unpinAxis: false, tickDensity: default, tickDensityCustom: 5,
         type: linear}]
-    series_types: {}
     show_row_numbers: true
     transpose: false
     truncate_text: true
@@ -718,9 +718,14 @@
       sorts: [stars_locations.School_name_plain]
       limit: 4
       column_limit: 50
-      dynamic_fields: [{table_calculation: avg_total_spend, label: Avg total spend,
-          expression: "${actuals_line.amount}/${stars_locations.student_pop}", value_format: !!null '',
-          value_format_name: usd_0, _kind_hint: measure, _type_hint: number}]
+      dynamic_fields:
+      - table_calculation: avg_total_spend
+        label: Avg total spend
+        expression: "${actuals_line.amount}/${stars_locations.student_pop}"
+        value_format:
+        value_format_name: usd_0
+        _kind_hint: measure
+        _type_hint: number
       join_fields: []
     - model: ped_public_financials
       explore: actuals_line
@@ -732,10 +737,14 @@
       sorts: [stars_locations.School_name_plain]
       limit: 4
       column_limit: 50
-      dynamic_fields: [{table_calculation: avg_instructional_spend, label: Avg instructional
-            spend, expression: "${actuals_line.amount}/${stars_locations.student_pop}",
-          value_format: !!null '', value_format_name: usd_0, _kind_hint: measure,
-          _type_hint: number}]
+      dynamic_fields:
+      - table_calculation: avg_instructional_spend
+        label: Avg instructional spend
+        expression: "${actuals_line.amount}/${stars_locations.student_pop}"
+        value_format:
+        value_format_name: usd_0
+        _kind_hint: measure
+        _type_hint: number
       join_fields:
       - field_name: stars_locations.School_name_plain
         source_field_name: stars_locations.School_name_plain
@@ -789,7 +798,7 @@
     - Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 10
+    row: 14
     col: 0
     width: 14
     height: 7
@@ -849,13 +858,12 @@
     show_silhouette: false
     totals_color: "#808080"
     defaults_version: 1
-    series_types: {}
     title_hidden: true
     listen:
       Location Type: stars_locations.location_type_name
       Fiscal Year: budget_year.year_name
       'Select Schools:': stars_locations.School_name_plain
-    row: 4
+    row: 8
     col: 14
     width: 10
     height: 3
@@ -926,9 +934,6 @@
         showLabels: false, showValues: false, valueFormat: '0.00,, "M"', unpinAxis: true,
         tickDensity: default, tickDensityCustom: 5, type: linear}]
     label_value_format: ''
-    series_types: {}
-    series_point_styles:
-      percent_of_total_expenditures: diamond
     value_labels: labels
     label_type: labPer
     show_sql_query_menu_options: false

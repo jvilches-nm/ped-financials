@@ -17,7 +17,7 @@ view: coa_program_hierarchy {
   dimension: program_name {
     type: string
     label: "Program Name"
-    sql: replace(${TABLE}.name, 'Special ', 'Special Ed ') ;;
+    sql: replace(${TABLE}.name, 'Special Programs', 'Special Ed Programs') ;;
   }
 
 }

@@ -907,7 +907,7 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,Bilingual
         Education Programs,At-Risk Special Ed Programs,Extended Learning Time Programs,K-5
-        Plus Programs,Special Ed Programs
+        Plus Programs,Special Ed Programs,Special Education – Gifted Program
     sorts: [stars_districts.district_name, coa_program_hierarchy.program_name]
     limit: 4
     show_value_labels: true

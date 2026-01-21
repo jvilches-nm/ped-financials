@@ -1,9 +1,10 @@
+---
 - dashboard: program_dashboard
   title: Program Dashboard
   layout: newspaper
   preferred_viewer: dashboards-next
   description: ''
-  preferred_slug: tgUWdlS3D2wdqwVqokSkED
+  preferred_slug: zqOMFgR8gzrEwvolqkqygB
   elements:
   - title: Expenditures by Fund Category and Program
     name: Expenditures by Fund Category and Program
@@ -15,9 +16,10 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,At-Risk
         Special Ed Programs,Bilingual Education Programs,Extended Learning Time Programs,K-5
-        Plus Programs,Special Ed Programs
+        Plus Programs,Special Ed Programs,Special Education – Gifted Program
     sorts: [actuals_line.amount desc 0, coa_program_hierarchy.program_name, coa_fund_hierarchy.fund_group]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -59,7 +61,6 @@
               Programs - actuals_line.amount, id: Special Programs - actuals_line.amount,
             name: Special Programs}], showLabels: false, showValues: true, valueFormat: '0.00,,"M"',
         unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     series_colors: {}
     value_labels: legend
     label_type: labPer
@@ -74,7 +75,6 @@
   - name: Special Ed, At-Risk, Bilingual, Extended Learning Time, and K5+ Programs
     type: text
     title_text: Special Ed, At-Risk, Bilingual, Extended Learning Time, and K5+ Programs
-    subtitle_text: ''
     body_text: ''
     row: 3
     col: 0
@@ -90,10 +90,11 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,At-Risk
         Special Ed Programs,Bilingual Education Programs,Extended Learning Time Programs,K-5
-        Plus Programs,Special Ed Programs
+        Plus Programs,Special Ed Programs,Special Education – Gifted Program
       coa_fund_hierarchy.fund_group: Federal Grants
     sorts: [coa_program_hierarchy.program_name, coa_object_hierarchy.object_group]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -129,7 +130,6 @@
               Programs - actuals_line.amount, id: Special Programs - actuals_line.amount,
             name: Special Programs}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     value_labels: legend
     label_type: labPer
     defaults_version: 1
@@ -150,10 +150,11 @@
     filters:
       coa_program_hierarchy.program_name: Alternative and At-Risk Programs,At-Risk
         Special Ed Programs,Bilingual Education Programs,Extended Learning Time Programs,K-5
-        Plus Programs,Special Ed Programs
+        Plus Programs,Special Ed Programs,Special Education – Gifted Program
       coa_fund_hierarchy.fund_group: General Fund
     sorts: [coa_program_hierarchy.program_name, coa_object_hierarchy.object_group]
     limit: 500
+    column_limit: 50
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -189,7 +190,6 @@
               Programs - actuals_line.amount, id: Special Programs - actuals_line.amount,
             name: Special Programs}], showLabels: false, showValues: true, valueFormat: '0.00,,
           "M"', unpinAxis: false, tickDensity: default, tickDensityCustom: 5, type: linear}]
-    series_types: {}
     value_labels: legend
     label_type: labPer
     defaults_version: 1
@@ -203,7 +203,6 @@
   - name: ''
     type: text
     title_text: ''
-    subtitle_text: ''
     body_text: |-
       ###The latest fiscal year data shows only the approved quarterly data - it will not show the full year of data until all four quarters have been submitted and approved. Data will be updated throughout the year as it is approved in the Operating Budget Management System.
 
