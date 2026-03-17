@@ -162,7 +162,7 @@
   - name: Fiscal Year
     title: Fiscal Year
     type: field_filter
-    default_value: 2024-2025
+    default_value: 2025-2026
     allow_multiple_values: true
     required: false
     ui_config:
