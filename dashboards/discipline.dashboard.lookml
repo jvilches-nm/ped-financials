@@ -38,7 +38,7 @@
     row: 0
     col: 0
     width: 14
-    height: 7
+    height: 6
     tab_name: ''
   - title: Districs, Schools, and Students
     name: Districs, Schools, and Students
@@ -91,10 +91,10 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 7
+    row: 6
     col: 0
-    width: 7
-    height: 7
+    width: 14
+    height: 3
     tab_name: ''
   - name: "% Students with Discipline Incidents"
     title: "% Students with Discipline Incidents"
@@ -138,127 +138,16 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 7
-    col: 7
-    width: 6
-    height: 2
-    tab_name: ''
-  - title: Discipline Responses
-    name: Discipline Responses
-    model: ped_public_financials
-    explore: discipline_demographics
-    type: looker_grid
-    fields: [discipline_demographics.discipline_response_duration, discipline_demographics.count_responses,
-      discipline_demographics.discipline_category]
-    sorts: [discipline_demographics.discipline_category desc]
-    limit: 500
-    column_limit: 50
-    total: true
-    show_view_names: false
-    show_row_numbers: true
-    transpose: false
-    truncate_text: true
-    hide_totals: false
-    hide_row_totals: false
-    size_to_fit: true
-    table_theme: white
-    limit_displayed_rows: false
-    enable_conditional_formatting: false
-    header_text_alignment: left
-    header_font_size: '12'
-    rows_font_size: 12
-    conditional_formatting_include_totals: false
-    conditional_formatting_include_nulls: false
-    show_sql_query_menu_options: false
-    show_totals: true
-    show_row_totals: true
-    truncate_header: false
-    minimum_column_width: 75
-    series_labels:
-      discipline_demographics.discipline_response_duration: Discipline Response Days
-      discipline_demographics.count_responses: Discipline Responses
-    series_cell_visualizations:
-      discipline_demographics.discipline_response_duration:
-        is_active: true
-      discipline_demographics.count_responses:
-        is_active: true
-    table_enable_pagination: false
-    table_page_size_options: 20, 50, 100
-    table_column_hover_highlight_enable: false
-    table_show_headers: true
-    header_font_bold: false
-    header_font_italic: false
-    cell_font_size: '12'
-    cell_font_weight: ''
-    cell_font_style: ''
-    cell_text_alignment: ''
-    table_custom_border_enable: false
-    table_custom_border_width:
-    table_custom_border_color: "#dde2eb"
-    table_custom_border_style: solid
-    hidden_fields: []
-    hidden_points_if_no: []
-    font_size_main: ''
-    orientation: auto
-    title_override_discipline_demographics.count: Total Discipline Responses
-    title_override_discipline_demographics.count_students: Students with Discipline
-      Incidents
-    custom_color_enabled: true
-    show_single_value_title: true
-    show_comparison: false
-    comparison_type: value
-    comparison_reverse_colors: false
-    show_comparison_label: true
-    defaults_version: 1
-    hidden_pivots: {}
-    style_discipline_demographics.count: "#3A4245"
-    show_title_discipline_demographics.count: true
-    title_placement_discipline_demographics.count: above
-    value_format_discipline_demographics.count: ''
-    style_discipline_demographics.discipline_response_duration: "#3A4245"
-    show_title_discipline_demographics.discipline_response_duration: true
-    title_placement_discipline_demographics.discipline_response_duration: above
-    value_format_discipline_demographics.discipline_response_duration: ''
-    show_comparison_discipline_demographics.discipline_response_duration: false
-    x_axis_gridlines: false
-    y_axis_gridlines: true
-    show_y_axis_labels: true
-    show_y_axis_ticks: true
-    y_axis_tick_density: default
-    y_axis_tick_density_custom: 5
-    show_x_axis_label: true
-    show_x_axis_ticks: true
-    y_axis_scale_mode: linear
-    x_axis_reversed: false
-    y_axis_reversed: false
-    plot_size_by_field: false
-    trellis: ''
-    stacking: ''
-    legend_position: center
-    point_style: none
-    show_value_labels: false
-    label_density: 25
-    x_axis_scale: auto
-    y_axis_combined: true
-    ordering: none
-    show_null_labels: false
-    show_totals_labels: false
-    show_silhouette: false
-    totals_color: "#808080"
-    listen:
-      School Year: discipline_demographics.school_year
-      District Name: discipline_demographics.district_name
-      School Name: discipline_demographics.school_name
-    row: 14
+    row: 12
     col: 0
-    width: 13
+    width: 14
     height: 4
     tab_name: ''
   - name: " (2)"
     type: text
     title_text: ''
     body_text: "------------------------------------------------------"
-    row: 25
+    row: 31
     col: 0
     width: 24
     height: 1
@@ -271,13 +160,13 @@
       255, 255)","color":"rgb(38, 45, 51)","text":"Discipline responses resulting
       in removals are highlighted, all other responses captured under ‘Other.’"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 26
+    row: 32
     col: 0
     width: 24
     height: 2
     tab_name: ''
   - title: Discipline Responses
-    name: Discipline Responses (2)
+    name: Discipline Responses
     model: ped_public_financials
     explore: discipline_demographics
     type: looker_pie
@@ -308,7 +197,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 28
+    row: 34
     col: 0
     width: 8
     height: 6
@@ -385,7 +274,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 28
+    row: 34
     col: 8
     width: 16
     height: 6
@@ -463,7 +352,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 34
+    row: 40
     col: 0
     width: 8
     height: 9
@@ -530,7 +419,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 34
+    row: 40
     col: 8
     width: 8
     height: 7
@@ -609,7 +498,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 34
+    row: 40
     col: 16
     width: 8
     height: 7
@@ -621,7 +510,7 @@
       of discipline data between the population of students who are receiving special
       education services and those who are not."}],"id":"yblmo","align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 44
+    row: 50
     col: 0
     width: 24
     height: 2
@@ -630,7 +519,7 @@
     type: text
     title_text: ''
     body_text: "-----------------------------------------------------------------------------"
-    row: 43
+    row: 49
     col: 0
     width: 24
     height: 1
@@ -694,7 +583,7 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 46
+    row: 52
     col: 0
     width: 13
     height: 6
@@ -786,7 +675,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 46
+    row: 52
     col: 13
     width: 11
     height: 6
@@ -883,7 +772,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 52
+    row: 58
     col: 0
     width: 24
     height: 8
@@ -948,7 +837,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 66
+    row: 72
     col: 9
     width: 15
     height: 6
@@ -1015,7 +904,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 66
+    row: 72
     col: 0
     width: 9
     height: 6
@@ -1086,7 +975,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 60
+    row: 66
     col: 2
     width: 9
     height: 6
@@ -1158,7 +1047,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 60
+    row: 66
     col: 13
     width: 9
     height: 6
@@ -1253,7 +1142,7 @@
     type: text
     title_text: " "
     body_text: "------------------------------------------------------"
-    row: 72
+    row: 78
     col: 0
     width: 24
     height: 1
@@ -1323,7 +1212,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 89
+    row: 95
     col: 2
     width: 9
     height: 6
@@ -1335,7 +1224,7 @@
       of discipline data between the population of students who are English language
       learners and those who are not."}],"align":"center","id":"umf9e"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 73
+    row: 79
     col: 0
     width: 24
     height: 2
@@ -1429,7 +1318,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 75
+    row: 81
     col: 13
     width: 11
     height: 6
@@ -1526,7 +1415,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 81
+    row: 87
     col: 0
     width: 24
     height: 8
@@ -1591,7 +1480,7 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 75
+    row: 81
     col: 0
     width: 13
     height: 6
@@ -1659,7 +1548,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 95
+    row: 101
     col: 0
     width: 9
     height: 6
@@ -1730,7 +1619,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 89
+    row: 95
     col: 13
     width: 9
     height: 6
@@ -1796,7 +1685,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 95
+    row: 101
     col: 9
     width: 15
     height: 6
@@ -1805,7 +1694,7 @@
     type: text
     title_text: " "
     body_text: "------------------------------------------------------"
-    row: 101
+    row: 107
     col: 0
     width: 24
     height: 1
@@ -1873,7 +1762,7 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 104
+    row: 110
     col: 0
     width: 13
     height: 6
@@ -1885,7 +1774,7 @@
       of discipline data between the population of students who are Homeless and those
       who are not."}],"align":"center","id":"nfnrk"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 102
+    row: 108
     col: 0
     width: 24
     height: 2
@@ -1955,7 +1844,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 118
+    row: 124
     col: 2
     width: 9
     height: 6
@@ -2054,7 +1943,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 110
+    row: 116
     col: 0
     width: 24
     height: 8
@@ -2150,7 +2039,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 104
+    row: 110
     col: 13
     width: 11
     height: 6
@@ -2221,7 +2110,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 118
+    row: 124
     col: 13
     width: 9
     height: 6
@@ -2291,7 +2180,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 124
+    row: 130
     col: 0
     width: 9
     height: 6
@@ -2360,7 +2249,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 124
+    row: 130
     col: 9
     width: 15
     height: 6
@@ -2369,7 +2258,7 @@
     type: text
     title_text: " "
     body_text: "------------------------------------------------------"
-    row: 130
+    row: 136
     col: 0
     width: 24
     height: 1
@@ -2439,7 +2328,7 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 133
+    row: 139
     col: 0
     width: 13
     height: 6
@@ -2451,7 +2340,7 @@
       of discipline data between the population of students who are Economically Disadantaged
       and those who are not."}],"align":"center","id":"m5vzf"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 131
+    row: 137
     col: 0
     width: 24
     height: 2
@@ -2521,7 +2410,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 147
+    row: 153
     col: 2
     width: 9
     height: 6
@@ -2618,7 +2507,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 133
+    row: 139
     col: 13
     width: 11
     height: 6
@@ -2720,7 +2609,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 139
+    row: 145
     col: 0
     width: 24
     height: 8
@@ -2792,7 +2681,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 153
+    row: 159
     col: 0
     width: 9
     height: 6
@@ -2863,7 +2752,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 147
+    row: 153
     col: 13
     width: 9
     height: 6
@@ -2935,7 +2824,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 153
+    row: 159
     col: 9
     width: 15
     height: 6
@@ -2944,7 +2833,7 @@
     type: text
     title_text: "  "
     body_text: "------------------------------------------------------"
-    row: 159
+    row: 165
     col: 0
     width: 24
     height: 1
@@ -2956,7 +2845,7 @@
       of discipline data by student gender and race/ethnicity. If gender identity
       is not specified, birth gender is used."}],"align":"center","id":"yq4pf"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 160
+    row: 166
     col: 0
     width: 24
     height: 2
@@ -3027,7 +2916,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 169
+    row: 175
     col: 0
     width: 9
     height: 6
@@ -3102,7 +2991,7 @@
       School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 175
+    row: 181
     col: 0
     width: 24
     height: 8
@@ -3179,7 +3068,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 162
+    row: 168
     col: 0
     width: 24
     height: 7
@@ -3254,7 +3143,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 169
+    row: 175
     col: 9
     width: 15
     height: 6
@@ -3353,7 +3242,7 @@
     - School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 183
+    row: 189
     col: 0
     width: 24
     height: 10
@@ -3434,7 +3323,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 193
+    row: 199
     col: 0
     width: 24
     height: 21
@@ -3519,7 +3408,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 222
+    row: 228
     col: 0
     width: 24
     height: 8
@@ -3591,7 +3480,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 214
+    row: 220
     col: 0
     width: 24
     height: 8
@@ -3725,7 +3614,7 @@
     - School Year: student_demographics.school_year
       District Name: student_demographics.district_name
       School Name: student_demographics.school_name
-    row: 230
+    row: 236
     col: 0
     width: 24
     height: 8
@@ -3734,22 +3623,11 @@
     name: 'Students by # Incidents'
     model: ped_public_financials
     explore: discipline_incident_rollup
-    type: looker_pie
+    type: looker_column
     fields: [discipline_incident_rollup.student_count, discipline_incident_rollup.incident_count_range]
-    filters:
-      discipline_incident_rollup.school_year: 2024-2025
-    sorts: [discipline_incident_rollup.incident_count_range]
+    sorts: [discipline_incident_rollup.student_count desc 0]
     limit: 500
     column_limit: 50
-    value_labels: legend
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
-      options:
-        steps: 5
-        reverse: false
-    series_colors: {}
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -3772,16 +3650,25 @@
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
-    show_null_points: true
-    interpolation: linear
-    x_axis_zoom: true
-    y_axis_zoom: true
-    defaults_version: 1
     ordering: none
     show_null_labels: false
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    value_labels: legend
+    label_type: labPer
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
+      options:
+        steps: 5
+        reverse: false
+    series_colors: {}
+    show_null_points: true
+    interpolation: linear
+    x_axis_zoom: true
+    y_axis_zoom: true
+    defaults_version: 1
     note_state: collapsed
     note_display: above
     note_text: Students with discipline incidents correlated with the number of incidents
@@ -3790,10 +3677,10 @@
       School Year: discipline_incident_rollup.school_year
       District Name: discipline_incident_rollup.district_name
       School Name: discipline_incident_rollup.school_name
-    row: 18
-    col: 0
-    width: 7
-    height: 7
+    row: 16
+    col: 3
+    width: 18
+    height: 6
     tab_name: ''
   - title: Total In School Suspension Days
     name: Total In School Suspension Days
@@ -3871,7 +3758,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 41
+    row: 47
     col: 8
     width: 8
     height: 2
@@ -3952,7 +3839,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 41
+    row: 47
     col: 16
     width: 8
     height: 2
@@ -3961,27 +3848,13 @@
     name: 'Students by # Removals'
     model: ped_public_financials
     explore: discipline_response_rollup
-    type: looker_pie
+    type: looker_column
     fields: [discipline_response_rollup.response_count_range, discipline_response_rollup.student_count]
     filters:
       discipline_response_rollup.response_category: Removal
     sorts: [discipline_response_rollup.student_count desc 0]
     limit: 500
     column_limit: 50
-    value_labels: legend
-    label_type: labPer
-    color_application:
-      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
-      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
-      options:
-        steps: 5
-        reverse: true
-    series_labels:
-      1 response: 1 removal
-      2 to 5 responses: 2 to 5 removals
-      6 to 10 responses: 6 to 10 removals
-      11 to 15 responses: 11 to 15 removals
-      16+ responses: 16+ removals
     x_axis_gridlines: false
     y_axis_gridlines: true
     show_view_names: false
@@ -4000,7 +3873,7 @@
     limit_displayed_rows: false
     legend_position: center
     point_style: none
-    show_value_labels: false
+    show_value_labels: true
     label_density: 25
     x_axis_scale: auto
     y_axis_combined: true
@@ -4009,6 +3882,22 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
+      options:
+        steps: 5
+        reverse: true
+    x_axis_zoom: true
+    y_axis_zoom: true
+    series_labels:
+      1 response: 1 removal
+      2 to 5 responses: 2 to 5 removals
+      6 to 10 responses: 6 to 10 removals
+      11 to 15 responses: 11 to 15 removals
+      16+ responses: 16+ removals
+    value_labels: legend
+    label_type: labPer
     defaults_version: 1
     note_state: collapsed
     note_display: above
@@ -4018,10 +3907,10 @@
       School Year: discipline_response_rollup.school_year
       District Name: discipline_response_rollup.district_name
       School Name: discipline_response_rollup.school_name
-    row: 18
-    col: 7
-    width: 6
-    height: 7
+    row: 22
+    col: 0
+    width: 12
+    height: 9
     tab_name: ''
   - title: 'Students by # Removal Days'
     name: 'Students by # Removal Days'
@@ -4061,20 +3950,30 @@
     show_totals_labels: false
     show_silhouette: false
     totals_color: "#808080"
+    color_application:
+      collection_id: 7c79334a-9912-4ca1-be6a-35756782ae09
+      palette_id: 364b5000-be28-40e9-a495-81343e4830d5
+      options:
+        steps: 5
+        reverse: true
     x_axis_zoom: true
     y_axis_zoom: true
     series_colors:
-      discipline_duration_rollup.student_count: "#3F6173"
-    defaults_version: 1
+      discipline_duration_rollup.student_count: "#C75A31"
     value_labels: legend
     label_type: labPer
+    defaults_version: 1
+    note_state: collapsed
+    note_display: above
+    note_text: Students with discipline incidents correlated with the number of removal
+      days they incurred over the year.
     listen:
       School Year: discipline_duration_rollup.school_year
       District Name: discipline_duration_rollup.district_name
       School Name: discipline_duration_rollup.school_name
-    row: 16
-    col: 13
-    width: 11
+    row: 22
+    col: 12
+    width: 12
     height: 9
     tab_name: ''
   - title: Discipline Incidents
@@ -4082,7 +3981,8 @@
     model: ped_public_financials
     explore: discipline_demographics
     type: marketplace_viz_multiple_value::multiple_value-marketplace
-    fields: [discipline_demographics.count_students, discipline_demographics.count_incidents]
+    fields: [discipline_demographics.count_students, discipline_demographics.count_incidents,
+      discipline_demographics.count_responses]
     limit: 500
     column_limit: 50
     hidden_fields: []
@@ -4097,8 +3997,14 @@
       Incidents
     title_placement_discipline_demographics.count_students: above
     value_format_discipline_demographics.count_students: ''
+    style_discipline_demographics.count_incidents: "#3A4245"
+    show_title_discipline_demographics.count_incidents: true
     title_override_discipline_demographics.count_incidents: Number of Discipline Incidents
     title_placement_discipline_demographics.count_incidents: above
+    value_format_discipline_demographics.count_incidents: ''
+    show_comparison_discipline_demographics.count_incidents: false
+    title_override_discipline_demographics.count_responses: Number of Discipline Responses
+    title_placement_discipline_demographics.count_responses: above
     title_override_discipline_demographics.count: Total Discipline Responses
     custom_color_enabled: true
     show_single_value_title: true
@@ -4116,9 +4022,9 @@
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
     row: 9
-    col: 7
-    width: 6
-    height: 5
+    col: 0
+    width: 14
+    height: 3
     tab_name: ''
   filters:
   - name: School Year
