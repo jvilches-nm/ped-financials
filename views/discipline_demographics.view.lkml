@@ -1,91 +1,146 @@
 view: discipline_demographics {
   sql_table_name: looker.discipline_demographics ;;
 
-  measure: discipline_count {
-    type: sum
-    sql: ${TABLE}.discipline_count ;;
+  dimension_group: discipline_incident {
+    type: time
+    description: "Date of the discipline incident"
+    timeframes: [date, week, month, quarter, year]
+    sql: ${TABLE}.discipline_infraction_date ;;
   }
   dimension: discipline_response {
     type: string
+    description: "Discipline response: In school suspension, Out of school suspension, Expulsion, Modified Expulsion, or Other"
     sql: ${TABLE}.discipline_response ;;
+  }
+
+  dimension: discipline_category {
+    type: string
+    description: "Discipline category: Removal or Other"
+    sql: case ${TABLE}.discipline_response when 'Other' then 'Other' else 'Removal' end;;
+  }
+
+
+  dimension: discipline_response_duration_band {
+    type: string
+    description: "Ranges of duration of the discipline response - number of days rounded to the nearest whole day in bands."
+    sql: case round(${TABLE}.Discipline_Response_Duration, 0)
+              when 0 then '0 - Less than a day'
+              when 1 then '1'
+              when 2 then '2'
+              when 3 then '3'
+              when 4 then '4'
+              when 5 then '5'
+              when 6 then '6 to 10'
+              when 7 then '6 to 10'
+              when 8 then '6 to 10'
+              when 9 then '6 to 10'
+              when 10 then '6 to 10'
+              else 'More than 10' end;;
   }
   dimension: district_code {
     type: string
-    sql: ${TABLE}.district_code ;;
+    description:"Three digit district code"
+    sql: ${TABLE}.District_Code ;;
   }
-  dimension: economically_disadvantaged_status {
+  dimension: district_name {
     type: string
-    sql: case ${TABLE}.economically_disadvantaged_status
-            when 'SNAP Direct Cert' then 'Economically Disadvantaged'
-            when 'OTHER Direct Cert' then 'Economically Disadvantaged'
-            when 'Family Members of SNAP identified' then 'Economically Disadvantaged'
-            else 'Not Economically Disadvantaged' end;;
+    map_layer_name: my_neighborhood_layer_v2
+    description: "District name"
+    sql: ${TABLE}.district_name ;;
   }
-  dimension: english_learner {
+  dimension: econ_disadvantaged {
     type: string
-    sql: case ${TABLE}.english_learner when 'Yes' then 'English Learner' else 'Not English Learner' end;;
+    description: "Economically disadvantaged status (SNAP or Food Program Eligible)"
+    sql: ${TABLE}.econ_disadvantaged ;;
+  }
+  dimension: ell {
+    type: string
+    description: "English language learner status"
+    sql: ${TABLE}.ell ;;
   }
   dimension: gender {
     type: string
+    description: "Gender identity or birth gender"
     sql: ${TABLE}.gender ;;
-  }
-  dimension: gender_identity {
-    type: string
-    sql: ${TABLE}.gender_identity ;;
-  }
-  dimension: grade_level {
-    type: string
-    sql: ${TABLE}.grade_level ;;
   }
   dimension: homeless_status {
     type: string
-    sql: case when ${TABLE}.homeless_Status like 'Homeless%' then 'Homeless' else 'Not Homeless' end;;
+    description: "Homeless status of the student"
+    sql: ${TABLE}.homeless_status ;;
   }
-  dimension: infraction {
+  dimension: infraction_event_id {
     type: string
-    sql: replace(replace(replace(replace(replace(replace(replace(replace(replace(${TABLE}.infraction, ' - Describe in Comment Field 15', ''), 'Other Violence - ', ''), 'General (includes threat or intimidation)', 'Violence - threat or intimidation'), 'General', 'General Violence'), ' simple', ''), 'NOT based on sex/race/color/national origin or disability', ''), ' NOT based on sex, race, color, national origin or disability', ''), ' - Descr in Comment Field', '') , 'Other Vandalism', 'Vandalism');;
-    }
-  dimension: infraction_category {
+    hidden: yes
+    sql: ${TABLE}.infraction_event_id ;;
+  }
+  dimension: discipline_response_id {
     type: string
-    sql: ${TABLE}.infraction_category ;;
+    hidden: yes
+    sql: ${TABLE}.discipline_response_id ;;
   }
-  dimension_group: infraction {
-    type: time
-    timeframes: [raw, date, week, month, quarter, year]
-    convert_tz: no
-    datatype: date
-    sql: ${TABLE}.infraction_date ;;
-  }
-  dimension: location_id {
+  dimension: school_code {
     type: string
-    sql: ${TABLE}.location_id ;;
+    description: "Three digit school location code"
+    sql: ${TABLE}.school_code ;;
   }
-  dimension: race_ethnicity {
+  dimension: school_name {
     type: string
-    sql: ${TABLE}.race_ethnicity ;;
-  }
-  dimension: response_duration {
-    type: number
-    sql: ${TABLE}.response_duration ;;
-  }
-  dimension: response_duration_band {
-    type: string
-    sql: ${TABLE}.response_duration_band ;;
-  }
-  measure: response_duration_total {
-    type: sum
-    sql: ${TABLE}.response_duration_total ;;
+    description: "School name"
+    sql: ${TABLE}.school_name + ' (' + ${TABLE}.district_code +'-'+${TABLE}.school_code + ')';;
   }
   dimension: school_year {
     type: string
-    sql: ${TABLE}.school_year ;;
+    description: "School year"
+    sql: cast(year(${TABLE}.school_year)-1 as varchar) + '-' + cast(year(${TABLE}.school_year) as varchar);;
   }
-  dimension: special_ed_status {
+  dimension: special_ed {
     type: string
-    sql: ${TABLE}.special_ed_status ;;
+    description: "Special education status"
+    sql: ${TABLE}.special_ed ;;
   }
-  measure: student_count {
+  dimension: grade_level {
+    type: string
+    description: "Grade level"
+    sql: ${TABLE}.student_grade_level ;;
+    order_by_field: grade_level_sort_order
+  }
+
+  dimension: grade_level_sort_order {
+    type: number
+    hidden: yes
+    description: "Current grade level of the student at the time of the snapshot - sort order"
+    sql: case ${TABLE}.student_grade_level when 'PK' then 1 when 'KF' then 2 when '01' then 3 when '02' then 4 when '03' then 5
+                                           when '04' then 6 when '05' then 7 when '06' then 8 when '07' then 9 when '08' then 10
+                                           when '09' then 11 when '10' then 12 when '11' then 13 when '12' then 14 else 15 end;;
+  }
+
+  dimension: student_id {
+    type: string
+    hidden: yes
+    sql: ${TABLE}.student_id ;;
+  }
+  dimension: student_race_ethnicity_derived {
+    type: string
+    sql: case when ${TABLE}.student_race_ethnicity_derived ='Multiracial' then 'Multi-Racial' else ${TABLE}.student_race_ethnicity_derived end;;
+  }
+  measure: count_students {
+    type: count_distinct
+    sql: ${TABLE}.student_id ;;
+  }
+  measure: count_incidents {
+    type: count_distinct
+    sql: ${TABLE}.infraction_event_id ;;
+  }
+  measure: count_responses {
+    type: count_distinct
+    sql: ${TABLE}.discipline_response_id ;;
+  }
+  measure: count {
+    type: count
+  }
+  measure: discipline_response_duration {
     type: sum
-    sql: ${TABLE}.student_count ;;
+    description: "Duration of the discipline response - number of days"
+    sql: ${TABLE}.discipline_response_duration ;;
   }
 }

@@ -334,64 +334,16 @@ explore: annual_attendance {}
 
 explore: aip_submissions  {}
 
-explore: student_demographics  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${student_demographics.district_code}
-             and ${district_location.location_id} = ${student_demographics.location_code}
-             and ${district_location.school_year} = ${student_demographics.school_year};;
-  }
-}
+explore: student_demographics  {}
+explore: discipline_demographics {}
+explore: discipline_incident_rollup {}
+explore: discipline_response_rollup {}
+explore: discipline_duration_rollup {}
 
-explore: discipline  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${discipline.district_code}
-             and ${district_location.location_id} = ${discipline.location_id}
-             and ${district_location.school_year} = ${discipline.school_year};;
-  }
-}
+map_layer: my_neighborhood_layer_v2 {
+  file: "/Map_Shapefiles/dist_map_v2.topojson"
+  property_key: "name"
 
-explore: discipline_demographics  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${discipline_demographics.district_code}
-             and ${district_location.location_id} = ${discipline_demographics.location_id}
-             and ${district_location.school_year} = ${discipline_demographics.school_year};;
-  }
-}
-
-explore: school_discipline_demographics  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${school_discipline_demographics.district_code}
-             and ${district_location.location_id} = ${school_discipline_demographics.location_code}
-             and ${district_location.school_year} = ${school_discipline_demographics.school_year};;
-  }
-}
-
-explore: school_discipline_line_demographics  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${school_discipline_line_demographics.district_code}
-             and ${district_location.location_id} = ${school_discipline_line_demographics.location_code}
-             and ${district_location.school_year} = ${school_discipline_line_demographics.school_year};;
-  }
-}
-
-explore: discipline_school_demographics  {
-  join: district_location {
-    relationship:  many_to_one
-    type:  inner
-    sql_on:  ${district_location.district_code} = ${discipline_school_demographics.district_code}
-             and ${district_location.location_id} = ${discipline_school_demographics.location_code}
-             and ${district_location.school_year} = ${discipline_school_demographics.school_year};;
-  }
 }
 
 map_layer: my_neighborhood_layer {
