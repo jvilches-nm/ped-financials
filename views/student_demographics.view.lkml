@@ -41,7 +41,7 @@ view: student_demographics {
     type: string
     description: "School name"
     sql: ${TABLE}.school_name + ' (' + ${TABLE}.district_code +'-'+${TABLE}.school_code + ')';;
-  }
+    }
   dimension: school_year {
     type: string
     description: "School year"
