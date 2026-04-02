@@ -140,7 +140,7 @@
       School Name: discipline_demographics.school_name
     row: 12
     col: 0
-    width: 14
+    width: 7
     height: 4
     tab_name: ''
   - name: " (2)"
@@ -1052,8 +1052,8 @@
     width: 9
     height: 6
     tab_name: ''
-  - name: "% Students with Discipline Incidents by District"
-    title: "% Students with Discipline Incidents by District"
+  - name: "% Students with Discipline Removals by District"
+    title: "% Students with Discipline Removals by District"
     note_state: collapsed
     note_display: above
     note_text: Negative number indicates no data submitted.
@@ -1071,6 +1071,9 @@
       type: table
       fields: [discipline_demographics.count_students, discipline_demographics.school_year,
         discipline_demographics.district_name]
+      filters:
+        discipline_demographics.discipline_response: Expulsion,In School Suspension,Modified
+          Expulsion,Out of School Suspension
       sorts: [discipline_demographics.count_students desc 0]
       limit: 500
       column_limit: 50
@@ -3844,8 +3847,8 @@
     width: 8
     height: 2
     tab_name: ''
-  - title: 'Students by # Removals'
-    name: 'Students by # Removals'
+  - title: 'Students by # Removal Responses'
+    name: 'Students by # Removal Responses'
     model: ped_public_financials
     explore: discipline_response_rollup
     type: looker_column
@@ -4025,6 +4028,55 @@
     col: 0
     width: 14
     height: 3
+    tab_name: ''
+  - name: "% Students with Discipline Removals"
+    title: "% Students with Discipline Removals"
+    merged_queries:
+    - model: ped_public_financials
+      explore: student_demographics
+      type: table
+      fields: [student_demographics.count, student_demographics.school_year]
+      sorts: [student_demographics.count desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields: []
+    - model: ped_public_financials
+      explore: discipline_demographics
+      type: table
+      fields: [discipline_demographics.count_students, discipline_demographics.school_year]
+      filters:
+        discipline_demographics.discipline_category: Removal
+      sorts: [discipline_demographics.count_students desc 0]
+      limit: 500
+      column_limit: 50
+      join_fields:
+      - field_name: discipline_demographics.school_year
+        source_field_name: student_demographics.school_year
+    hidden_fields: [student_demographics.school_year, student_demographics.count,
+      discipline_demographics.count_students]
+    type: single_value
+    series_types: {}
+    column_limit: 50
+    dynamic_fields:
+    - category: table_calculation
+      expression: "${discipline_demographics.count_students}/${student_demographics.count}"
+      label: "% Students with Discipline Incidents"
+      value_format:
+      value_format_name: percent_2
+      _kind_hint: measure
+      table_calculation: students_with_discipline_incidents
+      _type_hint: number
+    listen:
+    - School Year: student_demographics.school_year
+      District Name: student_demographics.district_name
+      School Name: student_demographics.school_name
+    - School Year: discipline_demographics.school_year
+      District Name: discipline_demographics.district_name
+      School Name: discipline_demographics.school_name
+    row: 12
+    col: 7
+    width: 7
+    height: 4
     tab_name: ''
   filters:
   - name: School Year
