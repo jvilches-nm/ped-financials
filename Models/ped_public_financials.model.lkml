@@ -69,7 +69,7 @@ explore: actuals_revenue_line {
 }
 
 explore: actuals_line {
-  sql_always_where: ${coa_account_type.code}='E';;
+  sql_always_where: ${coa_account_type.code}='E' and ${coa_object_hierarchy.object_code} != '55912';;
   # and left(${coa_fund_hierarchy.fund_code}, 1)!='3' and left(${coa_fund_hierarchy.fund_code}, 1)!='4'
   label: "Actual Expenditures"
 

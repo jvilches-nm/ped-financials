@@ -147,7 +147,7 @@
     type: text
     title_text: ''
     body_text: "------------------------------------------------------"
-    row: 31
+    row: 22
     col: 0
     width: 24
     height: 1
@@ -160,7 +160,7 @@
       255, 255)","color":"rgb(38, 45, 51)","text":"Discipline responses resulting
       in removals are highlighted, all other responses captured under ‘Other.’"}],"align":"center"}]'
     rich_content_json: '{"format":"slate"}'
-    row: 32
+    row: 23
     col: 0
     width: 24
     height: 2
@@ -197,7 +197,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 34
+    row: 25
     col: 0
     width: 8
     height: 6
@@ -274,7 +274,7 @@
       School Year: discipline_demographics.school_year
       District Name: discipline_demographics.district_name
       School Name: discipline_demographics.school_name
-    row: 34
+    row: 25
     col: 8
     width: 16
     height: 6
@@ -661,7 +661,8 @@
     column_limit: 50
     dynamic_fields:
     - category: table_calculation
-      expression: "${discipline_demographics.count_students}/${student_demographics.count}"
+      expression: if(${student_demographics.count}>10, ${discipline_demographics.count_students}/${student_demographics.count},
+        -0.1)
       label: "% Students with Discipline Incidents"
       value_format:
       value_format_name: percent_2
@@ -3597,7 +3598,7 @@
     - category: table_calculation
       expression: "if(${student_demographics.count}>10, \n    (${discipline_demographics.count}/${student_demographics.count})/\n\
         \t((${q1_discipline_demographics.count}-${discipline_demographics.count})/(${q3_student_demographics.count}-${student_demographics.count})),\
-        \ 0)"
+        \ -0.1)"
       label: Risk Ratio
       value_format:
       value_format_name: decimal_2
@@ -3910,7 +3911,7 @@
       School Year: discipline_response_rollup.school_year
       District Name: discipline_response_rollup.district_name
       School Name: discipline_response_rollup.school_name
-    row: 22
+    row: 31
     col: 0
     width: 12
     height: 9
@@ -3974,7 +3975,7 @@
       School Year: discipline_duration_rollup.school_year
       District Name: discipline_duration_rollup.district_name
       School Name: discipline_duration_rollup.school_name
-    row: 22
+    row: 31
     col: 12
     width: 12
     height: 9
